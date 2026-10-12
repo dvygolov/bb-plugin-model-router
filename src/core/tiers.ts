@@ -182,7 +182,9 @@ function cleanName(name: string): string {
     .toLowerCase()
     .replace(/\d+(?:\.\d+)?[bmk](?![a-z])/g, "")
     .replace(/(?:19|20)\d{2}/g, "")
-    .replace(/0\d{3}/g, "");
+    .replace(/0\d{3}/g, "")
+    .replace(/-\d{1,2}-\d{1,2}$/, "")
+    .replace(/[-_]\d{1,2}$/, "");
 }
 
 /** Старшая «настоящая» версия в имени: k3 → 3, glm-5.3 → 5.3, o3-mini → 3. */
