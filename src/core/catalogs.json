@@ -1,0 +1,7673 @@
+{
+ "generatedAt": "2026-10-12",
+ "providers": {
+  "pi": [
+   {
+    "id": "google/deep-research-max-preview-04-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/deep-research-preview-04-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-computer-use-preview-10-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-lite-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-lite-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-live-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-pro-preview-customtools",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-flash-lite-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-26b-a4b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-31b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama-3.1-8b-instant",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama-3.3-70b-versatile",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-120b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-safeguard-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen/qwen3.6-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen/qwen3.8-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-coding/k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-coding/k3-256k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-coding/kimi-for-coding",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-coding/kimi-for-coding-highspeed",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/claude-haiku-5-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/minimax-m3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.7-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.8-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-flash-vision-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/hy3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/hy4-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k2.7-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/longcat-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/longcat-2.5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.6-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/minimax-m2.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/space-bunny",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/gpt-5.6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/gpt-6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/grok-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/grok-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/muse-spark-1.2-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/muse-spark-1.3-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/step-5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.8",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-fable-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-haiku-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-opus-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-sonnet-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-pro-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-v4-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~google/gemini-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~google/gemini-pro-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~moonshotai/kimi-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-astra-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-luna-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-mini-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-sol-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-terra-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~x-ai/grok-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~z-ai/glm-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~z-ai/glm-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.0-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.5-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-2-lite-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-lite-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-micro-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-premier-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-pro-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-4.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.6:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.7:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.8:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.6:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/apodex/apodex-1.1-mini:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-large-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/auto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-1.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-1.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2-1-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-a-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-r-08-2024",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-r-plus-08-2024",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/north-mini-code:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat-v3.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-r1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-r1-0528",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.1-terminus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.2-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-0731",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-pro-0813",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4.1-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/dots-studio/dots-3-note-preview:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/fireworks/ember-1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-lite:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-flash-preview:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-pro-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-flash-lite-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-flash-lite:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-pro-preview-customtools",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-pro-preview:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash-lite:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.6-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.7-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.8-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-nano-banana-2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-3-12b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-3-27b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-26b-a4b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-26b-a4b-it:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-31b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-31b-it:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/ibm-granite/granite-4.2-8b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inception/mercury-2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inception/mercury-2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-fin",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-sante:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-vl",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/liquid/lfm-2.5-2.6b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meituan/longcat-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.1-70b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.1-8b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.3-70b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-4-maverick",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-4-scout",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-glimmer-30b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.2-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.3-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/codestral-2508",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/codestral-2508:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/devstral-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-14b-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-3b-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-8b-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-8b-2512:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-2407",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-2512:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-4-0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-nemo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-saba",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-2603",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-2603:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-3.1-24b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-3.2-24b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mixtral-8x22b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/voxtral-small-24b-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2-0905",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.7-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/nex-n2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-nano-30b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-ultra-550b-a55b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3.5-lightning",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3.5-lightning:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo-0613",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo-16k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4-turbo:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-nano",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-nano:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-2024-05-13",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-2024-08-06",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-2024-11-20",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-mini-2024-07-18",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-nano",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-nano:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1-codex",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1-codex-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1-codex-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-codex",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.3-codex",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-nano",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-nano:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-audio",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-audio-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-chat-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-120b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-120b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-20b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-safeguard-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-mini-high",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini-high",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/auto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/auto-beta",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/fusion",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/perceptron/perceptron-mk1.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-s-2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-s-2.1:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-xs-2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-xs-2.1:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/prism-ml/ternary-bonsai-2-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-2.5-72b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-2.5-7b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-plus-2025-07-28",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-14b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-235b-a22b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-235b-a22b-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-235b-a22b-thinking-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-30b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-30b-a3b-instruct-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-30b-a3b-thinking-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-32b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-8b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-30b-a3b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-next",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-max-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-next-80b-a3b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-next-80b-a3b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-235b-a22b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-30b-a3b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-30b-a3b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-32b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-8b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-8b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-122b-a10b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-35b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-397b-a17b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-9b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-flash-02-23",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-plus-02-15",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-35b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-max-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.7-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.7-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-2.4t-a95b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-max-0902",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-max-prime",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-omni-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/rekaai/reka-edge",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/relace/relace-search",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/fugu-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/fugu-ultra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/fugu-ultra-v2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/sakana-namazu",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sao10k/l3.1-euryale-70b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stepfun/step-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stepfun/step-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy3-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy4-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling-small",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling-small:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/typesafe/jev-router",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/unbiased/pareto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/unbiased/pareto-26.10-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/upstage/solar-mini4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/upstage/solar-pro-3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/upstage/solar-pro4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.20",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-build-0.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.6-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.6-pro-ultraspeed",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.5-air",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.5v",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.6v",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-flashx",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-prime",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5v-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-sante",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stepfun/step-5-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.2-highspeed",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.3-highspeed",
+    "name": null,
+    "default": false
+   }
+  ],
+  "acp-omp": [
+   {
+    "id": "google/deep-research-max-preview-04-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/deep-research-preview-04-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-1.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-1.5-flash-8b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-1.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.0-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.0-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-computer-use-preview-10-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-lite-preview-06-17",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-preview-04-17",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-preview-05-20",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-preview-09-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-pro-preview-05-06",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-pro-preview-06-05",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-lite-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-live-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-pro-preview-customtools",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-flash-lite-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-live-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-live-2.5-flash-preview-native-audio",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-robotics-er-1.6-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-3-27b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-26b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-26b-a4b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-26b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-31b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-31b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-E2B-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-E4B-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/antigravity-preview-05-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/antigravity-preview-09-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/antigravity-preview-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/deep-research-pro-preview-12-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-preview-tts",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-pro-preview-tts",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-tts-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-transcribe",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.8-flash-lite-tts",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.8-flash-tts",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-nano-banana-2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-omni-1.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-omni-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-pro-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-robotics-er-2-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/lyria-3-clip-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/lyria-3-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/lyria-3.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/nano-banana-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/deepseek-r1-distill-llama-70b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/gemma2-9b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/groq/compound",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/groq/compound-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama-3.1-8b-instant",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama-3.3-70b-versatile",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama3-70b-8192",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama3-8b-8192",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/meta-llama/llama-4-maverick-17b-128e-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/meta-llama/llama-4-scout-17b-16e-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/mistral-saba-24b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/moonshotai/kimi-k2-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/moonshotai/kimi-k2-instruct-0905",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-120b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-safeguard-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen-qwq-32b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen/qwen3-32b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen/qwen3.6-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen/qwen3.8-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/allam-2-7b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/canopylabs/orpheus-arabic-saudi",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/canopylabs/orpheus-v1-english",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/meta-llama/llama-prompt-guard-2-22m",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/meta-llama/llama-prompt-guard-2-86m",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/whisper-large-v3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/whisper-large-v3-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-code/k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-code/k3-256k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-code/kimi-for-coding",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-code/kimi-for-coding-highspeed",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-code/kimi-k2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-code/kimi-k2-turbo-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-code/kimi-k2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-flash-vision-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/gpt-5.6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/grok-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/grok-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/grok-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/hy3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/hy4-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k2.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k2.7-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/longcat-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2-omni",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.6-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/minimax-m2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/minimax-m2.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/minimax-m3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/muse-spark-1.2-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/muse-spark-1.3-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/ox-alpha-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.5-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.6-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.7-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.7-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.8-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-fable-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-haiku-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-opus-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-sonnet-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-pro-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-v4-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~google/gemini-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~google/gemini-pro-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~moonshotai/kimi-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-astra-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-luna-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-mini-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-sol-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-terra-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~x-ai/grok-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~z-ai/glm-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~z-ai/glm-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/ai21/jamba-large-1.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.0-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/alibaba/tongyi-deepresearch-30b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/allenai/olmo-3.1-32b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-2-lite-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-lite-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-micro-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-premier-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-pro-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-3-haiku",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-3.5-haiku",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-3.5-sonnet",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-3.7-sonnet",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-3.7-sonnet:thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-4.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.6-fast",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.6:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.7-fast",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.7:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.8",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.8-fast",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.8:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5-fast",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.6:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-large-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-large-preview:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-large-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-large-thinking:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-mini:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/virtuoso-large",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/auto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/baidu/cobuddy:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/baidu/ernie-4.5-21b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/baidu/ernie-4.5-vl-28b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-1.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-1.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2-1-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-a-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-r-08-2024",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-r-plus-08-2024",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/north-mini-code:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat-v3.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-r1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-r1-0528",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.1-terminus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.1-terminus:exacto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.2-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-0731",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-0731:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-0731:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-pro-0813",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-pro-0813:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4.1-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/dots-studio/dots-3-note-preview:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/essentialai/rnj-1-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.0-flash-001",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.0-flash-lite-001",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-lite-preview-09-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-lite:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-preview-09-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro-preview-05-06",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-flash-preview:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-flash-lite-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-flash-lite:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-pro-preview-customtools",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.1-pro-preview:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash-lite:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.5-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.6-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.7-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3.8-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-3-12b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-3-27b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-3-27b-it:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-26b-a4b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-26b-a4b-it:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-31b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-31b-it:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemma-4-31b-it:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/ibm-granite/granite-4.1-8b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/ibm-granite/granite-4.2-8b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inception/mercury",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inception/mercury-2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inception/mercury-2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inception/mercury-2.5-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inception/mercury-coder",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-2.6-1t",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-2.6-1t:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-2.6-flash:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-fin",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-fin:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-sante:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-vl",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-vl:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-tiny:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ring-2.6-1t",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ring-2.6-1t:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/kwaipilot/kat-coder-air-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/kwaipilot/kat-coder-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/kwaipilot/kat-coder-pro-v2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/kwaipilot/kat-coder-pro-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/liquid/lfm-2.5-1.2b-thinking:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/liquid/lfm-2.5-2.6b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meituan/longcat-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meituan/longcat-flash-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3-8b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.1-405b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.1-70b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.1-8b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.3-70b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-3.3-70b-instruct:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-4-maverick",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta-llama/llama-4-scout",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-glimmer-30b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-glimmer-30b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.2-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/meta/muse-spark-1.3-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.5:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m2.7:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/minimax/minimax-m3:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/codestral-2508",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/codestral-2508:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/devstral-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/devstral-medium",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/devstral-small",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-14b-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-3b-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-8b-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/ministral-8b-2512:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-2407",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-2411",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-2512",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-2512:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-medium-3.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-nemo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-saba",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-24b-instruct-2501",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-2603",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-2603:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-3.1-24b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-3.1-24b-instruct:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-3.2-24b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-small-creative",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mixtral-8x22b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mixtral-8x7b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/pixtral-large-2411",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/voxtral-small-24b-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2-0905",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2-0905:exacto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.6:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.7-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k2.7-code:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/moonshotai/kimi-k3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/deepseek-v3.1-nex-n1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/nex-n2-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/nex-n2-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/nex-n2-pro:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/nex-n2.5-mini:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/nex-n2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nex-agi/nex-n2.5-pro:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nousresearch/deephermes-3-mistral-24b-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nousresearch/hermes-4-70b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/llama-3.1-nemotron-70b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/llama-3.3-nemotron-super-49b-v1.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-nano-30b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-nano-30b-a3b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-ultra-550b-a55b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3.5-lightning",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-3.5-lightning:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-nano-12b-v2-vl:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-nano-9b-v2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/nvidia/nemotron-nano-9b-v2:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo-0613",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo-16k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-3.5-turbo:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4-0314",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4-1106-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4-turbo-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4-turbo:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-nano",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1-nano:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-2024-05-13",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-2024-08-06",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-2024-11-20",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-audio-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-mini-2024-07-18",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-4o:extended",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-codex",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-codex:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-nano",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-nano:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1-codex",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1-codex-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1-codex-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-codex",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.2:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.3-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.3-codex",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-nano",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-nano:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.4:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-luna:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-sol:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-5.6-terra:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-astra:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-luna:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6-sol:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-audio",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-audio-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-chat-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-120b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-120b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-120b:exacto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-120b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-20b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-20b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-oss-safeguard-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o1:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-deep-research",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-mini-high",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-mini-high:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini-deep-research",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini-high",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini-high:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/o4-mini:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/aurora-alpha",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/auto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/auto-beta",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/elephant-alpha",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/healer-alpha",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/hunter-alpha",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openrouter/owl-alpha",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-m.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-m.1:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-s-2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-s-2.1:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-xs-2.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-xs-2.1:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-xs.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/poolside/laguna-xs.2:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/prime-intellect/intellect-3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/prism-ml/ternary-bonsai-2-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-2.5-72b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-2.5-7b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-plus-2025-07-28",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-plus-2025-07-28:thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen-vl-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-14b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-235b-a22b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-235b-a22b-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-235b-a22b-thinking-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-30b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-30b-a3b-instruct-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-30b-a3b-thinking-2507",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-32b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-4b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-4b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-8b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-30b-a3b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-next",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder:exacto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-coder:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-max-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-next-80b-a3b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-next-80b-a3b-instruct:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-next-80b-a3b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-235b-a22b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-30b-a3b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-30b-a3b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-32b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-8b-instruct",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3-vl-8b-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-122b-a10b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-35b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-397b-a17b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-9b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-9b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-flash-02-23",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-plus-02-15",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.5-plus-20260420",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-35b-a3b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-max-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-plus-preview:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.6-plus:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.7-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.7-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-2.4t-a95b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-2.4t-a95b:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-27b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-max-0902",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-omni-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwq-32b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/reka/reka-edge",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/rekaai/reka-edge",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/relace/relace-search",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/fugu-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/fugu-ultra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/fugu-ultra-v2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sakana/sakana-namazu",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sao10k/l3-euryale-70b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/sao10k/l3.1-euryale-70b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stealth/ox-alpha",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stepfun/step-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stepfun/step-3.5-flash:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stepfun/step-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy3-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy3-preview:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy3:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tencent/hy4-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thedrummer/rocinante-12b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thedrummer/unslopnemo-12b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling-small",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling-small:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling-small:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/thinkingmachines/inkling:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tngtech/deepseek-r1t2-chimera",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/tngtech/tng-r1t-chimera",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/unbiased/pareto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/upstage/solar-pro-3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/upstage/solar-pro-3:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/upstage/solar-pro4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-3-beta",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-3-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-3-mini-beta",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4-fast",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.1-fast",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.20",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.20-beta",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-build-0.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/x-ai/grok-code-fast-1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2-omni",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.6-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/xiaomi/mimo-v2.6-pro-ultraspeed",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4-32b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.5-air",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.5-air:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.5v",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.6:exacto",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.6v",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-4.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.2:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.2:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-flash:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-flashx",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5v-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.5-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5.5:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/apodex/apodex-1.1-mini:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/fireworks/ember-1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.0-flash-sante",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/inclusionai/ling-3.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/mistralai/mistral-large-4-0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol-pro:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/openai/gpt-6.1-sol:batch",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/perceptron/perceptron-mk1.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/qwen/qwen3.8-max-prime",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/stepfun/step-5-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/unbiased/pareto-26.10-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/upstage/solar-mini4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/z-ai/glm-5.3-prime",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.5-air",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.5v",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.6v",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.6v-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-4.7-flashx",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5.3-flashx",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai/glm-5v-turbo",
+    "name": null,
+    "default": false
+   }
+  ],
+  "acp-hermes-agent": [
+   {
+    "id": "openrouter:anthropic/claude-fable-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-fable-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-opus-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-opus-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-opus-4.8",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-sonnet-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-sonnet-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-haiku-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:anthropic/claude-haiku-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6-astra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6-astra-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6.1-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6.1-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6-sol-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-6-luna-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-5.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:openai/gpt-5.4-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:google/gemini-3.1-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:google/gemini-3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:google/gemini-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:x-ai/grok-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:x-ai/grok-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:deepseek/deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:deepseek/deepseek-v4-pro-0813",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:deepseek/deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:deepseek/deepseek-v4-flash-0731",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:qwen/qwen3.8-max-0902",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:qwen/qwen3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:moonshotai/kimi-k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:minimax/minimax-m3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:z-ai/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:z-ai/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:z-ai/glm-5.3-flashx",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:z-ai/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:xiaomi/mimo-v2.6-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:xiaomi/mimo-v2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:xiaomi/mimo-v2.6-pro-ultraspeed",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:xiaomi/mimo-v2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:tencent/hy4-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:tencent/hy3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:stepfun/step-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:nvidia/nemotron-3-super-120b-a12b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:meta/muse-spark-1.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:meta/muse-spark-1.2-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:meta/muse-spark-1.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:meta/muse-spark-1.3-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:sakana/fugu-ultra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:upstage/solar-pro4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:upstage/solar-mini4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:thinkingmachines/inkling:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:thinkingmachines/inkling-small:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:poolside/laguna-s-2.1:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:poolside/laguna-xs-2.1:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:nvidia/nemotron-3-super-120b-a12b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter:nvidia/nemotron-3.5-lightning:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "moa:default",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-6-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-6-sol-900k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-6-luna-900k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.6-sol",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.6-sol-900k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.6-terra",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.6-terra-900k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.6-luna-900k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.4-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.4-900k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openai-codex:gpt-5.3-codex-spark",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-flash-lite-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.1-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-2.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.1-flash-lite-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3.1-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "gemini:gemini-3-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5v-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-4.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-4.5-air",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "zai:glm-5.3-flashx",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:deepseek-v4-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:deepseek-v4-flash-vision-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:deepseek-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:glm-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:grok-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:grok-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:muse-spark-1.2-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:muse-spark-1.3-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:omen-alpha",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:gpt-5.6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:gpt-6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:claude-haiku-5-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:hy3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:hy4-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:kimi-k2.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:kimi-k2.7-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:kimi-k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:mimo-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:mimo-v2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:mimo-v2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:mimo-v2.6-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:minimax-m2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:minimax-m2.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:minimax-m3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:space-bunny",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:longcat-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:longcat-2.5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:step-5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:qwen3.6-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:qwen3.7-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:qwen3.8-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:qwen3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:qwen3.7-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:kimi-k2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:grok-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:glm-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:mimo-v2-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:mimo-v2-omni",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:qwen3.5-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go:hy3-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-oauth:kimi-for-coding",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-oauth:k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-oauth:k3-256k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-oauth:kimi-for-coding-highspeed",
+    "name": null,
+    "default": false
+   }
+  ],
+  "acp-opencode": [
+   {
+    "id": "opencode/big-pickle",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/exo-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/ling-3.0-flash-fin-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/ling-3.1-flash-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/longcat-2.5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/mimo-v2.6-flash-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/muse-spark-1.3-contributor-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/nemotron-3-ultra-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/nemotron-3.5-lightning-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/space-bunny-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode/step-5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/claude-haiku-5-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-flash-vision-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/glm-5.3-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/gpt-5.6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/gpt-6-luna",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/grok-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/grok-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/hy3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/hy4-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k2.7-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/kimi-k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/longcat-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/longcat-2.5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/mimo-v2.6-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/minimax-m2.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/minimax-m3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/muse-spark-1.2-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/muse-spark-1.3-contributor",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.7-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/qwen3.8-max",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/space-bunny",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "opencode-go/step-5-preview-free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/deep-research-max-preview-04-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/deep-research-preview-04-2026",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-computer-use-preview-10-2025",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-flash-preview-tts",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-2.5-pro-preview-tts",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3-pro-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3-pro-image-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-image-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-lite-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-live-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-flash-tts-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.1-pro-preview-customtools",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.5-live-translate-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.7-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-3.8-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-embedding-001",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-embedding-2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-flash-lite-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemini-omni-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-26b-a4b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/gemma-4-31b-it",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/lyria-3-clip-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/lyria-3-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/veo-3.1-fast-generate-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/veo-3.1-generate-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "google/veo-3.1-lite-generate-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/allam-2-7b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/canopylabs/orpheus-arabic-saudi",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/canopylabs/orpheus-v1-english",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/groq/compound",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/groq/compound-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama-3.1-8b-instant",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/llama-3.3-70b-versatile",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/meta-llama/llama-prompt-guard-2-22m",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/meta-llama/llama-prompt-guard-2-86m",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-120b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/openai/gpt-oss-safeguard-20b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen/qwen3.6-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/qwen/qwen3.8-27b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/whisper-large-v3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "groq/whisper-large-v3-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-for-coding-oauth/k3",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-for-coding-oauth/k3-256k",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-for-coding-oauth/kimi-for-coding",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "kimi-for-coding-oauth/kimi-for-coding-highspeed",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-fable-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-haiku-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-opus-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~anthropic/claude-sonnet-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-pro-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~deepseek/deepseek-v4-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~google/gemini-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~google/gemini-pro-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~moonshotai/kimi-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-astra-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-luna-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-mini-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-sol-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~openai/gpt-terra-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~x-ai/grok-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~z-ai/glm-flash-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/~z-ai/glm-latest",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-2.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.0",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.0-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-3.5-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/aion-labs/aion-rp-llama-3.1-8b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-2-lite-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-lite-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-micro-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-premier-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/amazon/nova-pro-v1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthracite-org/magnum-v4-72b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-fable-5.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-haiku-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.7",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-4.8",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-opus-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-4.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/anthropic/claude-sonnet-5.5",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/apodex/apodex-1.1-mini:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/arcee-ai/trinity-large-thinking",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-1.6",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-1.6-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2-1-turbo",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-code",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance-seed/seed-2.0-mini",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/bytedance/ui-tars-1.5-7b",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cognitivecomputations/dolphin-mistral-24b-venice-edition",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-a",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-a-plus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-r-08-2024",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-r-plus-08-2024",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/command-r7b-12-2024",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/cohere/north-mini-code:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-chat-v3.1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-r1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-r1-0528",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.1-terminus",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.2",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v3.2-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-0731",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4-pro-0813",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/deepseek/deepseek-v4.1-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/dots-studio/dots-3-note-preview:free",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/fireworks/ember-1",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-flash-lite",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-2.5-pro-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-flash-preview",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-pro-image",
+    "name": null,
+    "default": false
+   },
+   {
+    "id": "openrouter/google/gemini-3-pro-image-preview",
+    "name": null,
+    "default": false
+   }
+  ]
+ }
+}
