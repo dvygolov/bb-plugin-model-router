@@ -172,8 +172,13 @@ export function detectFamily(id: string): string | null {
     }
     return null;
   };
-  // Сначала имя модели, затем префиксы справа налево: "kimi-coding/k3", "groq/qwen/qwen3.8-27b".
-  for (const seg of [name, ...segs.slice(0, -1).reverse()]) {
+  // Вендор стоит либо за «/», либо за «:» (у Hermes: "kimi-oauth:k3",
+  // "openai-codex:gpt-6-sol"), поэтому кандидатов набираем из обоих разделителей.
+  const vendorSegs = clean
+    .split(/[/:]/)
+    .filter((seg) => seg.length > 0)
+    .reverse();
+  for (const seg of [name, ...vendorSegs]) {
     const hit = test(seg);
     if (hit) return hit;
   }

@@ -51,6 +51,11 @@ Three layers, all of them explainable:
 | **Middle** | minimax, xiaomi, qwen, tencent, meta, nvidia, … | `minimax-m3`, `mimo-v2.6-pro` |
 | **Low** | `:free` / `-free`, gemma, llama-3.x, ling | `gemma-4-31b-it:free` |
 
+A vendor can be spelled with `/` or with `:` — Hermes uses the colon form
+(`kimi-oauth:k3`, `openai-codex:gpt-6-sol`), and reading only `/` made
+`kimi-oauth:k3` resolve to *no family*, drop out of Sub-Frontier, and let the
+weaker `kimi-for-coding` win the slot silently. Both separators are read now.
+
 Frontier is deliberate about *current* flagships: `o3-mini`, `o4-mini`,
 `gpt-oss-120b` and `claude-sonnet-4.6` are **not** Frontier, because the version
 floor for a Frontier family is configurable and these sit below it. A
