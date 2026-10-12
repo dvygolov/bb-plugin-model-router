@@ -7,7 +7,8 @@ subscriptions, then quality tier.
 It registers a provider called **Router (auto)**. You create a thread the usual
 way, pick Router, describe the task — and the router picks the harness
 (`acp-omp`, `acp-hermes-agent`, `acp-opencode`) and the model, then hands the turn
-to that agent. Nothing switches mid-thread.
+to that agent. Nothing switches mid-thread. Its model picker lists the four tiers
+plus `auto`, so you can also force a tier by hand.
 
 ```
 Провайдер: [ Router (auto) ▾ ]
@@ -70,6 +71,18 @@ The thread's first reply starts with one line naming what the router picked:
 
 `announce` controls it: `first` (default), `always`, `off`.
 
+The plugin posts it as **its own message**, before the agent has produced a token —
+verified: the thread shows two messages, the router's and then the answer.
+
+Two ordering facts this depends on, both found the hard way:
+
+- It is sent on `turn/start`, never on `thread/start`. A delta that arrives before
+  the turn is open is dropped; when provisioning took ten seconds between session
+  start and the first turn, the note disappeared entirely.
+- The picker is answered by this plugin, not by the ACP bridge. The bridge replies
+  to `model/list` with a single `acp-default` row ("Model selection is managed by
+  the connected ACP agent"), which hid the tiers and made a forced tier impossible.
+
 The line is not written by the agent and does not depend on it obeying a
 prompt: the bridge posts it itself, the moment the turn opens and before the
 agent's first token. It lands as the **first line of the reply** rather than as a
@@ -80,11 +93,12 @@ Three alternatives were tried against live threads and do not work:
 | --- | --- |
 | delta `input.provider` | defined in the protocol, **not handled by BB core** — silently dropped |
 | `item.open` with a `plan` item | item is dropped, nothing appears |
-| `item.open` with an `agentMessage` item | renders, but the agent's own stream appends into the same item |
+| announce on `thread/start` | delta arrives before the turn is open and is dropped |
 
-So a separate bubble needs a frontend content script (a badge in the thread
-chrome), not the delta protocol. The decision is also stored on the thread, so
-`bb route why <thread-id>` works even with announcements off.
+The working shape is a `textClose` / `textDelta` / `textClose` sequence on the
+`agentMessage` channel, sent on `turn/start` once the ACP bridge has opened the
+turn. The decision is also stored on the thread, so `bb route why <thread-id>`
+works even with announcements off.
 
 ## Commands
 

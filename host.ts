@@ -24,7 +24,15 @@ import { experimental_acpProviderBridge } from "@get-bb/plugin-sdk/provider-brid
 /** Methods whose params carry a model that must be resolved before launch. */
 const MODEL_BEARING = new Set(["thread/start", "thread/resume", "thread/fork", "turn/start"]);
 
-const ANNOUNCE_ON = new Set(["thread/start", "turn/start"]);
+/**
+ * Объявляем только на `turn/start`.
+ *
+ * На `thread/start` ход ещё не открыт: если между стартом сессии и ходом есть
+ * пауза (подготовка окружения занимала 10 секунд), дельта приходит в пустоту и
+ * пропадает. На `turn/start` ход открыт всегда, а агент к этому моменту ещё не
+ * сгенерировал ни токена.
+ */
+const ANNOUNCE_ON = new Set(["turn/start"]);
 
 /** Text stream BB renders as the agent's message; same keys the ACP bridge uses. */
 const AGENT_CHANNEL = "assistant";
@@ -120,6 +128,38 @@ function announce(threadId: string | undefined, options: CommandOptions): boolea
   return true;
 }
 
+/**
+ * Пикер моделей. Сам ACP-бридж отвечает на `model/list` моделями агента, из-за
+ * чего в пикере не видно наших тиров. Отвечаем сами и дальше запрос не пропускаем.
+ * Список держим и здесь: `model/list` — каталожная команда, providerOptions у неё
+ * может отсутствовать, поэтому полагаться только на них нельзя.
+ */
+const TIER_ROWS: Record<string, unknown>[] = [
+  ["auto", "Auto — решить по задаче", "Роутер сам определит тир по тексту задачи"],
+  ["frontier", "Frontier — текущие флагманы", "Свежие флагманы OpenAI, Anthropic, Gemini, Grok"],
+  ["sub-frontier", "Sub-Frontier — Kimi / DeepSeek / GLM", "Сильные китайские флагманы, обычно по подписке"],
+  ["middle", "Middle — рабочие лошадки", "Механические правки, дешёвые рабочие модели"],
+  ["low", "Low — дешёвые и бесплатные", "Одноразовые задачи, бесплатные модели"],
+].map(([id, displayName, description], index) => ({
+  id,
+  displayName,
+  description,
+  model: id,
+  isDefault: index === 0,
+  defaultReasoningEffort: "medium",
+  supportedReasoningEfforts: [{ reasoningEffort: "medium", description: "Medium" }],
+}));
+
+function parseTierRows(raw: unknown): Record<string, unknown>[] | null {
+  if (typeof raw !== "string" || raw.length === 0) return null;
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    return Array.isArray(parsed) ? (parsed as Record<string, unknown>[]) : null;
+  } catch {
+    return null;
+  }
+}
+
 interface Rewrite {
   line: string;
   method?: string;
@@ -152,6 +192,16 @@ export function rewriteModelLine(line: string): Rewrite {
   const threadId = typeof params.threadId === "string" ? params.threadId : undefined;
   const context = { threadId, options };
 
+  if (method === "model/list") {
+    const rows =
+      parseTierRows(options.providerOptions?.["routerModels"]) ?? TIER_ROWS;
+    const id = (parsed as { id?: unknown }).id;
+    if (typeof id === "string" || typeof id === "number") {
+      io.sendResult(id, { models: rows, scope: "host", selectedOnlyModels: [] });
+      return { line, method, outcome: "model-list-local", ...context };
+    }
+  }
+
   if (!MODEL_BEARING.has(method)) {
     return { line, method, modelBefore, outcome: "not-model-bearing", ...context };
   }
@@ -178,6 +228,10 @@ const bridge = experimental_defineProviderBridge({
   },
   handleLine: (line) => {
     const result = rewriteModelLine(line);
+    if (result.outcome === "model-list-local") {
+      log({ event: "line", method: result.method, outcome: result.outcome });
+      return;
+    }
     try {
       experimental_acpProviderBridge.handleLine(result.line);
     } catch (error) {

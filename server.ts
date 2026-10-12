@@ -318,6 +318,7 @@ export default function plugin(bb: BbPluginApi) {
       return {
         acpLaunchSpec: launchSpec,
         acpDialect: "generic",
+        routerModels: JSON.stringify(TIER_MODELS),
         routerModel: decision.modelId,
         routerHeader: `🧭 Router → ${decision.harnessId} · ${decision.modelId} (${decision.tier}, ${decision.billingVendor})`,
         routerAnnounce: effective.announce,
