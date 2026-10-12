@@ -17,6 +17,12 @@ import { HARNESSES } from "./src/core/capabilities";
 import { classify } from "./src/core/classify";
 import { decide, summarize, type Decision, type QuotaState } from "./src/core/decide";
 import { makeHttpJudge, type JudgeFn } from "./src/core/judge";
+import {
+  allEntries,
+  applyTierOverrides,
+  describe as describeModel,
+  generatedAt,
+} from "./src/core/registry";
 import { DEFAULT_FRONTIER_FLOOR, type Tier } from "./src/core/tiers";
 
 const PROVIDER_ID = "router";
@@ -73,6 +79,13 @@ const DEFAULT_QUOTAS: Record<string, QuotaState> = {
   openrouter: { percent: 60, window: "credits" },
 };
 
+/** Списки тиров по умолчанию — прямо из реестра, чтобы настройка их только правила. */
+const REGISTRY_ENTRIES = allEntries();
+const DEFAULT_FRONTIER_MODELS = REGISTRY_ENTRIES.filter((e) => e.tier === "frontier").map((e) => e.canonical);
+const DEFAULT_SUB_FRONTIER_MODELS = REGISTRY_ENTRIES.filter((e) => e.tier === "subFrontier").map(
+  (e) => e.canonical,
+);
+
 const CATALOGS: Record<string, string[]> = {};
 for (const [provider, models] of Object.entries(
   (catalogsJson as { providers: Record<string, { id: string }[]> }).providers,
@@ -85,6 +98,8 @@ interface EffectiveSettings {
   launchSpecs: typeof DEFAULT_LAUNCH_SPECS;
   quotas: Record<string, QuotaState>;
   frontierFloor: Record<string, number>;
+  frontierModels: string[];
+  subFrontierModels: string[];
   dryRun: boolean;
   blockedVendors: string[];
   announce: "off" | "first" | "always";
@@ -137,6 +152,18 @@ export default function plugin(bb: BbPluginApi) {
       experimental_multiline: true,
       default: JSON.stringify(DEFAULT_QUOTAS, null, 2),
     },
+    frontierModels: {
+      type: "string",
+      label: "Frontier — канонические модели (JSON). Заменяет правило по семействам",
+      experimental_multiline: true,
+      default: JSON.stringify(DEFAULT_FRONTIER_MODELS, null, 2),
+    },
+    subFrontierModels: {
+      type: "string",
+      label: "Sub-Frontier — канонические модели (JSON)",
+      experimental_multiline: true,
+      default: JSON.stringify(DEFAULT_SUB_FRONTIER_MODELS, null, 2),
+    },
     frontierFloor: {
       type: "string",
       label: "Порог версии для Frontier-семейств (JSON)",
@@ -167,6 +194,8 @@ export default function plugin(bb: BbPluginApi) {
     launchSpecs: DEFAULT_LAUNCH_SPECS,
     quotas: DEFAULT_QUOTAS,
     frontierFloor: DEFAULT_FRONTIER_FLOOR,
+    frontierModels: DEFAULT_FRONTIER_MODELS,
+    subFrontierModels: DEFAULT_SUB_FRONTIER_MODELS,
     dryRun: false,
     blockedVendors: ["openai-codex"],
     announce: "first",
@@ -185,6 +214,8 @@ export default function plugin(bb: BbPluginApi) {
       launchSpecs: parseJson(raw.launchSpecs as string, DEFAULT_LAUNCH_SPECS),
       quotas: parseJson(raw.quotas as string, DEFAULT_QUOTAS),
       frontierFloor: parseJson(raw.frontierFloor as string, DEFAULT_FRONTIER_FLOOR),
+      frontierModels: parseJson(raw.frontierModels as string, DEFAULT_FRONTIER_MODELS),
+      subFrontierModels: parseJson(raw.subFrontierModels as string, DEFAULT_SUB_FRONTIER_MODELS),
       dryRun: raw.dryRun === true,
       blockedVendors: parseJson(raw.blockedVendors as string, ["openai-codex"]),
       announce: raw.announce === "off" ? "off" : raw.announce === "always" ? "always" : "first",
@@ -193,6 +224,7 @@ export default function plugin(bb: BbPluginApi) {
       judgeModel: (raw.judgeModel as string) || "glm-5.3-flash",
       judgeApiKey: (raw.judgeApiKey as string) ?? "",
     };
+    applyTierOverrides(effective.frontierModels, effective.subFrontierModels);
   };
 
   void readSettings();
@@ -379,6 +411,7 @@ export default function plugin(bb: BbPluginApi) {
       { name: "harnesses", summary: "Реестр харнесов: возможности, кошельки, версии", usage: "bb route harnesses" },
       { name: "quota", summary: "Текущие квоты вендоров, как их видит роутер", usage: "bb route quota" },
       { name: "blocked", summary: "Вендоры с мёртвыми кредами, исключённые из выбора", usage: "bb route blocked" },
+      { name: "models", summary: "Реестр моделей: тиры и имена в каждом харнесе", usage: "bb route models [модель|id]" },
     ],
     async run(argv, ctx) {
       const [command, ...rest] = argv;
@@ -410,6 +443,34 @@ export default function plugin(bb: BbPluginApi) {
               .join(", ")}`;
           });
           return { exitCode: 0, stdout: `Допустимые в роутере: ${effective.harnesses.join(", ")}\n\n${lines.join("\n")}\n` };
+        }
+        case "models": {
+          const query = rest.join(" ").trim().toLowerCase();
+          if (query) {
+            const hit =
+              REGISTRY_ENTRIES.find((e) => e.canonical === query) ??
+              REGISTRY_ENTRIES.find((e) => e.canonical.startsWith(query)) ??
+              REGISTRY_ENTRIES.find((e) =>
+                Object.values(e.harnesses).some((ids) => ids.some((id) => id.toLowerCase().includes(query))),
+              );
+            if (!hit) return { exitCode: 1, stderr: `нет модели по запросу «${query}»` };
+            return { exitCode: 0, stdout: `${describeModel(hit.canonical)}\n` };
+          }
+          const byTier = new Map<string, number>();
+          for (const e of REGISTRY_ENTRIES) byTier.set(e.tier, (byTier.get(e.tier) ?? 0) + 1);
+          const listing = REGISTRY_ENTRIES.filter((e) => e.tier === "frontier" || e.tier === "subFrontier")
+            .map(
+              (e) =>
+                `${e.tier === "frontier" ? "F " : "SF"} ${e.canonical.padEnd(32)} ${
+                  e.contextLength ? `${Math.round(e.contextLength / 1000)}k`.padEnd(6) : "—".padEnd(6)
+                } ${Object.keys(e.harnesses).join(",")}`,
+            );
+          return {
+            exitCode: 0,
+            stdout: `реестр от ${generatedAt()} · ${REGISTRY_ENTRIES.length} канонических моделей · ${JSON.stringify(
+              Object.fromEntries(byTier),
+            )}\n\n${listing.join("\n")}\n\nПодробно: bb route models <модель|id>\n`,
+          };
         }
         case "blocked": {
           const list = effective.blockedVendors.length ? effective.blockedVendors.join(", ") : "нет";

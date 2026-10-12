@@ -66,6 +66,37 @@ configured, one cheap model call answers two questions — which capabilities an
 which tier — and the same `decide()` still makes the pick. The judge never
 chooses the harness or the model.
 
+## The model registry
+
+`src/core/registry.json` is one canonical model → how it is named in every
+harness, its tier, context window and what it is for. It is generated, not
+hand-written:
+
+```bash
+node tools/build-registry.mjs --markdown   # registry.json + docs/models.md
+bb route models                            # tiers, context, which harnesses have it
+bb route models kimi-k3                    # one model: its names in each harness
+bb route models "kimi-oauth:k3"            # look up by a harness-specific id
+```
+
+533 canonical models across `pi`, `omp`, `hermes` and `opencode`; 325 carry a
+vendor description, from which the strengths tags are parsed (code, agentic,
+reasoning, images, long context, speed, cheapness).
+
+**Tiers are concrete models, not families.** `frontierModels` and
+`subFrontierModels` are settings holding canonical names, so the boundary moves
+without a republish:
+
+```bash
+bb plugin config model-router set frontierModels '["gpt-6.1-sol-pro","claude-opus-5.5","kimi-k3", …]'
+bb plugin reload model-router
+```
+
+The family/marker rules in `tiers.ts` survive only as a fallback for models the
+registry has never seen. Resolution is a table lookup — no name parsing, which is
+what silently broke twice before (once dropping `kimi-oauth:k3` out of
+Sub-Frontier, once reading a date as a version number).
+
 ## Seeing the choice in chat
 
 The thread's first reply starts with one line naming what the router picked:

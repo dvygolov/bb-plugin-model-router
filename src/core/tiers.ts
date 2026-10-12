@@ -1,5 +1,6 @@
 /**
- * Четыре тира: правило, а не список.
+ * Четыре тира. Основной источник — таблица реестра (`registry.ts`), правила ниже
+ * работают только для моделей, которых в реестре нет.
  *
  * По одному вендору разметить нельзя: claude-haiku-5.5 и claude-opus-5.5 — оба
  * Anthropic, но это разные тиры; gpt-oss-20b формально OpenAI, но не Frontier.
@@ -9,6 +10,8 @@
  *
  * Границы семейств — настройка (frontierFamilies / subFrontierFamilies ниже).
  */
+
+import { lookupTier } from "./registry";
 
 export const TIERS = ["low", "middle", "subFrontier", "frontier"] as const;
 export type Tier = (typeof TIERS)[number];
@@ -123,7 +126,7 @@ const DEMOTE_MARKERS = [
 /** Маркеры, которые не понижают, даже если рядом есть другие слова. */
 const PROMOTE_MARKERS = ["pro", "max", "opus", "ultra", "prime", "thinking", "550b", "2.4t"];
 
-export type TierReasonKind = "family" | "floor" | "demote" | "promote" | "unknown";
+export type TierReasonKind = "registry" | "family" | "floor" | "demote" | "promote" | "unknown";
 
 export interface TierReason {
   kind: TierReasonKind;
@@ -222,6 +225,22 @@ export function resolveTier(
   const hay = name.toLowerCase();
   const family = detectFamily(id);
   const reasons: TierReason[] = [];
+
+  // Таблица важнее правил: она явная и не зависит от того, как назван id.
+  const known = lookupTier(id);
+  if (known) {
+    return {
+      tier: known.tier,
+      family,
+      reasons: [
+        {
+          kind: "registry",
+          marker: known.canonical,
+          detail: `реестр: ${known.canonical} → ${known.tier}`,
+        },
+      ],
+    };
+  }
 
   let tier = baseTierFor(family, boundaries);
   if (tier === null) {
