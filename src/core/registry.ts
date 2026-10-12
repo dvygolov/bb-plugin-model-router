@@ -89,6 +89,21 @@ export function harnessNames(): string[] {
   return registry.harnesses;
 }
 
+/** Конкретные id модели во всех харнесах. */
+export function idsForCanonical(canonical: string): string[] {
+  const entry = byCanonical.get(canonical);
+  if (!entry) return [];
+  return Object.values(entry.harnesses).flat();
+}
+
+/**
+ * Короткий список: канонические имена → конкретные id, которые сравнивает
+ * роутер. Отсюда же видно, какие записи вообще не нашлись в каталогах.
+ */
+export function shortlistIds(canonicals: string[]): string[] {
+  return canonicals.flatMap(idsForCanonical);
+}
+
 /** Человекочитаемая карточка модели: тир, контекст, назначение, имена в харнесах. */
 export function describe(canonical: string): string | null {
   const entry = byCanonical.get(canonical);

@@ -1,0 +1,464 @@
+{
+ "generatedAt": "2026-10-12T21:19:29.140Z",
+ "note": "Порядок внутри тира — приоритет. Правится в tools/build-shortlist.mjs или настройкой shortlist.",
+ "tiers": {
+  "frontier": [
+   {
+    "model": "kimi-k3",
+    "purpose": "флагман на подписке Kimi — сильнейшее, что есть без доплаты за токены",
+    "tierInRegistry": "frontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "kimi-coding/k3",
+     "opencode-go/kimi-k3",
+     "openrouter/moonshotai/kimi-k3",
+     "openrouter/moonshotai/kimi-k3:batch",
+     "kimi-code/k3",
+     "opencode-go/kimi-k3",
+     "openrouter/moonshotai/kimi-k3",
+     "openrouter/moonshotai/kimi-k3:batch",
+     "openrouter:moonshotai/kimi-k3",
+     "opencode-go:kimi-k3",
+     "kimi-oauth:k3",
+     "opencode-go/kimi-k3",
+     "kimi-for-coding-oauth/k3",
+     "openrouter/moonshotai/kimi-k3"
+    ]
+   },
+   {
+    "model": "gpt-6.1-sol-pro",
+    "purpose": "OpenAI-флагман",
+    "tierInRegistry": "frontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "openrouter/openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro:batch",
+     "openrouter/openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro:batch",
+     "openrouter:openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro"
+    ]
+   },
+   {
+    "model": "claude-opus-5.5",
+    "purpose": "Anthropic-флагман",
+    "tierInRegistry": "frontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "openrouter/anthropic/claude-opus-5.5",
+     "openrouter/anthropic/claude-opus-5.5:batch",
+     "openrouter/anthropic/claude-opus-5.5",
+     "openrouter/anthropic/claude-opus-5.5:batch",
+     "openrouter:anthropic/claude-opus-5.5",
+     "openrouter/anthropic/claude-opus-5.5"
+    ]
+   },
+   {
+    "model": "gemini-3.1-pro-preview",
+    "purpose": "Google-флагман, 1M контекста",
+    "tierInRegistry": "frontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "google/gemini-3.1-pro-preview",
+     "openrouter/google/gemini-3.1-pro-preview",
+     "openrouter/google/gemini-3.1-pro-preview:batch",
+     "google/gemini-3.1-pro-preview",
+     "openrouter/google/gemini-3.1-pro-preview",
+     "openrouter/google/gemini-3.1-pro-preview:batch",
+     "openrouter:google/gemini-3.1-pro-preview",
+     "gemini:gemini-3.1-pro-preview",
+     "google/gemini-3.1-pro-preview",
+     "openrouter/google/gemini-3.1-pro-preview"
+    ]
+   },
+   {
+    "model": "grok-4.7",
+    "purpose": "xAI-флагман",
+    "tierInRegistry": "frontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/grok-4.7",
+     "openrouter/x-ai/grok-4.7",
+     "opencode-go/grok-4.7",
+     "openrouter/x-ai/grok-4.7",
+     "openrouter:x-ai/grok-4.7",
+     "opencode-go:grok-4.7",
+     "opencode-go/grok-4.7",
+     "openrouter/x-ai/grok-4.7"
+    ]
+   }
+  ],
+  "subFrontier": [
+   {
+    "model": "glm-5.3",
+    "purpose": "Z.ai по подписке, 1M — основная рабочая модель",
+    "tierInRegistry": "subFrontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/glm-5.3",
+     "openrouter/z-ai/glm-5.3",
+     "openrouter/z-ai/glm-5.3:batch",
+     "zai/glm-5.3",
+     "opencode-go/glm-5.3",
+     "openrouter/z-ai/glm-5.3",
+     "openrouter/z-ai/glm-5.3:batch",
+     "zai/glm-5.3",
+     "openrouter:z-ai/glm-5.3",
+     "zai:glm-5.3",
+     "opencode-go:glm-5.3",
+     "opencode-go/glm-5.3",
+     "openrouter/z-ai/glm-5.3",
+     "zai/glm-5.3"
+    ]
+   },
+   {
+    "model": "deepseek-v4-pro",
+    "purpose": "DeepSeek по OpenCode Go, 1M",
+    "tierInRegistry": "subFrontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/deepseek-v4-pro",
+     "openrouter/deepseek/deepseek-v4-pro",
+     "opencode-go/deepseek-v4-pro",
+     "openrouter/deepseek/deepseek-v4-pro",
+     "openrouter:deepseek/deepseek-v4-pro",
+     "opencode-go:deepseek-v4-pro",
+     "opencode-go/deepseek-v4-pro",
+     "openrouter/deepseek/deepseek-v4-pro"
+    ]
+   },
+   {
+    "model": "gpt-5.6-luna",
+    "purpose": "GPT-5.6 через подписку OpenCode Go",
+    "tierInRegistry": "subFrontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna:batch",
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna:batch",
+     "openai-codex:gpt-5.6-luna",
+     "opencode-go:gpt-5.6-luna",
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna"
+    ]
+   },
+   {
+    "model": "glm-5.2",
+    "purpose": "запас, если 5.3 в лимите",
+    "tierInRegistry": "subFrontier",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/glm-5.2",
+     "openrouter/z-ai/glm-5.2",
+     "zai/glm-5.2",
+     "opencode-go/glm-5.2",
+     "openrouter/z-ai/glm-5.2",
+     "openrouter/z-ai/glm-5.2:batch",
+     "openrouter/z-ai/glm-5.2:free",
+     "zai/glm-5.2",
+     "openrouter:z-ai/glm-5.2",
+     "zai:glm-5.2",
+     "opencode-go:glm-5.2",
+     "opencode-go/glm-5.2",
+     "openrouter/z-ai/glm-5.2",
+     "zai/glm-5.2"
+    ]
+   }
+  ],
+  "middle": [
+   {
+    "model": "glm-5.3-flash",
+    "purpose": "быстрая рутина, Z.ai/OpenCode Go, 1M",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/glm-5.3-flash",
+     "openrouter/z-ai/glm-5.3-flash",
+     "openrouter/z-ai/glm-5.3-flash:batch",
+     "zai/glm-5.3-flash",
+     "opencode-go/glm-5.3-flash",
+     "openrouter/z-ai/glm-5.3-flash",
+     "openrouter/z-ai/glm-5.3-flash:batch",
+     "zai/glm-5.3-flash",
+     "openrouter:z-ai/glm-5.3-flash",
+     "zai:glm-5.3-flash",
+     "opencode-go:glm-5.3-flash",
+     "opencode-go/glm-5.3-flash",
+     "openrouter/z-ai/glm-5.3-flash",
+     "zai/glm-5.3-flash"
+    ]
+   },
+   {
+    "model": "deepseek-v4.1-flash",
+    "purpose": "быстрая рутина, OpenCode Go, 1M",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/deepseek-v4.1-flash",
+     "openrouter/deepseek/deepseek-v4.1-flash",
+     "openrouter/deepseek/deepseek-v4.1-flash:batch",
+     "opencode-go/deepseek-v4.1-flash",
+     "openrouter/deepseek/deepseek-v4.1-flash",
+     "openrouter/deepseek/deepseek-v4.1-flash:batch",
+     "openrouter:deepseek/deepseek-v4.1-flash",
+     "opencode-go:deepseek-v4.1-flash",
+     "opencode-go/deepseek-v4.1-flash",
+     "openrouter/deepseek/deepseek-v4.1-flash"
+    ]
+   },
+   {
+    "model": "mimo-v2.6-flash",
+    "purpose": "быстрая рутина, OpenCode Go, 1M",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/mimo-v2.6-flash",
+     "openrouter/xiaomi/mimo-v2.6-flash",
+     "opencode-go/mimo-v2.6-flash",
+     "openrouter/xiaomi/mimo-v2.6-flash",
+     "openrouter:xiaomi/mimo-v2.6-flash",
+     "opencode-go:mimo-v2.6-flash",
+     "opencode-go/mimo-v2.6-flash",
+     "openrouter/xiaomi/mimo-v2.6-flash"
+    ]
+   },
+   {
+    "model": "qwen3.8-flash",
+    "purpose": "быстрая рутина, OpenCode Go, 1M",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/qwen3.8-flash",
+     "openrouter/qwen/qwen3.8-flash",
+     "opencode-go/qwen3.8-flash",
+     "openrouter/qwen/qwen3.8-flash",
+     "openrouter:qwen/qwen3.8-flash",
+     "opencode-go:qwen3.8-flash",
+     "opencode-go/qwen3.8-flash",
+     "openrouter/qwen/qwen3.8-flash"
+    ]
+   },
+   {
+    "model": "minimax-m3",
+    "purpose": "средняя задача с большим контекстом, OpenCode Go",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/minimax-m3",
+     "openrouter/minimax/minimax-m3",
+     "opencode-go/minimax-m3",
+     "openrouter/minimax/minimax-m3",
+     "openrouter/minimax/minimax-m3:batch",
+     "openrouter/minimax/minimax-m3:free",
+     "openrouter:minimax/minimax-m3",
+     "opencode-go:minimax-m3",
+     "opencode-go/minimax-m3",
+     "openrouter/minimax/minimax-m3"
+    ]
+   },
+   {
+    "model": "kimi-k2.7-code",
+    "purpose": "кодинг по подписке Kimi",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/kimi-k2.7-code",
+     "openrouter/moonshotai/kimi-k2.7-code",
+     "opencode-go/kimi-k2.7-code",
+     "openrouter/moonshotai/kimi-k2.7-code",
+     "openrouter/moonshotai/kimi-k2.7-code:batch",
+     "opencode-go:kimi-k2.7-code",
+     "opencode-go/kimi-k2.7-code",
+     "openrouter/moonshotai/kimi-k2.7-code"
+    ]
+   },
+   {
+    "model": "mimo-v2.6-pro",
+    "purpose": "посильнее середины, OpenCode Go",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/mimo-v2.6-pro",
+     "openrouter/xiaomi/mimo-v2.6-pro",
+     "opencode-go/mimo-v2.6-pro",
+     "openrouter/xiaomi/mimo-v2.6-pro",
+     "openrouter:xiaomi/mimo-v2.6-pro",
+     "opencode-go:mimo-v2.6-pro",
+     "opencode-go/mimo-v2.6-pro",
+     "openrouter/xiaomi/mimo-v2.6-pro"
+    ]
+   },
+   {
+    "model": "deepseek-v4-flash-vision-exp",
+    "purpose": "рутина с изображениями",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/deepseek-v4-flash-vision-exp",
+     "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+     "opencode-go/deepseek-v4-flash-vision-exp",
+     "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+     "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch",
+     "opencode-go:deepseek-v4-flash-vision-exp",
+     "opencode-go/deepseek-v4-flash-vision-exp",
+     "openrouter/deepseek/deepseek-v4-flash-vision-exp"
+    ]
+   }
+  ],
+  "low": [
+   {
+    "model": "nemotron-3-ultra-free",
+    "purpose": "бесплатный, но крупный",
+    "tierInRegistry": "low",
+    "harnesses": [
+     "opencode"
+    ],
+    "ids": [
+     "opencode/nemotron-3-ultra-free"
+    ]
+   },
+   {
+    "model": "nemotron-3.5-lightning-free",
+    "purpose": "бесплатный и быстрый",
+    "tierInRegistry": "low",
+    "harnesses": [
+     "opencode"
+    ],
+    "ids": [
+     "opencode/nemotron-3.5-lightning-free"
+    ]
+   },
+   {
+    "model": "mimo-v2.6-flash-free",
+    "purpose": "бесплатный, OpenCode Go",
+    "tierInRegistry": "low",
+    "harnesses": [
+     "opencode"
+    ],
+    "ids": [
+     "opencode/mimo-v2.6-flash-free"
+    ]
+   },
+   {
+    "model": "step-5-preview-free",
+    "purpose": "бесплатный",
+    "tierInRegistry": "low",
+    "harnesses": [
+     "pi",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/step-5-preview-free",
+     "opencode-go:step-5-preview-free",
+     "opencode/step-5-preview-free",
+     "opencode-go/step-5-preview-free"
+    ]
+   },
+   {
+    "model": "longcat-2.5-preview-free",
+    "purpose": "бесплатный, 1M контекста",
+    "tierInRegistry": "low",
+    "harnesses": [
+     "pi",
+     "hermes",
+     "opencode"
+    ],
+    "ids": [
+     "opencode-go/longcat-2.5-preview-free",
+     "opencode-go:longcat-2.5-preview-free",
+     "opencode/longcat-2.5-preview-free",
+     "opencode-go/longcat-2.5-preview-free"
+    ]
+   }
+  ]
+ }
+}

@@ -50,6 +50,12 @@ export interface DecideInput {
     extraCapabilities?: Capability[];
     /** Вендоры с мёртвыми кредами: не предлагать, пока не починят. */
     blockedVendors?: string[];
+    /**
+     * Короткий список «рабочих лошадок»: конкретные id по тирам. Если для тира
+     * список задан и даёт хоть одного кандидата — выбор идёт только по нему.
+     * Всё остальное из каталога не участвует.
+     */
+    shortlist?: Partial<Record<Tier, string[]>>;
     /** Порядок предпочтения харнесов при равных очках. */
     harnessOrder?: string[];
   };
@@ -61,6 +67,8 @@ export interface ModelCandidate {
   vendor: string;
   funding: Funding;
   quotaPercent: number | null;
+  /** Кандидат попал в выбор из короткого списка, а не из всего каталога. */
+  viaShortlist: boolean;
 }
 
 export interface HarnessCandidate {
@@ -122,7 +130,13 @@ const BILLING_PREFIXES = new Set([
  * угадывать нельзя: это давало «платит openai-codex» для OpenRouter-модели.
  */
 export function billingFor(h: Harness, id: string): { vendor: string; funding: Funding } {
-  const head = id.includes(":") ? id.split(":")[0] : (id.replace(/^openrouter:/, "").split("/")[0] ?? "");
+  // Вендор — первый сегмент id. Двоеточие отделяет его, только если стоит раньше
+  // слэша: иначе это суффикс вида ":batch". Срезать префикс нельзя: в
+  // "openrouter:moonshotai/kimi-k3" вендор именно openrouter, а не moonshotai.
+  const colon = id.indexOf(":");
+  const slash = id.indexOf("/");
+  const head =
+    colon !== -1 && (slash === -1 || colon < slash) ? id.slice(0, colon) : id.split("/")[0] ?? "";
   const known = h.vendors.find((v) => v.prefix === head);
   if (known) return { vendor: head, funding: known.funding };
   if (BILLING_PREFIXES.has(head)) {
@@ -155,7 +169,7 @@ function scoreModel(
   const t = resolveTier(id);
   if (!t.reasons.some((r) => r.kind === "demote")) score += 8;
   else score -= 4;
-  return { id, score, vendor, funding, quotaPercent: pct, };
+  return { id, score, vendor, funding, quotaPercent: pct, viaShortlist: false };
 }
 
 /** Лучшая модель нужного тира у конкретного харнеса. */
@@ -166,14 +180,29 @@ export function bestModelForTier(
   quotas: Record<string, QuotaState>,
   boundaries: TierBoundaries,
   blocked: Set<string> = new Set(),
+  allowed: Set<string> | null = null,
 ): ModelCandidate | undefined {
   const ids = catalogs[h.id] ?? [];
-  const candidates = ids
+  const eligible = ids
     .filter((id) => !id.includes(":batch")) // off-peak дешев, но медленнее — по умолчанию не берём
     .filter((id) => !isSpecializedModel(id))
-    .filter((id) => resolveTier(id, boundaries).tier === tier)
+    .filter((id) => resolveTier(id, boundaries).tier === tier);
+
+  // Короткий список сужает выбор; если для тира он пуст — берём весь каталог.
+  let pool = eligible;
+  let viaShortlist = false;
+  if (allowed && allowed.size > 0) {
+    const restricted = eligible.filter((id) => allowed.has(id));
+    if (restricted.length > 0) {
+      pool = restricted;
+      viaShortlist = true;
+    }
+  }
+
+  const candidates = pool
     .map((id) => scoreModel(h, id, quotas, tier))
     .filter((c) => !blocked.has(c.vendor))
+    .map((c) => ({ ...c, viaShortlist }))
     .sort((a, b) => b.score - a.score);
   return candidates.find((c) => c.quotaPercent === null || c.quotaPercent < 100) ?? candidates[0];
 }
@@ -183,6 +212,10 @@ export function decide(input: DecideInput): Decision {
   const quotas = input.quotas ?? {};
   const prefs = input.prefs ?? {};
   const blocked = new Set(prefs.blockedVendors ?? []);
+  const allowedFor = (t: Tier): Set<string> | null => {
+    const list = prefs.shortlist?.[t];
+    return list && list.length > 0 ? new Set(list) : null;
+  };
   const cls = classify(input.task);
   const reasons: string[] = [];
 
@@ -209,7 +242,9 @@ export function decide(input: DecideInput): Decision {
   const harnessCandidates: HarnessCandidate[] = pool.map((h) => {
     const miss = missing(h, cls.requires);
     const ok = miss.length === 0 && (!prefs.forceHarness || h.id === prefs.forceHarness);
-    const best = ok ? bestModelForTier(h, wantedTier, input.catalogs, quotas, boundaries, blocked) : undefined;
+    const best = ok
+      ? bestModelForTier(h, wantedTier, input.catalogs, quotas, boundaries, blocked, allowedFor(wantedTier))
+      : undefined;
     let score = best ? best.score : -1;
     if (!ok) score = -1;
     else score -= h.tieBreak * 1.5;
@@ -239,7 +274,7 @@ export function decide(input: DecideInput): Decision {
       const retry = pool
         .filter((h) => hasAll(h, cls.requires) && (!prefs.forceHarness || h.id === prefs.forceHarness))
         .map((h) => {
-          const best = bestModelForTier(h, t, input.catalogs, quotas, boundaries, blocked);
+          const best = bestModelForTier(h, t, input.catalogs, quotas, boundaries, blocked, allowedFor(t));
           return best ? { h, best, score: best.score - h.tieBreak * 1.5 } : null;
         })
         .filter((x): x is { h: Harness; best: ModelCandidate; score: number } => x !== null)
@@ -271,6 +306,11 @@ export function decide(input: DecideInput): Decision {
     `Тир: ${tier}${downgradedFrom ? ` (спуск с ${downgradedFrom})` : ""} — ${
       cls.reasons.find((r) => r.tier)?.note ?? "—"
     }`,
+  );
+  reasons.push(
+    chosen.best.viaShortlist
+      ? "Модель взята из короткого списка рабочих лошадок"
+      : "Короткий список не дал кандидата — выбор по всему каталогу",
   );
   reasons.push(
     `Харнес: ${chosen.id} — ${chosen.why}, перевес над следующим: ${

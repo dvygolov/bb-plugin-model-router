@@ -17,11 +17,14 @@ import { HARNESSES } from "./src/core/capabilities";
 import { classify } from "./src/core/classify";
 import { decide, summarize, type Decision, type QuotaState } from "./src/core/decide";
 import { makeHttpJudge, type JudgeFn } from "./src/core/judge";
+import shortlistJson from "./src/core/shortlist.json";
 import {
   allEntries,
   applyTierOverrides,
   describe as describeModel,
   generatedAt,
+  idsForCanonical,
+  shortlistIds,
 } from "./src/core/registry";
 import { DEFAULT_FRONTIER_FLOOR, type Tier } from "./src/core/tiers";
 
@@ -74,6 +77,7 @@ const DEFAULT_QUOTAS: Record<string, QuotaState> = {
   "kimi-coding": { percent: 20, window: "weekly" },
   "kimi-code": { percent: 20, window: "weekly" },
   "kimi-for-coding-oauth": { percent: 20, window: "weekly" },
+  "kimi-oauth": { percent: 20, window: "weekly", note: "та же подписка Kimi (hermes)" },
   zai: { percent: 16, window: "monthly" },
   "opencode-go": { percent: 100, window: "monthly", note: "исчерпано" },
   openrouter: { percent: 60, window: "credits" },
@@ -84,6 +88,15 @@ const REGISTRY_ENTRIES = allEntries();
 const DEFAULT_FRONTIER_MODELS = REGISTRY_ENTRIES.filter((e) => e.tier === "frontier").map((e) => e.canonical);
 const DEFAULT_SUB_FRONTIER_MODELS = REGISTRY_ENTRIES.filter((e) => e.tier === "subFrontier").map(
   (e) => e.canonical,
+);
+
+/** Короткий список «рабочих лошадок»: тир → канонические модели, порядок = приоритет. */
+const SHORTLIST = shortlistJson as unknown as {
+  generatedAt: string;
+  tiers: Record<string, { model: string; purpose: string; harnesses: string[]; ids: string[] }[]>;
+};
+const DEFAULT_SHORTLIST: Record<string, string[]> = Object.fromEntries(
+  Object.entries(SHORTLIST.tiers).map(([tier, entries]) => [tier, entries.map((e) => e.model)]),
 );
 
 const CATALOGS: Record<string, string[]> = {};
@@ -100,6 +113,8 @@ interface EffectiveSettings {
   frontierFloor: Record<string, number>;
   frontierModels: string[];
   subFrontierModels: string[];
+  /** тир → конкретные id моделей из короткого списка */
+  shortlistByTier: Record<string, string[]>;
   dryRun: boolean;
   blockedVendors: string[];
   announce: "off" | "first" | "always";
@@ -107,6 +122,13 @@ interface EffectiveSettings {
   judgeBaseUrl: string;
   judgeApiKey: string;
   judgeModel: string;
+}
+
+/** Вендор id: двоеточие считается разделителем, только если оно раньше слэша. */
+function vendorHead(id: string): string {
+  const colon = id.indexOf(":");
+  const slash = id.indexOf("/");
+  return colon !== -1 && (slash === -1 || colon < slash) ? id.slice(0, colon) : id.split("/")[0] ?? "";
 }
 
 function parseJson<T>(raw: string | undefined, fallback: T): T {
@@ -152,6 +174,12 @@ export default function plugin(bb: BbPluginApi) {
       experimental_multiline: true,
       default: JSON.stringify(DEFAULT_QUOTAS, null, 2),
     },
+    shortlist: {
+      type: "string",
+      label: "Короткий список рабочих лошадок: тир → канонические модели (JSON)",
+      experimental_multiline: true,
+      default: JSON.stringify(DEFAULT_SHORTLIST, null, 2),
+    },
     frontierModels: {
       type: "string",
       label: "Frontier — канонические модели (JSON). Заменяет правило по семействам",
@@ -196,6 +224,7 @@ export default function plugin(bb: BbPluginApi) {
     frontierFloor: DEFAULT_FRONTIER_FLOOR,
     frontierModels: DEFAULT_FRONTIER_MODELS,
     subFrontierModels: DEFAULT_SUB_FRONTIER_MODELS,
+    shortlistByTier: {},
     dryRun: false,
     blockedVendors: ["openai-codex"],
     announce: "first",
@@ -216,6 +245,12 @@ export default function plugin(bb: BbPluginApi) {
       frontierFloor: parseJson(raw.frontierFloor as string, DEFAULT_FRONTIER_FLOOR),
       frontierModels: parseJson(raw.frontierModels as string, DEFAULT_FRONTIER_MODELS),
       subFrontierModels: parseJson(raw.subFrontierModels as string, DEFAULT_SUB_FRONTIER_MODELS),
+      shortlistByTier: Object.fromEntries(
+        Object.entries(parseJson(raw.shortlist as string, DEFAULT_SHORTLIST)).map(([tier, names]) => [
+          tier,
+          shortlistIds(names),
+        ]),
+      ),
       dryRun: raw.dryRun === true,
       blockedVendors: parseJson(raw.blockedVendors as string, ["openai-codex"]),
       announce: raw.announce === "off" ? "off" : raw.announce === "always" ? "always" : "first",
@@ -255,6 +290,7 @@ export default function plugin(bb: BbPluginApi) {
           prefs: {
             allowedHarnesses: effective.harnesses,
             blockedVendors: effective.blockedVendors,
+            shortlist: effective.shortlistByTier,
             forceTier: verdict.tier,
             extraCapabilities: verdict.capabilities,
           },
@@ -268,7 +304,11 @@ export default function plugin(bb: BbPluginApi) {
         task: { text, inRepo },
         catalogs: CATALOGS,
         quotas: effective.quotas,
-        prefs: { allowedHarnesses: effective.harnesses, blockedVendors: effective.blockedVendors },
+        prefs: {
+          allowedHarnesses: effective.harnesses,
+          blockedVendors: effective.blockedVendors,
+          shortlist: effective.shortlistByTier,
+        },
       }),
       judged: false,
     };
@@ -324,6 +364,7 @@ export default function plugin(bb: BbPluginApi) {
           prefs: {
             allowedHarnesses: effective.harnesses,
             blockedVendors: effective.blockedVendors,
+            shortlist: effective.shortlistByTier,
             ...(forcedTier ? { forceTier: forcedTier } : {}),
           },
         });
@@ -412,6 +453,7 @@ export default function plugin(bb: BbPluginApi) {
       { name: "quota", summary: "Текущие квоты вендоров, как их видит роутер", usage: "bb route quota" },
       { name: "blocked", summary: "Вендоры с мёртвыми кредами, исключённые из выбора", usage: "bb route blocked" },
       { name: "models", summary: "Реестр моделей: тиры и имена в каждом харнесе", usage: "bb route models [модель|id]" },
+      { name: "shortlist", summary: "Короткий список рабочих лошадок по тирам", usage: "bb route shortlist" },
     ],
     async run(argv, ctx) {
       const [command, ...rest] = argv;
@@ -471,6 +513,31 @@ export default function plugin(bb: BbPluginApi) {
               Object.fromEntries(byTier),
             )}\n\n${listing.join("\n")}\n\nПодробно: bb route models <модель|id>\n`,
           };
+        }
+        case "shortlist": {
+          const lines: string[] = [`список от ${SHORTLIST.generatedAt}`, ""];
+          for (const [tier, entries] of Object.entries(SHORTLIST.tiers)) {
+            lines.push(`${tier}:`);
+            for (const e of entries) {
+              const ids = idsForCanonical(e.model);
+              const vendors = [...new Set(ids.map(vendorHead))];
+              const dead = vendors.filter((v) => effective.blockedVendors.includes(v));
+              // Показываем только те вендоры, которыми реально можно платить:
+              // кредиты OpenRouter не в счёт, пока есть подписка.
+              const pay = vendors
+                .filter((v) => v !== "openrouter")
+                .map((v) => {
+                  const q = effective.quotas[v];
+                  return q ? `${v} ${q.percent}%` : v;
+                });
+              lines.push(
+                `  ${e.model.padEnd(30)} ${e.purpose}` +
+                  `${dead.length ? `  ⛔ ${dead.join(", ")}` : ""}\n` +
+                  `      ${e.harnesses.join(", ")} · платит: ${pay.length ? pay.join(" / ") : "OpenRouter (кредиты)"}`,
+              );
+            }
+          }
+          return { exitCode: 0, stdout: `${lines.join("\n")}\n` };
         }
         case "blocked": {
           const list = effective.blockedVendors.length ? effective.blockedVendors.join(", ") : "нет";

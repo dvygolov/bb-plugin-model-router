@@ -97,6 +97,35 @@ registry has never seen. Resolution is a table lookup — no name parsing, which
 what silently broke twice before (once dropping `kimi-oauth:k3` out of
 Sub-Frontier, once reading a date as a version number).
 
+## The shortlist
+
+A tier can hold five hundred models; choosing among all of them is unpredictable.
+`src/core/shortlist.json` is a hand-curated list per tier — 22 entries — and the
+router picks **only** from it. A new flagship does not enter the choice until you
+put it there.
+
+```bash
+bb route shortlist        # every entry: purpose, harnesses, who pays, dead vendors
+node tools/build-shortlist.mjs   # rebuild; a typo or a vanished model fails loudly
+```
+
+Each entry carries a purpose, so the list explains itself: `glm-5.3` is "the main
+working model on the Z.ai subscription", `kimi-k2.7-code` is "coding on the Kimi
+subscription", `nemotron-3.5-lightning-free` is "free and fast".
+
+Sources are stated, not implied — every entry is validated against the registry,
+and the CLI prints which wallet pays for it and whether that wallet is dead:
+
+```
+$ bb route shortlist
+subFrontier:
+  glm-5.3                        Z.ai по подписке, 1M — основная рабочая модель
+      pi, omp, hermes, opencode · платит: opencode-go 100% / zai 16%
+```
+
+If the shortlist has no candidate for a tier (model gone, everything blocked), the
+router falls back to the full catalog and says so in the decision reasons.
+
 ## Seeing the choice in chat
 
 The thread's first reply starts with one line naming what the router picked:
