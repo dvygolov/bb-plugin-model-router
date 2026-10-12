@@ -1,72 +1,44 @@
 // bb-plugin-model-router — host entry.
 //
-// It ships the provider bridge for the `router` provider: the ACP bridge kit
-// handles the whole protocol (opencode / omp / hermes all speak ACP), and this
-// wrapper does exactly one thing on top of it — rewrites the model id of a
-// command before the ACP bridge sees it.
+// Ships the provider bridge for the `router` provider. The ACP bridge kit does
+// the protocol work (opencode / omp / hermes all speak ACP); this wrapper adds
+// two things on top of it, both driven by what server.ts publishes in
+// providerOptions:
 //
-// Why the rewrite is needed: the generic ACP bridge has no id mapping table —
-// whatever model id BB resolved from the picker is what the agent gets. The
-// router provider's picker shows tiers (`auto`, `frontier`, …), which are not
-// agent model ids, so server.ts decides the real pair (harness + model) and
-// passes it per command in providerOptions; here we put it back where the ACP
-// bridge reads the model from.
+//   1. It rewrites the command's model. The picker shows tiers (`auto`,
+//      `frontier`, …), which are not agent model ids, and the generic ACP bridge
+//      has no id mapping table — so the resolved model is put back where the
+//      bridge reads it from.
+//   2. It posts the router's choice into the thread as its own message, right
+//      after the turn opens and before the agent's first token.
 
 import { appendFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { experimental_defineProviderBridge } from "@get-bb/plugin-sdk/provider-bridge";
+import {
+  createBridgeIo,
+  experimental_defineProviderBridge,
+} from "@get-bb/plugin-sdk/provider-bridge";
 import { experimental_acpProviderBridge } from "@get-bb/plugin-sdk/provider-bridge/acp";
 
 /** Methods whose params carry a model that must be resolved before launch. */
-const MODEL_BEARING = new Set([
-  "thread/start",
-  "thread/resume",
-  "thread/fork",
-  "turn/start",
-]);
+const MODEL_BEARING = new Set(["thread/start", "thread/resume", "thread/fork", "turn/start"]);
+
+const ANNOUNCE_ON = new Set(["thread/start", "turn/start"]);
+
+/** Text stream BB renders as the agent's message; same keys the ACP bridge uses. */
+const AGENT_CHANNEL = "assistant";
+const DELTA_METHOD = "thread/delta";
 
 interface CommandOptions {
   model?: unknown;
-  instructions?: unknown;
   providerOptions?: Record<string, unknown>;
-}
-
-const MARKER = "🧭 Router";
-
-/**
- * Вклеить объявление выбора в инструкции треда.
- *
- * Инструкции фиксируются при создании сессии — а решение по задаче считается
- * отдельным событием, поэтому plugin-хук dynamic instructions на первом ходу
- * успевает не всегда. Здесь решение уже пришло вместе с командой, так что
- * вставка гарантирована. Повторно не вставляем.
- */
-function withRouterSection(options: CommandOptions): CommandOptions {
-  const providerOptions = options.providerOptions ?? {};
-  const announce = providerOptions["routerAnnounce"];
-  const header = providerOptions["routerHeader"];
-  const instructions = String(options.instructions ?? "");
-  if (announce === "off" || typeof header !== "string" || instructions.includes(MARKER)) {
-    return options;
-  }
-  const when =
-    announce === "always"
-      ? "Первой строкой каждого ответа выводи ровно эту строку, без изменений:"
-      : "Первой строкой своего первого ответа в этом треде выведи ровно эту строку, без изменений:";
-  const section = [
-    "",
-    "# Выбор роутера",
-    "Харнес и модель для этого треда выбрал плагин model-router — один раз, при создании треда.",
-    "Сам ты их не меняешь: если просят другую модель, скажи использовать /model.",
-    `${when} ${header}`,
-  ].join("\n");
-  return { ...options, instructions: `${instructions}${section}` };
 }
 
 interface Envelope {
   method?: string;
   params?: {
+    threadId?: unknown;
     model?: unknown;
     providerOptions?: Record<string, unknown>;
     /** BB ставит параметры команды сюда: model, serviceTier, reasoningLevel, … */
@@ -79,26 +51,25 @@ function readCommand(params: NonNullable<Envelope["params"]>): {
   options: CommandOptions;
   modelBefore: unknown;
   routerModel: unknown;
-  source: "options" | "params" | "none";
 } {
-  const options = params.options ?? {};
   if (params.options) {
     return {
-      options,
-      modelBefore: options.model,
-      routerModel: options.providerOptions?.["routerModel"],
-      source: "options",
+      options: params.options,
+      modelBefore: params.options.model,
+      routerModel: params.options.providerOptions?.["routerModel"],
     };
   }
   return {
-    options,
+    options: {},
     modelBefore: params.model,
     routerModel: params.providerOptions?.["routerModel"],
-    source: params.providerOptions ? "params" : "none",
   };
 }
 
-/** Диагностика: одна строка NDJSON на команду, рядом с данными плагина. */
+/** Один бридж — один поток вывода; сообщения роутера уходят в тот же stdout. */
+const io = createBridgeIo();
+const announced = new Set<string>();
+
 let logPath: string | null = null;
 let seq = 0;
 
@@ -111,13 +82,53 @@ function log(entry: Record<string, unknown>): void {
   }
 }
 
+/**
+ * Строка роутера в тред.
+ *
+ * Проверено на живых трендах: BB склеивает весь текст ассистента за ход в одно
+ * сообщение, поэтому отдельной «пузырь» этим протоколом не сделать —
+ * `input.provider` ядро BB не обрабатывает вовсе, а элемент `plan` отбрасывает.
+ * Зато текст по каналу `agentMessage`, отправленный сразу при открытии хода,
+ * оказывается первой строкой ответа — то есть виден раньше, чем агент успевает
+ * что-то сгенерировать, и без участия самого агента.
+ */
+function messageDeltas(text: string): Record<string, unknown>[] {
+  return [
+    { kind: "item.textClose", key: { channel: AGENT_CHANNEL }, channel: "agentMessage" },
+    { kind: "item.textDelta", key: { channel: AGENT_CHANNEL }, channel: "agentMessage", text },
+    { kind: "item.textClose", key: { channel: AGENT_CHANNEL }, channel: "agentMessage" },
+  ];
+}
+
+/**
+ * Отдельное сообщение роутера: харнес, модель, тир, кто платит.
+ * `first` — один раз на тред, `always` — каждый ход, `off` — молча.
+ */
+function announce(threadId: string | undefined, options: CommandOptions): boolean {
+  if (!threadId) return false;
+  const providerOptions = options.providerOptions ?? {};
+  const mode = providerOptions["routerAnnounce"];
+  const header = providerOptions["routerHeader"];
+  if (mode === "off" || typeof header !== "string" || header.length === 0) return false;
+  if (mode !== "always" && announced.has(threadId)) return false;
+  announced.add(threadId);
+  io.send({
+    jsonrpc: "2.0",
+    method: DELTA_METHOD,
+    params: { threadId, deltas: messageDeltas(header) },
+  });
+  return true;
+}
+
 interface Rewrite {
   line: string;
   method?: string;
   modelBefore?: unknown;
   modelAfter?: unknown;
   outcome: string;
-  announced?: boolean;
+  threadId?: string;
+  options?: CommandOptions;
+  rewriteFailed?: boolean;
 }
 
 /**
@@ -138,21 +149,24 @@ export function rewriteModelLine(line: string): Rewrite {
   if (!params) return { line, method, outcome: "no-params" };
 
   const { options, modelBefore, routerModel } = readCommand(params);
+  const threadId = typeof params.threadId === "string" ? params.threadId : undefined;
+  const context = { threadId, options };
+
   if (!MODEL_BEARING.has(method)) {
-    return { line, method, modelBefore, outcome: "not-model-bearing" };
+    return { line, method, modelBefore, outcome: "not-model-bearing", ...context };
   }
   if (typeof routerModel !== "string" || routerModel.length === 0) {
-    return { line, method, modelBefore, outcome: "no-router-model" };
+    // Решение не пришло: оставляем как есть, но помечаем — это сломанный маршрут.
+    return { line, method, modelBefore, outcome: "no-router-model", rewriteFailed: true, ...context };
   }
-  parsed.params = { ...params, options: withRouterSection({ ...options, model: routerModel }) };
-  const instructionsBefore = String((options as { instructions?: unknown }).instructions ?? "");
+  parsed.params = { ...params, options: { ...options, model: routerModel } };
   return {
     line: JSON.stringify(parsed),
     method,
     modelBefore,
     modelAfter: routerModel,
     outcome: "rewritten",
-    announced: !instructionsBefore.includes(MARKER),
+    ...context,
   };
 }
 
@@ -164,21 +178,28 @@ const bridge = experimental_defineProviderBridge({
   },
   handleLine: (line) => {
     const result = rewriteModelLine(line);
-    if (result.outcome === "rewritten" || result.outcome === "no-router-model") {
+    try {
+      experimental_acpProviderBridge.handleLine(result.line);
+    } catch (error) {
+      log({ event: "handleLine-error", message: String(error) });
+      throw error;
+    }
+    // Сообщение уходит ПОСЛЕ бриджа: к этому моменту ход уже открыт, и строка
+    // роутера встаёт отдельным сообщением перед выводом агента.
+    const didAnnounce =
+      result.method && ANNOUNCE_ON.has(result.method) && !result.rewriteFailed
+        ? announce(result.threadId, result.options ?? {})
+        : false;
+    if (result.outcome === "rewritten" || didAnnounce || result.rewriteFailed) {
       log({
         event: "line",
         method: result.method,
         outcome: result.outcome,
         modelBefore: result.modelBefore,
         modelAfter: result.modelAfter,
-        announced: result.announced,
+        announced: didAnnounce,
+        threadId: result.threadId,
       });
-    }
-    try {
-      experimental_acpProviderBridge.handleLine(result.line);
-    } catch (error) {
-      log({ event: "handleLine-error", message: String(error) });
-      throw error;
     }
   },
   onClose: () => {

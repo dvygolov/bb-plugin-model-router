@@ -68,11 +68,23 @@ The thread's first reply starts with one line naming what the router picked:
 🧭 Router → acp-hermes-agent · kimi-oauth:kimi-for-coding (subFrontier, kimi-oauth)
 ```
 
-`announce` controls it: `first` (default), `always`, `off`. The line is injected
-into the thread's instructions by the bridge, because at session construction the
-decision is already known there — a plugin-level dynamic-instructions hook can
-race the classification on the first turn. The decision is also stored on the
-thread, so `bb route why <thread-id>` works even with announcements off.
+`announce` controls it: `first` (default), `always`, `off`.
+
+The line is not written by the agent and does not depend on it obeying a
+prompt: the bridge posts it itself, the moment the turn opens and before the
+agent's first token. It lands as the **first line of the reply** rather than as a
+separate bubble, because BB folds all assistant text of a turn into one message.
+Three alternatives were tried against live threads and do not work:
+
+| Attempt | Result |
+| --- | --- |
+| delta `input.provider` | defined in the protocol, **not handled by BB core** — silently dropped |
+| `item.open` with a `plan` item | item is dropped, nothing appears |
+| `item.open` with an `agentMessage` item | renders, but the agent's own stream appends into the same item |
+
+So a separate bubble needs a frontend content script (a badge in the thread
+chrome), not the delta protocol. The decision is also stored on the thread, so
+`bb route why <thread-id>` works even with announcements off.
 
 ## Commands
 
@@ -95,7 +107,7 @@ thread, so `bb route why <thread-id>` works even with announcements off.
 | `quotas` | JSON: `{ "zai": { "percent": 16, "window": "monthly" } }` |
 | `frontierFloor` | JSON: minimum version per Frontier family |
 | `dryRun` | Decide and record, but do not launch |
-| `announce` | `first` / `always` / `off` — print the choice in chat |
+| `announce` | `first` / `always` / `off` — write the choice into the thread |
 | `blockedVendors` | JSON array of vendors to skip (dead credentials) |
 | `judgeEnabled`, `judgeBaseUrl`, `judgeModel`, `judgeApiKey` | The low-confidence judge (any OpenAI-compatible endpoint) |
 
@@ -138,6 +150,13 @@ was expired on the machine this was built against. Re-login with
 - **The decision is final for the thread.** If a task turns out harder than it
   looked, change the model manually — the router will not do it for itself.
 - `acp-cursor` is excluded: `cursor-agent` is not installed.
+
+## Diagnostics
+
+The bridge appends one NDJSON line per command to `<plugin data dir>/bridge-data/bridge.log`:
+the method, whether the model was rewritten, and whether the router note went out.
+`"outcome":"no-router-model"` there means a routed thread was launched with the
+tier label as its model — the bug that made routed threads hang in 0.1.0.
 
 ## Development
 
