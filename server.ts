@@ -86,6 +86,8 @@ interface EffectiveSettings {
   quotas: Record<string, QuotaState>;
   frontierFloor: Record<string, number>;
   dryRun: boolean;
+  blockedVendors: string[];
+  announce: "off" | "first" | "always";
   judgeEnabled: boolean;
   judgeBaseUrl: string;
   judgeApiKey: string;
@@ -142,6 +144,18 @@ export default function plugin(bb: BbPluginApi) {
       default: JSON.stringify(DEFAULT_FRONTIER_FLOOR, null, 2),
     },
     dryRun: { type: "boolean", label: "Только показывать решение, не запускать", default: false },
+    blockedVendors: {
+      type: "string",
+      label: "Вендоры с мёртвыми кредами (JSON). Сейчас у hermes протух OAuth ChatGPT — уберите openai-codex после повторного входа",
+      experimental_multiline: true,
+      default: JSON.stringify(["openai-codex"]),
+    },
+    announce: {
+      type: "select",
+      label: "Объявлять выбор в чате",
+      options: ["off", "first", "always"],
+      default: "first",
+    },
     judgeEnabled: { type: "boolean", label: "Звать дешёвого судью при низкой уверенности", default: true },
     judgeBaseUrl: { type: "string", label: "Судья: base URL", default: "https://api.z.ai/api/paas/v4" },
     judgeModel: { type: "string", label: "Судья: модель", default: "glm-5.3-flash" },
@@ -154,6 +168,8 @@ export default function plugin(bb: BbPluginApi) {
     quotas: DEFAULT_QUOTAS,
     frontierFloor: DEFAULT_FRONTIER_FLOOR,
     dryRun: false,
+    blockedVendors: ["openai-codex"],
+    announce: "first",
     judgeEnabled: true,
     judgeBaseUrl: "https://api.z.ai/api/paas/v4",
     judgeModel: "glm-5.3-flash",
@@ -170,6 +186,8 @@ export default function plugin(bb: BbPluginApi) {
       quotas: parseJson(raw.quotas as string, DEFAULT_QUOTAS),
       frontierFloor: parseJson(raw.frontierFloor as string, DEFAULT_FRONTIER_FLOOR),
       dryRun: raw.dryRun === true,
+      blockedVendors: parseJson(raw.blockedVendors as string, ["openai-codex"]),
+      announce: raw.announce === "off" ? "off" : raw.announce === "always" ? "always" : "first",
       judgeEnabled: raw.judgeEnabled !== false,
       judgeBaseUrl: (raw.judgeBaseUrl as string) || "https://api.z.ai/api/paas/v4",
       judgeModel: (raw.judgeModel as string) || "glm-5.3-flash",
@@ -204,6 +222,7 @@ export default function plugin(bb: BbPluginApi) {
           quotas: effective.quotas,
           prefs: {
             allowedHarnesses: effective.harnesses,
+            blockedVendors: effective.blockedVendors,
             forceTier: verdict.tier,
             extraCapabilities: verdict.capabilities,
           },
@@ -217,7 +236,7 @@ export default function plugin(bb: BbPluginApi) {
         task: { text, inRepo },
         catalogs: CATALOGS,
         quotas: effective.quotas,
-        prefs: { allowedHarnesses: effective.harnesses },
+        prefs: { allowedHarnesses: effective.harnesses, blockedVendors: effective.blockedVendors },
       }),
       judged: false,
     };
@@ -272,6 +291,7 @@ export default function plugin(bb: BbPluginApi) {
           quotas: effective.quotas,
           prefs: {
             allowedHarnesses: effective.harnesses,
+            blockedVendors: effective.blockedVendors,
             ...(forcedTier ? { forceTier: forcedTier } : {}),
           },
         });
@@ -299,6 +319,8 @@ export default function plugin(bb: BbPluginApi) {
         acpLaunchSpec: launchSpec,
         acpDialect: "generic",
         routerModel: decision.modelId,
+        routerHeader: `🧭 Router → ${decision.harnessId} · ${decision.modelId} (${decision.tier}, ${decision.billingVendor})`,
+        routerAnnounce: effective.announce,
         routerHarness: decision.harnessId,
         routerTier: decision.tier,
         routerDryRun: effective.dryRun,
@@ -319,6 +341,34 @@ export default function plugin(bb: BbPluginApi) {
     }
   });
 
+  /**
+   * Самовосстановление: если ход упал на неработающих кредах вендора, помечаем
+   * вендора мёртвым и сбрасываем решение, чтобы следующий ход ушёл другим путём.
+   * Без этого тред остаётся прикованным к тому, что не работает.
+   */
+  const CREDENTIAL_ERROR =
+    /(not connected|no api key|api key or login|token refresh failed|unauthorized|invalid api key|authentication|истек|протух)/i;
+
+  bb.events.on("turn.failed", async (event) => {
+    const threadId = (event as { threadId?: string }).threadId;
+    if (!threadId) return;
+    const decision = decisions.get(threadId);
+    if (!decision) return;
+    const errorInfo = (event as { errorInfo?: unknown }).errorInfo;
+    const text = errorInfo ? JSON.stringify(errorInfo) : "";
+    if (!CREDENTIAL_ERROR.test(text)) return;
+    if (effective.blockedVendors.includes(decision.billingVendor)) return;
+
+    const next = [...effective.blockedVendors, decision.billingVendor];
+    effective = { ...effective, blockedVendors: next };
+    decisions.delete(threadId);
+    try {
+      await settings.experimental_set({ blockedVendors: JSON.stringify(next) });
+    } catch {
+      // Не смогли сохранить — в памяти всё равно уже помечено.
+    }
+  });
+
   bb.cli.register({
     name: "route",
     summary: "Роутер моделей и харнесов: решения, причины, состояние",
@@ -327,6 +377,7 @@ export default function plugin(bb: BbPluginApi) {
       { name: "why", summary: "Почему выбран харнес и модель в треде", usage: "bb route why [thread-id]" },
       { name: "harnesses", summary: "Реестр харнесов: возможности, кошельки, версии", usage: "bb route harnesses" },
       { name: "quota", summary: "Текущие квоты вендоров, как их видит роутер", usage: "bb route quota" },
+      { name: "blocked", summary: "Вендоры с мёртвыми кредами, исключённые из выбора", usage: "bb route blocked" },
     ],
     async run(argv, ctx) {
       const [command, ...rest] = argv;
@@ -358,6 +409,10 @@ export default function plugin(bb: BbPluginApi) {
               .join(", ")}`;
           });
           return { exitCode: 0, stdout: `Допустимые в роутере: ${effective.harnesses.join(", ")}\n\n${lines.join("\n")}\n` };
+        }
+        case "blocked": {
+          const list = effective.blockedVendors.length ? effective.blockedVendors.join(", ") : "нет";
+          return { exitCode: 0, stdout: `Заблокированные вендоры: ${list}\nСнять: bb plugin config model-router set blockedVendors "[]"\n` };
         }
         case "quota": {
           const lines = Object.entries(effective.quotas).map(

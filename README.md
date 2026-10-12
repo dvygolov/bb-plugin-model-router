@@ -60,6 +60,20 @@ configured, one cheap model call answers two questions — which capabilities an
 which tier — and the same `decide()` still makes the pick. The judge never
 chooses the harness or the model.
 
+## Seeing the choice in chat
+
+The thread's first reply starts with one line naming what the router picked:
+
+```
+🧭 Router → acp-hermes-agent · kimi-oauth:kimi-for-coding (subFrontier, kimi-oauth)
+```
+
+`announce` controls it: `first` (default), `always`, `off`. The line is injected
+into the thread's instructions by the bridge, because at session construction the
+decision is already known there — a plugin-level dynamic-instructions hook can
+race the classification on the first turn. The decision is also stored on the
+thread, so `bb route why <thread-id>` works even with announcements off.
+
 ## Commands
 
 | Command | Effect |
@@ -68,6 +82,7 @@ chooses the harness or the model.
 | `bb route why [thread-id]` | What was recorded for a thread |
 | `bb route harnesses` | Harness registry: capabilities, wallets, launch commands |
 | `bb route quota` | Vendor quotas as the router sees them |
+| `bb route blocked` | Vendors excluded because their credentials are dead |
 
 ## Settings
 
@@ -80,6 +95,8 @@ chooses the harness or the model.
 | `quotas` | JSON: `{ "zai": { "percent": 16, "window": "monthly" } }` |
 | `frontierFloor` | JSON: minimum version per Frontier family |
 | `dryRun` | Decide and record, but do not launch |
+| `announce` | `first` / `always` / `off` — print the choice in chat |
+| `blockedVendors` | JSON array of vendors to skip (dead credentials) |
 | `judgeEnabled`, `judgeBaseUrl`, `judgeModel`, `judgeApiKey` | The low-confidence judge (any OpenAI-compatible endpoint) |
 
 ## How it works inside BB
@@ -94,6 +111,19 @@ chooses the harness or the model.
 - The provider's picker ids are tiers, not agent model ids, so `host.ts` rewrites
   `params.model` from `providerOptions.routerModel` before the ACP bridge sees
   the command. The generic ACP bridge has no id mapping table; this is that table.
+
+## Dead credentials heal themselves
+
+A subscription path can be configured and still be dead — an expired OAuth token
+fails at launch, not at routing time. The router cannot see that in advance, so it
+reacts: when a turn fails with a credential error, the vendor is added to
+`blockedVendors`, the thread's decision is dropped, and the next turn routes
+around it. `bb route blocked` shows the list; clear it with
+`bb plugin config model-router set blockedVendors "[]"` after fixing the login.
+
+The default ships with `openai-codex` blocked, because Hermes' ChatGPT/Copex OAuth
+was expired on the machine this was built against. Re-login with
+`hermes auth add openai-codex` and unblock it to spend that subscription.
 
 ## Limitations, stated plainly
 

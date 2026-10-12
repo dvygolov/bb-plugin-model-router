@@ -137,13 +137,25 @@ export interface TierResolution {
   reasons: TierReason[];
 }
 
-/** Последний сегмент id — имя модели. Хвосты вида :batch/:free учитываются отдельно. */
+/**
+ * Хвосты-квалификаторы: они отделяются двоеточием, как и вендор у Hermes.
+ * `kimi-k2:exacto` — суффикс, `openai-codex:gpt-6-sol` — вендор.
+ */
+const COLON_SUFFIXES = new Set([
+  "free", "batch", "exacto", "thinking", "online", "extended", "long", "preview",
+]);
+
+/** Имя модели = часть после последнего «/», а внутри — после вендорного «:». */
 export function modelName(id: string): { name: string; suffix: string | null } {
-  const clean = id.replace(/^openrouter:/, "");
-  const parts = clean.split("/");
-  const last = parts[parts.length - 1] ?? "";
-  const [name, suffix] = last.split(":") as [string, string | undefined];
-  return { name, suffix: suffix ?? null };
+  const afterSlash = id.split("/").pop() ?? "";
+  const colon = afterSlash.lastIndexOf(":");
+  if (colon === -1) return { name: afterSlash, suffix: null };
+  const tail = afterSlash.slice(colon + 1);
+  if (COLON_SUFFIXES.has(tail.toLowerCase())) {
+    return { name: afterSlash.slice(0, colon), suffix: tail };
+  }
+  // Двоеточие отделяет вендора, а не квалификатор: имя модели — то, что после него.
+  return { name: tail, suffix: null };
 }
 
 export function detectFamily(id: string): string | null {

@@ -48,6 +48,8 @@ export interface DecideInput {
     allowedHarnesses?: string[];
     forceTier?: Tier;
     extraCapabilities?: Capability[];
+    /** Вендоры с мёртвыми кредами: не предлагать, пока не починят. */
+    blockedVendors?: string[];
     /** Порядок предпочтения харнесов при равных очках. */
     harnessOrder?: string[];
   };
@@ -107,36 +109,28 @@ const BILLING_PREFIXES = new Set([
   "gemini",
   "groq",
   "openai-codex",
+  "kimi-oauth",
+  "moonshotai",
+  "gemini",
 ]);
 
-/** Каким вендором оплачивается конкретный id внутри конкретного харнеса. */
+/**
+ * Каким вендором оплачивается конкретный id внутри конкретного харнеса.
+ *
+ * У Hermes вендор зашит в сам id явным префиксом — `openai-codex:gpt-5.5` (подписка
+ * ChatGPT) против `openrouter:openai/gpt-5.5` (кредиты). По семейству модели
+ * угадывать нельзя: это давало «платит openai-codex» для OpenRouter-модели.
+ */
 export function billingFor(h: Harness, id: string): { vendor: string; funding: Funding } {
-  const clean = id.replace(/^openrouter:/, "");
-  const first = clean.split("/")[0] ?? "";
-
-  // Особый случай: у Hermes весь каталог помечен openrouter:, но биллинг идёт
-  // через его собственный пул кредов (Codex-OAuth для OpenAI, Kimi-OAuth и т.д.).
-  if (h.id === "acp-hermes-agent" && (id.startsWith("openrouter:") || first === "openrouter")) {
-    const fam = detectFamily(id);
-    const via: Record<string, [string, Funding]> = {
-      openai: ["openai-codex", "oauth-plan"],
-      moonshotai: ["kimi", "oauth-plan"],
-      "z-ai": ["zai", "subscription"],
-      google: ["google", "api-key"],
-    };
-    const hit = fam ? via[fam] : undefined;
-    if (hit) return { vendor: hit[0], funding: hit[1] };
-    return { vendor: "openrouter", funding: "credits" };
+  const head = id.includes(":") ? id.split(":")[0] : (id.replace(/^openrouter:/, "").split("/")[0] ?? "");
+  const known = h.vendors.find((v) => v.prefix === head);
+  if (known) return { vendor: head, funding: known.funding };
+  if (BILLING_PREFIXES.has(head)) {
+    return { vendor: head, funding: head === "openrouter" ? "credits" : "api-key" };
   }
-
-  if (BILLING_PREFIXES.has(first)) {
-    const known = h.vendors.find((v) => v.prefix === first);
-    return { vendor: first, funding: known?.funding ?? "credits" };
-  }
-  // Префикс не биллинговый (например "google/gemini-3.1-pro" — вендор всё же google).
-  const byPrefix = h.vendors.find((v) => clean.startsWith(v.prefix));
+  const byPrefix = h.vendors.find((v) => id.replace(/^openrouter:/, "").startsWith(v.prefix));
   if (byPrefix) return { vendor: byPrefix.prefix, funding: byPrefix.funding };
-  return { vendor: first || "unknown", funding: h.vendors.find((v) => v.funding === "credits")?.funding ?? "credits" };
+  return { vendor: head || "unknown", funding: "credits" };
 }
 
 function quotaOf(quotas: Record<string, QuotaState>, vendor: string): QuotaState | undefined {
@@ -171,6 +165,7 @@ export function bestModelForTier(
   catalogs: Record<string, string[]>,
   quotas: Record<string, QuotaState>,
   boundaries: TierBoundaries,
+  blocked: Set<string> = new Set(),
 ): ModelCandidate | undefined {
   const ids = catalogs[h.id] ?? [];
   const candidates = ids
@@ -178,6 +173,7 @@ export function bestModelForTier(
     .filter((id) => !isSpecializedModel(id))
     .filter((id) => resolveTier(id, boundaries).tier === tier)
     .map((id) => scoreModel(h, id, quotas, tier))
+    .filter((c) => !blocked.has(c.vendor))
     .sort((a, b) => b.score - a.score);
   return candidates.find((c) => c.quotaPercent === null || c.quotaPercent < 100) ?? candidates[0];
 }
@@ -186,6 +182,7 @@ export function decide(input: DecideInput): Decision {
   const boundaries = input.boundaries ?? DEFAULT_BOUNDARIES;
   const quotas = input.quotas ?? {};
   const prefs = input.prefs ?? {};
+  const blocked = new Set(prefs.blockedVendors ?? []);
   const cls = classify(input.task);
   const reasons: string[] = [];
 
@@ -212,7 +209,7 @@ export function decide(input: DecideInput): Decision {
   const harnessCandidates: HarnessCandidate[] = pool.map((h) => {
     const miss = missing(h, cls.requires);
     const ok = miss.length === 0 && (!prefs.forceHarness || h.id === prefs.forceHarness);
-    const best = ok ? bestModelForTier(h, wantedTier, input.catalogs, quotas, boundaries) : undefined;
+    const best = ok ? bestModelForTier(h, wantedTier, input.catalogs, quotas, boundaries, blocked) : undefined;
     let score = best ? best.score : -1;
     if (!ok) score = -1;
     else score -= h.tieBreak * 1.5;
@@ -242,7 +239,7 @@ export function decide(input: DecideInput): Decision {
       const retry = pool
         .filter((h) => hasAll(h, cls.requires) && (!prefs.forceHarness || h.id === prefs.forceHarness))
         .map((h) => {
-          const best = bestModelForTier(h, t, input.catalogs, quotas, boundaries);
+          const best = bestModelForTier(h, t, input.catalogs, quotas, boundaries, blocked);
           return best ? { h, best, score: best.score - h.tieBreak * 1.5 } : null;
         })
         .filter((x): x is { h: Harness; best: ModelCandidate; score: number } => x !== null)
