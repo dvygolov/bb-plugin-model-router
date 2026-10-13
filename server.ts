@@ -30,9 +30,6 @@ import { DEFAULT_FRONTIER_FLOOR, type Tier } from "./src/core/tiers";
 
 const PROVIDER_ID = "router";
 
-const TIERS: Tier[] = ["low", "middle", "subFrontier", "frontier"];
-
-/** Picker rows shown by the router provider. Ids are labels, never agent model ids. */
 const TIER_ROWS: { id: string; displayName: string; description: string }[] = [
   { id: "auto", displayName: "Auto — решить по задаче", description: "Роутер сам определит тир по тексту задачи" },
   { id: "frontier", displayName: "Frontier — текущие флагманы", description: "Только свежие флагманы OpenAI, Anthropic, Gemini, Grok" },
@@ -98,6 +95,33 @@ const SHORTLIST = shortlistJson as unknown as {
 const DEFAULT_SHORTLIST: Record<string, string[]> = Object.fromEntries(
   Object.entries(SHORTLIST.tiers).map(([tier, entries]) => [tier, entries.map((e) => e.model)]),
 );
+
+/**
+ * id модели → харнес, который её запускает. Нужно, чтобы понять ручное прижатие:
+ * в пикере рядом с моделью показан харнес, и выбор такой строки означает «взять
+ * именно эту пару».
+ */
+const HARNESS_OF_ID = new Map<string, string>();
+{
+  const labelToProvider: Record<string, string> = {
+    omp: "acp-omp",
+    hermes: "acp-hermes-agent",
+    opencode: "acp-opencode",
+  };
+  for (const entries of Object.values(SHORTLIST.tiers)) {
+    for (const entry of entries) {
+      for (const [label, ids] of Object.entries(entry.idsByHarness ?? {})) {
+        const provider = labelToProvider[label];
+        if (!provider) continue;
+        for (const id of ids) if (!HARNESS_OF_ID.has(id)) HARNESS_OF_ID.set(id, provider);
+      }
+    }
+  }
+}
+
+const TIERS: Tier[] = ["low", "middle", "subFrontier", "frontier"];
+
+/** Picker rows shown by the router provider. Ids are labels, never agent model ids. */
 
 const CATALOGS: Record<string, string[]> = {};
 for (const [provider, models] of Object.entries(
@@ -277,6 +301,10 @@ export default function plugin(bb: BbPluginApi) {
   /** threadId → decision. Written when a message is queued, read on the hot path. */
   const decisions = new Map<string, Decision>();
 
+  /** Треды, которым уже выставили строку-пару, чтобы не писать в базу каждый ход. */
+  const pinApplied = new Set<string>();
+  let logPinFailure = true;
+
   async function resolveTask(text: string, inRepo = false): Promise<{ decision: Decision; judged: boolean }> {
     const cls = classify({ text, inRepo });
     const askJudge = judge();
@@ -352,11 +380,28 @@ export default function plugin(bb: BbPluginApi) {
     },
     deriveProviderOptions(context) {
       // Hot path: synchronous, no I/O. Everything heavy happened at queue time.
+      const pinnedHarness = HARNESS_OF_ID.get(context.model);
+      const pinned = pinnedHarness ? { harnessId: pinnedHarness, modelId: context.model } : null;
       const forcedTier = MODEL_TO_TIER[context.model];
       const cached = decisions.get(context.threadId);
 
-      let decision = cached;
-      if (!decision || (forcedTier && decision.tier !== forcedTier)) {
+      let decision: Decision;
+      if (pinned) {
+        // Ручное прижатие: пользователь сам выбрал пару «харнес · модель».
+        decision = decide({
+          task: { text: "" },
+          catalogs: CATALOGS,
+          quotas: effective.quotas,
+          prefs: {
+            allowedHarnesses: [pinned.harnessId],
+            blockedVendors: effective.blockedVendors,
+            ...(cached ? { forceTier: cached.tier } : {}),
+          },
+        });
+        decision = { ...decision, harnessId: pinned.harnessId, modelId: pinned.modelId };
+      } else if (cached && (!forcedTier || cached.tier === forcedTier)) {
+        decision = cached;
+      } else {
         decision = decide({
           task: { text: "" },
           catalogs: CATALOGS,
@@ -373,6 +418,23 @@ export default function plugin(bb: BbPluginApi) {
       const launchSpec =
         effective.launchSpecs[decision.harnessId] ?? DEFAULT_LAUNCH_SPECS[decision.harnessId];
       if (!launchSpec) return {};
+
+      const rowId = decision.modelId;
+      // Показываем выбор в интерфейсе: BB рисует в пикере модели то, что записано
+      // у треда. Провайдер остаётся «Router (auto)» — BB не даёт его менять у
+      // живого треда, — а вот поле модели становится «харнес · модель».
+      if (context.model !== rowId && !pinApplied.has(context.threadId)) {
+        pinApplied.add(context.threadId);
+        void bb.sdk.threads
+          .update({ threadId: context.threadId, model: rowId })
+          .catch((error: unknown) => {
+            pinApplied.delete(context.threadId);
+            if (logPinFailure) {
+              logPinFailure = false;
+              console.warn(`model-router: не удалось показать выбор в UI: ${String(error)}`);
+            }
+          });
+      }
 
       void bb.sdk.threads
         .updatePluginMetadata({

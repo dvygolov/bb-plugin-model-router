@@ -94,6 +94,8 @@ for (const [tier, entries] of Object.entries(SHORTLIST)) {
       harnesses,
       /** Конкретные id, которые роутер и сравнивает. */
       ids: harnesses.flatMap((h) => record.harnesses[h]),
+      /** Харнес (имя метки) → id модели в нём: нужно, чтобы показать пару в UI. */
+      idsByHarness: record.harnesses,
     });
   }
 }

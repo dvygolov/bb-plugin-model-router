@@ -126,6 +126,26 @@ subFrontier:
 If the shortlist has no candidate for a tier (model gone, everything blocked), the
 router falls back to the full catalog and says so in the decision reasons.
 
+## The choice shows up in the composer
+
+After the router decides, the thread's model switches to the real one, so the
+picker reads **`acp-omp · kimi-code/k3`** instead of `auto`. The catalog therefore
+offers, besides the five tier rows, one row per concrete model in the shortlist,
+named `<harness> · <model id>`.
+
+Two facts this rests on, both learned from BB's own answers:
+
+- BB validates a thread's model against the provider catalog and stores the value
+  it finds there — so the row's id has to *be* the model id (`zai/glm-5.3`), not a
+  pointer to it.
+- The **provider** cannot be switched on a live thread. BB refuses outright:
+  *"Model … is not available in this thread's router model catalog. Choose a model
+  offered by router; changing providers requires starting a new thread."* So the
+  thread stays on `Router (auto)` and the harness travels in the model row's name.
+
+A useful side effect: picking `acp-hermes-agent · zai:glm-5.3` from the picker
+pins exactly that pair and skips the router's own choice.
+
 ## Seeing the choice in chat
 
 The thread's first reply starts with one line naming what the router picked:

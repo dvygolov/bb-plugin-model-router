@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-12T21:19:29.140Z",
+ "generatedAt": "2026-10-13T05:33:15.618Z",
  "note": "Порядок внутри тира — приоритет. Правится в tools/build-shortlist.mjs или настройкой shortlist.",
  "tiers": {
   "frontier": [
@@ -28,7 +28,31 @@
      "opencode-go/kimi-k3",
      "kimi-for-coding-oauth/k3",
      "openrouter/moonshotai/kimi-k3"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "kimi-coding/k3",
+      "opencode-go/kimi-k3",
+      "openrouter/moonshotai/kimi-k3",
+      "openrouter/moonshotai/kimi-k3:batch"
+     ],
+     "omp": [
+      "kimi-code/k3",
+      "opencode-go/kimi-k3",
+      "openrouter/moonshotai/kimi-k3",
+      "openrouter/moonshotai/kimi-k3:batch"
+     ],
+     "hermes": [
+      "openrouter:moonshotai/kimi-k3",
+      "opencode-go:kimi-k3",
+      "kimi-oauth:k3"
+     ],
+     "opencode": [
+      "opencode-go/kimi-k3",
+      "kimi-for-coding-oauth/k3",
+      "openrouter/moonshotai/kimi-k3"
+     ]
+    }
    },
    {
     "model": "gpt-6.1-sol-pro",
@@ -47,7 +71,23 @@
      "openrouter/openai/gpt-6.1-sol-pro:batch",
      "openrouter:openai/gpt-6.1-sol-pro",
      "openrouter/openai/gpt-6.1-sol-pro"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "openrouter/openai/gpt-6.1-sol-pro",
+      "openrouter/openai/gpt-6.1-sol-pro:batch"
+     ],
+     "omp": [
+      "openrouter/openai/gpt-6.1-sol-pro",
+      "openrouter/openai/gpt-6.1-sol-pro:batch"
+     ],
+     "hermes": [
+      "openrouter:openai/gpt-6.1-sol-pro"
+     ],
+     "opencode": [
+      "openrouter/openai/gpt-6.1-sol-pro"
+     ]
+    }
    },
    {
     "model": "claude-opus-5.5",
@@ -66,7 +106,23 @@
      "openrouter/anthropic/claude-opus-5.5:batch",
      "openrouter:anthropic/claude-opus-5.5",
      "openrouter/anthropic/claude-opus-5.5"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "openrouter/anthropic/claude-opus-5.5",
+      "openrouter/anthropic/claude-opus-5.5:batch"
+     ],
+     "omp": [
+      "openrouter/anthropic/claude-opus-5.5",
+      "openrouter/anthropic/claude-opus-5.5:batch"
+     ],
+     "hermes": [
+      "openrouter:anthropic/claude-opus-5.5"
+     ],
+     "opencode": [
+      "openrouter/anthropic/claude-opus-5.5"
+     ]
+    }
    },
    {
     "model": "gemini-3.1-pro-preview",
@@ -89,7 +145,27 @@
      "gemini:gemini-3.1-pro-preview",
      "google/gemini-3.1-pro-preview",
      "openrouter/google/gemini-3.1-pro-preview"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "google/gemini-3.1-pro-preview",
+      "openrouter/google/gemini-3.1-pro-preview",
+      "openrouter/google/gemini-3.1-pro-preview:batch"
+     ],
+     "omp": [
+      "google/gemini-3.1-pro-preview",
+      "openrouter/google/gemini-3.1-pro-preview",
+      "openrouter/google/gemini-3.1-pro-preview:batch"
+     ],
+     "hermes": [
+      "openrouter:google/gemini-3.1-pro-preview",
+      "gemini:gemini-3.1-pro-preview"
+     ],
+     "opencode": [
+      "google/gemini-3.1-pro-preview",
+      "openrouter/google/gemini-3.1-pro-preview"
+     ]
+    }
    },
    {
     "model": "grok-4.7",
@@ -110,7 +186,25 @@
      "opencode-go:grok-4.7",
      "opencode-go/grok-4.7",
      "openrouter/x-ai/grok-4.7"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/grok-4.7",
+      "openrouter/x-ai/grok-4.7"
+     ],
+     "omp": [
+      "opencode-go/grok-4.7",
+      "openrouter/x-ai/grok-4.7"
+     ],
+     "hermes": [
+      "openrouter:x-ai/grok-4.7",
+      "opencode-go:grok-4.7"
+     ],
+     "opencode": [
+      "opencode-go/grok-4.7",
+      "openrouter/x-ai/grok-4.7"
+     ]
+    }
    }
   ],
   "subFrontier": [
@@ -139,7 +233,31 @@
      "opencode-go/glm-5.3",
      "openrouter/z-ai/glm-5.3",
      "zai/glm-5.3"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/glm-5.3",
+      "openrouter/z-ai/glm-5.3",
+      "openrouter/z-ai/glm-5.3:batch",
+      "zai/glm-5.3"
+     ],
+     "omp": [
+      "opencode-go/glm-5.3",
+      "openrouter/z-ai/glm-5.3",
+      "openrouter/z-ai/glm-5.3:batch",
+      "zai/glm-5.3"
+     ],
+     "hermes": [
+      "openrouter:z-ai/glm-5.3",
+      "zai:glm-5.3",
+      "opencode-go:glm-5.3"
+     ],
+     "opencode": [
+      "opencode-go/glm-5.3",
+      "openrouter/z-ai/glm-5.3",
+      "zai/glm-5.3"
+     ]
+    }
    },
    {
     "model": "deepseek-v4-pro",
@@ -160,7 +278,25 @@
      "opencode-go:deepseek-v4-pro",
      "opencode-go/deepseek-v4-pro",
      "openrouter/deepseek/deepseek-v4-pro"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/deepseek-v4-pro",
+      "openrouter/deepseek/deepseek-v4-pro"
+     ],
+     "omp": [
+      "opencode-go/deepseek-v4-pro",
+      "openrouter/deepseek/deepseek-v4-pro"
+     ],
+     "hermes": [
+      "openrouter:deepseek/deepseek-v4-pro",
+      "opencode-go:deepseek-v4-pro"
+     ],
+     "opencode": [
+      "opencode-go/deepseek-v4-pro",
+      "openrouter/deepseek/deepseek-v4-pro"
+     ]
+    }
    },
    {
     "model": "gpt-5.6-luna",
@@ -183,7 +319,27 @@
      "opencode-go:gpt-5.6-luna",
      "opencode-go/gpt-5.6-luna",
      "openrouter/openai/gpt-5.6-luna"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/gpt-5.6-luna",
+      "openrouter/openai/gpt-5.6-luna",
+      "openrouter/openai/gpt-5.6-luna:batch"
+     ],
+     "omp": [
+      "opencode-go/gpt-5.6-luna",
+      "openrouter/openai/gpt-5.6-luna",
+      "openrouter/openai/gpt-5.6-luna:batch"
+     ],
+     "hermes": [
+      "openai-codex:gpt-5.6-luna",
+      "opencode-go:gpt-5.6-luna"
+     ],
+     "opencode": [
+      "opencode-go/gpt-5.6-luna",
+      "openrouter/openai/gpt-5.6-luna"
+     ]
+    }
    },
    {
     "model": "glm-5.2",
@@ -210,7 +366,31 @@
      "opencode-go/glm-5.2",
      "openrouter/z-ai/glm-5.2",
      "zai/glm-5.2"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/glm-5.2",
+      "openrouter/z-ai/glm-5.2",
+      "zai/glm-5.2"
+     ],
+     "omp": [
+      "opencode-go/glm-5.2",
+      "openrouter/z-ai/glm-5.2",
+      "openrouter/z-ai/glm-5.2:batch",
+      "openrouter/z-ai/glm-5.2:free",
+      "zai/glm-5.2"
+     ],
+     "hermes": [
+      "openrouter:z-ai/glm-5.2",
+      "zai:glm-5.2",
+      "opencode-go:glm-5.2"
+     ],
+     "opencode": [
+      "opencode-go/glm-5.2",
+      "openrouter/z-ai/glm-5.2",
+      "zai/glm-5.2"
+     ]
+    }
    }
   ],
   "middle": [
@@ -239,7 +419,31 @@
      "opencode-go/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash",
      "zai/glm-5.3-flash"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/glm-5.3-flash",
+      "openrouter/z-ai/glm-5.3-flash",
+      "openrouter/z-ai/glm-5.3-flash:batch",
+      "zai/glm-5.3-flash"
+     ],
+     "omp": [
+      "opencode-go/glm-5.3-flash",
+      "openrouter/z-ai/glm-5.3-flash",
+      "openrouter/z-ai/glm-5.3-flash:batch",
+      "zai/glm-5.3-flash"
+     ],
+     "hermes": [
+      "openrouter:z-ai/glm-5.3-flash",
+      "zai:glm-5.3-flash",
+      "opencode-go:glm-5.3-flash"
+     ],
+     "opencode": [
+      "opencode-go/glm-5.3-flash",
+      "openrouter/z-ai/glm-5.3-flash",
+      "zai/glm-5.3-flash"
+     ]
+    }
    },
    {
     "model": "deepseek-v4.1-flash",
@@ -262,7 +466,27 @@
      "opencode-go:deepseek-v4.1-flash",
      "opencode-go/deepseek-v4.1-flash",
      "openrouter/deepseek/deepseek-v4.1-flash"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/deepseek-v4.1-flash",
+      "openrouter/deepseek/deepseek-v4.1-flash",
+      "openrouter/deepseek/deepseek-v4.1-flash:batch"
+     ],
+     "omp": [
+      "opencode-go/deepseek-v4.1-flash",
+      "openrouter/deepseek/deepseek-v4.1-flash",
+      "openrouter/deepseek/deepseek-v4.1-flash:batch"
+     ],
+     "hermes": [
+      "openrouter:deepseek/deepseek-v4.1-flash",
+      "opencode-go:deepseek-v4.1-flash"
+     ],
+     "opencode": [
+      "opencode-go/deepseek-v4.1-flash",
+      "openrouter/deepseek/deepseek-v4.1-flash"
+     ]
+    }
    },
    {
     "model": "mimo-v2.6-flash",
@@ -283,7 +507,25 @@
      "opencode-go:mimo-v2.6-flash",
      "opencode-go/mimo-v2.6-flash",
      "openrouter/xiaomi/mimo-v2.6-flash"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/mimo-v2.6-flash",
+      "openrouter/xiaomi/mimo-v2.6-flash"
+     ],
+     "omp": [
+      "opencode-go/mimo-v2.6-flash",
+      "openrouter/xiaomi/mimo-v2.6-flash"
+     ],
+     "hermes": [
+      "openrouter:xiaomi/mimo-v2.6-flash",
+      "opencode-go:mimo-v2.6-flash"
+     ],
+     "opencode": [
+      "opencode-go/mimo-v2.6-flash",
+      "openrouter/xiaomi/mimo-v2.6-flash"
+     ]
+    }
    },
    {
     "model": "qwen3.8-flash",
@@ -304,7 +546,25 @@
      "opencode-go:qwen3.8-flash",
      "opencode-go/qwen3.8-flash",
      "openrouter/qwen/qwen3.8-flash"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/qwen3.8-flash",
+      "openrouter/qwen/qwen3.8-flash"
+     ],
+     "omp": [
+      "opencode-go/qwen3.8-flash",
+      "openrouter/qwen/qwen3.8-flash"
+     ],
+     "hermes": [
+      "openrouter:qwen/qwen3.8-flash",
+      "opencode-go:qwen3.8-flash"
+     ],
+     "opencode": [
+      "opencode-go/qwen3.8-flash",
+      "openrouter/qwen/qwen3.8-flash"
+     ]
+    }
    },
    {
     "model": "minimax-m3",
@@ -327,7 +587,27 @@
      "opencode-go:minimax-m3",
      "opencode-go/minimax-m3",
      "openrouter/minimax/minimax-m3"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/minimax-m3",
+      "openrouter/minimax/minimax-m3"
+     ],
+     "omp": [
+      "opencode-go/minimax-m3",
+      "openrouter/minimax/minimax-m3",
+      "openrouter/minimax/minimax-m3:batch",
+      "openrouter/minimax/minimax-m3:free"
+     ],
+     "hermes": [
+      "openrouter:minimax/minimax-m3",
+      "opencode-go:minimax-m3"
+     ],
+     "opencode": [
+      "opencode-go/minimax-m3",
+      "openrouter/minimax/minimax-m3"
+     ]
+    }
    },
    {
     "model": "kimi-k2.7-code",
@@ -348,7 +628,25 @@
      "opencode-go:kimi-k2.7-code",
      "opencode-go/kimi-k2.7-code",
      "openrouter/moonshotai/kimi-k2.7-code"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/kimi-k2.7-code",
+      "openrouter/moonshotai/kimi-k2.7-code"
+     ],
+     "omp": [
+      "opencode-go/kimi-k2.7-code",
+      "openrouter/moonshotai/kimi-k2.7-code",
+      "openrouter/moonshotai/kimi-k2.7-code:batch"
+     ],
+     "hermes": [
+      "opencode-go:kimi-k2.7-code"
+     ],
+     "opencode": [
+      "opencode-go/kimi-k2.7-code",
+      "openrouter/moonshotai/kimi-k2.7-code"
+     ]
+    }
    },
    {
     "model": "mimo-v2.6-pro",
@@ -369,7 +667,25 @@
      "opencode-go:mimo-v2.6-pro",
      "opencode-go/mimo-v2.6-pro",
      "openrouter/xiaomi/mimo-v2.6-pro"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/mimo-v2.6-pro",
+      "openrouter/xiaomi/mimo-v2.6-pro"
+     ],
+     "omp": [
+      "opencode-go/mimo-v2.6-pro",
+      "openrouter/xiaomi/mimo-v2.6-pro"
+     ],
+     "hermes": [
+      "openrouter:xiaomi/mimo-v2.6-pro",
+      "opencode-go:mimo-v2.6-pro"
+     ],
+     "opencode": [
+      "opencode-go/mimo-v2.6-pro",
+      "openrouter/xiaomi/mimo-v2.6-pro"
+     ]
+    }
    },
    {
     "model": "deepseek-v4-flash-vision-exp",
@@ -390,7 +706,25 @@
      "opencode-go:deepseek-v4-flash-vision-exp",
      "opencode-go/deepseek-v4-flash-vision-exp",
      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/deepseek-v4-flash-vision-exp",
+      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
+     ],
+     "omp": [
+      "opencode-go/deepseek-v4-flash-vision-exp",
+      "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+      "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch"
+     ],
+     "hermes": [
+      "opencode-go:deepseek-v4-flash-vision-exp"
+     ],
+     "opencode": [
+      "opencode-go/deepseek-v4-flash-vision-exp",
+      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
+     ]
+    }
    }
   ],
   "low": [
@@ -403,7 +737,12 @@
     ],
     "ids": [
      "opencode/nemotron-3-ultra-free"
-    ]
+    ],
+    "idsByHarness": {
+     "opencode": [
+      "opencode/nemotron-3-ultra-free"
+     ]
+    }
    },
    {
     "model": "nemotron-3.5-lightning-free",
@@ -414,7 +753,12 @@
     ],
     "ids": [
      "opencode/nemotron-3.5-lightning-free"
-    ]
+    ],
+    "idsByHarness": {
+     "opencode": [
+      "opencode/nemotron-3.5-lightning-free"
+     ]
+    }
    },
    {
     "model": "mimo-v2.6-flash-free",
@@ -425,7 +769,12 @@
     ],
     "ids": [
      "opencode/mimo-v2.6-flash-free"
-    ]
+    ],
+    "idsByHarness": {
+     "opencode": [
+      "opencode/mimo-v2.6-flash-free"
+     ]
+    }
    },
    {
     "model": "step-5-preview-free",
@@ -441,7 +790,19 @@
      "opencode-go:step-5-preview-free",
      "opencode/step-5-preview-free",
      "opencode-go/step-5-preview-free"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/step-5-preview-free"
+     ],
+     "hermes": [
+      "opencode-go:step-5-preview-free"
+     ],
+     "opencode": [
+      "opencode/step-5-preview-free",
+      "opencode-go/step-5-preview-free"
+     ]
+    }
    },
    {
     "model": "longcat-2.5-preview-free",
@@ -457,7 +818,19 @@
      "opencode-go:longcat-2.5-preview-free",
      "opencode/longcat-2.5-preview-free",
      "opencode-go/longcat-2.5-preview-free"
-    ]
+    ],
+    "idsByHarness": {
+     "pi": [
+      "opencode-go/longcat-2.5-preview-free"
+     ],
+     "hermes": [
+      "opencode-go:longcat-2.5-preview-free"
+     ],
+     "opencode": [
+      "opencode/longcat-2.5-preview-free",
+      "opencode-go/longcat-2.5-preview-free"
+     ]
+    }
    }
   ]
  }

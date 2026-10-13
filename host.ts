@@ -20,6 +20,7 @@ import {
   experimental_defineProviderBridge,
 } from "@get-bb/plugin-sdk/provider-bridge";
 import { experimental_acpProviderBridge } from "@get-bb/plugin-sdk/provider-bridge/acp";
+import shortlistJson from "./src/core/shortlist.json";
 
 /** Methods whose params carry a model that must be resolved before launch. */
 const MODEL_BEARING = new Set(["thread/start", "thread/resume", "thread/fork", "turn/start"]);
@@ -134,6 +135,59 @@ function announce(threadId: string | undefined, options: CommandOptions): boolea
  * Список держим и здесь: `model/list` — каталожная команда, providerOptions у неё
  * может отсутствовать, поэтому полагаться только на них нельзя.
  */
+/** Метка харнеса в реестре → id провайдера в BB. */
+const HARNESS_PROVIDER: Record<string, string> = {
+  omp: "acp-omp",
+  hermes: "acp-hermes-agent",
+  opencode: "acp-opencode",
+};
+
+/**
+ * Строки пикера для конкретных моделей короткого списка.
+ *
+ * BB принимает смену модели треда только если значение есть в каталоге
+ * провайдера, и **хранит именно его** — поэтому id строки равен настоящему id
+ * модели. В имени показываем харнес, который её запускает: так выбранная пара
+ * становится видна в интерфейсе.
+ */
+function modelRows(): Record<string, unknown>[] {
+  const tiers = (
+    shortlistJson as {
+      tiers: Record<string, { model: string; purpose: string; idsByHarness: Record<string, string[]> }[]>;
+    }
+  ).tiers;
+  const seen = new Map<string, Record<string, unknown>>();
+  for (const entries of Object.values(tiers)) {
+    for (const entry of entries) {
+      for (const [label, ids] of Object.entries(entry.idsByHarness)) {
+        const provider = HARNESS_PROVIDER[label];
+        if (!provider) continue; // pi роутер не запускает: он не говорит на ACP
+        for (const id of ids) {
+          if (id.includes(":batch")) continue;
+          const existing = seen.get(id);
+          if (existing) {
+            // Один id может стоять в нескольких харнесах — соберём все метки.
+            const labels = new Set(String(existing.displayName).split(" · ")[0]!.split(", "));
+            labels.add(provider);
+            existing.displayName = `${[...labels].join(", ")} · ${id}`;
+            continue;
+          }
+          seen.set(id, {
+            id,
+            model: id,
+            displayName: `${provider} · ${id}`,
+            description: entry.purpose,
+            isDefault: false,
+            defaultReasoningEffort: "medium",
+            supportedReasoningEfforts: [{ reasoningEffort: "medium", description: "Medium" }],
+          });
+        }
+      }
+    }
+  }
+  return [...seen.values()];
+}
+
 const TIER_ROWS: Record<string, unknown>[] = [
   ["auto", "Auto — решить по задаче", "Роутер сам определит тир по тексту задачи"],
   ["frontier", "Frontier — текущие флагманы", "Свежие флагманы OpenAI, Anthropic, Gemini, Grok"],
@@ -193,8 +247,7 @@ export function rewriteModelLine(line: string): Rewrite {
   const context = { threadId, options };
 
   if (method === "model/list") {
-    const rows =
-      parseTierRows(options.providerOptions?.["routerModels"]) ?? TIER_ROWS;
+      const rows = [...TIER_ROWS, ...modelRows()];
     const id = (parsed as { id?: unknown }).id;
     if (typeof id === "string" || typeof id === "number") {
       io.sendResult(id, { models: rows, scope: "host", selectedOnlyModels: [] });
