@@ -97,6 +97,27 @@ registry has never seen. Resolution is a table lookup — no name parsing, which
 what silently broke twice before (once dropping `kimi-oauth:k3` out of
 Sub-Frontier, once reading a date as a version number).
 
+## The algorithm
+
+1. Take every model in the catalogs of the allowed harnesses.
+2. Drop every vendor that currently has no headroom — an exhausted subscription
+   takes *all* of its models out, not just one.
+3. From what is left, filter by what the task needs: input modalities (an attached
+   image means a text-only model is not a candidate) and the capability rules.
+4. Pick by cost, then hand the thread to a harness that can run the model.
+
+Cost is one number: `funding_cost + tiers_away`. Subscriptions cost nothing, so a
+subscription one tier away still beats credits at the requested tier; free models
+sit between subscriptions and paid credits so they cannot outrank a proper model
+for real work. Ties go to the stronger model.
+
+Live limits are what makes step 2 real: BB's own collector covers the providers it
+knows, and Z.ai, Kimi and OpenRouter come from the `extra-usage` plugin over
+cross-plugin RPC — Z.ai's limit is a *five-hour* window, which a static "16% this
+month" could never see. Both are re-read before every decision and once a minute.
+As a backstop, a 429 blocks that vendor until the reset time the provider itself
+reported.
+
 ## Where the money goes
 
 Subscriptions are spent first, credits last, and this is explicit rather than

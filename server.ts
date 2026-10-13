@@ -261,6 +261,149 @@ export default function plugin(bb: BbPluginApi) {
     judgeApiKey: { type: "string", label: "Судья: API-ключ", secret: true },
   });
 
+  /**
+   * Живые квоты из BB (`system.usageLimits`) — те же данные, что показывает
+   * `bb extra-usage`. Перекрывают статичные настройки: у Z.ai лимит пятичасовой,
+   * и статичный «месяц 16%» не замечал, что он выбран.
+   */
+  let liveQuotas: Record<string, QuotaState> = {};
+  let liveQuotasAt = 0;
+  let liveQuotasError = "";
+  let liveQuotasDebug = "";
+
+  /** "host_v9hnxzge4c:zai" / "Zai" / "openrouter" → наш ключ вендора. */
+  function vendorFromProviderId(rawId: string): string | null {
+    const tail = rawId.toLowerCase().split(/[:/]/).filter(Boolean).pop() ?? "";
+    if (!tail) return null;
+    return PROVIDER_ALIASES[tail] ?? (/(zai|kimi|openrouter|opencode)/.test(tail) ? tail.replace(/\s+/g, "-") : null);
+  }
+
+  const PROVIDER_ALIASES: Record<string, string> = {
+    zai: "zai",
+    "z.ai": "zai",
+    kimi: "kimi",
+    "kimi for coding": "kimi",
+    openrouter: "openrouter",
+    opencode: "opencode-go",
+    "opencode go": "opencode-go",
+    opencodego: "opencode-go",
+  };
+
+  const worstWindow = (windows: Record<string, unknown>[]): QuotaState | null => {
+    let worst: QuotaState | null = null;
+    for (const w of windows) {
+      const percent = typeof w["usedPercent"] === "number" ? (w["usedPercent"] as number) : 0;
+      if (!worst || percent > worst.percent) {
+        worst = {
+          percent,
+          window: (w["label"] as string) ?? (w["kind"] as string) ?? undefined,
+          resetsAt: (w["resetsAt"] as string) ?? undefined,
+          note: "живые данные BB",
+        };
+      }
+    }
+    return worst;
+  };
+
+  /**
+   * Z.ai, Kimi и OpenRouter BB сам не опрашивает — это умеет плагин extra-usage.
+   * Читаем его через межплагинный RPC: у Z.ai пятичасовое окно, и без этих данных
+   * роутер выбирал уже исчерпанную подписку.
+   */
+  async function refreshFromExtraUsage(): Promise<Record<string, QuotaState>> {
+    const out: Record<string, QuotaState> = {};
+    const callRpc = (
+      bb as unknown as {
+        sdk: { plugins: { callRpc: (args: Record<string, unknown>) => Promise<unknown> } };
+      }
+    ).sdk.plugins.callRpc.bind(
+      (bb as unknown as { sdk: { plugins: unknown } }).sdk.plugins,
+    );
+    const list = (await callRpc({
+      pluginId: "extra-usage",
+      method: "provider-usage.v1.listResources",
+      input: {},
+      outputSchema: z.unknown(),
+    })) as { resources?: Record<string, unknown>[] } | null;
+
+    for (const resource of list?.resources ?? []) {
+      const id = typeof resource["id"] === "string" ? (resource["id"] as string) : null;
+      if (!id) continue;
+      const vendor = vendorFromProviderId(
+        String(resource["label"] ?? resource["providerId"] ?? id),
+      );
+      if (!vendor) continue;
+      let observation: Record<string, unknown> | null = null;
+      try {
+        observation = (await callRpc({
+          pluginId: "extra-usage",
+          method: "provider-usage.v1.getResource",
+          input: { resourceId: id, refresh: false },
+          outputSchema: z.unknown(),
+        })) as Record<string, unknown> | null;
+      } catch {
+        continue; // один ресурс не прочитался — остальные важнее
+      }
+      const usage =
+        ((observation?.["usage"] ?? (observation?.["observation"] as Record<string, unknown>)?.["usage"]) ??
+          {}) as Record<string, unknown>;
+      if (usage["status"] !== "ok") continue;
+      const worst = worstWindow((usage["windows"] ?? []) as Record<string, unknown>[]);
+      if (worst) out[vendor] = { ...worst, note: "живые данные extra-usage" };
+    }
+    return out;
+  }
+
+  async function refreshLiveQuotas(): Promise<void> {
+    try {
+      // Ответ — запись «id провайдера → состояние», окна лежат прямо в ней.
+      const result = (await bb.sdk.system.usageLimits()) as Record<string, unknown> | null;
+      const next: Record<string, QuotaState> = {};
+      const seen: string[] = [];
+      for (const [rawId, rawValue] of Object.entries(result ?? {})) {
+        const value = (rawValue ?? {}) as Record<string, unknown>;
+        seen.push(`${rawId}:${String(value["status"])}`);
+        if (value["status"] !== "ok") continue;
+        const vendor = vendorFromProviderId(rawId);
+        if (!vendor) continue;
+        const windows = (value["windows"] ?? []) as Record<string, unknown>[];
+        // Берём самое исчерпанное окно: упёрлось любое — вендор недоступен.
+        let worst: QuotaState | null = null;
+        for (const w of windows) {
+          const percent = typeof w["usedPercent"] === "number" ? (w["usedPercent"] as number) : 0;
+          if (!worst || percent > worst.percent) {
+            worst = {
+              percent,
+              window: (w["label"] as string) ?? undefined,
+              resetsAt: (w["resetsAt"] as string) ?? undefined,
+              note: "живые данные BB",
+            };
+          }
+        }
+        if (worst) next[vendor] = worst;
+      }
+      // Плюс то, что BB сам не опрашивает: Z.ai, Kimi, OpenRouter.
+      let extra: Record<string, QuotaState> = {};
+      try {
+        extra = await refreshFromExtraUsage();
+      } catch (error) {
+        liveQuotasError = `extra-usage: ${String(error).slice(0, 200)}`;
+      }
+      const merged = { ...next, ...extra };
+      liveQuotasDebug =
+        `BB: ${seen.join(", ") || "—"}; extra-usage: ${Object.keys(extra).join(", ") || "—"}`.slice(0, 400);
+      if (Object.keys(merged).length > 0) {
+        liveQuotas = merged;
+        liveQuotasAt = Date.now();
+      }
+    } catch (error) {
+      liveQuotasError = String(error).slice(0, 400);
+    }
+  }
+
+  /** Статичные настройки + живые данные (живые важнее). */
+  const quotasNow = (): Record<string, QuotaState> => ({ ...effective.quotas, ...liveQuotas });
+
   let effective: EffectiveSettings = {
     harnesses: DEFAULT_HARNESSES,
     launchSpecs: DEFAULT_LAUNCH_SPECS,
@@ -308,6 +451,11 @@ export default function plugin(bb: BbPluginApi) {
 
   void readSettings();
   settings.onChange(() => void readSettings());
+  void refreshLiveQuotas();
+  // Раз в минуту: пятичасовые окна меняются быстро, а решение принимается на
+  // пути отправки — читать их там нельзя.
+  const quotaTimer = setInterval(() => void refreshLiveQuotas(), 60_000);
+  quotaTimer.unref?.();
 
   const judge = (): JudgeFn | null =>
     effective.judgeEnabled && effective.judgeApiKey
@@ -330,6 +478,11 @@ export default function plugin(bb: BbPluginApi) {
     inRepo = false,
     modalities: string[] = [],
   ): Promise<{ decision: Decision; judged: boolean }> {
+    // Квоты перечитываем перед решением, а не только по таймеру: пятичасовое
+    // окно меняется быстро, а на старте плагина SDK ещё не привязан и первый
+    // опрос не проходит.
+    if (Date.now() - liveQuotasAt > 30_000) await refreshLiveQuotas();
+
     const cls = classify({ text, inRepo, images: modalities.includes("image") ? 1 : 0 });
     const askJudge = judge();
     if (cls.confidence === "low" && askJudge) {
@@ -338,7 +491,7 @@ export default function plugin(bb: BbPluginApi) {
         const decision = decide({
           task: { text, inRepo },
           catalogs: CATALOGS,
-          quotas: effective.quotas,
+          quotas: quotasNow(),
           prefs: {
             allowedHarnesses: effective.harnesses,
             blockedVendors: effective.blockedVendors,
@@ -357,7 +510,7 @@ export default function plugin(bb: BbPluginApi) {
       decision: decide({
         task: { text, inRepo },
         catalogs: CATALOGS,
-        quotas: effective.quotas,
+        quotas: quotasNow(),
         prefs: {
           allowedHarnesses: effective.harnesses,
           blockedVendors: effective.blockedVendors,
@@ -419,7 +572,7 @@ export default function plugin(bb: BbPluginApi) {
         decision = decide({
           task: { text: "" },
           catalogs: CATALOGS,
-          quotas: effective.quotas,
+          quotas: quotasNow(),
           prefs: {
             allowedHarnesses: [pinned.harnessId],
             blockedVendors: effective.blockedVendors,
@@ -433,7 +586,7 @@ export default function plugin(bb: BbPluginApi) {
         decision = decide({
           task: { text: "" },
           catalogs: CATALOGS,
-          quotas: effective.quotas,
+          quotas: quotasNow(),
           prefs: {
             allowedHarnesses: effective.harnesses,
             blockedVendors: effective.blockedVendors,
@@ -530,6 +683,8 @@ export default function plugin(bb: BbPluginApi) {
    * вендора мёртвым и сбрасываем решение, чтобы следующий ход ушёл другим путём.
    * Без этого тред остаётся прикованным к тому, что не работает.
    */
+  const LIMIT_ERROR = /(rate.?limit|usage limit|quota|429|too many requests|лимит)/i;
+
   const CREDENTIAL_ERROR =
     /(not connected|no api key|api key or login|token refresh failed|unauthorized|invalid api key|authentication|истек|протух)/i;
 
@@ -540,6 +695,26 @@ export default function plugin(bb: BbPluginApi) {
     if (!decision) return;
     const errorInfo = (event as { errorInfo?: unknown }).errorInfo;
     const text = errorInfo ? JSON.stringify(errorInfo) : "";
+
+    // Лимит по факту: данные BB могли не успеть обновиться, а провайдер уже
+    // сказал «хватит» и назвал время сброса. Верим провайдеру.
+    if (LIMIT_ERROR.test(text)) {
+      const rateLimits = (event as { rateLimits?: { windows?: { resetsAtMs?: number | null }[] } })
+        .rateLimits;
+      const resetsAtMs = rateLimits?.windows?.find((w) => typeof w.resetsAtMs === "number")?.resetsAtMs;
+      liveQuotas = {
+        ...liveQuotas,
+        [decision.billingVendor]: {
+          percent: 100,
+          window: "до сброса",
+          resetsAt: resetsAtMs ? new Date(resetsAtMs).toISOString() : undefined,
+          note: "пойман 429",
+        },
+      };
+      decisions.delete(threadId);
+      void refreshLiveQuotas();
+    }
+
     if (!CREDENTIAL_ERROR.test(text)) return;
     if (effective.blockedVendors.includes(decision.billingVendor)) return;
 
@@ -662,12 +837,21 @@ export default function plugin(bb: BbPluginApi) {
           return { exitCode: 0, stdout: `Заблокированные вендоры: ${list}\nСнять: bb plugin config model-router set blockedVendors "[]"\n` };
         }
         case "quota": {
-          const lines = Object.entries(effective.quotas).map(
-            ([vendor, q]) => `${vendor.padEnd(24)} ${String(q.percent).padStart(3)}%  ${q.window ?? ""} ${
-              q.percent >= 100 ? "SKIP" : ""
-            } ${q.note ?? ""}`,
-          );
-          return { exitCode: 0, stdout: `${lines.join("\n")}\n` };
+          await refreshLiveQuotas();
+          const merged = quotasNow();
+          const lines = Object.entries(merged).map(([vendor, q]) => {
+            const live = liveQuotas[vendor] ? "live" : "настр.";
+            const reset = q.resetsAt ? ` сброс ${q.resetsAt}` : "";
+            return `${vendor.padEnd(24)} ${String(Math.round(q.percent)).padStart(3)}%  ${(q.window ?? "").padEnd(
+              8,
+            )} ${q.percent >= 100 ? "SKIP" : "    "} ${live}${reset ? ` ·${reset}` : ""} ${q.note ?? ""}`;
+          });
+          return {
+            exitCode: 0,
+            stdout: `данные от ${liveQuotasAt ? new Date(liveQuotasAt).toISOString() : "—"}\n${lines.join("\n")}\n${
+              liveQuotasError ? `ошибка чтения: ${liveQuotasError}\n` : ""
+            }${liveQuotasDebug ? `разбор: ${liveQuotasDebug}\n` : ""}`,
+          };
         }
         default:
           return {
