@@ -193,6 +193,7 @@ export function bestModelForTier(
   allowed: Set<string> | null = null,
   requiredModalities: string[] = [],
   modalitiesOf?: (id: string) => string[] | null,
+  out?: { allExhausted?: boolean },
 ): ModelCandidate | undefined {
   const ids = catalogs[h.id] ?? [];
   let eligible = ids
@@ -235,7 +236,14 @@ export function bestModelForTier(
     .filter((c) => !blocked.has(c.vendor))
     .map((c) => ({ ...c, viaShortlist, modalitiesUnconfirmed }))
     .sort((a, b) => b.score - a.score);
-  return candidates.find((c) => c.quotaPercent === null || c.quotaPercent < 100) ?? candidates[0];
+  const live = candidates.find((c) => c.quotaPercent === null || c.quotaPercent < 100);
+  if (!live && candidates.length > 0) {
+    // Все кандидаты упираются в исчерпанную подписку. Молча взять исчерпанного —
+    // значит гарантированно уронить тред (так и случилось с opencode-go).
+    // Лучше не предлагать этот тир вовсе: вызывающий спустится ниже.
+    if (out) out.allExhausted = true;
+  }
+  return live;
 }
 
 export function decide(input: DecideInput): Decision {
@@ -243,10 +251,12 @@ export function decide(input: DecideInput): Decision {
   const quotas = input.quotas ?? {};
   const prefs = input.prefs ?? {};
   const blocked = new Set(prefs.blockedVendors ?? []);
+  const modalities = prefs.requiredModalities ?? [];
   const allowedFor = (t: Tier): Set<string> | null => {
     const list = prefs.shortlist?.[t];
     return list && list.length > 0 ? new Set(list) : null;
   };
+
   const cls = classify(input.task);
   const reasons: string[] = [];
 
@@ -254,14 +264,8 @@ export function decide(input: DecideInput): Decision {
     cls.requires = [...new Set([...cls.requires, ...prefs.extraCapabilities])];
     reasons.push(`Судья добавил требования: ${prefs.extraCapabilities.join(", ")}`);
   }
-  if (prefs.forceTier) {
-    reasons.push(`Тир задан извне (судья или пикер): ${prefs.forceTier}`);
-  }
+  if (prefs.forceTier) reasons.push(`Тир задан извне (судья или пикер): ${prefs.forceTier}`);
   const wantedTier: Tier = prefs.forceTier ?? cls.tier;
-
-  reasons.push(
-    `Возможности: ${cls.requires.length ? cls.requires.join(", ") : "базовые (BB-инструменты)"}`,
-  );
 
   const pool = HARNESSES.filter(
     (h) =>
@@ -270,98 +274,205 @@ export function decide(input: DecideInput): Decision {
   );
   if (prefs.forceHarness) reasons.push(`Харнес задан вручную: ${prefs.forceHarness}`);
 
-  const harnessCandidates: HarnessCandidate[] = pool.map((h) => {
-    const miss = missing(h, cls.requires);
-    const ok = miss.length === 0 && (!prefs.forceHarness || h.id === prefs.forceHarness);
-    const best = ok
-      ? bestModelForTier(
-          h,
-          wantedTier,
-          input.catalogs,
-          quotas,
-          boundaries,
-          blocked,
-          allowedFor(wantedTier),
-          prefs.requiredModalities ?? [],
-          prefs.modalitiesOf,
-        )
-      : undefined;
-    let score = best ? best.score : -1;
-    if (!ok) score = -1;
-    else score -= h.tieBreak * 1.5;
-    return {
-      id: h.id,
-      ok: ok && Boolean(best),
-      missingCapabilities: miss,
-      best,
-      score,
-      why: miss.length
-        ? `не умеет: ${miss.join(", ")}`
-        : best
-          ? `может; лучший вариант тира ${cls.tier}: ${best.vendor} (${best.funding})`
-          : `не нашлось модели тира ${wantedTier} в каталоге`,
-    };
-  });
+  interface Attempt {
+    chosen: HarnessCandidate | null;
+    ordered: HarnessCandidate[];
+    tier: Tier;
+    downgradedFrom: Tier | null;
+    exhausted: boolean;
+  }
 
-  const ordered = [...harnessCandidates].sort((a, b) => b.score - a.score);
-  let chosen = ordered.find((c) => c.ok) ?? null;
-  let tier: Tier = wantedTier;
-  let downgradedFrom: Tier | null = null;
-
-  // Ничего не нашлось в нужном тире — спускаемся на тир ниже.
-  if (!chosen) {
-    for (let i = tierRank(wantedTier) - 1; i >= 0; i--) {
-      const t = TIERS[i] as Tier;
-      const retry = pool
-        .filter((h) => hasAll(h, cls.requires) && (!prefs.forceHarness || h.id === prefs.forceHarness))
-        .map((h) => {
-          const best = bestModelForTier(
+  /** Одна попытка: под этот набор требований и этот тир. */
+  const attempt = (requires: Capability[], wantsTier: Tier): Attempt => {
+    let exhausted = false;
+    const list: HarnessCandidate[] = pool.map((h) => {
+      const miss = missing(h, requires);
+      const ok = miss.length === 0 && (!prefs.forceHarness || h.id === prefs.forceHarness);
+      const exhaust = { allExhausted: false };
+      const best = ok
+        ? bestModelForTier(
             h,
-            t,
+            wantsTier,
             input.catalogs,
             quotas,
             boundaries,
             blocked,
-            allowedFor(t),
-            prefs.requiredModalities ?? [],
+            allowedFor(wantsTier),
+            modalities,
             prefs.modalitiesOf,
-          );
-          return best ? { h, best, score: best.score - h.tieBreak * 1.5 } : null;
-        })
-        .filter((x): x is { h: Harness; best: ModelCandidate; score: number } => x !== null)
-        .sort((a, b) => b.score - a.score);
-      if (retry.length) {
-        chosen = {
-          id: retry[0].h.id,
-          ok: true,
-          missingCapabilities: [],
-          best: retry[0].best,
-          score: retry[0].score,
-          why: `тир ${wantedTier} недоступен, спуск до ${t}`,
-        };
-        downgradedFrom = wantedTier;
-        tier = t;
-        reasons.push(`Ни в одном харнесе нет модели тира ${wantedTier} — спуск до ${t}`);
+            exhaust,
+          )
+        : undefined;
+      if (exhaust.allExhausted) exhausted = true;
+      let score = best ? best.score : -1;
+      if (!ok) score = -1;
+      else score -= h.tieBreak * 1.5;
+      return {
+        id: h.id,
+        ok: ok && Boolean(best),
+        missingCapabilities: miss,
+        best,
+        score,
+        why: miss.length
+          ? `не умеет: ${miss.join(", ")}`
+          : best
+            ? `может; лучший вариант тира ${wantsTier}: ${best.vendor} (${best.funding})`
+            : `не нашлось модели тира ${wantsTier} в каталоге`,
+      };
+    });
+
+    const ordered = [...list].sort((a, b) => b.score - a.score);
+    let chosen = ordered.find((c) => c.ok) ?? null;
+    let tier: Tier = wantsTier;
+    let downgradedFrom: Tier | null = null;
+
+    if (!chosen) {
+      for (let i = tierRank(wantsTier) - 1; i >= 0; i--) {
+        const t = TIERS[i] as Tier;
+        const retry = pool
+          .filter((h) => hasAll(h, requires) && (!prefs.forceHarness || h.id === prefs.forceHarness))
+          .map((h) => {
+            const best = bestModelForTier(
+              h,
+              t,
+              input.catalogs,
+              quotas,
+              boundaries,
+              blocked,
+              allowedFor(t),
+              modalities,
+              prefs.modalitiesOf,
+            );
+            return best ? { h, best, score: best.score - h.tieBreak * 1.5 } : null;
+          })
+          .filter((x): x is { h: Harness; best: ModelCandidate; score: number } => x !== null)
+          .sort((a, b) => b.score - a.score);
+        if (retry.length) {
+          chosen = {
+            id: retry[0].h.id,
+            ok: true,
+            missingCapabilities: [],
+            best: retry[0].best,
+            score: retry[0].score,
+            why: `тир ${wantsTier} недоступен, спуск до ${t}`,
+          };
+          downgradedFrom = wantsTier;
+          tier = t;
+          reasons.push(`Ни в одном харнесе нет доступной модели тира ${wantsTier} — спуск до ${t}`);
+          break;
+        }
+      }
+    }
+
+    return { chosen, ordered, tier, downgradedFrom, exhausted };
+  };
+
+  /**
+   * Требования ослабляются по одному, а не отклоняются целиком.
+   * Классификатор легко просит невозможное — например «скриншот» тянул
+   * computerUse, а картинка — vision, и ни один харнес не умеет и то и другое.
+   * Отказать в работе хуже, чем выполнить её чуть менее подходящим агентом.
+   */
+  const SOFT_GROUPS: Capability[][] = [
+    ["computerUse"],
+    ["browser", "browserOwnProfile", "web", "messaging", "cron", "delegation", "lsp"],
+    ["vision"],
+    ["codeEdit"],
+  ];
+  const levels: { label: string; requires: Capability[] }[] = [
+    { label: "как просили", requires: cls.requires },
+  ];
+  let working: Capability[] = cls.requires;
+  for (const group of SOFT_GROUPS) {
+    const next = working.filter((c) => !group.includes(c));
+    if (next.length === working.length) continue;
+    working = next;
+    levels.push({ label: `без ${group.join(", ")}`, requires: next });
+  }
+
+  let usedLevel: { label: string; requires: Capability[] } = levels[0]!;
+  let result = attempt(cls.requires, wantedTier);
+  if (!result.chosen) {
+    for (const level of levels.slice(1)) {
+      const retry = attempt(level.requires, wantedTier);
+      if (retry.chosen) {
+        result = retry;
+        usedLevel = level;
+        reasons.push(
+          `Требования ослаблены (${level.label}): харнеса, умеющего всё сразу, нет`,
+        );
         break;
       }
     }
   }
 
-  if (!chosen || !chosen.best) {
-    throw new Error(
-      "Не удалось подобрать модель: под требуемые возможности нет ни одного доступного кандидата",
-    );
+  if (result.chosen && result.exhausted && !result.downgradedFrom) {
+    reasons.push("В этом тире часть кандидатов упирается в исчерпанные подписки");
   }
+
+  // Какие требования реально легли в решение — это видно в причинах.
+  const appliedRequires = result.chosen ? usedLevel.requires : cls.requires;
+  reasons.push(
+    `Возможности: ${
+      appliedRequires.length ? appliedRequires.join(", ") : "базовые (BB-инструменты)"
+    }`,
+  );
+
+  // Последний рубеж: требования выполнить не удалось ничем. Работать всё равно
+  // надо — берём лучшего доступного и говорим об этом прямо.
+  if (!result.chosen) {
+    const fallback: { h: Harness; best: ModelCandidate; score: number }[] = [];
+    for (const h of pool) {
+      for (const id of input.catalogs[h.id] ?? []) {
+        if (id.includes(":batch") || isSpecializedModel(id)) continue;
+        const candidate = scoreModel(h, id, quotas, wantedTier);
+        if (blocked.has(candidate.vendor)) continue;
+        fallback.push({ h, best: candidate, score: candidate.score - h.tieBreak * 1.5 });
+      }
+    }
+    fallback.sort((a, b) => b.score - a.score);
+    const live = fallback.find((x) => x.best.quotaPercent === null || x.best.quotaPercent < 100);
+    const pick = live ?? fallback[0];
+    if (!pick) {
+      throw new Error("Ни один харнес не доступен: проверьте настройки плагина model-router");
+    }
+    reasons.push(
+      "Ни один харнес не выполняет требования задачи — взят лучший доступный вариант",
+    );
+    result = {
+      chosen: {
+        id: pick.h.id,
+        ok: true,
+        missingCapabilities: [],
+        best: pick.best,
+        score: pick.score,
+        why: "аварийный выбор: требования невыполнимы",
+      },
+      ordered: [],
+      tier: resolveTier(pick.best.id, boundaries).tier,
+      downgradedFrom: null,
+      exhausted: false,
+    };
+  }
+
+  const chosen = result.chosen;
+  if (!chosen || !chosen.best) {
+    throw new Error("Не удалось подобрать модель");
+  }
+  const tier = result.tier;
+  const downgradedFrom = result.downgradedFrom;
 
   reasons.push(
     `Тир: ${tier}${downgradedFrom ? ` (спуск с ${downgradedFrom})` : ""} — ${
       cls.reasons.find((r) => r.tier)?.note ?? "—"
     }`,
   );
-  if (prefs.requiredModalities?.length) {
+  if (modalities.length) {
     reasons.push(
-      `Требуются модальности: ${prefs.requiredModalities.join(", ")}${
-        chosen.best.modalitiesUnconfirmed ? " (подтвердить не удалось — выбран из тех, у кого модальности неизвестны)" : ""
+      `Требуются модальности: ${modalities.join(", ")}${
+        chosen.best.modalitiesUnconfirmed
+          ? " (подтвердить не удалось — выбран из тех, у кого модальности неизвестны)"
+          : ""
       }`,
     );
   }
@@ -372,12 +483,14 @@ export function decide(input: DecideInput): Decision {
   );
   reasons.push(
     `Харнес: ${chosen.id} — ${chosen.why}, перевес над следующим: ${
-      Math.round((chosen.score - (ordered.find((c) => c.ok && c.id !== chosen!.id)?.score ?? 0)) * 10) / 10
+      Math.round(
+        (chosen.score - (result.ordered.find((c) => c.ok && c.id !== chosen.id)?.score ?? 0)) * 10,
+      ) / 10
     }`,
   );
 
   const alternatives = (input.catalogs[chosen.id] ?? [])
-    .filter((id) => resolveTier(id, boundaries).tier === tier && id !== chosen!.best!.id)
+    .filter((id) => resolveTier(id, boundaries).tier === tier && id !== chosen.best!.id)
     .filter((id) => !isSpecializedModel(id) && !id.includes(":batch"))
     .map((id) => ({ id, s: qualityScore(id) }))
     .sort((a, b) => b.s - a.s)
@@ -393,7 +506,7 @@ export function decide(input: DecideInput): Decision {
     modelId: chosen.best.id,
     funding: chosen.best.funding,
     billingVendor: chosen.best.vendor,
-    harnessCandidates: ordered,
+    harnessCandidates: result.ordered,
     reasons,
     confidence: cls.confidence,
     alternatives,

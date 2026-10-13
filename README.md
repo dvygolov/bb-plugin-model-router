@@ -97,6 +97,26 @@ registry has never seen. Resolution is a table lookup — no name parsing, which
 what silently broke twice before (once dropping `kimi-oauth:k3` out of
 Sub-Frontier, once reading a date as a version number).
 
+## Requirements degrade instead of failing
+
+A classifier can ask for the impossible. "Screenshot" once pulled in
+`computerUse` while the attached image pulled in `vision`, and no harness has
+both — the decision threw and the turn never started.
+
+Three rules now keep that from happening:
+
+- an attached image no longer implies `computerUse`; only real desktop actions
+  do ("click with the mouse", "in the app", "by coordinates");
+- requirements are relaxed one group at a time (`computerUse`, then the domain
+  capabilities, then `vision`, then `codeEdit`) until some harness qualifies, and
+  the decision says which group was dropped;
+- if nothing qualifies at all, the router takes the best available option and
+  says so, rather than refusing to work.
+
+And an exhausted subscription is never chosen as a silent last resort: when every
+candidate of a tier is dead, that tier is skipped (and the decision says so)
+instead of launching a thread that is guaranteed to fail.
+
 ## Modalities
 
 A model that cannot read an image is not a candidate for a task that carries one,

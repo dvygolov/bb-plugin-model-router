@@ -67,7 +67,9 @@ const CAPABILITY_RULES: CapabilityRule[] = [
   {
     rule: "computer.use",
     capability: "computerUse",
-    re: /(скриншот|мыш(ь|ью)|кликни по|в приложении|в 1[Сс]|в excel|десктопн|gui|по координатам|через графический интерфейс)/i,
+    // Только действия с рабочим столом. Просто слово «скриншот» — это чаще
+    // «посмотри на картинку», и раньше оно звало computerUse зря.
+    re: /(сделай скриншот|сними скриншот|кликни (по|мышью)|нажми мышью|подвинь мышью|управляй (окном|мышью|приложением)|в приложении|в 1[Сс] |в excel|по координатам|через графический интерфейс)/i,
     note: "нужно управлять рабочим столом",
   },
   {
@@ -151,6 +153,15 @@ export function classify(signals: TaskSignals): Classification {
   for (const r of CAPABILITY_RULES) {
     const m = r.re.exec(text);
     if (m) {
+      // Картинку в задаче показали, а не просят управлять рабочим столом.
+      if (r.capability === "computerUse" && (signals.images ?? 0) > 0) {
+        reasons.push({
+          rule: "computerUse.suppressed",
+          matched: m[0].trim(),
+          note: "изображение приложено — управление рабочим столом не требуется",
+        });
+        continue;
+      }
       requires.add(r.capability);
       reasons.push({
         rule: r.rule,
