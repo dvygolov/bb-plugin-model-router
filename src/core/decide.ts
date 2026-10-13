@@ -56,6 +56,14 @@ export interface DecideInput {
      * Всё остальное из каталога не участвует.
      */
     shortlist?: Partial<Record<Tier, string[]>>;
+    /**
+     * Что должно уметь читать на входе: "image", "audio", "video".
+     * Если задача принесла картинку, текстовая модель не подходит, даже если
+     * она сильнее и дешевле.
+     */
+    requiredModalities?: string[];
+    /** Модальности модели по реестру. null — данных нет. */
+    modalitiesOf?: (id: string) => string[] | null;
     /** Порядок предпочтения харнесов при равных очках. */
     harnessOrder?: string[];
   };
@@ -69,6 +77,8 @@ export interface ModelCandidate {
   quotaPercent: number | null;
   /** Кандидат попал в выбор из короткого списка, а не из всего каталога. */
   viaShortlist: boolean;
+  /** Модальности не подтверждены реестром — выбран аварийно. */
+  modalitiesUnconfirmed?: boolean;
 }
 
 export interface HarnessCandidate {
@@ -181,12 +191,33 @@ export function bestModelForTier(
   boundaries: TierBoundaries,
   blocked: Set<string> = new Set(),
   allowed: Set<string> | null = null,
+  requiredModalities: string[] = [],
+  modalitiesOf?: (id: string) => string[] | null,
 ): ModelCandidate | undefined {
   const ids = catalogs[h.id] ?? [];
-  const eligible = ids
+  let eligible = ids
     .filter((id) => !id.includes(":batch")) // off-peak дешев, но медленнее — по умолчанию не берём
     .filter((id) => !isSpecializedModel(id))
     .filter((id) => resolveTier(id, boundaries).tier === tier);
+
+  // Модальности важнее тира: модель, которая не читает картинку, не подходит для
+  // задачи с картинкой. Сначала строгая проверка, и только если она не оставила
+  // никого — разрешаем модели с неизвестными модальностями (и признаёмся в этом).
+  let modalitiesUnconfirmed = false;
+  if (requiredModalities.length > 0 && modalitiesOf) {
+    const fits = (id: string, allowUnknown: boolean): boolean => {
+      const mods = modalitiesOf(id);
+      if (mods === null) return allowUnknown;
+      return requiredModalities.every((m) => mods.includes(m));
+    };
+    const strict = eligible.filter((id) => fits(id, false));
+    if (strict.length > 0) {
+      eligible = strict;
+    } else {
+      eligible = eligible.filter((id) => fits(id, true));
+      modalitiesUnconfirmed = true;
+    }
+  }
 
   // Короткий список сужает выбор; если для тира он пуст — берём весь каталог.
   let pool = eligible;
@@ -202,7 +233,7 @@ export function bestModelForTier(
   const candidates = pool
     .map((id) => scoreModel(h, id, quotas, tier))
     .filter((c) => !blocked.has(c.vendor))
-    .map((c) => ({ ...c, viaShortlist }))
+    .map((c) => ({ ...c, viaShortlist, modalitiesUnconfirmed }))
     .sort((a, b) => b.score - a.score);
   return candidates.find((c) => c.quotaPercent === null || c.quotaPercent < 100) ?? candidates[0];
 }
@@ -243,7 +274,17 @@ export function decide(input: DecideInput): Decision {
     const miss = missing(h, cls.requires);
     const ok = miss.length === 0 && (!prefs.forceHarness || h.id === prefs.forceHarness);
     const best = ok
-      ? bestModelForTier(h, wantedTier, input.catalogs, quotas, boundaries, blocked, allowedFor(wantedTier))
+      ? bestModelForTier(
+          h,
+          wantedTier,
+          input.catalogs,
+          quotas,
+          boundaries,
+          blocked,
+          allowedFor(wantedTier),
+          prefs.requiredModalities ?? [],
+          prefs.modalitiesOf,
+        )
       : undefined;
     let score = best ? best.score : -1;
     if (!ok) score = -1;
@@ -274,7 +315,17 @@ export function decide(input: DecideInput): Decision {
       const retry = pool
         .filter((h) => hasAll(h, cls.requires) && (!prefs.forceHarness || h.id === prefs.forceHarness))
         .map((h) => {
-          const best = bestModelForTier(h, t, input.catalogs, quotas, boundaries, blocked, allowedFor(t));
+          const best = bestModelForTier(
+            h,
+            t,
+            input.catalogs,
+            quotas,
+            boundaries,
+            blocked,
+            allowedFor(t),
+            prefs.requiredModalities ?? [],
+            prefs.modalitiesOf,
+          );
           return best ? { h, best, score: best.score - h.tieBreak * 1.5 } : null;
         })
         .filter((x): x is { h: Harness; best: ModelCandidate; score: number } => x !== null)
@@ -307,6 +358,13 @@ export function decide(input: DecideInput): Decision {
       cls.reasons.find((r) => r.tier)?.note ?? "—"
     }`,
   );
+  if (prefs.requiredModalities?.length) {
+    reasons.push(
+      `Требуются модальности: ${prefs.requiredModalities.join(", ")}${
+        chosen.best.modalitiesUnconfirmed ? " (подтвердить не удалось — выбран из тех, у кого модальности неизвестны)" : ""
+      }`,
+    );
+  }
   reasons.push(
     chosen.best.viaShortlist
       ? "Модель взята из короткого списка рабочих лошадок"

@@ -89,6 +89,17 @@ export function harnessNames(): string[] {
   return registry.harnesses;
 }
 
+/**
+ * Модальности модели по id конкретного харнеса. null — данных нет, и тогда
+ * вызывающий решает сам, рискнуть или отказаться.
+ */
+export function modalitiesForId(id: string): string[] | null {
+  const hit = byId.get(id);
+  if (!hit) return null;
+  const mods = byCanonical.get(hit.canonical)?.modalities ?? [];
+  return mods.length > 0 ? mods : null;
+}
+
 /** Конкретные id модели во всех харнесах. */
 export function idsForCanonical(canonical: string): string[] {
   const entry = byCanonical.get(canonical);

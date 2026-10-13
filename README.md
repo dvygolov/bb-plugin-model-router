@@ -97,6 +97,33 @@ registry has never seen. Resolution is a table lookup — no name parsing, which
 what silently broke twice before (once dropping `kimi-oauth:k3` out of
 Sub-Frontier, once reading a date as a version number).
 
+## Modalities
+
+A model that cannot read an image is not a candidate for a task that carries one,
+however strong or cheap it is. Every registry entry carries its input modalities,
+and the router filters on them:
+
+```
+$ bb route explain "разбери скриншот"
+модель: zai:glm-5.3                      ← текстовая, картинки не приложено
+
+$ bb route explain --image "разбери скриншот"
+модель: opencode-go:gpt-5.6-luna         ← умеет image, подписка OpenCode Go
+причины: Требуются модальности: image
+```
+
+Two details this needed:
+
+- Attachments do not arrive in the queued message — they arrive in the turn input
+  as a `localImage` block. The router reads them in the `message.dispatch` hook,
+  which runs before the provider is started, so the decision is corrected in time.
+- When no candidate has *confirmed* modalities, the router falls back to models
+  whose modalities are unknown and says so in the decision reasons, rather than
+  refusing to work at all.
+
+`bb route shortlist` prints each entry's modalities: `[file+image]`,
+`[audio+file+image+video]`, `[только текст]`.
+
 ## The shortlist
 
 A tier can hold five hundred models; choosing among all of them is unpredictable.

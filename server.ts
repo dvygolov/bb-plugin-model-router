@@ -24,6 +24,7 @@ import {
   describe as describeModel,
   generatedAt,
   idsForCanonical,
+  modalitiesForId,
   shortlistIds,
 } from "./src/core/registry";
 import { DEFAULT_FRONTIER_FLOOR, type Tier } from "./src/core/tiers";
@@ -164,6 +165,25 @@ function parseJson<T>(raw: string | undefined, fallback: T): T {
   }
 }
 
+/**
+ * Что за вложения пришли с сообщением: "image", "audio", "video".
+ * Блоки вложения различаются по типу, а не по расширению.
+ */
+export function messageModalities(content: unknown): string[] {
+  if (!Array.isArray(content)) return [];
+  const found = new Set<string>();
+  for (const block of content) {
+    if (typeof block !== "object" || block === null) continue;
+    const b = block as Record<string, unknown>;
+    const type = typeof b["type"] === "string" ? (b["type"] as string).toLowerCase() : "";
+    const mime = typeof b["mimeType"] === "string" ? (b["mimeType"] as string).toLowerCase() : "";
+    if (type.includes("image") || mime.startsWith("image/")) found.add("image");
+    else if (type.includes("audio") || mime.startsWith("audio/")) found.add("audio");
+    else if (type.includes("video") || mime.startsWith("video/")) found.add("video");
+  }
+  return [...found];
+}
+
 /** Text of a queued message, flattened from its blocks. */
 export function messageText(content: unknown): string {
   if (!Array.isArray(content)) return "";
@@ -301,12 +321,16 @@ export default function plugin(bb: BbPluginApi) {
   /** threadId → decision. Written when a message is queued, read on the hot path. */
   const decisions = new Map<string, Decision>();
 
-  /** Треды, которым уже выставили строку-пару, чтобы не писать в базу каждый ход. */
-  const pinApplied = new Set<string>();
+  /** threadId → какую модель уже выставили в UI, чтобы не писать в базу каждый ход. */
+  const pinApplied = new Map<string, string>();
   let logPinFailure = true;
 
-  async function resolveTask(text: string, inRepo = false): Promise<{ decision: Decision; judged: boolean }> {
-    const cls = classify({ text, inRepo });
+  async function resolveTask(
+    text: string,
+    inRepo = false,
+    modalities: string[] = [],
+  ): Promise<{ decision: Decision; judged: boolean }> {
+    const cls = classify({ text, inRepo, images: modalities.includes("image") ? 1 : 0 });
     const askJudge = judge();
     if (cls.confidence === "low" && askJudge) {
       const verdict = await askJudge(text);
@@ -319,6 +343,8 @@ export default function plugin(bb: BbPluginApi) {
             allowedHarnesses: effective.harnesses,
             blockedVendors: effective.blockedVendors,
             shortlist: effective.shortlistByTier,
+            requiredModalities: modalities,
+            modalitiesOf: modalitiesForId,
             forceTier: verdict.tier,
             extraCapabilities: verdict.capabilities,
           },
@@ -336,6 +362,8 @@ export default function plugin(bb: BbPluginApi) {
           allowedHarnesses: effective.harnesses,
           blockedVendors: effective.blockedVendors,
           shortlist: effective.shortlistByTier,
+          requiredModalities: modalities,
+          modalitiesOf: modalitiesForId,
         },
       }),
       judged: false,
@@ -423,8 +451,8 @@ export default function plugin(bb: BbPluginApi) {
       // Показываем выбор в интерфейсе: BB рисует в пикере модели то, что записано
       // у треда. Провайдер остаётся «Router (auto)» — BB не даёт его менять у
       // живого треда, — а вот поле модели становится «харнес · модель».
-      if (context.model !== rowId && !pinApplied.has(context.threadId)) {
-        pinApplied.add(context.threadId);
+      if (context.model !== rowId && pinApplied.get(context.threadId) !== rowId) {
+        pinApplied.set(context.threadId, rowId);
         void bb.sdk.threads
           .update({ threadId: context.threadId, model: rowId })
           .catch((error: unknown) => {
@@ -464,13 +492,33 @@ export default function plugin(bb: BbPluginApi) {
     },
   });
 
+  /**
+   * Вложения приходят не в очередь сообщения, а в input хода — поэтому о
+   * картинке узнаём здесь. Хук выполняется до того, как провайдер запущен, так
+   * что решение отсюда успевает попасть в deriveProviderOptions.
+   */
+  bb.experimental_hooks.on("message.dispatch", async (ctx) => {
+    try {
+      const modalities = messageModalities(ctx.input.blocks);
+      if (modalities.length > 0) {
+        const { decision } = await resolveTask(ctx.input.text ?? "", false, modalities);
+        decisions.set(ctx.thread.id, decision);
+      }
+    } catch {
+      // Политика не имеет права ломать отправку сообщения.
+    }
+    return { action: "proceed" };
+  });
+
   bb.events.on("message.queued", async ({ entry }) => {
     const threadId = (entry as { threadId?: string }).threadId;
     if (!threadId) return;
-    const text = messageText((entry as { content?: unknown }).content);
-    if (!text) return;
+    const content = (entry as { content?: unknown }).content;
+    const text = messageText(content);
+    const modalities = messageModalities(content);
+    if (!text && modalities.length === 0) return;
     try {
-      const { decision } = await resolveTask(text);
+      const { decision } = await resolveTask(text, false, modalities);
       decisions.set(threadId, decision);
     } catch {
       // Роутер не имеет права ломать отправку сообщения.
@@ -521,9 +569,10 @@ export default function plugin(bb: BbPluginApi) {
       const [command, ...rest] = argv;
       switch (command) {
         case "explain": {
-          const text = rest.join(" ").trim();
-          if (!text) return { exitCode: 2, stderr: 'Использование: bb route explain "<задача>"' };
-          const { decision, judged } = await resolveTask(text);
+          const wantsImage = rest.includes("--image");
+          const text = rest.filter((a) => a !== "--image").join(" ").trim();
+          if (!text) return { exitCode: 2, stderr: 'Использование: bb route explain [--image] "<задача>"' };
+          const { decision, judged } = await resolveTask(text, false, wantsImage ? ["image"] : []);
           return { exitCode: 0, stdout: `${summarize(decision)}\n${judged ? "(через судью)" : "(по правилам)"}\n` };
         }
         case "why": {
@@ -593,7 +642,14 @@ export default function plugin(bb: BbPluginApi) {
                   return q ? `${v} ${q.percent}%` : v;
                 });
               lines.push(
-                `  ${e.model.padEnd(30)} ${e.purpose}` +
+                `  ${e.model.padEnd(30)} ${e.purpose}${
+                  (() => {
+                    const mods = new Set(ids.map((id) => modalitiesForId(id)).flat().filter(Boolean) as string[]);
+                    return mods.size > 0
+                      ? `  [${[...mods].filter((m) => m !== "text").join("+") || "только текст"}]`
+                      : "  [модальности неизвестны]";
+                  })()
+                }` +
                   `${dead.length ? `  ⛔ ${dead.join(", ")}` : ""}\n` +
                   `      ${e.harnesses.join(", ")} · платит: ${pay.length ? pay.join(" / ") : "OpenRouter (кредиты)"}`,
               );
