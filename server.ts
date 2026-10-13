@@ -131,6 +131,13 @@ for (const [provider, models] of Object.entries(
   CATALOGS[provider] = models.map((m) => m.id).filter(Boolean);
 }
 
+/** Одно окно лимита: у Z.ai их два, у Kimi два, у OpenCode Go три. */
+interface QuotaWindow {
+  label: string;
+  percent: number;
+  resetsAt?: string;
+}
+
 interface EffectiveSettings {
   harnesses: string[];
   launchSpecs: typeof DEFAULT_LAUNCH_SPECS;
@@ -275,7 +282,11 @@ export default function plugin(bb: BbPluginApi) {
   function vendorFromProviderId(rawId: string): string | null {
     const tail = rawId.toLowerCase().split(/[:/]/).filter(Boolean).pop() ?? "";
     if (!tail) return null;
-    return PROVIDER_ALIASES[tail] ?? (/(zai|kimi|openrouter|opencode)/.test(tail) ? tail.replace(/\s+/g, "-") : null);
+    // BB зовёт OpenCode Go провайдером "acp-opencode" — подписка одна, ключ
+    // вендора в моделях другой. Без этого соответствия исчерпание Go терялось.
+    const aliased = PROVIDER_ALIASES[tail] ?? PROVIDER_ALIASES[tail.replace(/^acp-/, "")];
+    if (aliased) return aliased;
+    return null;
   }
 
   const PROVIDER_ALIASES: Record<string, string> = {
@@ -287,22 +298,34 @@ export default function plugin(bb: BbPluginApi) {
     opencode: "opencode-go",
     "opencode go": "opencode-go",
     opencodego: "opencode-go",
+    "acp-opencode": "opencode-go",
   };
 
-  const worstWindow = (windows: Record<string, unknown>[]): QuotaState | null => {
-    let worst: QuotaState | null = null;
-    for (const w of windows) {
+  /**
+   * Собираем ВСЕ окна вендора, а не только худшее: у Z.ai это пятичасовое и
+   * месячное, у Kimi — пятичасовое и недельное, у OpenCode Go — три. Исчерпание
+   * любого окна закрывает вендор целиком, а в объяснении должно быть видно, какое
+   * именно окно упирается и когда освободится.
+   */
+  const windowsOf = (raw: Record<string, unknown>[], note: string): QuotaState | null => {
+    const windows: QuotaWindow[] = [];
+    for (const w of raw) {
       const percent = typeof w["usedPercent"] === "number" ? (w["usedPercent"] as number) : 0;
-      if (!worst || percent > worst.percent) {
-        worst = {
-          percent,
-          window: (w["label"] as string) ?? (w["kind"] as string) ?? undefined,
-          resetsAt: (w["resetsAt"] as string) ?? undefined,
-          note: "живые данные BB",
-        };
-      }
+      windows.push({
+        label: (w["label"] as string) ?? (w["kind"] as string) ?? "окно",
+        percent,
+        resetsAt: (w["resetsAt"] as string) ?? undefined,
+      });
     }
-    return worst;
+    if (windows.length === 0) return null;
+    const binding = windows.reduce((a, b) => (b.percent > a.percent ? b : a));
+    return {
+      percent: binding.percent,
+      window: binding.label,
+      resetsAt: binding.resetsAt,
+      windows,
+      note,
+    };
   };
 
   /**
@@ -348,8 +371,11 @@ export default function plugin(bb: BbPluginApi) {
         ((observation?.["usage"] ?? (observation?.["observation"] as Record<string, unknown>)?.["usage"]) ??
           {}) as Record<string, unknown>;
       if (usage["status"] !== "ok") continue;
-      const worst = worstWindow((usage["windows"] ?? []) as Record<string, unknown>[]);
-      if (worst) out[vendor] = { ...worst, note: "живые данные extra-usage" };
+      const found = windowsOf(
+        (usage["windows"] ?? []) as Record<string, unknown>[],
+        "живые данные extra-usage",
+      );
+      if (found) out[vendor] = found;
     }
     return out;
   }
@@ -366,21 +392,11 @@ export default function plugin(bb: BbPluginApi) {
         if (value["status"] !== "ok") continue;
         const vendor = vendorFromProviderId(rawId);
         if (!vendor) continue;
-        const windows = (value["windows"] ?? []) as Record<string, unknown>[];
-        // Берём самое исчерпанное окно: упёрлось любое — вендор недоступен.
-        let worst: QuotaState | null = null;
-        for (const w of windows) {
-          const percent = typeof w["usedPercent"] === "number" ? (w["usedPercent"] as number) : 0;
-          if (!worst || percent > worst.percent) {
-            worst = {
-              percent,
-              window: (w["label"] as string) ?? undefined,
-              resetsAt: (w["resetsAt"] as string) ?? undefined,
-              note: "живые данные BB",
-            };
-          }
-        }
-        if (worst) next[vendor] = worst;
+        const found = windowsOf(
+          (value["windows"] ?? []) as Record<string, unknown>[],
+          "живые данные BB",
+        );
+        if (found) next[vendor] = found;
       }
       // Плюс то, что BB сам не опрашивает: Z.ai, Kimi, OpenRouter.
       let extra: Record<string, QuotaState> = {};
@@ -390,6 +406,20 @@ export default function plugin(bb: BbPluginApi) {
         liveQuotasError = `extra-usage: ${String(error).slice(0, 200)}`;
       }
       const merged = { ...next, ...extra };
+
+      // Одна подписка живёт под разными именами: Kimi у pi — kimi-coding, у omp —
+      // kimi-code, у opencode — kimi-for-coding-oauth, у hermes — kimi-oauth.
+      // Окна у них общие, иначе часть путей считалась бы по статичным цифрам.
+      const KIMI_NAMES = [
+        "kimi-coding",
+        "kimi-code",
+        "kimi-oauth",
+        "kimi-for-coding-oauth",
+        "kimi-for-coding",
+      ];
+      const kimiLive = merged["kimi"];
+      if (kimiLive) for (const name of KIMI_NAMES) merged[name] = kimiLive;
+
       liveQuotasDebug =
         `BB: ${seen.join(", ") || "—"}; extra-usage: ${Object.keys(extra).join(", ") || "—"}`.slice(0, 400);
       if (Object.keys(merged).length > 0) {
@@ -839,13 +869,26 @@ export default function plugin(bb: BbPluginApi) {
         case "quota": {
           await refreshLiveQuotas();
           const merged = quotasNow();
-          const lines = Object.entries(merged).map(([vendor, q]) => {
+          const lines: string[] = [];
+          for (const [vendor, q] of Object.entries(merged)) {
             const live = liveQuotas[vendor] ? "live" : "настр.";
-            const reset = q.resetsAt ? ` сброс ${q.resetsAt}` : "";
-            return `${vendor.padEnd(24)} ${String(Math.round(q.percent)).padStart(3)}%  ${(q.window ?? "").padEnd(
-              8,
-            )} ${q.percent >= 100 ? "SKIP" : "    "} ${live}${reset ? ` ·${reset}` : ""} ${q.note ?? ""}`;
-          });
+            if (q.windows && q.windows.length > 0) {
+              lines.push(`${vendor}  ${live}`);
+              for (const w of q.windows) {
+                lines.push(
+                  `    ${(w.label ?? "окно").padEnd(10)} ${String(Math.round(w.percent)).padStart(3)}%  ${
+                    w.percent >= 100 ? "исчерпано" : "         "
+                  }${w.resetsAt ? ` сброс ${w.resetsAt}` : ""}`,
+                );
+              }
+            } else {
+              lines.push(
+                `${vendor.padEnd(24)} ${String(Math.round(q.percent)).padStart(3)}%  ${(q.window ?? "").padEnd(
+                  8,
+                )} ${q.percent >= 100 ? "SKIP" : "    "} ${live}${q.note ?? ""}`,
+              );
+            }
+          }
           return {
             exitCode: 0,
             stdout: `данные от ${liveQuotasAt ? new Date(liveQuotasAt).toISOString() : "—"}\n${lines.join("\n")}\n${

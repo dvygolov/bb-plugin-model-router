@@ -29,9 +29,13 @@ import {
 } from "./tiers";
 
 export interface QuotaState {
+  /** Худшее окно вендора: по нему видно, упёрся ли лимит. */
   percent: number;
+  /** Имя этого окна — «5 hours», «Weekly», «Monthly», «Credits». */
   window?: string;
   resetsAt?: string;
+  /** Все окна вендора: лимитов у него несколько, и любой может упереться. */
+  windows?: { label: string; percent: number; resetsAt?: string }[];
   note?: string;
 }
 

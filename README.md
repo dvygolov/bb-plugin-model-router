@@ -111,6 +111,26 @@ subscription one tier away still beats credits at the requested tier; free model
 sit between subscriptions and paid credits so they cannot outrank a proper model
 for real work. Ties go to the stronger model.
 
+**Every window counts.** A vendor has several ceilings at once: OpenCode Go has a
+five-hour, a weekly and a monthly one; Kimi has five-hour and weekly; Z.ai has
+five-hour and monthly. Hitting *any* of them closes the whole vendor — all of its
+models — and the decision names the window that is binding and when it frees up:
+
+```
+opencode-go  live
+    5 hour       0%
+    Weekly       0%
+    Monthly    100%  исчерпано  сброс 2026-10-22T08:30:33.000Z
+```
+
+One subscription lives under several names — Kimi is `kimi-coding` in pi,
+`kimi-code` in omp, `kimi-oauth` in hermes, `kimi-for-coding-oauth` in opencode —
+so the live windows are fanned out across all of them rather than leaving some
+paths on the static numbers. BB reports OpenCode Go under the provider id
+`acp-opencode`, which maps to the `opencode-go` model prefix; before that mapping
+existed, Go's exhaustion was recorded under a key no model matches and was
+invisible to the router.
+
 Live limits are what makes step 2 real: BB's own collector covers the providers it
 knows, and Z.ai, Kimi and OpenRouter come from the `extra-usage` plugin over
 cross-plugin RPC — Z.ai's limit is a *five-hour* window, which a static "16% this
