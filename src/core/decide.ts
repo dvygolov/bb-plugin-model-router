@@ -407,7 +407,12 @@ export function decide(input: DecideInput): Decision {
   }
 
   if (result.chosen && result.exhausted && !result.downgradedFrom) {
-    reasons.push("В этом тире часть кандидатов упирается в исчерпанные подписки");
+    const c = result.chosen.best;
+    reasons.push(
+      c && c.funding === "credits"
+        ? "Подписки в этом тире исчерпаны — берём OpenRouter (кредиты)"
+        : "В этом тире часть кандидатов упирается в исчерпанные подписки",
+    );
   }
 
   // Какие требования реально легли в решение — это видно в причинах.

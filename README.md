@@ -97,6 +97,24 @@ registry has never seen. Resolution is a table lookup — no name parsing, which
 what silently broke twice before (once dropping `kimi-oauth:k3` out of
 Sub-Frontier, once reading a date as a version number).
 
+## Where the money goes
+
+Subscriptions are spent first, credits last, and this is explicit rather than
+implied by a score:
+
+| Order | Source | Why here |
+| --- | --- | --- |
+| 1 | `subscription`, `oauth-plan` | already paid for; the whole point of the router |
+| 2 | `free` | genuinely free |
+| 3 | `api-key` | per token on a Google/Groq key |
+| 4 | `credits` | OpenRouter, the only source that bills in real time |
+
+An exhausted subscription is not a candidate at all — it is skipped, and the
+decision says so. When every subscription in a tier is exhausted, the **same
+tier** is served from OpenRouter credits rather than dropping a level, and the
+decision reads *"Подписки в этом тире исчерпаны — берём OpenRouter (кредиты)"*.
+Descending a tier happens only when the tier has nothing live in it at all.
+
 ## Requirements degrade instead of failing
 
 A classifier can ask for the impossible. "Screenshot" once pulled in
