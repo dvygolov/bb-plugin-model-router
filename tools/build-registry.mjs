@@ -64,6 +64,7 @@ const FAMILY_PREFIX = {
   tencent: "hy",
   stepfun: "step",
   meta: "llama",
+  muse: "muse",
   mistralai: "mistral",
   nvidia: "nemotron",
   cohere: "command",
@@ -100,6 +101,7 @@ const FAMILY_ALIASES = [
   ["longcat", "longcat"],
   ["llama", "meta"],
   ["meta", "meta"],
+  ["muse", "muse"],
   ["mistral", "mistralai"],
   ["mixtral", "mistralai"],
   ["nemotron", "nvidia"],
@@ -128,11 +130,13 @@ const FRONTIER_MODELS = [
   "claude-sonnet-5.5",
   "gemini-3.1-pro-preview",
   "gemini-3.1-pro-preview-customtools",
+  "gemini-4-argon",
   "grok-4.7",
   "grok-4.6",
   "grok-4.5",
   "kimi-k3",
   "kimi-k3-256k",
+  "muse-wonder",
 ];
 
 const SUB_FRONTIER_MODELS = [

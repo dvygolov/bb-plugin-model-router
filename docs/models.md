@@ -1,6 +1,6 @@
 # Доступные модели и их имена в харнесах
 
-Сгенерировано 2026-10-12T21:16:01.779Z. Не редактировать руками — `node tools/build-registry.mjs --markdown`.
+Сгенерировано 2026-10-14T12:09:40.115Z. Не редактировать руками — `node tools/build-registry.mjs --markdown`.
 
 | Модель | Тир | Контекст | Умеет | pi | omp | hermes | opencode |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -9,28 +9,30 @@
 | `claude-sonnet-5.5` | frontier | 1000k | — | `openrouter/anthropic/claude-sonnet-5.5`<br>`openrouter/anthropic/claude-sonnet-5.5:batch` | `openrouter/anthropic/claude-sonnet-5.5`<br>`openrouter/anthropic/claude-sonnet-5.5:batch` | `openrouter:anthropic/claude-sonnet-5.5` | `openrouter/anthropic/claude-sonnet-5.5` |
 | `gemini-3.1-pro-preview` | frontier | 1049k | код, агентные задачи, рассуждения, изображения | `google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview:batch` | `google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview:batch` | `openrouter:google/gemini-3.1-pro-preview`<br>`gemini:gemini-3.1-pro-preview` | `google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview` |
 | `gemini-3.1-pro-preview-customtools` | frontier | 1049k | — | `google/gemini-3.1-pro-preview-customtools`<br>`openrouter/google/gemini-3.1-pro-preview-customtools` | `google/gemini-3.1-pro-preview-customtools`<br>`openrouter/google/gemini-3.1-pro-preview-customtools` | — | `google/gemini-3.1-pro-preview-customtools`<br>`openrouter/google/gemini-3.1-pro-preview-customtools` |
+| `gemini-4-argon` | frontier | 1049k | код, рассуждения, математика | — | `google/gemini-4-argon`<br>`openrouter/google/gemini-4-argon`<br>`openrouter/google/gemini-4-argon:batch` | `openrouter:google/gemini-4-argon`<br>`gemini:gemini-4-argon` | `google/gemini-4-argon`<br>`openrouter/google/gemini-4-argon` |
 | `gpt-6-astra-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-6-astra-pro`<br>`openrouter/openai/gpt-6-astra-pro:batch` | `openrouter/openai/gpt-6-astra-pro`<br>`openrouter/openai/gpt-6-astra-pro:batch` | `openrouter:openai/gpt-6-astra-pro` | `openrouter/openai/gpt-6-astra-pro` |
 | `gpt-6-luna-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-6-luna-pro`<br>`openrouter/openai/gpt-6-luna-pro:batch` | `openrouter/openai/gpt-6-luna-pro`<br>`openrouter/openai/gpt-6-luna-pro:batch` | `openrouter:openai/gpt-6-luna-pro` | `openrouter/openai/gpt-6-luna-pro` |
 | `gpt-6-sol` | frontier | 1050k | скорость | `openrouter/openai/gpt-6-sol`<br>`openrouter/openai/gpt-6-sol:batch` | `openrouter/openai/gpt-6-sol`<br>`openrouter/openai/gpt-6-sol:batch` | `openrouter:openai/gpt-6-sol`<br>`openai-codex:gpt-6-sol` | `openrouter/openai/gpt-6-sol` |
 | `gpt-6-sol-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-6-sol-pro`<br>`openrouter/openai/gpt-6-sol-pro:batch` | `openrouter/openai/gpt-6-sol-pro`<br>`openrouter/openai/gpt-6-sol-pro:batch` | `openrouter:openai/gpt-6-sol-pro` | `openrouter/openai/gpt-6-sol-pro` |
 | `gpt-6.1-sol` | frontier | 1050k | код, агентные задачи | `openrouter/openai/gpt-6.1-sol`<br>`openrouter/openai/gpt-6.1-sol:batch` | `openrouter/openai/gpt-6.1-sol`<br>`openrouter/openai/gpt-6.1-sol:batch` | `openrouter:openai/gpt-6.1-sol` | `openrouter/openai/gpt-6.1-sol` |
 | `gpt-6.1-sol-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-6.1-sol-pro`<br>`openrouter/openai/gpt-6.1-sol-pro:batch` | `openrouter/openai/gpt-6.1-sol-pro`<br>`openrouter/openai/gpt-6.1-sol-pro:batch` | `openrouter:openai/gpt-6.1-sol-pro` | `openrouter/openai/gpt-6.1-sol-pro` |
-| `grok-4.5` | frontier | 500k | код | `openrouter/x-ai/grok-4.5` | `opencode-go/grok-4.5`<br>`openrouter/x-ai/grok-4.5` | `opencode-go:grok-4.5` | `openrouter/x-ai/grok-4.5` |
-| `grok-4.6` | frontier | 500k | код | `opencode-go/grok-4.6`<br>`openrouter/x-ai/grok-4.6` | `opencode-go/grok-4.6`<br>`openrouter/x-ai/grok-4.6` | `openrouter:x-ai/grok-4.6`<br>`opencode-go:grok-4.6` | `opencode-go/grok-4.6`<br>`openrouter/x-ai/grok-4.6` |
-| `grok-4.7` | frontier | 500k | код, агентные задачи | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` | `openrouter:x-ai/grok-4.7`<br>`opencode-go:grok-4.7` | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` |
-| `kimi-k3` | frontier | 1049k | код, агентные задачи, рассуждения, изображения | `kimi-coding/k3`<br>`opencode-go/kimi-k3`<br>`openrouter/moonshotai/kimi-k3`<br>`openrouter/moonshotai/kimi-k3:batch` | `kimi-code/k3`<br>`opencode-go/kimi-k3`<br>`openrouter/moonshotai/kimi-k3`<br>`openrouter/moonshotai/kimi-k3:batch` | `openrouter:moonshotai/kimi-k3`<br>`opencode-go:kimi-k3`<br>`kimi-oauth:k3` | `opencode-go/kimi-k3`<br>`kimi-for-coding-oauth/k3`<br>`openrouter/moonshotai/kimi-k3` |
+| `grok-4.5` | frontier | 500k | код | `openrouter/x-ai/grok-4.5` | `openrouter/x-ai/grok-4.5`<br>`opencode-go/grok-4.5` | `opencode-go:grok-4.5` | `openrouter/x-ai/grok-4.5` |
+| `grok-4.6` | frontier | 500k | код | `opencode-go/grok-4.6`<br>`openrouter/x-ai/grok-4.6` | `openrouter/x-ai/grok-4.6`<br>`opencode-go/grok-4.6` | `openrouter:x-ai/grok-4.6`<br>`opencode-go:grok-4.6` | `opencode-go/grok-4.6`<br>`openrouter/x-ai/grok-4.6` |
+| `grok-4.7` | frontier | 500k | код, агентные задачи | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` | `openrouter/x-ai/grok-4.7`<br>`opencode-go/grok-4.7` | `openrouter:x-ai/grok-4.7`<br>`opencode-go:grok-4.7` | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` |
+| `kimi-k3` | frontier | 1049k | код, агентные задачи, рассуждения, изображения | `kimi-coding/k3`<br>`opencode-go/kimi-k3`<br>`openrouter/moonshotai/kimi-k3`<br>`openrouter/moonshotai/kimi-k3:batch` | `kimi-code/k3`<br>`openrouter/moonshotai/kimi-k3`<br>`openrouter/moonshotai/kimi-k3:batch`<br>`opencode-go/kimi-k3` | `openrouter:moonshotai/kimi-k3`<br>`opencode-go:kimi-k3`<br>`kimi-oauth:k3` | `opencode-go/kimi-k3`<br>`kimi-for-coding-oauth/k3`<br>`openrouter/moonshotai/kimi-k3` |
 | `kimi-k3-256k` | frontier | — | — | `kimi-coding/k3-256k` | `kimi-code/k3-256k` | `kimi-oauth:k3-256k` | `kimi-for-coding-oauth/k3-256k` |
-| `deepseek-v4-pro` | subFrontier | 1049k | код, рассуждения, длинный контекст | `opencode-go/deepseek-v4-pro`<br>`openrouter/deepseek/deepseek-v4-pro` | `opencode-go/deepseek-v4-pro`<br>`openrouter/deepseek/deepseek-v4-pro` | `openrouter:deepseek/deepseek-v4-pro`<br>`opencode-go:deepseek-v4-pro` | `opencode-go/deepseek-v4-pro`<br>`openrouter/deepseek/deepseek-v4-pro` |
+| `muse-wonder` | frontier | 1049k | агентные задачи, рассуждения, изображения, видео | — | `openrouter/meta/muse-wonder` | — | `openrouter/meta/muse-wonder` |
+| `deepseek-v4-pro` | subFrontier | 1049k | код, рассуждения, длинный контекст | `opencode-go/deepseek-v4-pro`<br>`openrouter/deepseek/deepseek-v4-pro` | `openrouter/deepseek/deepseek-v4-pro`<br>`opencode-go/deepseek-v4-pro` | `openrouter:deepseek/deepseek-v4-pro`<br>`opencode-go:deepseek-v4-pro` | `opencode-go/deepseek-v4-pro`<br>`openrouter/deepseek/deepseek-v4-pro` |
 | `deepseek-v4-pro-0813` | subFrontier | 1049k | — | `openrouter/deepseek/deepseek-v4-pro-0813` | `openrouter/deepseek/deepseek-v4-pro-0813`<br>`openrouter/deepseek/deepseek-v4-pro-0813:batch` | `openrouter:deepseek/deepseek-v4-pro-0813` | `openrouter/deepseek/deepseek-v4-pro-0813` |
 | `gemini-3.5-flash` | subFrontier | 1049k | код, агентные задачи, рассуждения, изображения | `google/gemini-3.5-flash`<br>`openrouter/google/gemini-3.5-flash`<br>`openrouter/google/gemini-3.5-flash:batch` | `google/gemini-3.5-flash`<br>`openrouter/google/gemini-3.5-flash`<br>`openrouter/google/gemini-3.5-flash:batch` | `gemini:gemini-3.5-flash` | `google/gemini-3.5-flash`<br>`openrouter/google/gemini-3.5-flash` |
 | `gemini-3.6-flash` | subFrontier | 1049k | код, агентные задачи | `google/gemini-3.6-flash`<br>`openrouter/google/gemini-3.6-flash`<br>`openrouter/google/gemini-3.6-flash:batch` | `google/gemini-3.6-flash`<br>`openrouter/google/gemini-3.6-flash`<br>`openrouter/google/gemini-3.6-flash:batch` | `gemini:gemini-3.6-flash` | `google/gemini-3.6-flash`<br>`openrouter/google/gemini-3.6-flash` |
 | `gemini-3.7-flash` | subFrontier | 1049k | код, агентные задачи, рассуждения, изображения, скорость | `google/gemini-3.7-flash`<br>`openrouter/google/gemini-3.7-flash`<br>`openrouter/google/gemini-3.7-flash:batch` | `google/gemini-3.7-flash`<br>`openrouter/google/gemini-3.7-flash`<br>`openrouter/google/gemini-3.7-flash:batch` | `openrouter:google/gemini-3.7-flash`<br>`gemini:gemini-3.7-flash` | `google/gemini-3.7-flash`<br>`openrouter/google/gemini-3.7-flash` |
 | `gemini-3.8-flash` | subFrontier | 1049k | код, агентные задачи, рассуждения | `google/gemini-3.8-flash`<br>`openrouter/google/gemini-3.8-flash`<br>`openrouter/google/gemini-3.8-flash:batch` | `google/gemini-3.8-flash`<br>`openrouter/google/gemini-3.8-flash`<br>`openrouter/google/gemini-3.8-flash:batch` | `openrouter:google/gemini-3.8-flash`<br>`gemini:gemini-3.8-flash` | `google/gemini-3.8-flash`<br>`openrouter/google/gemini-3.8-flash` |
-| `glm-5.2` | subFrontier | 1049k | код, агентные задачи, рассуждения, длинный контекст | `opencode-go/glm-5.2`<br>`openrouter/z-ai/glm-5.2`<br>`zai/glm-5.2` | `opencode-go/glm-5.2`<br>`openrouter/z-ai/glm-5.2`<br>`openrouter/z-ai/glm-5.2:batch`<br>`openrouter/z-ai/glm-5.2:free`<br>`zai/glm-5.2` | `openrouter:z-ai/glm-5.2`<br>`zai:glm-5.2`<br>`opencode-go:glm-5.2` | `opencode-go/glm-5.2`<br>`openrouter/z-ai/glm-5.2`<br>`zai/glm-5.2` |
-| `glm-5.3` | subFrontier | 1049k | код, агентные задачи, рассуждения, длинный контекст | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`openrouter/z-ai/glm-5.3:batch`<br>`zai/glm-5.3` | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`openrouter/z-ai/glm-5.3:batch`<br>`zai/glm-5.3` | `openrouter:z-ai/glm-5.3`<br>`zai:glm-5.3`<br>`opencode-go:glm-5.3` | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`zai/glm-5.3` |
+| `glm-5.2` | subFrontier | 1049k | код, агентные задачи, рассуждения, длинный контекст | `opencode-go/glm-5.2`<br>`openrouter/z-ai/glm-5.2`<br>`zai/glm-5.2` | `openrouter/z-ai/glm-5.2`<br>`openrouter/z-ai/glm-5.2:batch`<br>`openrouter/z-ai/glm-5.2:free`<br>`zai/glm-5.2`<br>`opencode-go/glm-5.2` | `openrouter:z-ai/glm-5.2`<br>`zai:glm-5.2`<br>`opencode-go:glm-5.2` | `opencode-go/glm-5.2`<br>`openrouter/z-ai/glm-5.2`<br>`zai/glm-5.2` |
+| `glm-5.3` | subFrontier | 1049k | код, агентные задачи, рассуждения, длинный контекст | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`openrouter/z-ai/glm-5.3:batch`<br>`zai/glm-5.3` | `openrouter/z-ai/glm-5.3`<br>`openrouter/z-ai/glm-5.3:batch`<br>`zai/glm-5.3`<br>`opencode-go/glm-5.3` | `openrouter:z-ai/glm-5.3`<br>`zai:glm-5.3`<br>`opencode-go:glm-5.3` | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`zai/glm-5.3` |
 | `glm-5.3-prime` | subFrontier | 1000k | скорость, длинный контекст | `openrouter/z-ai/glm-5.3-prime` | `openrouter/z-ai/glm-5.3-prime` | — | `openrouter/z-ai/glm-5.3-prime` |
 | `gpt-5.5-pro` | subFrontier | 1050k | рассуждения, длинный контекст | `openrouter/openai/gpt-5.5-pro`<br>`openrouter/openai/gpt-5.5-pro:batch` | `openrouter/openai/gpt-5.5-pro`<br>`openrouter/openai/gpt-5.5-pro:batch` | `openrouter:openai/gpt-5.5-pro` | `openrouter/openai/gpt-5.5-pro` |
-| `gpt-5.6-luna` | subFrontier | 1050k | агентные задачи, рассуждения, скорость | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch` | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch` | `openai-codex:gpt-5.6-luna`<br>`opencode-go:gpt-5.6-luna` | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna` |
+| `gpt-5.6-luna` | subFrontier | 1050k | агентные задачи, рассуждения, скорость | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch` | `openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch`<br>`opencode-go/gpt-5.6-luna` | `openai-codex:gpt-5.6-luna`<br>`opencode-go:gpt-5.6-luna` | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna` |
 | `gpt-5.6-luna-900k` | subFrontier | — | — | — | — | `openai-codex:gpt-5.6-luna-900k` | — |
 | `grok-4.3` | subFrontier | 1000k | агентные задачи, рассуждения, изображения | `openrouter/x-ai/grok-4.3`<br>`openrouter/x-ai/grok-4.3:batch` | `openrouter/x-ai/grok-4.3`<br>`openrouter/x-ai/grok-4.3:batch` | — | `openrouter/x-ai/grok-4.3` |
 | `aion-2.0` | middle | 131k | — | `openrouter/aion-labs/aion-2.0` | `openrouter/aion-labs/aion-2.0` | — | `openrouter/aion-labs/aion-2.0` |
@@ -40,7 +42,7 @@
 | `aion-3.5-mini` | middle | 262k | — | `openrouter/aion-labs/aion-3.5-mini` | `openrouter/aion-labs/aion-3.5-mini` | — | `openrouter/aion-labs/aion-3.5-mini` |
 | `aion-rp-llama-3.1-8b` | middle | 33k | — | — | — | — | `openrouter/aion-labs/aion-rp-llama-3.1-8b` |
 | `allam-2-7b` | middle | — | — | — | `groq/allam-2-7b` | — | `groq/allam-2-7b` |
-| `apodex-1.1-mini` | middle | 262k | код, агентные задачи, рассуждения, поиск и RAG | `openrouter/apodex/apodex-1.1-mini:free` | `openrouter/apodex/apodex-1.1-mini:free` | — | `openrouter/apodex/apodex-1.1-mini:free` |
+| `apodex-1.1-mini` | middle | — | — | `openrouter/apodex/apodex-1.1-mini:free` | `openrouter/apodex/apodex-1.1-mini:free` | — | — |
 | `aurora-alpha` | middle | — | — | — | `openrouter/openrouter/aurora-alpha` | — | — |
 | `auto` | middle | 2000k | — | `openrouter/auto`<br>`openrouter/openrouter/auto` | `openrouter/auto`<br>`openrouter/openrouter/auto` | — | `openrouter/openrouter/auto` |
 | `auto-beta` | middle | 2000k | — | `openrouter/openrouter/auto-beta` | `openrouter/openrouter/auto-beta` | — | — |
@@ -54,7 +56,7 @@
 | `claude-fable-5.1` | middle | 1000k | код, агентные задачи | `openrouter/anthropic/claude-fable-5.1`<br>`openrouter/anthropic/claude-fable-5.1:batch` | `openrouter/anthropic/claude-fable-5.1`<br>`openrouter/anthropic/claude-fable-5.1:batch` | `openrouter:anthropic/claude-fable-5.1` | `openrouter/anthropic/claude-fable-5.1` |
 | `claude-fable-latest` | middle | 1000k | — | `openrouter/~anthropic/claude-fable-latest` | `openrouter/~anthropic/claude-fable-latest` | — | `openrouter/~anthropic/claude-fable-latest` |
 | `claude-haiku-4.5` | middle | 200k | скорость | `openrouter/anthropic/claude-haiku-4.5`<br>`openrouter/anthropic/claude-haiku-4.5:batch` | `openrouter/anthropic/claude-haiku-4.5`<br>`openrouter/anthropic/claude-haiku-4.5:batch` | `openrouter:anthropic/claude-haiku-4.5` | `openrouter/anthropic/claude-haiku-4.5` |
-| `claude-haiku-5-5` | middle | — | — | `opencode-go/claude-haiku-5-5` | — | `opencode-go:claude-haiku-5-5` | `opencode-go/claude-haiku-5-5` |
+| `claude-haiku-5-5` | middle | — | — | `opencode-go/claude-haiku-5-5` | `opencode-go/claude-haiku-5-5` | `opencode-go:claude-haiku-5-5` | `opencode-go/claude-haiku-5-5` |
 | `claude-haiku-5.5` | middle | 1000k | код, скорость | `openrouter/anthropic/claude-haiku-5.5`<br>`openrouter/anthropic/claude-haiku-5.5:batch` | `openrouter/anthropic/claude-haiku-5.5`<br>`openrouter/anthropic/claude-haiku-5.5:batch` | `openrouter:anthropic/claude-haiku-5.5` | `openrouter/anthropic/claude-haiku-5.5` |
 | `claude-haiku-latest` | middle | 1000k | — | `openrouter/~anthropic/claude-haiku-latest` | `openrouter/~anthropic/claude-haiku-latest` | — | `openrouter/~anthropic/claude-haiku-latest` |
 | `claude-opus-4` | middle | — | — | — | `openrouter/anthropic/claude-opus-4` | — | — |
@@ -87,7 +89,7 @@
 | `deepseek-chat` | middle | 164k | код | `openrouter/deepseek/deepseek-chat` | `openrouter/deepseek/deepseek-chat` | — | `openrouter/deepseek/deepseek-chat` |
 | `deepseek-chat-v3-0324` | middle | 164k | — | `openrouter/deepseek/deepseek-chat-v3-0324` | `openrouter/deepseek/deepseek-chat-v3-0324` | — | `openrouter/deepseek/deepseek-chat-v3-0324` |
 | `deepseek-chat-v3.1` | middle | 164k | рассуждения, длинный контекст | `openrouter/deepseek/deepseek-chat-v3.1` | `openrouter/deepseek/deepseek-chat-v3.1` | — | `openrouter/deepseek/deepseek-chat-v3.1` |
-| `deepseek-flash` | middle | — | — | — | — | `opencode-go:deepseek-flash` | — |
+| `deepseek-flash` | middle | — | — | — | `opencode-go/deepseek-flash` | `opencode-go:deepseek-flash` | — |
 | `deepseek-flash-latest` | middle | 1049k | — | `openrouter/~deepseek/deepseek-flash-latest` | `openrouter/~deepseek/deepseek-flash-latest` | — | `openrouter/~deepseek/deepseek-flash-latest` |
 | `deepseek-pro-latest` | middle | 1049k | — | `openrouter/~deepseek/deepseek-pro-latest` | `openrouter/~deepseek/deepseek-pro-latest` | — | `openrouter/~deepseek/deepseek-pro-latest` |
 | `deepseek-r1` | middle | 64k | рассуждения | `openrouter/deepseek/deepseek-r1` | `openrouter/deepseek/deepseek-r1` | — | `openrouter/deepseek/deepseek-r1` |
@@ -98,11 +100,11 @@
 | `deepseek-v3.1-terminus` | middle | 164k | — | `openrouter/deepseek/deepseek-v3.1-terminus` | `openrouter/deepseek/deepseek-v3.1-terminus`<br>`openrouter/deepseek/deepseek-v3.1-terminus:exacto` | — | `openrouter/deepseek/deepseek-v3.1-terminus` |
 | `deepseek-v3.2` | middle | 164k | агентные задачи, рассуждения | `openrouter/deepseek/deepseek-v3.2` | `openrouter/deepseek/deepseek-v3.2` | — | `openrouter/deepseek/deepseek-v3.2` |
 | `deepseek-v3.2-exp` | middle | 164k | — | `openrouter/deepseek/deepseek-v3.2-exp` | `openrouter/deepseek/deepseek-v3.2-exp` | — | `openrouter/deepseek/deepseek-v3.2-exp` |
-| `deepseek-v4-flash` | middle | 1049k | скорость, длинный контекст | `opencode-go/deepseek-v4-flash`<br>`openrouter/deepseek/deepseek-v4-flash` | `opencode-go/deepseek-v4-flash`<br>`openrouter/deepseek/deepseek-v4-flash`<br>`openrouter/deepseek/deepseek-v4-flash:free` | `opencode-go:deepseek-v4-flash` | `opencode-go/deepseek-v4-flash`<br>`openrouter/deepseek/deepseek-v4-flash` |
+| `deepseek-v4-flash` | middle | 1049k | скорость, длинный контекст | `opencode-go/deepseek-v4-flash`<br>`openrouter/deepseek/deepseek-v4-flash` | `openrouter/deepseek/deepseek-v4-flash`<br>`openrouter/deepseek/deepseek-v4-flash:free`<br>`opencode-go/deepseek-v4-flash` | `opencode-go:deepseek-v4-flash` | `openrouter/deepseek/deepseek-v4-flash` |
 | `deepseek-v4-flash-0731` | middle | 1049k | код, рассуждения, изображения | `openrouter/deepseek/deepseek-v4-flash-0731` | `openrouter/deepseek/deepseek-v4-flash-0731`<br>`openrouter/deepseek/deepseek-v4-flash-0731:batch`<br>`openrouter/deepseek/deepseek-v4-flash-0731:free` | `openrouter:deepseek/deepseek-v4-flash-0731` | `openrouter/deepseek/deepseek-v4-flash-0731` |
 | `deepseek-v4-flash-latest` | middle | 1049k | — | `openrouter/~deepseek/deepseek-v4-flash-latest` | `openrouter/~deepseek/deepseek-v4-flash-latest` | — | `openrouter/~deepseek/deepseek-v4-flash-latest` |
-| `deepseek-v4-flash-vision-exp` | middle | 1049k | изображения | `opencode-go/deepseek-v4-flash-vision-exp`<br>`openrouter/deepseek/deepseek-v4-flash-vision-exp` | `opencode-go/deepseek-v4-flash-vision-exp`<br>`openrouter/deepseek/deepseek-v4-flash-vision-exp`<br>`openrouter/deepseek/deepseek-v4-flash-vision-exp:batch` | `opencode-go:deepseek-v4-flash-vision-exp` | `opencode-go/deepseek-v4-flash-vision-exp`<br>`openrouter/deepseek/deepseek-v4-flash-vision-exp` |
-| `deepseek-v4.1-flash` | middle | 1049k | код | `opencode-go/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash:batch` | `opencode-go/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash:batch` | `openrouter:deepseek/deepseek-v4.1-flash`<br>`opencode-go:deepseek-v4.1-flash` | `opencode-go/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash` |
+| `deepseek-v4-flash-vision-exp` | middle | 1049k | изображения | `opencode-go/deepseek-v4-flash-vision-exp`<br>`openrouter/deepseek/deepseek-v4-flash-vision-exp` | `openrouter/deepseek/deepseek-v4-flash-vision-exp`<br>`openrouter/deepseek/deepseek-v4-flash-vision-exp:batch`<br>`opencode-go/deepseek-v4-flash-vision-exp` | `opencode-go:deepseek-v4-flash-vision-exp` | `openrouter/deepseek/deepseek-v4-flash-vision-exp` |
+| `deepseek-v4.1-flash` | middle | 1049k | код | `opencode-go/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash:batch` | `openrouter/deepseek/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash:batch`<br>`opencode-go/deepseek-v4.1-flash` | `openrouter:deepseek/deepseek-v4.1-flash`<br>`opencode-go:deepseek-v4.1-flash` | `opencode-go/deepseek-v4.1-flash`<br>`openrouter/deepseek/deepseek-v4.1-flash` |
 | `default` | middle | — | — | — | — | `moa:default` | — |
 | `devstral-2512` | middle | 262k | код, агентные задачи | `openrouter/mistralai/devstral-2512` | `openrouter/mistralai/devstral-2512` | — | `openrouter/mistralai/devstral-2512` |
 | `devstral-medium` | middle | — | — | — | `openrouter/mistralai/devstral-medium` | — | — |
@@ -113,6 +115,7 @@
 | `ember-1` | middle | 1049k | рассуждения, поиск и RAG | `openrouter/fireworks/ember-1` | `openrouter/fireworks/ember-1` | — | `openrouter/fireworks/ember-1` |
 | `ernie-4.5-21b-a3b` | middle | — | — | — | `openrouter/baidu/ernie-4.5-21b-a3b` | — | — |
 | `ernie-4.5-vl-28b-a3b` | middle | — | — | — | `openrouter/baidu/ernie-4.5-vl-28b-a3b` | — | — |
+| `extract` | middle | 1000k | — | — | — | — | `openrouter/scaledown/extract` |
 | `free` | middle | 200k | — | `openrouter/openrouter/free` | `openrouter/openrouter/free` | — | `openrouter/openrouter/free` |
 | `fugu-max` | middle | 1000k | — | `openrouter/sakana/fugu-max` | `openrouter/sakana/fugu-max` | — | `openrouter/sakana/fugu-max` |
 | `fugu-ultra` | middle | 1000k | — | `openrouter/sakana/fugu-ultra` | `openrouter/sakana/fugu-ultra` | `openrouter:sakana/fugu-ultra` | `openrouter/sakana/fugu-ultra` |
@@ -156,6 +159,7 @@
 | `gemini-3.5-transcribe` | middle | — | — | — | `google/gemini-3.5-transcribe` | — | — |
 | `gemini-3.8-flash-lite-tts` | middle | — | — | — | `google/gemini-3.8-flash-lite-tts` | — | — |
 | `gemini-3.8-flash-tts` | middle | — | — | — | `google/gemini-3.8-flash-tts` | — | — |
+| `gemini-4-argon-contributor` | middle | — | — | — | `opencode-go/gemini-4-argon-contributor` | `opencode-go:gemini-4-argon-contributor` | `opencode-go/gemini-4-argon-contributor` |
 | `gemini-antigravity-preview-05-2026` | middle | — | — | — | `google/antigravity-preview-05-2026` | — | — |
 | `gemini-antigravity-preview-09-2026` | middle | — | — | — | `google/antigravity-preview-09-2026` | — | — |
 | `gemini-antigravity-preview-latest` | middle | — | — | — | `google/antigravity-preview-latest` | — | — |
@@ -204,11 +208,11 @@
 | `glm-4.7` | middle | 205k | код, рассуждения | `openrouter/z-ai/glm-4.7`<br>`zai/glm-4.7` | `openrouter/z-ai/glm-4.7`<br>`zai/glm-4.7` | `zai:glm-4.7` | `openrouter/z-ai/glm-4.7`<br>`zai/glm-4.7` |
 | `glm-4.7-flash` | middle | 200k | код, агентные задачи | `openrouter/z-ai/glm-4.7-flash` | `openrouter/z-ai/glm-4.7-flash`<br>`zai/glm-4.7-flash` | — | `openrouter/z-ai/glm-4.7-flash`<br>`zai/glm-4.7-flash` |
 | `glm-4.7-flashx` | middle | — | — | — | `zai/glm-4.7-flashx` | — | `zai/glm-4.7-flashx` |
-| `glm-5` | middle | 205k | код, агентные задачи | `openrouter/z-ai/glm-5` | `opencode-go/glm-5`<br>`openrouter/z-ai/glm-5`<br>`zai/glm-5` | `zai:glm-5`<br>`opencode-go:glm-5` | `openrouter/z-ai/glm-5`<br>`zai/glm-5` |
+| `glm-5` | middle | 205k | код, агентные задачи | `openrouter/z-ai/glm-5` | `openrouter/z-ai/glm-5`<br>`zai/glm-5`<br>`opencode-go/glm-5` | `zai:glm-5`<br>`opencode-go:glm-5` | `openrouter/z-ai/glm-5`<br>`zai/glm-5` |
 | `glm-5-turbo` | middle | 203k | скорость | `openrouter/z-ai/glm-5-turbo`<br>`zai/glm-5-turbo` | `openrouter/z-ai/glm-5-turbo`<br>`zai/glm-5-turbo` | `zai:glm-5-turbo` | `openrouter/z-ai/glm-5-turbo`<br>`zai/glm-5-turbo` |
-| `glm-5.1` | middle | 205k | код, агентные задачи | `openrouter/z-ai/glm-5.1` | `opencode-go/glm-5.1`<br>`openrouter/z-ai/glm-5.1`<br>`zai/glm-5.1` | `zai:glm-5.1`<br>`opencode-go:glm-5.1` | `openrouter/z-ai/glm-5.1`<br>`zai/glm-5.1` |
+| `glm-5.1` | middle | 205k | код, агентные задачи | `openrouter/z-ai/glm-5.1` | `openrouter/z-ai/glm-5.1`<br>`zai/glm-5.1`<br>`opencode-go/glm-5.1` | `zai:glm-5.1`<br>`opencode-go:glm-5.1` | `openrouter/z-ai/glm-5.1`<br>`zai/glm-5.1` |
 | `glm-5.2-highspeed` | middle | — | — | `zai/glm-5.2-highspeed` | — | — | — |
-| `glm-5.3-flash` | middle | 1049k | код, агентные задачи, изображения, длинный контекст | `opencode-go/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash:batch`<br>`zai/glm-5.3-flash` | `opencode-go/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash:batch`<br>`zai/glm-5.3-flash` | `openrouter:z-ai/glm-5.3-flash`<br>`zai:glm-5.3-flash`<br>`opencode-go:glm-5.3-flash` | `opencode-go/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash`<br>`zai/glm-5.3-flash` |
+| `glm-5.3-flash` | middle | 1049k | код, агентные задачи, изображения, длинный контекст | `opencode-go/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash:batch`<br>`zai/glm-5.3-flash` | `openrouter/z-ai/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash:batch`<br>`zai/glm-5.3-flash`<br>`opencode-go/glm-5.3-flash` | `openrouter:z-ai/glm-5.3-flash`<br>`zai:glm-5.3-flash`<br>`opencode-go:glm-5.3-flash` | `opencode-go/glm-5.3-flash`<br>`openrouter/z-ai/glm-5.3-flash`<br>`zai/glm-5.3-flash` |
 | `glm-5.3-flashx` | middle | 1049k | изображения, скорость | `openrouter/z-ai/glm-5.3-flashx` | `openrouter/z-ai/glm-5.3-flashx`<br>`zai/glm-5.3-flashx` | `openrouter:z-ai/glm-5.3-flashx`<br>`zai:glm-5.3-flashx` | `openrouter/z-ai/glm-5.3-flashx`<br>`zai/glm-5.3-flashx` |
 | `glm-5.3-highspeed` | middle | — | — | `zai/glm-5.3-highspeed` | — | — | — |
 | `glm-5v-turbo` | middle | 203k | код, агентные задачи, изображения, видео | `openrouter/z-ai/glm-5v-turbo` | `openrouter/z-ai/glm-5v-turbo`<br>`zai/glm-5v-turbo` | `zai:glm-5v-turbo` | `openrouter/z-ai/glm-5v-turbo`<br>`zai/glm-5v-turbo` |
@@ -267,7 +271,7 @@
 | `gpt-5.6-terra-900k` | middle | — | — | — | — | `openai-codex:gpt-5.6-terra-900k` | — |
 | `gpt-5.6-terra-pro` | middle | 1050k | рассуждения | `openrouter/openai/gpt-5.6-terra-pro`<br>`openrouter/openai/gpt-5.6-terra-pro:batch` | `openrouter/openai/gpt-5.6-terra-pro`<br>`openrouter/openai/gpt-5.6-terra-pro:batch` | — | `openrouter/openai/gpt-5.6-terra-pro` |
 | `gpt-6-astra` | middle | 1050k | код, агентные задачи, поиск и RAG | `openrouter/openai/gpt-6-astra`<br>`openrouter/openai/gpt-6-astra:batch` | `openrouter/openai/gpt-6-astra`<br>`openrouter/openai/gpt-6-astra:batch` | `openrouter:openai/gpt-6-astra` | `openrouter/openai/gpt-6-astra` |
-| `gpt-6-luna` | middle | 1050k | агентные задачи, скорость | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch` | `openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch` | `openrouter:openai/gpt-6-luna`<br>`openai-codex:gpt-6-luna`<br>`opencode-go:gpt-6-luna` | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna` |
+| `gpt-6-luna` | middle | 1050k | агентные задачи, скорость | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch` | `openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch`<br>`opencode-go/gpt-6-luna` | `openrouter:openai/gpt-6-luna`<br>`openai-codex:gpt-6-luna`<br>`opencode-go:gpt-6-luna` | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna` |
 | `gpt-6-luna-900k` | middle | — | — | — | — | `openai-codex:gpt-6-luna-900k` | — |
 | `gpt-6-sol-900k` | middle | — | — | — | — | `openai-codex:gpt-6-sol-900k` | — |
 | `gpt-astra-latest` | middle | 1050k | — | `openrouter/~openai/gpt-astra-latest` | `openrouter/~openai/gpt-astra-latest` | — | `openrouter/~openai/gpt-astra-latest` |
@@ -318,9 +322,9 @@
 | `hy-mt2-1.8b` | middle | 8k | — | — | — | — | `openrouter/tencent/hy-mt2-1.8b` |
 | `hy-mt2-30b-a3b` | middle | 8k | — | — | — | — | `openrouter/tencent/hy-mt2-30b-a3b` |
 | `hy-mt2-7b` | middle | 8k | — | — | — | — | `openrouter/tencent/hy-mt2-7b` |
-| `hy3` | middle | 262k | агентные задачи, рассуждения | `opencode-go/hy3`<br>`openrouter/tencent/hy3` | `opencode-go/hy3`<br>`openrouter/tencent/hy3`<br>`openrouter/tencent/hy3:free` | `openrouter:tencent/hy3`<br>`opencode-go:hy3` | `opencode-go/hy3`<br>`openrouter/tencent/hy3` |
+| `hy3` | middle | 262k | агентные задачи, рассуждения | `opencode-go/hy3`<br>`openrouter/tencent/hy3` | `openrouter/tencent/hy3`<br>`openrouter/tencent/hy3:free`<br>`opencode-go/hy3` | `openrouter:tencent/hy3`<br>`opencode-go:hy3` | `opencode-go/hy3`<br>`openrouter/tencent/hy3` |
 | `hy3-preview` | middle | 262k | агентные задачи, рассуждения | `openrouter/tencent/hy3-preview` | `openrouter/tencent/hy3-preview`<br>`openrouter/tencent/hy3-preview:free` | `opencode-go:hy3-preview` | `openrouter/tencent/hy3-preview` |
-| `hy4-preview` | middle | 1049k | код | `opencode-go/hy4-preview`<br>`openrouter/tencent/hy4-preview` | `opencode-go/hy4-preview`<br>`openrouter/tencent/hy4-preview` | `openrouter:tencent/hy4-preview`<br>`opencode-go:hy4-preview` | `opencode-go/hy4-preview`<br>`openrouter/tencent/hy4-preview` |
+| `hy4-preview` | middle | 1049k | код | `opencode-go/hy4-preview`<br>`openrouter/tencent/hy4-preview` | `openrouter/tencent/hy4-preview`<br>`opencode-go/hy4-preview` | `openrouter:tencent/hy4-preview`<br>`opencode-go:hy4-preview` | `opencode-go/hy4-preview`<br>`openrouter/tencent/hy4-preview` |
 | `inkling` | middle | 524k | код, агентные задачи, рассуждения, изображения | `openrouter/thinkingmachines/inkling`<br>`openrouter/thinkingmachines/inkling:free` | `openrouter/thinkingmachines/inkling`<br>`openrouter/thinkingmachines/inkling:batch`<br>`openrouter/thinkingmachines/inkling:free` | `openrouter:thinkingmachines/inkling:free` | `openrouter/thinkingmachines/inkling`<br>`openrouter/thinkingmachines/inkling:free` |
 | `inkling-small` | middle | 524k | изображения | `openrouter/thinkingmachines/inkling-small`<br>`openrouter/thinkingmachines/inkling-small:free` | `openrouter/thinkingmachines/inkling-small`<br>`openrouter/thinkingmachines/inkling-small:batch`<br>`openrouter/thinkingmachines/inkling-small:free` | `openrouter:thinkingmachines/inkling-small:free` | `openrouter/thinkingmachines/inkling-small`<br>`openrouter/thinkingmachines/inkling-small:free` |
 | `intellect-3` | middle | — | — | — | `openrouter/prime-intellect/intellect-3` | — | — |
@@ -338,13 +342,13 @@
 | `kimi-k2-instruct-0905` | middle | — | — | — | `groq/moonshotai/kimi-k2-instruct-0905` | — | — |
 | `kimi-k2-thinking` | middle | 262k | агентные задачи, рассуждения | `openrouter/moonshotai/kimi-k2-thinking` | `openrouter/moonshotai/kimi-k2-thinking` | — | `openrouter/moonshotai/kimi-k2-thinking` |
 | `kimi-k2-turbo-preview` | middle | — | — | — | `kimi-code/kimi-k2-turbo-preview` | — | — |
-| `kimi-k2.5` | middle | 262k | код, изображения | `openrouter/moonshotai/kimi-k2.5` | `kimi-code/kimi-k2.5`<br>`opencode-go/kimi-k2.5`<br>`openrouter/moonshotai/kimi-k2.5` | `opencode-go:kimi-k2.5` | `openrouter/moonshotai/kimi-k2.5` |
-| `kimi-k2.6` | middle | 262k | код, агентные задачи, изображения | `openrouter/moonshotai/kimi-k2.6` | `opencode-go/kimi-k2.6`<br>`openrouter/moonshotai/kimi-k2.6`<br>`openrouter/moonshotai/kimi-k2.6:free` | `opencode-go:kimi-k2.6` | `openrouter/moonshotai/kimi-k2.6` |
-| `kimi-k2.7-code` | middle | 262k | код, изображения, длинный контекст | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code` | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code:batch` | `opencode-go:kimi-k2.7-code` | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code` |
+| `kimi-k2.5` | middle | 262k | код, изображения | `openrouter/moonshotai/kimi-k2.5` | `kimi-code/kimi-k2.5`<br>`openrouter/moonshotai/kimi-k2.5`<br>`opencode-go/kimi-k2.5` | `opencode-go:kimi-k2.5` | `openrouter/moonshotai/kimi-k2.5` |
+| `kimi-k2.6` | middle | 262k | код, агентные задачи, изображения | `openrouter/moonshotai/kimi-k2.6` | `openrouter/moonshotai/kimi-k2.6`<br>`openrouter/moonshotai/kimi-k2.6:free`<br>`opencode-go/kimi-k2.6` | `opencode-go:kimi-k2.6` | `openrouter/moonshotai/kimi-k2.6` |
+| `kimi-k2.7-code` | middle | 262k | код, изображения, длинный контекст | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code` | `openrouter/moonshotai/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code:batch`<br>`opencode-go/kimi-k2.7-code` | `opencode-go:kimi-k2.7-code` | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code` |
 | `kimi-latest` | middle | 1049k | — | `openrouter/~moonshotai/kimi-latest` | `openrouter/~moonshotai/kimi-latest` | — | `openrouter/~moonshotai/kimi-latest` |
 | `l3-euryale-70b` | middle | — | — | — | `openrouter/sao10k/l3-euryale-70b` | — | — |
 | `l3-lunaris-8b` | middle | 8k | — | — | — | — | `openrouter/sao10k/l3-lunaris-8b` |
-| `l3.1-euryale-70b` | middle | 131k | — | `openrouter/sao10k/l3.1-euryale-70b` | `openrouter/sao10k/l3.1-euryale-70b` | — | `openrouter/sao10k/l3.1-euryale-70b` |
+| `l3.1-euryale-70b` | middle | 131k | — | — | `openrouter/sao10k/l3.1-euryale-70b` | — | `openrouter/sao10k/l3.1-euryale-70b` |
 | `l3.3-euryale-70b` | middle | 131k | — | — | — | — | `openrouter/sao10k/l3.3-euryale-70b` |
 | `laguna-m.1` | middle | — | — | — | `openrouter/poolside/laguna-m.1`<br>`openrouter/poolside/laguna-m.1:free` | — | — |
 | `laguna-s-2.1` | middle | 1049k | код | `openrouter/poolside/laguna-s-2.1`<br>`openrouter/poolside/laguna-s-2.1:free` | `openrouter/poolside/laguna-s-2.1`<br>`openrouter/poolside/laguna-s-2.1:free` | `openrouter:poolside/laguna-s-2.1:free` | `openrouter/poolside/laguna-s-2.1`<br>`openrouter/poolside/laguna-s-2.1:free` |
@@ -352,12 +356,13 @@
 | `laguna-xs.2` | middle | — | — | — | `openrouter/poolside/laguna-xs.2`<br>`openrouter/poolside/laguna-xs.2:free` | — | — |
 | `lfm-2.5-1.2b-thinking` | middle | — | — | — | `openrouter/liquid/lfm-2.5-1.2b-thinking:free` | — | — |
 | `lfm-2.5-2.6b` | middle | 66k | код, агентные задачи, рассуждения, длинный контекст, поиск и RAG | `openrouter/liquid/lfm-2.5-2.6b:free` | `openrouter/liquid/lfm-2.5-2.6b:free` | — | `openrouter/liquid/lfm-2.5-2.6b:free` |
+| `lfm-2.5-24b-a2b` | middle | 128k | рассуждения | — | `openrouter/liquid/lfm-2.5-24b-a2b` | — | `openrouter/liquid/lfm-2.5-24b-a2b` |
 | `ling-2.6-1t` | middle | — | — | — | `openrouter/inclusionai/ling-2.6-1t`<br>`openrouter/inclusionai/ling-2.6-1t:free` | — | — |
 | `ling-2.6-flash` | middle | — | — | — | `openrouter/inclusionai/ling-2.6-flash`<br>`openrouter/inclusionai/ling-2.6-flash:free` | — | — |
 | `ling-3.0-flash` | middle | 262k | агентные задачи | `openrouter/inclusionai/ling-3.0-flash` | `openrouter/inclusionai/ling-3.0-flash`<br>`openrouter/inclusionai/ling-3.0-flash:free` | — | `openrouter/inclusionai/ling-3.0-flash` |
-| `ling-3.0-flash-fin` | middle | 262k | — | `openrouter/inclusionai/ling-3.0-flash-fin` | `openrouter/inclusionai/ling-3.0-flash-fin`<br>`openrouter/inclusionai/ling-3.0-flash-fin:free` | — | `openrouter/inclusionai/ling-3.0-flash-fin` |
-| `ling-3.0-flash-sante` | middle | 262k | — | `openrouter/inclusionai/ling-3.0-flash-sante:free`<br>`openrouter/inclusionai/ling-3.0-flash-sante` | `openrouter/inclusionai/ling-3.0-flash-sante:free`<br>`openrouter/inclusionai/ling-3.0-flash-sante` | — | `openrouter/inclusionai/ling-3.0-flash-sante` |
-| `ling-3.0-flash-vl` | middle | 262k | — | `openrouter/inclusionai/ling-3.0-flash-vl` | `openrouter/inclusionai/ling-3.0-flash-vl`<br>`openrouter/inclusionai/ling-3.0-flash-vl:free` | — | `openrouter/inclusionai/ling-3.0-flash-vl` |
+| `ling-3.0-flash-fin` | middle | — | — | `openrouter/inclusionai/ling-3.0-flash-fin` | `openrouter/inclusionai/ling-3.0-flash-fin`<br>`openrouter/inclusionai/ling-3.0-flash-fin:free` | — | — |
+| `ling-3.0-flash-sante` | middle | — | — | `openrouter/inclusionai/ling-3.0-flash-sante` | `openrouter/inclusionai/ling-3.0-flash-sante`<br>`openrouter/inclusionai/ling-3.0-flash-sante:free` | — | — |
+| `ling-3.0-flash-vl` | middle | 131k | — | `openrouter/inclusionai/ling-3.0-flash-vl` | `openrouter/inclusionai/ling-3.0-flash-vl`<br>`openrouter/inclusionai/ling-3.0-flash-vl:free` | — | `openrouter/inclusionai/ling-3.0-flash-vl` |
 | `ling-3.0-tiny` | middle | — | — | — | `openrouter/inclusionai/ling-3.0-tiny:free` | — | — |
 | `ling-3.1-flash` | middle | 262k | рассуждения | `openrouter/inclusionai/ling-3.1-flash` | `openrouter/inclusionai/ling-3.1-flash` | — | `openrouter/inclusionai/ling-3.1-flash` |
 | `llama-3-8b-instruct` | middle | — | — | — | `openrouter/meta-llama/llama-3-8b-instruct` | — | — |
@@ -376,18 +381,11 @@
 | `llama-4-scout` | middle | 1311k | изображения | `openrouter/meta-llama/llama-4-scout` | `openrouter/meta-llama/llama-4-scout` | — | `openrouter/meta-llama/llama-4-scout` |
 | `llama-4-scout-17b-16e-instruct` | middle | — | — | — | `groq/meta-llama/llama-4-scout-17b-16e-instruct` | — | — |
 | `llama-guard-4-12b` | middle | 164k | изображения | — | — | — | `openrouter/meta-llama/llama-guard-4-12b` |
-| `llama-muse-glimmer-30b` | middle | 131k | агентные задачи, изображения | `openrouter/meta/muse-glimmer-30b` | `openrouter/meta/muse-glimmer-30b`<br>`openrouter/meta/muse-glimmer-30b:batch` | — | `openrouter/meta/muse-glimmer-30b` |
-| `llama-muse-spark-1.1` | middle | 1049k | агентные задачи, рассуждения, изображения, видео, длинный контекст | `openrouter/meta/muse-spark-1.1` | `openrouter/meta/muse-spark-1.1` | — | `openrouter/meta/muse-spark-1.1` |
-| `llama-muse-spark-1.2` | middle | 1049k | агентные задачи, рассуждения, изображения, видео, длинный контекст | `openrouter/meta/muse-spark-1.2` | `openrouter/meta/muse-spark-1.2` | `openrouter:meta/muse-spark-1.2` | `openrouter/meta/muse-spark-1.2` |
-| `llama-muse-spark-1.2-contributor` | middle | 1049k | рассуждения, дешевизна | `openrouter/meta/muse-spark-1.2-contributor` | `openrouter/meta/muse-spark-1.2-contributor` | `openrouter:meta/muse-spark-1.2-contributor` | `openrouter/meta/muse-spark-1.2-contributor` |
-| `llama-muse-spark-1.3` | middle | 1049k | код, агентные задачи, рассуждения, изображения | `openrouter/meta/muse-spark-1.3` | `openrouter/meta/muse-spark-1.3` | `openrouter:meta/muse-spark-1.3` | `openrouter/meta/muse-spark-1.3` |
-| `llama-muse-spark-1.3-contributor` | middle | 1049k | код, агентные задачи, рассуждения, изображения | `openrouter/meta/muse-spark-1.3-contributor` | `openrouter/meta/muse-spark-1.3-contributor` | `openrouter:meta/muse-spark-1.3-contributor` | `openrouter/meta/muse-spark-1.3-contributor` |
-| `llama-muse-wonder` | middle | 1049k | агентные задачи, рассуждения, изображения, видео | — | `openrouter/meta/muse-wonder` | — | `openrouter/meta/muse-wonder` |
 | `llama-prompt-guard-2-22m` | middle | — | — | — | `groq/meta-llama/llama-prompt-guard-2-22m` | — | `groq/meta-llama/llama-prompt-guard-2-22m` |
 | `llama-prompt-guard-2-86m` | middle | — | — | — | `groq/meta-llama/llama-prompt-guard-2-86m` | — | `groq/meta-llama/llama-prompt-guard-2-86m` |
 | `llama3-70b-8192` | middle | — | — | — | `groq/llama3-70b-8192` | — | — |
 | `llama3-8b-8192` | middle | — | — | — | `groq/llama3-8b-8192` | — | — |
-| `longcat-2.0` | middle | 1049k | код, агентные задачи | `opencode-go/longcat-2.0`<br>`openrouter/meituan/longcat-2.0` | `opencode-go/longcat-2.0`<br>`openrouter/meituan/longcat-2.0` | `opencode-go:longcat-2.0` | `opencode-go/longcat-2.0`<br>`openrouter/meituan/longcat-2.0` |
+| `longcat-2.0` | middle | 1049k | код, агентные задачи | `opencode-go/longcat-2.0`<br>`openrouter/meituan/longcat-2.0` | `openrouter/meituan/longcat-2.0`<br>`opencode-go/longcat-2.0` | `opencode-go:longcat-2.0` | `opencode-go/longcat-2.0`<br>`openrouter/meituan/longcat-2.0` |
 | `longcat-flash-chat` | middle | — | — | — | `openrouter/meituan/longcat-flash-chat` | — | — |
 | `magnum-v4-72b` | middle | 33k | — | — | — | — | `openrouter/anthracite-org/magnum-v4-72b` |
 | `mercury` | middle | — | — | — | `openrouter/inception/mercury` | — | — |
@@ -396,21 +394,21 @@
 | `mercury-2.5-preview` | middle | — | — | — | `openrouter/inception/mercury-2.5-preview` | — | — |
 | `mercury-coder` | middle | — | — | — | `openrouter/inception/mercury-coder` | — | — |
 | `mimo-v2-flash` | middle | — | — | — | `openrouter/xiaomi/mimo-v2-flash` | — | — |
-| `mimo-v2-omni` | middle | — | — | — | `opencode-go/mimo-v2-omni`<br>`openrouter/xiaomi/mimo-v2-omni` | `opencode-go:mimo-v2-omni` | — |
-| `mimo-v2-pro` | middle | — | — | — | `opencode-go/mimo-v2-pro`<br>`openrouter/xiaomi/mimo-v2-pro` | `opencode-go:mimo-v2-pro` | — |
-| `mimo-v2.5` | middle | 1050k | агентные задачи, изображения, видео | `opencode-go/mimo-v2.5`<br>`openrouter/xiaomi/mimo-v2.5` | `opencode-go/mimo-v2.5`<br>`openrouter/xiaomi/mimo-v2.5` | `opencode-go:mimo-v2.5` | `opencode-go/mimo-v2.5`<br>`openrouter/xiaomi/mimo-v2.5` |
-| `mimo-v2.5-pro` | middle | 1050k | код, агентные задачи | `opencode-go/mimo-v2.5-pro`<br>`openrouter/xiaomi/mimo-v2.5-pro` | `opencode-go/mimo-v2.5-pro`<br>`openrouter/xiaomi/mimo-v2.5-pro` | `openrouter:xiaomi/mimo-v2.5-pro`<br>`opencode-go:mimo-v2.5-pro` | `opencode-go/mimo-v2.5-pro`<br>`openrouter/xiaomi/mimo-v2.5-pro` |
-| `mimo-v2.6-flash` | middle | 1050k | — | `opencode-go/mimo-v2.6-flash`<br>`openrouter/xiaomi/mimo-v2.6-flash` | `opencode-go/mimo-v2.6-flash`<br>`openrouter/xiaomi/mimo-v2.6-flash` | `openrouter:xiaomi/mimo-v2.6-flash`<br>`opencode-go:mimo-v2.6-flash` | `opencode-go/mimo-v2.6-flash`<br>`openrouter/xiaomi/mimo-v2.6-flash` |
-| `mimo-v2.6-pro` | middle | 1050k | — | `opencode-go/mimo-v2.6-pro`<br>`openrouter/xiaomi/mimo-v2.6-pro` | `opencode-go/mimo-v2.6-pro`<br>`openrouter/xiaomi/mimo-v2.6-pro` | `openrouter:xiaomi/mimo-v2.6-pro`<br>`opencode-go:mimo-v2.6-pro` | `opencode-go/mimo-v2.6-pro`<br>`openrouter/xiaomi/mimo-v2.6-pro` |
+| `mimo-v2-omni` | middle | — | — | — | `openrouter/xiaomi/mimo-v2-omni`<br>`opencode-go/mimo-v2-omni` | `opencode-go:mimo-v2-omni` | — |
+| `mimo-v2-pro` | middle | — | — | — | `openrouter/xiaomi/mimo-v2-pro`<br>`opencode-go/mimo-v2-pro` | `opencode-go:mimo-v2-pro` | — |
+| `mimo-v2.5` | middle | 1050k | агентные задачи, изображения, видео | `opencode-go/mimo-v2.5`<br>`openrouter/xiaomi/mimo-v2.5` | `openrouter/xiaomi/mimo-v2.5`<br>`opencode-go/mimo-v2.5` | `opencode-go:mimo-v2.5` | `opencode-go/mimo-v2.5`<br>`openrouter/xiaomi/mimo-v2.5` |
+| `mimo-v2.5-pro` | middle | 1050k | код, агентные задачи | `opencode-go/mimo-v2.5-pro`<br>`openrouter/xiaomi/mimo-v2.5-pro` | `openrouter/xiaomi/mimo-v2.5-pro`<br>`opencode-go/mimo-v2.5-pro` | `openrouter:xiaomi/mimo-v2.5-pro`<br>`opencode-go:mimo-v2.5-pro` | `opencode-go/mimo-v2.5-pro`<br>`openrouter/xiaomi/mimo-v2.5-pro` |
+| `mimo-v2.6-flash` | middle | 1050k | — | `opencode-go/mimo-v2.6-flash`<br>`openrouter/xiaomi/mimo-v2.6-flash` | `openrouter/xiaomi/mimo-v2.6-flash`<br>`opencode-go/mimo-v2.6-flash` | `openrouter:xiaomi/mimo-v2.6-flash`<br>`opencode-go:mimo-v2.6-flash` | `opencode-go/mimo-v2.6-flash`<br>`openrouter/xiaomi/mimo-v2.6-flash` |
+| `mimo-v2.6-pro` | middle | 1050k | — | `opencode-go/mimo-v2.6-pro`<br>`openrouter/xiaomi/mimo-v2.6-pro` | `openrouter/xiaomi/mimo-v2.6-pro`<br>`opencode-go/mimo-v2.6-pro` | `openrouter:xiaomi/mimo-v2.6-pro`<br>`opencode-go:mimo-v2.6-pro` | `opencode-go/mimo-v2.6-pro`<br>`openrouter/xiaomi/mimo-v2.6-pro` |
 | `mimo-v2.6-pro-ultraspeed` | middle | 1049k | скорость | `openrouter/xiaomi/mimo-v2.6-pro-ultraspeed` | `openrouter/xiaomi/mimo-v2.6-pro-ultraspeed` | `openrouter:xiaomi/mimo-v2.6-pro-ultraspeed` | `openrouter/xiaomi/mimo-v2.6-pro-ultraspeed` |
 | `minimax-01` | middle | 1000k | изображения | — | — | — | `openrouter/minimax/minimax-01` |
 | `minimax-m1` | middle | 1000k | рассуждения, поиск и RAG | `openrouter/minimax/minimax-m1` | `openrouter/minimax/minimax-m1` | — | `openrouter/minimax/minimax-m1` |
 | `minimax-m2` | middle | 205k | код, агентные задачи, рассуждения | `openrouter/minimax/minimax-m2` | `openrouter/minimax/minimax-m2` | — | `openrouter/minimax/minimax-m2` |
 | `minimax-m2-her` | middle | 66k | — | — | — | — | `openrouter/minimax/minimax-m2-her` |
 | `minimax-m2.1` | middle | 205k | код, агентные задачи | `openrouter/minimax/minimax-m2.1` | `openrouter/minimax/minimax-m2.1` | — | `openrouter/minimax/minimax-m2.1` |
-| `minimax-m2.5` | middle | 205k | код | `openrouter/minimax/minimax-m2.5` | `opencode-go/minimax-m2.5`<br>`openrouter/minimax/minimax-m2.5`<br>`openrouter/minimax/minimax-m2.5:free` | `opencode-go:minimax-m2.5` | `openrouter/minimax/minimax-m2.5` |
-| `minimax-m2.7` | middle | 205k | агентные задачи | `opencode-go/minimax-m2.7`<br>`openrouter/minimax/minimax-m2.7` | `opencode-go/minimax-m2.7`<br>`openrouter/minimax/minimax-m2.7`<br>`openrouter/minimax/minimax-m2.7:free` | `opencode-go:minimax-m2.7` | `opencode-go/minimax-m2.7`<br>`openrouter/minimax/minimax-m2.7` |
-| `minimax-m3` | middle | 1049k | код, агентные задачи, изображения, видео, длинный контекст | `opencode-go/minimax-m3`<br>`openrouter/minimax/minimax-m3` | `opencode-go/minimax-m3`<br>`openrouter/minimax/minimax-m3`<br>`openrouter/minimax/minimax-m3:batch`<br>`openrouter/minimax/minimax-m3:free` | `openrouter:minimax/minimax-m3`<br>`opencode-go:minimax-m3` | `opencode-go/minimax-m3`<br>`openrouter/minimax/minimax-m3` |
+| `minimax-m2.5` | middle | 205k | код | `openrouter/minimax/minimax-m2.5` | `openrouter/minimax/minimax-m2.5`<br>`openrouter/minimax/minimax-m2.5:free`<br>`opencode-go/minimax-m2.5` | `opencode-go:minimax-m2.5` | `openrouter/minimax/minimax-m2.5` |
+| `minimax-m2.7` | middle | 205k | агентные задачи | `opencode-go/minimax-m2.7`<br>`openrouter/minimax/minimax-m2.7` | `openrouter/minimax/minimax-m2.7`<br>`openrouter/minimax/minimax-m2.7:free`<br>`opencode-go/minimax-m2.7` | `opencode-go:minimax-m2.7` | `opencode-go/minimax-m2.7`<br>`openrouter/minimax/minimax-m2.7` |
+| `minimax-m3` | middle | 1049k | код, агентные задачи, изображения, видео, длинный контекст | `opencode-go/minimax-m3`<br>`openrouter/minimax/minimax-m3` | `openrouter/minimax/minimax-m3`<br>`openrouter/minimax/minimax-m3:batch`<br>`openrouter/minimax/minimax-m3:free`<br>`opencode-go/minimax-m3` | `openrouter:minimax/minimax-m3`<br>`opencode-go:minimax-m3` | `opencode-go/minimax-m3`<br>`openrouter/minimax/minimax-m3` |
 | `ministral-14b-2512` | middle | 262k | — | `openrouter/mistralai/ministral-14b-2512` | `openrouter/mistralai/ministral-14b-2512` | — | `openrouter/mistralai/ministral-14b-2512` |
 | `ministral-3b-2512` | middle | 131k | изображения | `openrouter/mistralai/ministral-3b-2512` | `openrouter/mistralai/ministral-3b-2512` | — | `openrouter/mistralai/ministral-3b-2512` |
 | `ministral-8b-2512` | middle | 262k | изображения | `openrouter/mistralai/ministral-8b-2512`<br>`openrouter/mistralai/ministral-8b-2512:batch` | `openrouter/mistralai/ministral-8b-2512`<br>`openrouter/mistralai/ministral-8b-2512:batch` | — | `openrouter/mistralai/ministral-8b-2512` |
@@ -434,8 +432,12 @@
 | `mistral-small-creative` | middle | — | — | — | `openrouter/mistralai/mistral-small-creative` | — | — |
 | `morph-v3-fast` | middle | 82k | код, скорость | — | — | — | `openrouter/morph/morph-v3-fast` |
 | `morph-v3-large` | middle | 262k | код | — | — | — | `openrouter/morph/morph-v3-large` |
-| `muse-spark-1.2-contributor` | middle | 1049k | рассуждения, дешевизна | `opencode-go/muse-spark-1.2-contributor` | `opencode-go/muse-spark-1.2-contributor` | `opencode-go:muse-spark-1.2-contributor` | `opencode-go/muse-spark-1.2-contributor` |
-| `muse-spark-1.3-contributor` | middle | 1049k | код, агентные задачи, рассуждения, изображения | `opencode-go/muse-spark-1.3-contributor` | `opencode-go/muse-spark-1.3-contributor` | `opencode-go:muse-spark-1.3-contributor` | `opencode-go/muse-spark-1.3-contributor` |
+| `muse-glimmer-30b` | middle | 131k | агентные задачи, изображения | `openrouter/meta/muse-glimmer-30b` | `openrouter/meta/muse-glimmer-30b`<br>`openrouter/meta/muse-glimmer-30b:batch` | — | `openrouter/meta/muse-glimmer-30b` |
+| `muse-spark-1.1` | middle | 1049k | агентные задачи, рассуждения, изображения, видео, длинный контекст | `openrouter/meta/muse-spark-1.1` | `openrouter/meta/muse-spark-1.1` | — | `openrouter/meta/muse-spark-1.1` |
+| `muse-spark-1.2` | middle | 1049k | агентные задачи, рассуждения, изображения, видео, длинный контекст | `openrouter/meta/muse-spark-1.2` | `openrouter/meta/muse-spark-1.2` | `openrouter:meta/muse-spark-1.2` | `openrouter/meta/muse-spark-1.2` |
+| `muse-spark-1.2-contributor` | middle | 1049k | рассуждения, дешевизна | `opencode-go/muse-spark-1.2-contributor`<br>`openrouter/meta/muse-spark-1.2-contributor` | `openrouter/meta/muse-spark-1.2-contributor`<br>`opencode-go/muse-spark-1.2-contributor` | `openrouter:meta/muse-spark-1.2-contributor`<br>`opencode-go:muse-spark-1.2-contributor` | `opencode-go/muse-spark-1.2-contributor`<br>`openrouter/meta/muse-spark-1.2-contributor` |
+| `muse-spark-1.3` | middle | 1049k | код, агентные задачи, рассуждения, изображения | `openrouter/meta/muse-spark-1.3` | `openrouter/meta/muse-spark-1.3` | `openrouter:meta/muse-spark-1.3` | `openrouter/meta/muse-spark-1.3` |
+| `muse-spark-1.3-contributor` | middle | 1049k | код, агентные задачи, рассуждения, изображения | `opencode-go/muse-spark-1.3-contributor`<br>`openrouter/meta/muse-spark-1.3-contributor` | `openrouter/meta/muse-spark-1.3-contributor`<br>`opencode-go/muse-spark-1.3-contributor` | `openrouter:meta/muse-spark-1.3-contributor`<br>`opencode-go:muse-spark-1.3-contributor` | `opencode-go/muse-spark-1.3-contributor`<br>`openrouter/meta/muse-spark-1.3-contributor` |
 | `mythomax-l2-13b` | middle | 8k | — | — | — | — | `openrouter/gryphe/mythomax-l2-13b` |
 | `nemotron-3-nano-30b-a3b` | middle | 262k | агентные задачи | `openrouter/nvidia/nemotron-3-nano-30b-a3b` | `openrouter/nvidia/nemotron-3-nano-30b-a3b`<br>`openrouter/nvidia/nemotron-3-nano-30b-a3b:free` | — | `openrouter/nvidia/nemotron-3-nano-30b-a3b` |
 | `nemotron-3-nano-omni-30b-a3b-reasoning` | middle | 256k | изображения, видео | `openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | `openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | — | `openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` |
@@ -456,15 +458,17 @@
 | `nova-premier-v1` | middle | 1000k | рассуждения, изображения | `openrouter/amazon/nova-premier-v1` | `openrouter/amazon/nova-premier-v1` | — | `openrouter/amazon/nova-premier-v1` |
 | `nova-pro-v1` | middle | 300k | изображения | `openrouter/amazon/nova-pro-v1` | `openrouter/amazon/nova-pro-v1` | — | `openrouter/amazon/nova-pro-v1` |
 | `olmo-3.1-32b-instruct` | middle | — | — | — | `openrouter/allenai/olmo-3.1-32b-instruct` | — | — |
-| `omen-alpha` | middle | — | — | — | — | `opencode-go:omen-alpha` | — |
+| `omen-alpha` | middle | — | — | — | `opencode-go/omen-alpha` | `opencode-go:omen-alpha` | — |
 | `orpheus-arabic-saudi` | middle | — | — | — | `groq/canopylabs/orpheus-arabic-saudi` | — | `groq/canopylabs/orpheus-arabic-saudi` |
 | `orpheus-v1-english` | middle | — | — | — | `groq/canopylabs/orpheus-v1-english` | — | `groq/canopylabs/orpheus-v1-english` |
 | `owl-alpha` | middle | — | — | — | `openrouter/openrouter/owl-alpha` | — | — |
 | `ox-alpha` | middle | — | — | — | `openrouter/stealth/ox-alpha` | — | — |
 | `palmyra-x5` | middle | 1040k | — | — | — | — | `openrouter/writer/palmyra-x5` |
-| `pareto` | middle | 262k | код, агентные задачи, изображения, поиск и RAG | `openrouter/unbiased/pareto` | `openrouter/unbiased/pareto` | — | `openrouter/unbiased/pareto` |
+| `pareto` | middle | — | — | `openrouter/unbiased/pareto` | `openrouter/unbiased/pareto` | — | — |
 | `pareto-26.10-preview` | middle | 1049k | код, агентные задачи, изображения, поиск и RAG | `openrouter/unbiased/pareto-26.10-preview` | `openrouter/unbiased/pareto-26.10-preview` | — | `openrouter/unbiased/pareto-26.10-preview` |
-| `pareto-code` | middle | 2000k | код | — | — | — | `openrouter/openrouter/pareto-code` |
+| `pareto-26.9` | middle | 262k | код, агентные задачи, изображения, поиск и RAG | — | `openrouter/unbiased/pareto-26.9` | — | `openrouter/unbiased/pareto-26.9` |
+| `pareto-code` | middle | 2000k | код | — | `openrouter/openrouter/pareto-code` | `openrouter:openrouter/pareto-code` | `openrouter/openrouter/pareto-code` |
+| `pareto-latest` | middle | 262k | — | — | `openrouter/~unbiased/pareto-latest` | — | `openrouter/~unbiased/pareto-latest` |
 | `perceptron-mk1` | middle | 33k | рассуждения, изображения, видео | — | — | — | `openrouter/perceptron/perceptron-mk1` |
 | `perceptron-mk1.5` | middle | 37k | рассуждения, изображения, видео | `openrouter/perceptron/perceptron-mk1.5` | `openrouter/perceptron/perceptron-mk1.5` | — | `openrouter/perceptron/perceptron-mk1.5` |
 | `phi-4` | middle | 16k | рассуждения, поиск и RAG | — | — | — | `openrouter/microsoft/phi-4` |
@@ -518,15 +522,15 @@
 | `qwen3.6-35b-a3b` | middle | 262k | изображения | `openrouter/qwen/qwen3.6-35b-a3b` | `openrouter/qwen/qwen3.6-35b-a3b` | — | `openrouter/qwen/qwen3.6-35b-a3b` |
 | `qwen3.6-flash` | middle | 1000k | изображения, видео, скорость, длинный контекст | `openrouter/qwen/qwen3.6-flash` | `openrouter/qwen/qwen3.6-flash` | — | `openrouter/qwen/qwen3.6-flash` |
 | `qwen3.6-max-preview` | middle | — | — | `openrouter/qwen/qwen3.6-max-preview` | `openrouter/qwen/qwen3.6-max-preview` | — | — |
-| `qwen3.6-plus` | middle | 1000k | — | `openrouter/qwen/qwen3.6-plus` | `opencode-go/qwen3.6-plus`<br>`openrouter/qwen/qwen3.6-plus`<br>`openrouter/qwen/qwen3.6-plus:free` | `opencode-go:qwen3.6-plus` | `openrouter/qwen/qwen3.6-plus` |
+| `qwen3.6-plus` | middle | 1000k | — | `openrouter/qwen/qwen3.6-plus` | `openrouter/qwen/qwen3.6-plus`<br>`openrouter/qwen/qwen3.6-plus:free`<br>`opencode-go/qwen3.6-plus` | `opencode-go:qwen3.6-plus` | `openrouter/qwen/qwen3.6-plus` |
 | `qwen3.6-plus-preview` | middle | — | — | — | `openrouter/qwen/qwen3.6-plus-preview:free` | — | — |
 | `qwen3.7-flash` | middle | 1000k | код, рассуждения, изображения, поиск и RAG | `openrouter/qwen/qwen3.7-flash` | `openrouter/qwen/qwen3.7-flash` | — | `openrouter/qwen/qwen3.7-flash` |
-| `qwen3.7-max` | middle | 1000k | код | `openrouter/qwen/qwen3.7-max` | `opencode-go/qwen3.7-max`<br>`openrouter/qwen/qwen3.7-max` | `opencode-go:qwen3.7-max` | `openrouter/qwen/qwen3.7-max` |
-| `qwen3.7-plus` | middle | 1000k | изображения, дешевизна | `opencode-go/qwen3.7-plus`<br>`openrouter/qwen/qwen3.7-plus` | `opencode-go/qwen3.7-plus`<br>`openrouter/qwen/qwen3.7-plus` | `opencode-go:qwen3.7-plus` | `opencode-go/qwen3.7-plus`<br>`openrouter/qwen/qwen3.7-plus` |
+| `qwen3.7-max` | middle | 1000k | код | `openrouter/qwen/qwen3.7-max` | `openrouter/qwen/qwen3.7-max`<br>`opencode-go/qwen3.7-max` | `opencode-go:qwen3.7-max` | `openrouter/qwen/qwen3.7-max` |
+| `qwen3.7-plus` | middle | 1000k | изображения, дешевизна | `opencode-go/qwen3.7-plus`<br>`openrouter/qwen/qwen3.7-plus` | `openrouter/qwen/qwen3.7-plus`<br>`opencode-go/qwen3.7-plus` | `opencode-go:qwen3.7-plus` | `opencode-go/qwen3.7-plus`<br>`openrouter/qwen/qwen3.7-plus` |
 | `qwen3.8-2.4t-a95b` | middle | 1049k | — | `openrouter/qwen/qwen3.8-2.4t-a95b` | `openrouter/qwen/qwen3.8-2.4t-a95b`<br>`openrouter/qwen/qwen3.8-2.4t-a95b:batch` | — | `openrouter/qwen/qwen3.8-2.4t-a95b` |
 | `qwen3.8-27b` | middle | 1000k | код, изображения, поиск и RAG | `groq/qwen/qwen3.8-27b`<br>`openrouter/qwen/qwen3.8-27b` | `groq/qwen/qwen3.8-27b`<br>`openrouter/qwen/qwen3.8-27b`<br>`openrouter/qwen/qwen3.8-27b:free` | — | `groq/qwen/qwen3.8-27b`<br>`openrouter/qwen/qwen3.8-27b` |
-| `qwen3.8-flash` | middle | 1000k | код, агентные задачи, рассуждения, изображения, видео | `opencode-go/qwen3.8-flash`<br>`openrouter/qwen/qwen3.8-flash` | `opencode-go/qwen3.8-flash`<br>`openrouter/qwen/qwen3.8-flash` | `openrouter:qwen/qwen3.8-flash`<br>`opencode-go:qwen3.8-flash` | `opencode-go/qwen3.8-flash`<br>`openrouter/qwen/qwen3.8-flash` |
-| `qwen3.8-max` | middle | — | — | `opencode-go/qwen3.8-max` | `opencode-go/qwen3.8-max`<br>`openrouter/qwen/qwen3.8-max` | `opencode-go:qwen3.8-max` | `opencode-go/qwen3.8-max` |
+| `qwen3.8-flash` | middle | 1000k | код, агентные задачи, рассуждения, изображения, видео | `opencode-go/qwen3.8-flash`<br>`openrouter/qwen/qwen3.8-flash` | `openrouter/qwen/qwen3.8-flash`<br>`opencode-go/qwen3.8-flash` | `openrouter:qwen/qwen3.8-flash`<br>`opencode-go:qwen3.8-flash` | `opencode-go/qwen3.8-flash`<br>`openrouter/qwen/qwen3.8-flash` |
+| `qwen3.8-max` | middle | — | — | `opencode-go/qwen3.8-max` | `openrouter/qwen/qwen3.8-max`<br>`opencode-go/qwen3.8-max` | `opencode-go:qwen3.8-max` | `opencode-go/qwen3.8-max` |
 | `qwen3.8-max-0902` | middle | 1000k | изображения, видео | `openrouter/qwen/qwen3.8-max-0902` | `openrouter/qwen/qwen3.8-max-0902` | `openrouter:qwen/qwen3.8-max-0902` | `openrouter/qwen/qwen3.8-max-0902` |
 | `qwen3.8-max-prime` | middle | 1000k | изображения, видео | `openrouter/qwen/qwen3.8-max-prime` | `openrouter/qwen/qwen3.8-max-prime` | — | `openrouter/qwen/qwen3.8-max-prime` |
 | `qwen3.8-omni-flash` | middle | 1000k | агентные задачи, рассуждения, видео | `openrouter/qwen/qwen3.8-omni-flash` | `openrouter/qwen/qwen3.8-omni-flash` | — | `openrouter/qwen/qwen3.8-omni-flash` |
@@ -556,10 +560,12 @@
 | `sonar-pro` | middle | 200k | рассуждения, поиск и RAG | — | — | — | `openrouter/perplexity/sonar-pro` |
 | `sonar-pro-search` | middle | 200k | агентные задачи, рассуждения, поиск и RAG | — | — | — | `openrouter/perplexity/sonar-pro-search` |
 | `sonar-reasoning-pro` | middle | 128k | рассуждения, поиск и RAG | — | — | — | `openrouter/perplexity/sonar-reasoning-pro` |
-| `space-bunny` | middle | — | — | `opencode-go/space-bunny` | — | `opencode-go:space-bunny` | `opencode-go/space-bunny` |
+| `space-bunny` | middle | — | — | `opencode-go/space-bunny` | `opencode-go/space-bunny` | `opencode-go:space-bunny` | `opencode-go/space-bunny` |
+| `space-bunny-alpha` | middle | — | — | — | `openrouter/stealth/space-bunny-alpha` | — | — |
 | `step-3.5-flash` | middle | 262k | — | `openrouter/stepfun/step-3.5-flash` | `openrouter/stepfun/step-3.5-flash`<br>`openrouter/stepfun/step-3.5-flash:free` | — | `openrouter/stepfun/step-3.5-flash` |
 | `step-3.7-flash` | middle | 262k | код, изображения, видео | `openrouter/stepfun/step-3.7-flash` | `openrouter/stepfun/step-3.7-flash` | `openrouter:stepfun/step-3.7-flash` | `openrouter/stepfun/step-3.7-flash` |
 | `step-5-preview` | middle | 1000k | код, агентные задачи | `openrouter/stepfun/step-5-preview` | `openrouter/stepfun/step-5-preview` | — | `openrouter/stepfun/step-5-preview` |
+| `summarize` | middle | 1000k | — | — | — | — | `openrouter/scaledown/summarize` |
 | `ternary-bonsai-2-27b` | middle | 262k | код, агентные задачи, рассуждения, изображения, математика | `openrouter/prism-ml/ternary-bonsai-2-27b` | `openrouter/prism-ml/ternary-bonsai-2-27b` | — | `openrouter/prism-ml/ternary-bonsai-2-27b` |
 | `tng-r1t-chimera` | middle | — | — | — | `openrouter/tngtech/tng-r1t-chimera` | — | — |
 | `tongyi-deepresearch-30b-a3b` | middle | — | — | — | `openrouter/alibaba/tongyi-deepresearch-30b-a3b` | — | — |
@@ -574,14 +580,15 @@
 | `whisper-large-v3` | middle | — | — | — | `groq/whisper-large-v3` | — | `groq/whisper-large-v3` |
 | `whisper-large-v3-turbo` | middle | — | — | — | `groq/whisper-large-v3-turbo` | — | `groq/whisper-large-v3-turbo` |
 | `wizardlm-2-8x22b` | middle | 66k | — | — | — | — | `openrouter/microsoft/wizardlm-2-8x22b` |
+| `cat-jam-free` | low | — | — | — | `opencode-go/cat-jam-free` | `opencode-go:cat-jam-free` | `opencode/cat-jam-free`<br>`opencode-go/cat-jam-free` |
 | `exo-free` | low | — | — | — | — | — | `opencode/exo-free` |
 | `ling-3.0-flash-fin-free` | low | — | — | — | — | — | `opencode/ling-3.0-flash-fin-free` |
 | `ling-3.1-flash-free` | low | — | — | — | — | — | `opencode/ling-3.1-flash-free` |
-| `longcat-2.5-preview-free` | low | — | — | `opencode-go/longcat-2.5-preview-free` | — | `opencode-go:longcat-2.5-preview-free` | `opencode/longcat-2.5-preview-free`<br>`opencode-go/longcat-2.5-preview-free` |
+| `longcat-2.5-preview-free` | low | — | — | `opencode-go/longcat-2.5-preview-free` | `opencode-go/longcat-2.5-preview-free` | `opencode-go:longcat-2.5-preview-free` | `opencode/longcat-2.5-preview-free`<br>`opencode-go/longcat-2.5-preview-free` |
 | `mimo-v2.6-flash-free` | low | — | — | — | — | — | `opencode/mimo-v2.6-flash-free` |
 | `muse-spark-1.3-contributor-free` | low | — | — | — | — | — | `opencode/muse-spark-1.3-contributor-free` |
 | `nemotron-3-ultra-free` | low | — | — | — | — | — | `opencode/nemotron-3-ultra-free` |
 | `nemotron-3.5-lightning-free` | low | — | — | — | — | — | `opencode/nemotron-3.5-lightning-free` |
 | `ox-alpha-free` | low | — | — | — | `opencode-go/ox-alpha-free` | — | — |
-| `space-bunny-free` | low | — | — | — | — | — | `opencode/space-bunny-free` |
-| `step-5-preview-free` | low | — | — | `opencode-go/step-5-preview-free` | — | `opencode-go:step-5-preview-free` | `opencode/step-5-preview-free`<br>`opencode-go/step-5-preview-free` |
+| `space-bunny-free` | low | — | — | — | `opencode-go/space-bunny-free` | — | `opencode/space-bunny-free` |
+| `step-5-preview-free` | low | — | — | `opencode-go/step-5-preview-free` | `opencode-go/step-5-preview-free` | `opencode-go:step-5-preview-free` | `opencode/step-5-preview-free`<br>`opencode-go/step-5-preview-free` |

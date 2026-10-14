@@ -42,8 +42,10 @@ const SHORTLIST = {
     },
     { model: "gpt-6.1-sol-pro", purpose: "OpenAI-флагман" },
     { model: "claude-opus-5.5", purpose: "Anthropic-флагман" },
+    { model: "gemini-4-argon", purpose: "Google-флагман, 1M unified, вводная цена" },
     { model: "gemini-3.1-pro-preview", purpose: "Google-флагман, 1M контекста" },
     { model: "grok-4.7", purpose: "xAI-флагман" },
+    { model: "muse-wonder", purpose: "Meta-флагман, 1M, мультимодальный агент" },
   ],
   subFrontier: [
     { model: "glm-5.3", purpose: "Z.ai по подписке, 1M — основная рабочая модель" },

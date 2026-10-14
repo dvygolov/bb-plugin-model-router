@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-12T21:16:01.779Z",
+ "generatedAt": "2026-10-14T12:09:40.115Z",
  "harnesses": [
   "pi",
   "omp",
@@ -19,11 +19,13 @@
    "claude-sonnet-5.5",
    "gemini-3.1-pro-preview",
    "gemini-3.1-pro-preview-customtools",
+   "gemini-4-argon",
    "grok-4.7",
    "grok-4.6",
    "grok-4.5",
    "kimi-k3",
-   "kimi-k3-256k"
+   "kimi-k3-256k",
+   "muse-wonder"
   ],
   "subFrontier": [
    "deepseek-v4-pro",
@@ -210,6 +212,41 @@
    ],
    "strengths": [],
    "description": "Gemini 3.1 Pro Preview Custom Tools is a variant of Gemini 3.1 Pro that improves tool selection behavior by preventing overuse of a general bash tool when more efficient third-party..."
+  },
+  "gemini-4-argon": {
+   "canonical": "gemini-4-argon",
+   "family": "google",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "omp": [
+     "google/gemini-4-argon",
+     "openrouter/google/gemini-4-argon",
+     "openrouter/google/gemini-4-argon:batch"
+    ],
+    "hermes": [
+     "openrouter:google/gemini-4-argon",
+     "gemini:gemini-4-argon"
+    ],
+    "opencode": [
+     "google/gemini-4-argon",
+     "openrouter/google/gemini-4-argon"
+    ]
+   },
+   "contextLength": 1048576,
+   "modalities": [
+    "audio",
+    "file",
+    "image",
+    "text",
+    "video"
+   ],
+   "strengths": [
+    "код",
+    "рассуждения",
+    "математика"
+   ],
+   "description": "Gemini 4 Argon is Google's flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, and autonomous multi-step agents."
   },
   "gpt-6-astra-pro": {
    "canonical": "gpt-6-astra-pro",
@@ -415,8 +452,8 @@
      "openrouter/x-ai/grok-4.5"
     ],
     "omp": [
-     "opencode-go/grok-4.5",
-     "openrouter/x-ai/grok-4.5"
+     "openrouter/x-ai/grok-4.5",
+     "opencode-go/grok-4.5"
     ],
     "hermes": [
      "opencode-go:grok-4.5"
@@ -447,8 +484,8 @@
      "openrouter/x-ai/grok-4.6"
     ],
     "omp": [
-     "opencode-go/grok-4.6",
-     "openrouter/x-ai/grok-4.6"
+     "openrouter/x-ai/grok-4.6",
+     "opencode-go/grok-4.6"
     ],
     "hermes": [
      "openrouter:x-ai/grok-4.6",
@@ -481,8 +518,8 @@
      "openrouter/x-ai/grok-4.7"
     ],
     "omp": [
-     "opencode-go/grok-4.7",
-     "openrouter/x-ai/grok-4.7"
+     "openrouter/x-ai/grok-4.7",
+     "opencode-go/grok-4.7"
     ],
     "hermes": [
      "openrouter:x-ai/grok-4.7",
@@ -519,9 +556,9 @@
     ],
     "omp": [
      "kimi-code/k3",
-     "opencode-go/kimi-k3",
      "openrouter/moonshotai/kimi-k3",
-     "openrouter/moonshotai/kimi-k3:batch"
+     "openrouter/moonshotai/kimi-k3:batch",
+     "opencode-go/kimi-k3"
     ],
     "hermes": [
      "openrouter:moonshotai/kimi-k3",
@@ -572,6 +609,35 @@
    "strengths": [],
    "description": null
   },
+  "muse-wonder": {
+   "canonical": "muse-wonder",
+   "family": "muse",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "omp": [
+     "openrouter/meta/muse-wonder"
+    ],
+    "opencode": [
+     "openrouter/meta/muse-wonder"
+    ]
+   },
+   "contextLength": 1048576,
+   "modalities": [
+    "text",
+    "image",
+    "video",
+    "file",
+    "audio"
+   ],
+   "strengths": [
+    "агентные задачи",
+    "рассуждения",
+    "изображения",
+    "видео"
+   ],
+   "description": "Muse Wonder is a frontier reasoning model from Meta, designed for complex personal and professional agentic tasks."
+  },
   "deepseek-v4-pro": {
    "canonical": "deepseek-v4-pro",
    "family": "deepseek",
@@ -583,8 +649,8 @@
      "openrouter/deepseek/deepseek-v4-pro"
     ],
     "omp": [
-     "opencode-go/deepseek-v4-pro",
-     "openrouter/deepseek/deepseek-v4-pro"
+     "openrouter/deepseek/deepseek-v4-pro",
+     "opencode-go/deepseek-v4-pro"
     ],
     "hermes": [
      "openrouter:deepseek/deepseek-v4-pro",
@@ -805,11 +871,11 @@
      "zai/glm-5.2"
     ],
     "omp": [
-     "opencode-go/glm-5.2",
      "openrouter/z-ai/glm-5.2",
      "openrouter/z-ai/glm-5.2:batch",
      "openrouter/z-ai/glm-5.2:free",
-     "zai/glm-5.2"
+     "zai/glm-5.2",
+     "opencode-go/glm-5.2"
     ],
     "hermes": [
      "openrouter:z-ai/glm-5.2",
@@ -847,10 +913,10 @@
      "zai/glm-5.3"
     ],
     "omp": [
-     "opencode-go/glm-5.3",
      "openrouter/z-ai/glm-5.3",
      "openrouter/z-ai/glm-5.3:batch",
-     "zai/glm-5.3"
+     "zai/glm-5.3",
+     "opencode-go/glm-5.3"
     ],
     "hermes": [
      "openrouter:z-ai/glm-5.3",
@@ -946,9 +1012,9 @@
      "openrouter/openai/gpt-5.6-luna:batch"
     ],
     "omp": [
-     "opencode-go/gpt-5.6-luna",
      "openrouter/openai/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna:batch"
+     "openrouter/openai/gpt-5.6-luna:batch",
+     "opencode-go/gpt-5.6-luna"
     ],
     "hermes": [
      "openai-codex:gpt-5.6-luna",
@@ -1179,22 +1245,12 @@
     ],
     "omp": [
      "openrouter/apodex/apodex-1.1-mini:free"
-    ],
-    "opencode": [
-     "openrouter/apodex/apodex-1.1-mini:free"
     ]
    },
-   "contextLength": 262144,
-   "modalities": [
-    "text"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "рассуждения",
-    "поиск и RAG"
-   ],
-   "description": "Apodex 1.1 Mini is a reasoning-first model from Apodex, built for complex, long-horizon research and forecasting tasks."
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
   },
   "aurora-alpha": {
    "canonical": "aurora-alpha",
@@ -1488,6 +1544,9 @@
    "tierSource": "default",
    "harnesses": {
     "pi": [
+     "opencode-go/claude-haiku-5-5"
+    ],
+    "omp": [
      "opencode-go/claude-haiku-5-5"
     ],
     "hermes": [
@@ -2271,6 +2330,9 @@
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
+    "omp": [
+     "opencode-go/deepseek-flash"
+    ],
     "hermes": [
      "opencode-go:deepseek-flash"
     ]
@@ -2506,15 +2568,14 @@
      "openrouter/deepseek/deepseek-v4-flash"
     ],
     "omp": [
-     "opencode-go/deepseek-v4-flash",
      "openrouter/deepseek/deepseek-v4-flash",
-     "openrouter/deepseek/deepseek-v4-flash:free"
+     "openrouter/deepseek/deepseek-v4-flash:free",
+     "opencode-go/deepseek-v4-flash"
     ],
     "hermes": [
      "opencode-go:deepseek-v4-flash"
     ],
     "opencode": [
-     "opencode-go/deepseek-v4-flash",
      "openrouter/deepseek/deepseek-v4-flash"
     ]
    },
@@ -2594,15 +2655,14 @@
      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
     ],
     "omp": [
-     "opencode-go/deepseek-v4-flash-vision-exp",
      "openrouter/deepseek/deepseek-v4-flash-vision-exp",
-     "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch"
+     "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch",
+     "opencode-go/deepseek-v4-flash-vision-exp"
     ],
     "hermes": [
      "opencode-go:deepseek-v4-flash-vision-exp"
     ],
     "opencode": [
-     "opencode-go/deepseek-v4-flash-vision-exp",
      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
     ]
    },
@@ -2628,9 +2688,9 @@
      "openrouter/deepseek/deepseek-v4.1-flash:batch"
     ],
     "omp": [
-     "opencode-go/deepseek-v4.1-flash",
      "openrouter/deepseek/deepseek-v4.1-flash",
-     "openrouter/deepseek/deepseek-v4.1-flash:batch"
+     "openrouter/deepseek/deepseek-v4.1-flash:batch",
+     "opencode-go/deepseek-v4.1-flash"
     ],
     "hermes": [
      "openrouter:deepseek/deepseek-v4.1-flash",
@@ -2835,6 +2895,25 @@
    "modalities": [],
    "strengths": [],
    "description": null
+  },
+  "extract": {
+   "canonical": "extract",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "opencode": [
+     "openrouter/scaledown/extract"
+    ]
+   },
+   "contextLength": 1000000,
+   "modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "strengths": [],
+   "description": "Extract is a description-driven entity extraction model from ScaleDown."
   },
   "free": {
    "canonical": "free",
@@ -3770,6 +3849,27 @@
    "harnesses": {
     "omp": [
      "google/gemini-3.8-flash-tts"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "gemini-4-argon-contributor": {
+   "canonical": "gemini-4-argon-contributor",
+   "family": "google",
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "omp": [
+     "opencode-go/gemini-4-argon-contributor"
+    ],
+    "hermes": [
+     "opencode-go:gemini-4-argon-contributor"
+    ],
+    "opencode": [
+     "opencode-go/gemini-4-argon-contributor"
     ]
    },
    "contextLength": null,
@@ -4777,9 +4877,9 @@
      "openrouter/z-ai/glm-5"
     ],
     "omp": [
-     "opencode-go/glm-5",
      "openrouter/z-ai/glm-5",
-     "zai/glm-5"
+     "zai/glm-5",
+     "opencode-go/glm-5"
     ],
     "hermes": [
      "zai:glm-5",
@@ -4841,9 +4941,9 @@
      "openrouter/z-ai/glm-5.1"
     ],
     "omp": [
-     "opencode-go/glm-5.1",
      "openrouter/z-ai/glm-5.1",
-     "zai/glm-5.1"
+     "zai/glm-5.1",
+     "opencode-go/glm-5.1"
     ],
     "hermes": [
      "zai:glm-5.1",
@@ -4892,10 +4992,10 @@
      "zai/glm-5.3-flash"
     ],
     "omp": [
-     "opencode-go/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash:batch",
-     "zai/glm-5.3-flash"
+     "zai/glm-5.3-flash",
+     "opencode-go/glm-5.3-flash"
     ],
     "hermes": [
      "openrouter:z-ai/glm-5.3-flash",
@@ -6423,7 +6523,8 @@
     ],
     "omp": [
      "openrouter/openai/gpt-6-luna",
-     "openrouter/openai/gpt-6-luna:batch"
+     "openrouter/openai/gpt-6-luna:batch",
+     "opencode-go/gpt-6-luna"
     ],
     "hermes": [
      "openrouter:openai/gpt-6-luna",
@@ -7523,9 +7624,9 @@
      "openrouter/tencent/hy3"
     ],
     "omp": [
-     "opencode-go/hy3",
      "openrouter/tencent/hy3",
-     "openrouter/tencent/hy3:free"
+     "openrouter/tencent/hy3:free",
+     "opencode-go/hy3"
     ],
     "hermes": [
      "openrouter:tencent/hy3",
@@ -7587,8 +7688,8 @@
      "openrouter/tencent/hy4-preview"
     ],
     "omp": [
-     "opencode-go/hy4-preview",
-     "openrouter/tencent/hy4-preview"
+     "openrouter/tencent/hy4-preview",
+     "opencode-go/hy4-preview"
     ],
     "hermes": [
      "openrouter:tencent/hy4-preview",
@@ -7967,8 +8068,8 @@
     ],
     "omp": [
      "kimi-code/kimi-k2.5",
-     "opencode-go/kimi-k2.5",
-     "openrouter/moonshotai/kimi-k2.5"
+     "openrouter/moonshotai/kimi-k2.5",
+     "opencode-go/kimi-k2.5"
     ],
     "hermes": [
      "opencode-go:kimi-k2.5"
@@ -7998,9 +8099,9 @@
      "openrouter/moonshotai/kimi-k2.6"
     ],
     "omp": [
-     "opencode-go/kimi-k2.6",
      "openrouter/moonshotai/kimi-k2.6",
-     "openrouter/moonshotai/kimi-k2.6:free"
+     "openrouter/moonshotai/kimi-k2.6:free",
+     "opencode-go/kimi-k2.6"
     ],
     "hermes": [
      "opencode-go:kimi-k2.6"
@@ -8032,9 +8133,9 @@
      "openrouter/moonshotai/kimi-k2.7-code"
     ],
     "omp": [
-     "opencode-go/kimi-k2.7-code",
      "openrouter/moonshotai/kimi-k2.7-code",
-     "openrouter/moonshotai/kimi-k2.7-code:batch"
+     "openrouter/moonshotai/kimi-k2.7-code:batch",
+     "opencode-go/kimi-k2.7-code"
     ],
     "hermes": [
      "opencode-go:kimi-k2.7-code"
@@ -8119,9 +8220,6 @@
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
-    "pi": [
-     "openrouter/sao10k/l3.1-euryale-70b"
-    ],
     "omp": [
      "openrouter/sao10k/l3.1-euryale-70b"
     ],
@@ -8291,6 +8389,28 @@
    ],
    "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI."
   },
+  "lfm-2.5-24b-a2b": {
+   "canonical": "lfm-2.5-24b-a2b",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "omp": [
+     "openrouter/liquid/lfm-2.5-24b-a2b"
+    ],
+    "opencode": [
+     "openrouter/liquid/lfm-2.5-24b-a2b"
+    ]
+   },
+   "contextLength": 128000,
+   "modalities": [
+    "text"
+   ],
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "LFM2.5-24B-A2B is a mixture-of-experts reasoning model from Liquid AI with 24B total and 2.45B active parameters."
+  },
   "ling-2.6-1t": {
    "canonical": "ling-2.6-1t",
    "family": "inclusionai",
@@ -8361,17 +8481,12 @@
     "omp": [
      "openrouter/inclusionai/ling-3.0-flash-fin",
      "openrouter/inclusionai/ling-3.0-flash-fin:free"
-    ],
-    "opencode": [
-     "openrouter/inclusionai/ling-3.0-flash-fin"
     ]
    },
-   "contextLength": 262144,
-   "modalities": [
-    "text"
-   ],
+   "contextLength": null,
+   "modalities": [],
    "strengths": [],
-   "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total."
+   "description": null
   },
   "ling-3.0-flash-sante": {
    "canonical": "ling-3.0-flash-sante",
@@ -8380,23 +8495,17 @@
    "tierSource": "default",
    "harnesses": {
     "pi": [
-     "openrouter/inclusionai/ling-3.0-flash-sante:free",
      "openrouter/inclusionai/ling-3.0-flash-sante"
     ],
     "omp": [
-     "openrouter/inclusionai/ling-3.0-flash-sante:free",
-     "openrouter/inclusionai/ling-3.0-flash-sante"
-    ],
-    "opencode": [
-     "openrouter/inclusionai/ling-3.0-flash-sante"
+     "openrouter/inclusionai/ling-3.0-flash-sante",
+     "openrouter/inclusionai/ling-3.0-flash-sante:free"
     ]
    },
-   "contextLength": 262144,
-   "modalities": [
-    "text"
-   ],
+   "contextLength": null,
+   "modalities": [],
    "strengths": [],
-   "description": "Ling 3.0 Flash Sante is a health and medicine-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total."
+   "description": null
   },
   "ling-3.0-flash-vl": {
    "canonical": "ling-3.0-flash-vl",
@@ -8415,7 +8524,7 @@
      "openrouter/inclusionai/ling-3.0-flash-vl"
     ]
    },
-   "contextLength": 262144,
+   "contextLength": 131072,
    "modalities": [
     "text",
     "image",
@@ -8776,230 +8885,6 @@
    ],
    "description": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrained model, fine-tuned for content safety classification."
   },
-  "llama-muse-glimmer-30b": {
-   "canonical": "llama-muse-glimmer-30b",
-   "family": "meta",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/meta/muse-glimmer-30b"
-    ],
-    "omp": [
-     "openrouter/meta/muse-glimmer-30b",
-     "openrouter/meta/muse-glimmer-30b:batch"
-    ],
-    "opencode": [
-     "openrouter/meta/muse-glimmer-30b"
-    ]
-   },
-   "contextLength": 131072,
-   "modalities": [
-    "text",
-    "image"
-   ],
-   "strengths": [
-    "агентные задачи",
-    "изображения"
-   ],
-   "description": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware."
-  },
-  "llama-muse-spark-1.1": {
-   "canonical": "llama-muse-spark-1.1",
-   "family": "meta",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/meta/muse-spark-1.1"
-    ],
-    "omp": [
-     "openrouter/meta/muse-spark-1.1"
-    ],
-    "opencode": [
-     "openrouter/meta/muse-spark-1.1"
-    ]
-   },
-   "contextLength": 1048576,
-   "modalities": [
-    "text",
-    "image",
-    "video",
-    "file"
-   ],
-   "strengths": [
-    "агентные задачи",
-    "рассуждения",
-    "изображения",
-    "видео",
-    "длинный контекст"
-   ],
-   "description": "Muse Spark 1.1 is a multimodal reasoning model from Meta, built for agentic tasks."
-  },
-  "llama-muse-spark-1.2": {
-   "canonical": "llama-muse-spark-1.2",
-   "family": "meta",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/meta/muse-spark-1.2"
-    ],
-    "omp": [
-     "openrouter/meta/muse-spark-1.2"
-    ],
-    "hermes": [
-     "openrouter:meta/muse-spark-1.2"
-    ],
-    "opencode": [
-     "openrouter/meta/muse-spark-1.2"
-    ]
-   },
-   "contextLength": 1048576,
-   "modalities": [
-    "text",
-    "image",
-    "video",
-    "file"
-   ],
-   "strengths": [
-    "агентные задачи",
-    "рассуждения",
-    "изображения",
-    "видео",
-    "длинный контекст"
-   ],
-   "description": "Muse Spark 1.2 is a reasoning model from Meta, designed for complex agentic tasks."
-  },
-  "llama-muse-spark-1.2-contributor": {
-   "canonical": "llama-muse-spark-1.2-contributor",
-   "family": "meta",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/meta/muse-spark-1.2-contributor"
-    ],
-    "omp": [
-     "openrouter/meta/muse-spark-1.2-contributor"
-    ],
-    "hermes": [
-     "openrouter:meta/muse-spark-1.2-contributor"
-    ],
-    "opencode": [
-     "openrouter/meta/muse-spark-1.2-contributor"
-    ]
-   },
-   "contextLength": 1048576,
-   "modalities": [
-    "text",
-    "image",
-    "video",
-    "file"
-   ],
-   "strengths": [
-    "рассуждения",
-    "дешевизна"
-   ],
-   "description": "Muse Spark 1.2 contributor tier is a reasoning model from Meta designed for developers who want to start building at an even lower cost."
-  },
-  "llama-muse-spark-1.3": {
-   "canonical": "llama-muse-spark-1.3",
-   "family": "meta",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/meta/muse-spark-1.3"
-    ],
-    "omp": [
-     "openrouter/meta/muse-spark-1.3"
-    ],
-    "hermes": [
-     "openrouter:meta/muse-spark-1.3"
-    ],
-    "opencode": [
-     "openrouter/meta/muse-spark-1.3"
-    ]
-   },
-   "contextLength": 1048576,
-   "modalities": [
-    "text",
-    "image",
-    "video",
-    "file"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "рассуждения",
-    "изображения"
-   ],
-   "description": "Muse Spark 1.3 is a multimodal reasoning model from Meta for long-running agentic, multi-agent, and coding workflows."
-  },
-  "llama-muse-spark-1.3-contributor": {
-   "canonical": "llama-muse-spark-1.3-contributor",
-   "family": "meta",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/meta/muse-spark-1.3-contributor"
-    ],
-    "omp": [
-     "openrouter/meta/muse-spark-1.3-contributor"
-    ],
-    "hermes": [
-     "openrouter:meta/muse-spark-1.3-contributor"
-    ],
-    "opencode": [
-     "openrouter/meta/muse-spark-1.3-contributor"
-    ]
-   },
-   "contextLength": 1048576,
-   "modalities": [
-    "text",
-    "image",
-    "video",
-    "file"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "рассуждения",
-    "изображения"
-   ],
-   "description": "Muse Spark 1.3 Contributor is the cost-efficient contributor tier of Meta’s multimodal reasoning model for experimentation, learning, and early-stage agentic, multi-agent, and coding workflows."
-  },
-  "llama-muse-wonder": {
-   "canonical": "llama-muse-wonder",
-   "family": "meta",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "omp": [
-     "openrouter/meta/muse-wonder"
-    ],
-    "opencode": [
-     "openrouter/meta/muse-wonder"
-    ]
-   },
-   "contextLength": 1048576,
-   "modalities": [
-    "text",
-    "image",
-    "video",
-    "file",
-    "audio"
-   ],
-   "strengths": [
-    "агентные задачи",
-    "рассуждения",
-    "изображения",
-    "видео"
-   ],
-   "description": "Muse Wonder is a frontier reasoning model from Meta, designed for complex personal and professional agentic tasks."
-  },
   "llama-prompt-guard-2-22m": {
    "canonical": "llama-prompt-guard-2-22m",
    "family": "meta",
@@ -9077,8 +8962,8 @@
      "openrouter/meituan/longcat-2.0"
     ],
     "omp": [
-     "opencode-go/longcat-2.0",
-     "openrouter/meituan/longcat-2.0"
+     "openrouter/meituan/longcat-2.0",
+     "opencode-go/longcat-2.0"
     ],
     "hermes": [
      "opencode-go:longcat-2.0"
@@ -9249,8 +9134,8 @@
    "tierSource": "default",
    "harnesses": {
     "omp": [
-     "opencode-go/mimo-v2-omni",
-     "openrouter/xiaomi/mimo-v2-omni"
+     "openrouter/xiaomi/mimo-v2-omni",
+     "opencode-go/mimo-v2-omni"
     ],
     "hermes": [
      "opencode-go:mimo-v2-omni"
@@ -9268,8 +9153,8 @@
    "tierSource": "default",
    "harnesses": {
     "omp": [
-     "opencode-go/mimo-v2-pro",
-     "openrouter/xiaomi/mimo-v2-pro"
+     "openrouter/xiaomi/mimo-v2-pro",
+     "opencode-go/mimo-v2-pro"
     ],
     "hermes": [
      "opencode-go:mimo-v2-pro"
@@ -9291,8 +9176,8 @@
      "openrouter/xiaomi/mimo-v2.5"
     ],
     "omp": [
-     "opencode-go/mimo-v2.5",
-     "openrouter/xiaomi/mimo-v2.5"
+     "openrouter/xiaomi/mimo-v2.5",
+     "opencode-go/mimo-v2.5"
     ],
     "hermes": [
      "opencode-go:mimo-v2.5"
@@ -9327,8 +9212,8 @@
      "openrouter/xiaomi/mimo-v2.5-pro"
     ],
     "omp": [
-     "opencode-go/mimo-v2.5-pro",
-     "openrouter/xiaomi/mimo-v2.5-pro"
+     "openrouter/xiaomi/mimo-v2.5-pro",
+     "opencode-go/mimo-v2.5-pro"
     ],
     "hermes": [
      "openrouter:xiaomi/mimo-v2.5-pro",
@@ -9360,8 +9245,8 @@
      "openrouter/xiaomi/mimo-v2.6-flash"
     ],
     "omp": [
-     "opencode-go/mimo-v2.6-flash",
-     "openrouter/xiaomi/mimo-v2.6-flash"
+     "openrouter/xiaomi/mimo-v2.6-flash",
+     "opencode-go/mimo-v2.6-flash"
     ],
     "hermes": [
      "openrouter:xiaomi/mimo-v2.6-flash",
@@ -9393,8 +9278,8 @@
      "openrouter/xiaomi/mimo-v2.6-pro"
     ],
     "omp": [
-     "opencode-go/mimo-v2.6-pro",
-     "openrouter/xiaomi/mimo-v2.6-pro"
+     "openrouter/xiaomi/mimo-v2.6-pro",
+     "opencode-go/mimo-v2.6-pro"
     ],
     "hermes": [
      "openrouter:xiaomi/mimo-v2.6-pro",
@@ -9572,9 +9457,9 @@
      "openrouter/minimax/minimax-m2.5"
     ],
     "omp": [
-     "opencode-go/minimax-m2.5",
      "openrouter/minimax/minimax-m2.5",
-     "openrouter/minimax/minimax-m2.5:free"
+     "openrouter/minimax/minimax-m2.5:free",
+     "opencode-go/minimax-m2.5"
     ],
     "hermes": [
      "opencode-go:minimax-m2.5"
@@ -9603,9 +9488,9 @@
      "openrouter/minimax/minimax-m2.7"
     ],
     "omp": [
-     "opencode-go/minimax-m2.7",
      "openrouter/minimax/minimax-m2.7",
-     "openrouter/minimax/minimax-m2.7:free"
+     "openrouter/minimax/minimax-m2.7:free",
+     "opencode-go/minimax-m2.7"
     ],
     "hermes": [
      "opencode-go:minimax-m2.7"
@@ -9635,10 +9520,10 @@
      "openrouter/minimax/minimax-m3"
     ],
     "omp": [
-     "opencode-go/minimax-m3",
      "openrouter/minimax/minimax-m3",
      "openrouter/minimax/minimax-m3:batch",
-     "openrouter/minimax/minimax-m3:free"
+     "openrouter/minimax/minimax-m3:free",
+     "opencode-go/minimax-m3"
     ],
     "hermes": [
      "openrouter:minimax/minimax-m3",
@@ -10214,23 +10099,122 @@
    ],
    "description": "Morph's high-accuracy apply model for complex code edits."
   },
-  "muse-spark-1.2-contributor": {
-   "canonical": "muse-spark-1.2-contributor",
-   "family": null,
+  "muse-glimmer-30b": {
+   "canonical": "muse-glimmer-30b",
+   "family": "muse",
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
     "pi": [
-     "opencode-go/muse-spark-1.2-contributor"
+     "openrouter/meta/muse-glimmer-30b"
     ],
     "omp": [
+     "openrouter/meta/muse-glimmer-30b",
+     "openrouter/meta/muse-glimmer-30b:batch"
+    ],
+    "opencode": [
+     "openrouter/meta/muse-glimmer-30b"
+    ]
+   },
+   "contextLength": 131072,
+   "modalities": [
+    "text",
+    "image"
+   ],
+   "strengths": [
+    "агентные задачи",
+    "изображения"
+   ],
+   "description": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware."
+  },
+  "muse-spark-1.1": {
+   "canonical": "muse-spark-1.1",
+   "family": "muse",
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "pi": [
+     "openrouter/meta/muse-spark-1.1"
+    ],
+    "omp": [
+     "openrouter/meta/muse-spark-1.1"
+    ],
+    "opencode": [
+     "openrouter/meta/muse-spark-1.1"
+    ]
+   },
+   "contextLength": 1048576,
+   "modalities": [
+    "text",
+    "image",
+    "video",
+    "file"
+   ],
+   "strengths": [
+    "агентные задачи",
+    "рассуждения",
+    "изображения",
+    "видео",
+    "длинный контекст"
+   ],
+   "description": "Muse Spark 1.1 is a multimodal reasoning model from Meta, built for agentic tasks."
+  },
+  "muse-spark-1.2": {
+   "canonical": "muse-spark-1.2",
+   "family": "muse",
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "pi": [
+     "openrouter/meta/muse-spark-1.2"
+    ],
+    "omp": [
+     "openrouter/meta/muse-spark-1.2"
+    ],
+    "hermes": [
+     "openrouter:meta/muse-spark-1.2"
+    ],
+    "opencode": [
+     "openrouter/meta/muse-spark-1.2"
+    ]
+   },
+   "contextLength": 1048576,
+   "modalities": [
+    "text",
+    "image",
+    "video",
+    "file"
+   ],
+   "strengths": [
+    "агентные задачи",
+    "рассуждения",
+    "изображения",
+    "видео",
+    "длинный контекст"
+   ],
+   "description": "Muse Spark 1.2 is a reasoning model from Meta, designed for complex agentic tasks."
+  },
+  "muse-spark-1.2-contributor": {
+   "canonical": "muse-spark-1.2-contributor",
+   "family": "muse",
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "pi": [
+     "opencode-go/muse-spark-1.2-contributor",
+     "openrouter/meta/muse-spark-1.2-contributor"
+    ],
+    "omp": [
+     "openrouter/meta/muse-spark-1.2-contributor",
      "opencode-go/muse-spark-1.2-contributor"
     ],
     "hermes": [
+     "openrouter:meta/muse-spark-1.2-contributor",
      "opencode-go:muse-spark-1.2-contributor"
     ],
     "opencode": [
-     "opencode-go/muse-spark-1.2-contributor"
+     "opencode-go/muse-spark-1.2-contributor",
+     "openrouter/meta/muse-spark-1.2-contributor"
     ]
    },
    "contextLength": 1048576,
@@ -10246,23 +10230,61 @@
    ],
    "description": "Muse Spark 1.2 contributor tier is a reasoning model from Meta designed for developers who want to start building at an even lower cost."
   },
-  "muse-spark-1.3-contributor": {
-   "canonical": "muse-spark-1.3-contributor",
-   "family": null,
+  "muse-spark-1.3": {
+   "canonical": "muse-spark-1.3",
+   "family": "muse",
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
     "pi": [
-     "opencode-go/muse-spark-1.3-contributor"
+     "openrouter/meta/muse-spark-1.3"
     ],
     "omp": [
+     "openrouter/meta/muse-spark-1.3"
+    ],
+    "hermes": [
+     "openrouter:meta/muse-spark-1.3"
+    ],
+    "opencode": [
+     "openrouter/meta/muse-spark-1.3"
+    ]
+   },
+   "contextLength": 1048576,
+   "modalities": [
+    "text",
+    "image",
+    "video",
+    "file"
+   ],
+   "strengths": [
+    "код",
+    "агентные задачи",
+    "рассуждения",
+    "изображения"
+   ],
+   "description": "Muse Spark 1.3 is a multimodal reasoning model from Meta for long-running agentic, multi-agent, and coding workflows."
+  },
+  "muse-spark-1.3-contributor": {
+   "canonical": "muse-spark-1.3-contributor",
+   "family": "muse",
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "pi": [
+     "opencode-go/muse-spark-1.3-contributor",
+     "openrouter/meta/muse-spark-1.3-contributor"
+    ],
+    "omp": [
+     "openrouter/meta/muse-spark-1.3-contributor",
      "opencode-go/muse-spark-1.3-contributor"
     ],
     "hermes": [
+     "openrouter:meta/muse-spark-1.3-contributor",
      "opencode-go:muse-spark-1.3-contributor"
     ],
     "opencode": [
-     "opencode-go/muse-spark-1.3-contributor"
+     "opencode-go/muse-spark-1.3-contributor",
+     "openrouter/meta/muse-spark-1.3-contributor"
     ]
    },
    "contextLength": 1048576,
@@ -10763,6 +10785,9 @@
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
+    "omp": [
+     "opencode-go/omen-alpha"
+    ],
     "hermes": [
      "opencode-go:omen-alpha"
     ]
@@ -10866,23 +10891,12 @@
     ],
     "omp": [
      "openrouter/unbiased/pareto"
-    ],
-    "opencode": [
-     "openrouter/unbiased/pareto"
     ]
    },
-   "contextLength": 262144,
-   "modalities": [
-    "text",
-    "image"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "изображения",
-    "поиск и RAG"
-   ],
-   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks."
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
   },
   "pareto-26.10-preview": {
    "canonical": "pareto-26.10-preview",
@@ -10913,12 +10927,44 @@
    ],
    "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks."
   },
+  "pareto-26.9": {
+   "canonical": "pareto-26.9",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "omp": [
+     "openrouter/unbiased/pareto-26.9"
+    ],
+    "opencode": [
+     "openrouter/unbiased/pareto-26.9"
+    ]
+   },
+   "contextLength": 262144,
+   "modalities": [
+    "text",
+    "image"
+   ],
+   "strengths": [
+    "код",
+    "агентные задачи",
+    "изображения",
+    "поиск и RAG"
+   ],
+   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks."
+  },
   "pareto-code": {
    "canonical": "pareto-code",
    "family": null,
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
+    "omp": [
+     "openrouter/openrouter/pareto-code"
+    ],
+    "hermes": [
+     "openrouter:openrouter/pareto-code"
+    ],
     "opencode": [
      "openrouter/openrouter/pareto-code"
     ]
@@ -10931,6 +10977,27 @@
     "код"
    ],
    "description": "The Pareto Router maintains a tiered shortlist of strong coding models, ranked by [Artificial Analysis](https://artificialanalysis.ai/) coding percentiles."
+  },
+  "pareto-latest": {
+   "canonical": "pareto-latest",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "omp": [
+     "openrouter/~unbiased/pareto-latest"
+    ],
+    "opencode": [
+     "openrouter/~unbiased/pareto-latest"
+    ]
+   },
+   "contextLength": 262144,
+   "modalities": [
+    "text",
+    "image"
+   ],
+   "strengths": [],
+   "description": "This model always redirects to the latest model in the Pareto family."
   },
   "perceptron-mk1": {
    "canonical": "perceptron-mk1",
@@ -12164,9 +12231,9 @@
      "openrouter/qwen/qwen3.6-plus"
     ],
     "omp": [
-     "opencode-go/qwen3.6-plus",
      "openrouter/qwen/qwen3.6-plus",
-     "openrouter/qwen/qwen3.6-plus:free"
+     "openrouter/qwen/qwen3.6-plus:free",
+     "opencode-go/qwen3.6-plus"
     ],
     "hermes": [
      "opencode-go:qwen3.6-plus"
@@ -12239,8 +12306,8 @@
      "openrouter/qwen/qwen3.7-max"
     ],
     "omp": [
-     "opencode-go/qwen3.7-max",
-     "openrouter/qwen/qwen3.7-max"
+     "openrouter/qwen/qwen3.7-max",
+     "opencode-go/qwen3.7-max"
     ],
     "hermes": [
      "opencode-go:qwen3.7-max"
@@ -12269,8 +12336,8 @@
      "openrouter/qwen/qwen3.7-plus"
     ],
     "omp": [
-     "opencode-go/qwen3.7-plus",
-     "openrouter/qwen/qwen3.7-plus"
+     "openrouter/qwen/qwen3.7-plus",
+     "opencode-go/qwen3.7-plus"
     ],
     "hermes": [
      "opencode-go:qwen3.7-plus"
@@ -12359,8 +12426,8 @@
      "openrouter/qwen/qwen3.8-flash"
     ],
     "omp": [
-     "opencode-go/qwen3.8-flash",
-     "openrouter/qwen/qwen3.8-flash"
+     "openrouter/qwen/qwen3.8-flash",
+     "opencode-go/qwen3.8-flash"
     ],
     "hermes": [
      "openrouter:qwen/qwen3.8-flash",
@@ -12396,8 +12463,8 @@
      "opencode-go/qwen3.8-max"
     ],
     "omp": [
-     "opencode-go/qwen3.8-max",
-     "openrouter/qwen/qwen3.8-max"
+     "openrouter/qwen/qwen3.8-max",
+     "opencode-go/qwen3.8-max"
     ],
     "hermes": [
      "opencode-go:qwen3.8-max"
@@ -13096,11 +13163,29 @@
     "pi": [
      "opencode-go/space-bunny"
     ],
+    "omp": [
+     "opencode-go/space-bunny"
+    ],
     "hermes": [
      "opencode-go:space-bunny"
     ],
     "opencode": [
      "opencode-go/space-bunny"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "space-bunny-alpha": {
+   "canonical": "space-bunny-alpha",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "omp": [
+     "openrouter/stealth/space-bunny-alpha"
     ]
    },
    "contextLength": null,
@@ -13191,6 +13276,25 @@
     "агентные задачи"
    ],
    "description": "Step 5 Preview is StepFun's flagship model for agentic work, built on a sparse Mixture-of-Experts architecture (27B active / 600B total parameters)."
+  },
+  "summarize": {
+   "canonical": "summarize",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "opencode": [
+     "openrouter/scaledown/summarize"
+    ]
+   },
+   "contextLength": 1000000,
+   "modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "strengths": [],
+   "description": "Summarize is an abstractive summarization model from ScaleDown."
   },
   "ternary-bonsai-2-27b": {
    "canonical": "ternary-bonsai-2-27b",
@@ -13462,6 +13566,28 @@
    "strengths": [],
    "description": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model."
   },
+  "cat-jam-free": {
+   "canonical": "cat-jam-free",
+   "family": null,
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "omp": [
+     "opencode-go/cat-jam-free"
+    ],
+    "hermes": [
+     "opencode-go:cat-jam-free"
+    ],
+    "opencode": [
+     "opencode/cat-jam-free",
+     "opencode-go/cat-jam-free"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
   "exo-free": {
    "canonical": "exo-free",
    "family": null,
@@ -13516,6 +13642,9 @@
     "pi": [
      "opencode-go/longcat-2.5-preview-free"
     ],
+    "omp": [
+     "opencode-go/longcat-2.5-preview-free"
+    ],
     "hermes": [
      "opencode-go:longcat-2.5-preview-free"
     ],
@@ -13546,7 +13675,7 @@
   },
   "muse-spark-1.3-contributor-free": {
    "canonical": "muse-spark-1.3-contributor-free",
-   "family": null,
+   "family": "muse",
    "tier": "low",
    "tierSource": "explicit",
    "harnesses": {
@@ -13610,6 +13739,9 @@
    "tier": "low",
    "tierSource": "explicit",
    "harnesses": {
+    "omp": [
+     "opencode-go/space-bunny-free"
+    ],
     "opencode": [
      "opencode/space-bunny-free"
     ]
@@ -13626,6 +13758,9 @@
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
+     "opencode-go/step-5-preview-free"
+    ],
+    "omp": [
      "opencode-go/step-5-preview-free"
     ],
     "hermes": [
