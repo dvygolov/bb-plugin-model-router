@@ -450,6 +450,11 @@ export function decide(input: DecideInput): Decision {
   }
 
   const { harness, candidate, tier, distance } = result.pick!;
+  const dropped = result.dropped;
+  reasons.push(
+    `Отсеяно: не умеет харнес ${dropped.noCapability}, по модальностям ${dropped.modality}, ` +
+      `вендоров без запаса ${dropped.deadVendor}, вне короткого списка ${dropped.shortlist}`,
+  );
   reasons.push(
     `Возможности: ${
       usedLevel.requires.length ? usedLevel.requires.join(", ") : "базовые (BB-инструменты)"

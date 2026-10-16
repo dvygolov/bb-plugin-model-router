@@ -111,6 +111,12 @@ subscription one tier away still beats credits at the requested tier; free model
 sit between subscriptions and paid credits so they cannot outrank a proper model
 for real work. Ties go to the stronger model.
 
+**OpenAI's codenames are a class ladder, not flavours.** Within a generation
+`luna` is the weakest, `terra` is Sub-Frontier, `astra` is Frontier; `sol` tops the
+newest generation. So `gpt-5.6-luna` is not a Sub-Frontier model — it is below
+`deepseek-v4-pro` in the shortlist's eyes. Anthropic follows the same idea: Opus is
+Frontier, Sonnet and the previous Opus are Sub-Frontier.
+
 **Every window counts.** A vendor has several ceilings at once: OpenCode Go has a
 five-hour, a weekly and a monthly one; Kimi has five-hour and weekly; Z.ai has
 five-hour and monthly. Hitting *any* of them closes the whole vendor — all of its

@@ -40,7 +40,8 @@ const SHORTLIST = {
       model: "kimi-k3",
       purpose: "флагман на подписке Kimi — сильнейшее, что есть без доплаты за токены",
     },
-    { model: "gpt-6.1-sol-pro", purpose: "OpenAI-флагман" },
+    { model: "gpt-6.1-sol-pro", purpose: "OpenAI-флагман (sol — топ поколения 6.1)" },
+    { model: "gpt-6-astra-pro", purpose: "OpenAI Frontier поколения 6" },
     { model: "claude-opus-5.5", purpose: "Anthropic-флагман" },
     { model: "gemini-4-argon", purpose: "Google-флагман, 1M unified, вводная цена" },
     { model: "gemini-3.1-pro-preview", purpose: "Google-флагман, 1M контекста" },
@@ -50,7 +51,7 @@ const SHORTLIST = {
   subFrontier: [
     { model: "glm-5.3", purpose: "Z.ai по подписке, 1M — основная рабочая модель" },
     { model: "deepseek-v4-pro", purpose: "DeepSeek по OpenCode Go, 1M" },
-    { model: "gpt-5.6-luna", purpose: "GPT-5.6 через подписку OpenCode Go" },
+    { model: "gpt-5.6-terra", purpose: "GPT-5.6 Terra — Sub-Frontier у OpenAI" },
     { model: "glm-5.2", purpose: "запас, если 5.3 в лимите" },
   ],
   middle: [

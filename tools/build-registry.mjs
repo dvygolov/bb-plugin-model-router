@@ -118,16 +118,27 @@ const FAMILY_ALIASES = [
 const COLON_SUFFIXES = new Set(["free", "batch", "exacto", "thinking", "online", "extended"]);
 
 /** Явный класс модели. Frontier — конкретные модели, а не семейства. */
+/**
+ * Кодовые имена OpenAI задают класс внутри поколения. Владелец линейки:
+ * luna — самая слабая, terra — Sub-Frontier, astra — Frontier; sol — топ
+ * последнего поколения (6.1 выпущен только им).
+ */
+const CODENAME_CLASS = [
+  [/-luna/, "middle"],
+  [/-terra/, "subFrontier"],
+  [/-astra/, "frontier"],
+  [/-sol/, "frontier"],
+];
+
 const FRONTIER_MODELS = [
   "gpt-6.1-sol-pro",
   "gpt-6.1-sol",
   "gpt-6-sol-pro",
   "gpt-6-sol",
+  "gpt-6-astra",
   "gpt-6-astra-pro",
-  "gpt-6-luna-pro",
   "claude-opus-5.5",
   "claude-opus-5",
-  "claude-sonnet-5.5",
   "gemini-3.1-pro-preview",
   "gemini-3.1-pro-preview-customtools",
   "gemini-4-argon",
@@ -140,6 +151,9 @@ const FRONTIER_MODELS = [
 ];
 
 const SUB_FRONTIER_MODELS = [
+  "claude-sonnet-5.5",
+  "claude-sonnet-5",
+  "claude-opus-4.8",
   "deepseek-v4-pro",
   "deepseek-v4-pro-0813",
   "glm-5.3",
@@ -150,9 +164,10 @@ const SUB_FRONTIER_MODELS = [
   "gemini-3.7-flash",
   "gemini-3.8-flash",
   "grok-4.3",
-  "gpt-5.6-luna",
-  "gpt-5.6-luna-900k",
   "gpt-5.5-pro",
+  "claude-sonnet-5.5",
+  "claude-sonnet-5",
+  "claude-opus-4.8",
 ];
 
 /** Теги назначения: только те, что подтверждаются текстом описания вендора. */
@@ -228,8 +243,12 @@ function canonicalOf(id) {
 }
 
 function classOf(canonical) {
+  // Явные списки главнее кодовых имён: ими правят конкретные модели.
   if (FRONTIER_MODELS.includes(canonical)) return "frontier";
   if (SUB_FRONTIER_MODELS.includes(canonical)) return "subFrontier";
+  for (const [re, tier] of CODENAME_CLASS) {
+    if (re.test(canonical)) return tier;
+  }
   if (/(:free|-free)$/.test(canonical)) return "low";
   return null; // middle по умолчанию
 }
