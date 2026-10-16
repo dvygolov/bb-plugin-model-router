@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-14T12:09:40.115Z",
+ "generatedAt": "2026-10-16T09:15:32.803Z",
  "harnesses": [
   "pi",
   "omp",
@@ -12,11 +12,10 @@
    "gpt-6.1-sol",
    "gpt-6-sol-pro",
    "gpt-6-sol",
+   "gpt-6-astra",
    "gpt-6-astra-pro",
-   "gpt-6-luna-pro",
    "claude-opus-5.5",
    "claude-opus-5",
-   "claude-sonnet-5.5",
    "gemini-3.1-pro-preview",
    "gemini-3.1-pro-preview-customtools",
    "gemini-4-argon",
@@ -28,6 +27,9 @@
    "muse-wonder"
   ],
   "subFrontier": [
+   "claude-sonnet-5.5",
+   "claude-sonnet-5",
+   "claude-opus-4.8",
    "deepseek-v4-pro",
    "deepseek-v4-pro-0813",
    "glm-5.3",
@@ -38,9 +40,10 @@
    "gemini-3.7-flash",
    "gemini-3.8-flash",
    "grok-4.3",
-   "gpt-5.6-luna",
-   "gpt-5.6-luna-900k",
-   "gpt-5.5-pro"
+   "gpt-5.5-pro",
+   "claude-sonnet-5.5",
+   "claude-sonnet-5",
+   "claude-opus-4.8"
   ]
  },
  "models": {
@@ -111,36 +114,6 @@
     "рассуждения"
    ],
    "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5."
-  },
-  "claude-sonnet-5.5": {
-   "canonical": "claude-sonnet-5.5",
-   "family": "anthropic",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/anthropic/claude-sonnet-5.5",
-     "openrouter/anthropic/claude-sonnet-5.5:batch"
-    ],
-    "omp": [
-     "openrouter/anthropic/claude-sonnet-5.5",
-     "openrouter/anthropic/claude-sonnet-5.5:batch"
-    ],
-    "hermes": [
-     "openrouter:anthropic/claude-sonnet-5.5"
-    ],
-    "opencode": [
-     "openrouter/anthropic/claude-sonnet-5.5"
-    ]
-   },
-   "contextLength": 1000000,
-   "modalities": [
-    "text",
-    "image",
-    "file"
-   ],
-   "strengths": [],
-   "description": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade."
   },
   "gemini-3.1-pro-preview": {
    "canonical": "gemini-3.1-pro-preview",
@@ -219,6 +192,9 @@
    "tier": "frontier",
    "tierSource": "explicit",
    "harnesses": {
+    "pi": [
+     "google/gemini-4-argon"
+    ],
     "omp": [
      "google/gemini-4-argon",
      "openrouter/google/gemini-4-argon",
@@ -247,6 +223,118 @@
     "математика"
    ],
    "description": "Gemini 4 Argon is Google's flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, and autonomous multi-step agents."
+  },
+  "gpt-5.6-sol": {
+   "canonical": "gpt-5.6-sol",
+   "family": "openai",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-5.6-sol",
+     "openrouter/openai/gpt-5.6-sol:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-5.6-sol",
+     "openrouter/openai/gpt-5.6-sol:batch"
+    ],
+    "hermes": [
+     "openai-codex:gpt-5.6-sol"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-5.6-sol"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "код",
+    "агентные задачи",
+    "рассуждения"
+   ],
+   "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series."
+  },
+  "gpt-5.6-sol-900k": {
+   "canonical": "gpt-5.6-sol-900k",
+   "family": "openai",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "hermes": [
+     "openai-codex:gpt-5.6-sol-900k"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "gpt-5.6-sol-pro": {
+   "canonical": "gpt-5.6-sol-pro",
+   "family": "openai",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-5.6-sol-pro",
+     "openrouter/openai/gpt-5.6-sol-pro:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-5.6-sol-pro",
+     "openrouter/openai/gpt-5.6-sol-pro:batch"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-5.6-sol-pro"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  },
+  "gpt-6-astra": {
+   "canonical": "gpt-6-astra",
+   "family": "openai",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-6-astra",
+     "openrouter/openai/gpt-6-astra:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-6-astra",
+     "openrouter/openai/gpt-6-astra:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6-astra"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-6-astra"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "код",
+    "агентные задачи",
+    "поиск и RAG"
+   ],
+   "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work."
   },
   "gpt-6-astra-pro": {
    "canonical": "gpt-6-astra-pro",
@@ -280,38 +368,6 @@
    ],
    "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
   },
-  "gpt-6-luna-pro": {
-   "canonical": "gpt-6-luna-pro",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-6-luna-pro",
-     "openrouter/openai/gpt-6-luna-pro:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-6-luna-pro",
-     "openrouter/openai/gpt-6-luna-pro:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6-luna-pro"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-6-luna-pro"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "рассуждения"
-   ],
-   "description": "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
-  },
   "gpt-6-sol": {
    "canonical": "gpt-6-sol",
    "family": "openai",
@@ -344,6 +400,21 @@
     "скорость"
    ],
    "description": "GPT-6 Sol is the cost-efficient high-end model in OpenAI's GPT-6 series, positioned below the flagship GPT-6 Astra and above the fast GPT-6 Luna tier."
+  },
+  "gpt-6-sol-900k": {
+   "canonical": "gpt-6-sol-900k",
+   "family": "openai",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "hermes": [
+     "openai-codex:gpt-6-sol-900k"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
   },
   "gpt-6-sol-pro": {
    "canonical": "gpt-6-sol-pro",
@@ -442,6 +513,56 @@
    ],
    "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
   },
+  "gpt-astra-latest": {
+   "canonical": "gpt-astra-latest",
+   "family": "openai",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/~openai/gpt-astra-latest"
+    ],
+    "omp": [
+     "openrouter/~openai/gpt-astra-latest"
+    ],
+    "opencode": [
+     "openrouter/~openai/gpt-astra-latest"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [],
+   "description": "This model always redirects to the latest model in the GPT Astra family."
+  },
+  "gpt-sol-latest": {
+   "canonical": "gpt-sol-latest",
+   "family": "openai",
+   "tier": "frontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/~openai/gpt-sol-latest"
+    ],
+    "omp": [
+     "openrouter/~openai/gpt-sol-latest"
+    ],
+    "opencode": [
+     "openrouter/~openai/gpt-sol-latest"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [],
+   "description": "This model always redirects to the latest model in the GPT Sol family."
+  },
   "grok-4.5": {
    "canonical": "grok-4.5",
    "family": "x-ai",
@@ -452,8 +573,8 @@
      "openrouter/x-ai/grok-4.5"
     ],
     "omp": [
-     "openrouter/x-ai/grok-4.5",
-     "opencode-go/grok-4.5"
+     "opencode-go/grok-4.5",
+     "openrouter/x-ai/grok-4.5"
     ],
     "hermes": [
      "opencode-go:grok-4.5"
@@ -480,19 +601,17 @@
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "opencode-go/grok-4.6",
      "openrouter/x-ai/grok-4.6"
     ],
     "omp": [
-     "openrouter/x-ai/grok-4.6",
-     "opencode-go/grok-4.6"
+     "opencode-go/grok-4.6",
+     "openrouter/x-ai/grok-4.6"
     ],
     "hermes": [
      "openrouter:x-ai/grok-4.6",
      "opencode-go:grok-4.6"
     ],
     "opencode": [
-     "opencode-go/grok-4.6",
      "openrouter/x-ai/grok-4.6"
     ]
    },
@@ -518,8 +637,8 @@
      "openrouter/x-ai/grok-4.7"
     ],
     "omp": [
-     "openrouter/x-ai/grok-4.7",
-     "opencode-go/grok-4.7"
+     "opencode-go/grok-4.7",
+     "openrouter/x-ai/grok-4.7"
     ],
     "hermes": [
      "openrouter:x-ai/grok-4.7",
@@ -556,9 +675,9 @@
     ],
     "omp": [
      "kimi-code/k3",
+     "opencode-go/kimi-k3",
      "openrouter/moonshotai/kimi-k3",
-     "openrouter/moonshotai/kimi-k3:batch",
-     "opencode-go/kimi-k3"
+     "openrouter/moonshotai/kimi-k3:batch"
     ],
     "hermes": [
      "openrouter:moonshotai/kimi-k3",
@@ -638,6 +757,103 @@
    ],
    "description": "Muse Wonder is a frontier reasoning model from Meta, designed for complex personal and professional agentic tasks."
   },
+  "claude-opus-4.8": {
+   "canonical": "claude-opus-4.8",
+   "family": "anthropic",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/anthropic/claude-opus-4.8",
+     "openrouter/anthropic/claude-opus-4.8:batch"
+    ],
+    "omp": [
+     "openrouter/anthropic/claude-opus-4.8",
+     "openrouter/anthropic/claude-opus-4.8:batch"
+    ],
+    "hermes": [
+     "openrouter:anthropic/claude-opus-4.8"
+    ],
+    "opencode": [
+     "openrouter/anthropic/claude-opus-4.8"
+    ]
+   },
+   "contextLength": 1000000,
+   "modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "strengths": [
+    "рассуждения",
+    "изображения",
+    "длинный контекст"
+   ],
+   "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family."
+  },
+  "claude-sonnet-5": {
+   "canonical": "claude-sonnet-5",
+   "family": "anthropic",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/anthropic/claude-sonnet-5",
+     "openrouter/anthropic/claude-sonnet-5:batch"
+    ],
+    "omp": [
+     "openrouter/anthropic/claude-sonnet-5",
+     "openrouter/anthropic/claude-sonnet-5:batch"
+    ],
+    "hermes": [
+     "openrouter:anthropic/claude-sonnet-5"
+    ],
+    "opencode": [
+     "openrouter/anthropic/claude-sonnet-5"
+    ]
+   },
+   "contextLength": 1000000,
+   "modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "strengths": [
+    "код",
+    "рассуждения"
+   ],
+   "description": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work."
+  },
+  "claude-sonnet-5.5": {
+   "canonical": "claude-sonnet-5.5",
+   "family": "anthropic",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/anthropic/claude-sonnet-5.5",
+     "openrouter/anthropic/claude-sonnet-5.5:batch"
+    ],
+    "omp": [
+     "openrouter/anthropic/claude-sonnet-5.5",
+     "openrouter/anthropic/claude-sonnet-5.5:batch"
+    ],
+    "hermes": [
+     "openrouter:anthropic/claude-sonnet-5.5"
+    ],
+    "opencode": [
+     "openrouter/anthropic/claude-sonnet-5.5"
+    ]
+   },
+   "contextLength": 1000000,
+   "modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "strengths": [],
+   "description": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade."
+  },
   "deepseek-v4-pro": {
    "canonical": "deepseek-v4-pro",
    "family": "deepseek",
@@ -649,8 +865,8 @@
      "openrouter/deepseek/deepseek-v4-pro"
     ],
     "omp": [
-     "openrouter/deepseek/deepseek-v4-pro",
-     "opencode-go/deepseek-v4-pro"
+     "opencode-go/deepseek-v4-pro",
+     "openrouter/deepseek/deepseek-v4-pro"
     ],
     "hermes": [
      "openrouter:deepseek/deepseek-v4-pro",
@@ -871,11 +1087,11 @@
      "zai/glm-5.2"
     ],
     "omp": [
+     "opencode-go/glm-5.2",
      "openrouter/z-ai/glm-5.2",
      "openrouter/z-ai/glm-5.2:batch",
      "openrouter/z-ai/glm-5.2:free",
-     "zai/glm-5.2",
-     "opencode-go/glm-5.2"
+     "zai/glm-5.2"
     ],
     "hermes": [
      "openrouter:z-ai/glm-5.2",
@@ -913,10 +1129,10 @@
      "zai/glm-5.3"
     ],
     "omp": [
+     "opencode-go/glm-5.3",
      "openrouter/z-ai/glm-5.3",
      "openrouter/z-ai/glm-5.3:batch",
-     "zai/glm-5.3",
-     "opencode-go/glm-5.3"
+     "zai/glm-5.3"
     ],
     "hermes": [
      "openrouter:z-ai/glm-5.3",
@@ -1000,29 +1216,25 @@
    ],
    "description": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads."
   },
-  "gpt-5.6-luna": {
-   "canonical": "gpt-5.6-luna",
+  "gpt-5.6-terra": {
+   "canonical": "gpt-5.6-terra",
    "family": "openai",
    "tier": "subFrontier",
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "opencode-go/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna:batch"
+     "openrouter/openai/gpt-5.6-terra",
+     "openrouter/openai/gpt-5.6-terra:batch"
     ],
     "omp": [
-     "openrouter/openai/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna:batch",
-     "opencode-go/gpt-5.6-luna"
+     "openrouter/openai/gpt-5.6-terra",
+     "openrouter/openai/gpt-5.6-terra:batch"
     ],
     "hermes": [
-     "openai-codex:gpt-5.6-luna",
-     "opencode-go:gpt-5.6-luna"
+     "openai-codex:gpt-5.6-terra"
     ],
     "opencode": [
-     "opencode-go/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna"
+     "openrouter/openai/gpt-5.6-terra"
     ]
    },
    "contextLength": 1050000,
@@ -1032,26 +1244,80 @@
     "text"
    ],
    "strengths": [
+    "код",
     "агентные задачи",
-    "рассуждения",
-    "скорость"
+    "рассуждения"
    ],
-   "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series."
+   "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier."
   },
-  "gpt-5.6-luna-900k": {
-   "canonical": "gpt-5.6-luna-900k",
+  "gpt-5.6-terra-900k": {
+   "canonical": "gpt-5.6-terra-900k",
    "family": "openai",
    "tier": "subFrontier",
    "tierSource": "explicit",
    "harnesses": {
     "hermes": [
-     "openai-codex:gpt-5.6-luna-900k"
+     "openai-codex:gpt-5.6-terra-900k"
     ]
    },
    "contextLength": null,
    "modalities": [],
    "strengths": [],
    "description": null
+  },
+  "gpt-5.6-terra-pro": {
+   "canonical": "gpt-5.6-terra-pro",
+   "family": "openai",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-5.6-terra-pro",
+     "openrouter/openai/gpt-5.6-terra-pro:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-5.6-terra-pro",
+     "openrouter/openai/gpt-5.6-terra-pro:batch"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-5.6-terra-pro"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  },
+  "gpt-terra-latest": {
+   "canonical": "gpt-terra-latest",
+   "family": "openai",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/~openai/gpt-terra-latest"
+    ],
+    "omp": [
+     "openrouter/~openai/gpt-terra-latest"
+    ],
+    "opencode": [
+     "openrouter/~openai/gpt-terra-latest"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [],
+   "description": "This model always redirects to the latest model in the GPT Terra family."
   },
   "grok-4.3": {
    "canonical": "grok-4.3",
@@ -1786,40 +2052,6 @@
    "strengths": [],
    "description": null
   },
-  "claude-opus-4.8": {
-   "canonical": "claude-opus-4.8",
-   "family": "anthropic",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/anthropic/claude-opus-4.8",
-     "openrouter/anthropic/claude-opus-4.8:batch"
-    ],
-    "omp": [
-     "openrouter/anthropic/claude-opus-4.8",
-     "openrouter/anthropic/claude-opus-4.8:batch"
-    ],
-    "hermes": [
-     "openrouter:anthropic/claude-opus-4.8"
-    ],
-    "opencode": [
-     "openrouter/anthropic/claude-opus-4.8"
-    ]
-   },
-   "contextLength": 1000000,
-   "modalities": [
-    "text",
-    "image",
-    "file"
-   ],
-   "strengths": [
-    "рассуждения",
-    "изображения",
-    "длинный контекст"
-   ],
-   "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family."
-  },
   "claude-opus-4.8-fast": {
    "canonical": "claude-opus-4.8-fast",
    "family": "anthropic",
@@ -1886,22 +2118,12 @@
     ],
     "omp": [
      "openrouter/anthropic/claude-sonnet-4"
-    ],
-    "opencode": [
-     "openrouter/anthropic/claude-sonnet-4"
     ]
    },
-   "contextLength": 200000,
-   "modalities": [
-    "image",
-    "text",
-    "file"
-   ],
-   "strengths": [
-    "код",
-    "рассуждения"
-   ],
-   "description": "Claude Sonnet 4 significantly enhances the capabilities of its predecessor, Sonnet 3.7, excelling in both coding and reasoning tasks with improved precision and controllability."
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
   },
   "claude-sonnet-4.5": {
    "canonical": "claude-sonnet-4.5",
@@ -1960,39 +2182,6 @@
     "код"
    ],
    "description": "Sonnet 4.6 is Anthropic's most capable Sonnet-class model yet, with frontier performance across coding, agents, and professional work."
-  },
-  "claude-sonnet-5": {
-   "canonical": "claude-sonnet-5",
-   "family": "anthropic",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/anthropic/claude-sonnet-5",
-     "openrouter/anthropic/claude-sonnet-5:batch"
-    ],
-    "omp": [
-     "openrouter/anthropic/claude-sonnet-5",
-     "openrouter/anthropic/claude-sonnet-5:batch"
-    ],
-    "hermes": [
-     "openrouter:anthropic/claude-sonnet-5"
-    ],
-    "opencode": [
-     "openrouter/anthropic/claude-sonnet-5"
-    ]
-   },
-   "contextLength": 1000000,
-   "modalities": [
-    "text",
-    "image",
-    "file"
-   ],
-   "strengths": [
-    "код",
-    "рассуждения"
-   ],
-   "description": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work."
   },
   "claude-sonnet-latest": {
    "canonical": "claude-sonnet-latest",
@@ -2324,24 +2513,6 @@
    ],
    "description": "DeepSeek-V3.1 is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes via prompt templates."
   },
-  "deepseek-flash": {
-   "canonical": "deepseek-flash",
-   "family": "deepseek",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "omp": [
-     "opencode-go/deepseek-flash"
-    ],
-    "hermes": [
-     "opencode-go:deepseek-flash"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
   "deepseek-flash-latest": {
    "canonical": "deepseek-flash-latest",
    "family": "deepseek",
@@ -2564,13 +2735,12 @@
    "tierSource": "default",
    "harnesses": {
     "pi": [
-     "opencode-go/deepseek-v4-flash",
      "openrouter/deepseek/deepseek-v4-flash"
     ],
     "omp": [
+     "opencode-go/deepseek-v4-flash",
      "openrouter/deepseek/deepseek-v4-flash",
-     "openrouter/deepseek/deepseek-v4-flash:free",
-     "opencode-go/deepseek-v4-flash"
+     "openrouter/deepseek/deepseek-v4-flash:free"
     ],
     "hermes": [
      "opencode-go:deepseek-v4-flash"
@@ -2651,16 +2821,12 @@
    "tierSource": "default",
    "harnesses": {
     "pi": [
-     "opencode-go/deepseek-v4-flash-vision-exp",
      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
     ],
     "omp": [
+     "opencode-go/deepseek-v4-flash-vision-exp",
      "openrouter/deepseek/deepseek-v4-flash-vision-exp",
-     "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch",
-     "opencode-go/deepseek-v4-flash-vision-exp"
-    ],
-    "hermes": [
-     "opencode-go:deepseek-v4-flash-vision-exp"
+     "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch"
     ],
     "opencode": [
      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
@@ -2688,9 +2854,9 @@
      "openrouter/deepseek/deepseek-v4.1-flash:batch"
     ],
     "omp": [
+     "opencode-go/deepseek-v4.1-flash",
      "openrouter/deepseek/deepseek-v4.1-flash",
-     "openrouter/deepseek/deepseek-v4.1-flash:batch",
-     "opencode-go/deepseek-v4.1-flash"
+     "openrouter/deepseek/deepseek-v4.1-flash:batch"
     ],
     "hermes": [
      "openrouter:deepseek/deepseek-v4.1-flash",
@@ -3862,6 +4028,9 @@
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
+    "pi": [
+     "opencode-go/gemini-4-argon-contributor"
+    ],
     "omp": [
      "opencode-go/gemini-4-argon-contributor"
     ],
@@ -4877,9 +5046,9 @@
      "openrouter/z-ai/glm-5"
     ],
     "omp": [
+     "opencode-go/glm-5",
      "openrouter/z-ai/glm-5",
-     "zai/glm-5",
-     "opencode-go/glm-5"
+     "zai/glm-5"
     ],
     "hermes": [
      "zai:glm-5",
@@ -4941,9 +5110,9 @@
      "openrouter/z-ai/glm-5.1"
     ],
     "omp": [
+     "opencode-go/glm-5.1",
      "openrouter/z-ai/glm-5.1",
-     "zai/glm-5.1",
-     "opencode-go/glm-5.1"
+     "zai/glm-5.1"
     ],
     "hermes": [
      "zai:glm-5.1",
@@ -4992,10 +5161,10 @@
      "zai/glm-5.3-flash"
     ],
     "omp": [
+     "opencode-go/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash:batch",
-     "zai/glm-5.3-flash",
-     "opencode-go/glm-5.3-flash"
+     "zai/glm-5.3-flash"
     ],
     "hermes": [
      "openrouter:z-ai/glm-5.3-flash",
@@ -6291,11 +6460,64 @@
    ],
    "description": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks."
   },
+  "gpt-5.6-luna": {
+   "canonical": "gpt-5.6-luna",
+   "family": "openai",
+   "tier": "middle",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna:batch"
+    ],
+    "omp": [
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna:batch"
+    ],
+    "hermes": [
+     "openai-codex:gpt-5.6-luna",
+     "opencode-go:gpt-5.6-luna"
+    ],
+    "opencode": [
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "агентные задачи",
+    "рассуждения",
+    "скорость"
+   ],
+   "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series."
+  },
+  "gpt-5.6-luna-900k": {
+   "canonical": "gpt-5.6-luna-900k",
+   "family": "openai",
+   "tier": "middle",
+   "tierSource": "explicit",
+   "harnesses": {
+    "hermes": [
+     "openai-codex:gpt-5.6-luna-900k"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
   "gpt-5.6-luna-pro": {
    "canonical": "gpt-5.6-luna-pro",
    "family": "openai",
    "tier": "middle",
-   "tierSource": "default",
+   "tierSource": "explicit",
    "harnesses": {
     "pi": [
      "openrouter/openai/gpt-5.6-luna-pro",
@@ -6320,201 +6542,11 @@
    ],
    "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
   },
-  "gpt-5.6-sol": {
-   "canonical": "gpt-5.6-sol",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-5.6-sol",
-     "openrouter/openai/gpt-5.6-sol:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-5.6-sol",
-     "openrouter/openai/gpt-5.6-sol:batch"
-    ],
-    "hermes": [
-     "openai-codex:gpt-5.6-sol"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-5.6-sol"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "рассуждения"
-   ],
-   "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series."
-  },
-  "gpt-5.6-sol-900k": {
-   "canonical": "gpt-5.6-sol-900k",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "hermes": [
-     "openai-codex:gpt-5.6-sol-900k"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "gpt-5.6-sol-pro": {
-   "canonical": "gpt-5.6-sol-pro",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-5.6-sol-pro",
-     "openrouter/openai/gpt-5.6-sol-pro:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-5.6-sol-pro",
-     "openrouter/openai/gpt-5.6-sol-pro:batch"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-5.6-sol-pro"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "рассуждения"
-   ],
-   "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
-  },
-  "gpt-5.6-terra": {
-   "canonical": "gpt-5.6-terra",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-5.6-terra",
-     "openrouter/openai/gpt-5.6-terra:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-5.6-terra",
-     "openrouter/openai/gpt-5.6-terra:batch"
-    ],
-    "hermes": [
-     "openai-codex:gpt-5.6-terra"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-5.6-terra"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "рассуждения"
-   ],
-   "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier."
-  },
-  "gpt-5.6-terra-900k": {
-   "canonical": "gpt-5.6-terra-900k",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "hermes": [
-     "openai-codex:gpt-5.6-terra-900k"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "gpt-5.6-terra-pro": {
-   "canonical": "gpt-5.6-terra-pro",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-5.6-terra-pro",
-     "openrouter/openai/gpt-5.6-terra-pro:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-5.6-terra-pro",
-     "openrouter/openai/gpt-5.6-terra-pro:batch"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-5.6-terra-pro"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "рассуждения"
-   ],
-   "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
-  },
-  "gpt-6-astra": {
-   "canonical": "gpt-6-astra",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-6-astra",
-     "openrouter/openai/gpt-6-astra:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-6-astra",
-     "openrouter/openai/gpt-6-astra:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6-astra"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-6-astra"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "поиск и RAG"
-   ],
-   "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work."
-  },
   "gpt-6-luna": {
    "canonical": "gpt-6-luna",
    "family": "openai",
    "tier": "middle",
-   "tierSource": "default",
+   "tierSource": "explicit",
    "harnesses": {
     "pi": [
      "opencode-go/gpt-6-luna",
@@ -6522,9 +6554,9 @@
      "openrouter/openai/gpt-6-luna:batch"
     ],
     "omp": [
+     "opencode-go/gpt-6-luna",
      "openrouter/openai/gpt-6-luna",
-     "openrouter/openai/gpt-6-luna:batch",
-     "opencode-go/gpt-6-luna"
+     "openrouter/openai/gpt-6-luna:batch"
     ],
     "hermes": [
      "openrouter:openai/gpt-6-luna",
@@ -6552,7 +6584,7 @@
    "canonical": "gpt-6-luna-900k",
    "family": "openai",
    "tier": "middle",
-   "tierSource": "default",
+   "tierSource": "explicit",
    "harnesses": {
     "hermes": [
      "openai-codex:gpt-6-luna-900k"
@@ -6563,35 +6595,25 @@
    "strengths": [],
    "description": null
   },
-  "gpt-6-sol-900k": {
-   "canonical": "gpt-6-sol-900k",
+  "gpt-6-luna-pro": {
+   "canonical": "gpt-6-luna-pro",
    "family": "openai",
    "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "hermes": [
-     "openai-codex:gpt-6-sol-900k"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "gpt-astra-latest": {
-   "canonical": "gpt-astra-latest",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
+   "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "openrouter/~openai/gpt-astra-latest"
+     "openrouter/openai/gpt-6-luna-pro",
+     "openrouter/openai/gpt-6-luna-pro:batch"
     ],
     "omp": [
-     "openrouter/~openai/gpt-astra-latest"
+     "openrouter/openai/gpt-6-luna-pro",
+     "openrouter/openai/gpt-6-luna-pro:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6-luna-pro"
     ],
     "opencode": [
-     "openrouter/~openai/gpt-astra-latest"
+     "openrouter/openai/gpt-6-luna-pro"
     ]
    },
    "contextLength": 1050000,
@@ -6600,8 +6622,10 @@
     "image",
     "text"
    ],
-   "strengths": [],
-   "description": "This model always redirects to the latest model in the GPT Astra family."
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
   },
   "gpt-audio": {
    "canonical": "gpt-audio",
@@ -6699,7 +6723,7 @@
    "canonical": "gpt-luna-latest",
    "family": "openai",
    "tier": "middle",
-   "tierSource": "default",
+   "tierSource": "explicit",
    "harnesses": {
     "pi": [
      "openrouter/~openai/gpt-luna-latest"
@@ -7085,56 +7109,6 @@
     "рассуждения"
    ],
    "description": "gpt-oss-safeguard-20b is a safety reasoning model from OpenAI built upon gpt-oss-20b."
-  },
-  "gpt-sol-latest": {
-   "canonical": "gpt-sol-latest",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/~openai/gpt-sol-latest"
-    ],
-    "omp": [
-     "openrouter/~openai/gpt-sol-latest"
-    ],
-    "opencode": [
-     "openrouter/~openai/gpt-sol-latest"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [],
-   "description": "This model always redirects to the latest model in the GPT Sol family."
-  },
-  "gpt-terra-latest": {
-   "canonical": "gpt-terra-latest",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "default",
-   "harnesses": {
-    "pi": [
-     "openrouter/~openai/gpt-terra-latest"
-    ],
-    "omp": [
-     "openrouter/~openai/gpt-terra-latest"
-    ],
-    "opencode": [
-     "openrouter/~openai/gpt-terra-latest"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [],
-   "description": "This model always redirects to the latest model in the GPT Terra family."
   },
   "granite-4.0-h-micro": {
    "canonical": "granite-4.0-h-micro",
@@ -7624,9 +7598,9 @@
      "openrouter/tencent/hy3"
     ],
     "omp": [
+     "opencode-go/hy3",
      "openrouter/tencent/hy3",
-     "openrouter/tencent/hy3:free",
-     "opencode-go/hy3"
+     "openrouter/tencent/hy3:free"
     ],
     "hermes": [
      "openrouter:tencent/hy3",
@@ -7688,8 +7662,8 @@
      "openrouter/tencent/hy4-preview"
     ],
     "omp": [
-     "openrouter/tencent/hy4-preview",
-     "opencode-go/hy4-preview"
+     "opencode-go/hy4-preview",
+     "openrouter/tencent/hy4-preview"
     ],
     "hermes": [
      "openrouter:tencent/hy4-preview",
@@ -8068,8 +8042,8 @@
     ],
     "omp": [
      "kimi-code/kimi-k2.5",
-     "openrouter/moonshotai/kimi-k2.5",
-     "opencode-go/kimi-k2.5"
+     "opencode-go/kimi-k2.5",
+     "openrouter/moonshotai/kimi-k2.5"
     ],
     "hermes": [
      "opencode-go:kimi-k2.5"
@@ -8099,9 +8073,9 @@
      "openrouter/moonshotai/kimi-k2.6"
     ],
     "omp": [
+     "opencode-go/kimi-k2.6",
      "openrouter/moonshotai/kimi-k2.6",
-     "openrouter/moonshotai/kimi-k2.6:free",
-     "opencode-go/kimi-k2.6"
+     "openrouter/moonshotai/kimi-k2.6:free"
     ],
     "hermes": [
      "opencode-go:kimi-k2.6"
@@ -8133,9 +8107,9 @@
      "openrouter/moonshotai/kimi-k2.7-code"
     ],
     "omp": [
+     "opencode-go/kimi-k2.7-code",
      "openrouter/moonshotai/kimi-k2.7-code",
-     "openrouter/moonshotai/kimi-k2.7-code:batch",
-     "opencode-go/kimi-k2.7-code"
+     "openrouter/moonshotai/kimi-k2.7-code:batch"
     ],
     "hermes": [
      "opencode-go:kimi-k2.7-code"
@@ -8201,7 +8175,7 @@
    "canonical": "l3-lunaris-8b",
    "family": null,
    "tier": "middle",
-   "tierSource": "default",
+   "tierSource": "explicit",
    "harnesses": {
     "opencode": [
      "openrouter/sao10k/l3-lunaris-8b"
@@ -8962,8 +8936,8 @@
      "openrouter/meituan/longcat-2.0"
     ],
     "omp": [
-     "openrouter/meituan/longcat-2.0",
-     "opencode-go/longcat-2.0"
+     "opencode-go/longcat-2.0",
+     "openrouter/meituan/longcat-2.0"
     ],
     "hermes": [
      "opencode-go:longcat-2.0"
@@ -9134,8 +9108,8 @@
    "tierSource": "default",
    "harnesses": {
     "omp": [
-     "openrouter/xiaomi/mimo-v2-omni",
-     "opencode-go/mimo-v2-omni"
+     "opencode-go/mimo-v2-omni",
+     "openrouter/xiaomi/mimo-v2-omni"
     ],
     "hermes": [
      "opencode-go:mimo-v2-omni"
@@ -9153,8 +9127,8 @@
    "tierSource": "default",
    "harnesses": {
     "omp": [
-     "openrouter/xiaomi/mimo-v2-pro",
-     "opencode-go/mimo-v2-pro"
+     "opencode-go/mimo-v2-pro",
+     "openrouter/xiaomi/mimo-v2-pro"
     ],
     "hermes": [
      "opencode-go:mimo-v2-pro"
@@ -9176,8 +9150,8 @@
      "openrouter/xiaomi/mimo-v2.5"
     ],
     "omp": [
-     "openrouter/xiaomi/mimo-v2.5",
-     "opencode-go/mimo-v2.5"
+     "opencode-go/mimo-v2.5",
+     "openrouter/xiaomi/mimo-v2.5"
     ],
     "hermes": [
      "opencode-go:mimo-v2.5"
@@ -9212,8 +9186,8 @@
      "openrouter/xiaomi/mimo-v2.5-pro"
     ],
     "omp": [
-     "openrouter/xiaomi/mimo-v2.5-pro",
-     "opencode-go/mimo-v2.5-pro"
+     "opencode-go/mimo-v2.5-pro",
+     "openrouter/xiaomi/mimo-v2.5-pro"
     ],
     "hermes": [
      "openrouter:xiaomi/mimo-v2.5-pro",
@@ -9245,8 +9219,8 @@
      "openrouter/xiaomi/mimo-v2.6-flash"
     ],
     "omp": [
-     "openrouter/xiaomi/mimo-v2.6-flash",
-     "opencode-go/mimo-v2.6-flash"
+     "opencode-go/mimo-v2.6-flash",
+     "openrouter/xiaomi/mimo-v2.6-flash"
     ],
     "hermes": [
      "openrouter:xiaomi/mimo-v2.6-flash",
@@ -9278,8 +9252,8 @@
      "openrouter/xiaomi/mimo-v2.6-pro"
     ],
     "omp": [
-     "openrouter/xiaomi/mimo-v2.6-pro",
-     "opencode-go/mimo-v2.6-pro"
+     "opencode-go/mimo-v2.6-pro",
+     "openrouter/xiaomi/mimo-v2.6-pro"
     ],
     "hermes": [
      "openrouter:xiaomi/mimo-v2.6-pro",
@@ -9457,9 +9431,9 @@
      "openrouter/minimax/minimax-m2.5"
     ],
     "omp": [
+     "opencode-go/minimax-m2.5",
      "openrouter/minimax/minimax-m2.5",
-     "openrouter/minimax/minimax-m2.5:free",
-     "opencode-go/minimax-m2.5"
+     "openrouter/minimax/minimax-m2.5:free"
     ],
     "hermes": [
      "opencode-go:minimax-m2.5"
@@ -9484,19 +9458,17 @@
    "tierSource": "default",
    "harnesses": {
     "pi": [
-     "opencode-go/minimax-m2.7",
      "openrouter/minimax/minimax-m2.7"
     ],
     "omp": [
+     "opencode-go/minimax-m2.7",
      "openrouter/minimax/minimax-m2.7",
-     "openrouter/minimax/minimax-m2.7:free",
-     "opencode-go/minimax-m2.7"
+     "openrouter/minimax/minimax-m2.7:free"
     ],
     "hermes": [
      "opencode-go:minimax-m2.7"
     ],
     "opencode": [
-     "opencode-go/minimax-m2.7",
      "openrouter/minimax/minimax-m2.7"
     ]
    },
@@ -9520,10 +9492,10 @@
      "openrouter/minimax/minimax-m3"
     ],
     "omp": [
+     "opencode-go/minimax-m3",
      "openrouter/minimax/minimax-m3",
      "openrouter/minimax/minimax-m3:batch",
-     "openrouter/minimax/minimax-m3:free",
-     "opencode-go/minimax-m3"
+     "openrouter/minimax/minimax-m3:free"
     ],
     "hermes": [
      "openrouter:minimax/minimax-m3",
@@ -10060,6 +10032,47 @@
    "strengths": [],
    "description": null
   },
+  "moondream3-preview": {
+   "canonical": "moondream3-preview",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "opencode": [
+     "openrouter/moondream/moondream3-preview"
+    ]
+   },
+   "contextLength": 32000,
+   "modalities": [
+    "text",
+    "image"
+   ],
+   "strengths": [
+    "рассуждения",
+    "изображения"
+   ],
+   "description": "Moondream 3 Preview is a vision-language model from Moondream with 9B total parameters and 2B active (mixture-of-experts)."
+  },
+  "moondream3.1-9b-a2b": {
+   "canonical": "moondream3.1-9b-a2b",
+   "family": null,
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "opencode": [
+     "openrouter/moondream/moondream3.1-9b-a2b"
+    ]
+   },
+   "contextLength": 32000,
+   "modalities": [
+    "text",
+    "image"
+   ],
+   "strengths": [
+    "изображения"
+   ],
+   "description": "Moondream 3.1 is a vision-language model from Moondream, the successor to Moondream 3 Preview, with 9B total parameters and 2B active (mixture-of-experts)."
+  },
   "morph-v3-fast": {
    "canonical": "morph-v3-fast",
    "family": null,
@@ -10205,8 +10218,8 @@
      "openrouter/meta/muse-spark-1.2-contributor"
     ],
     "omp": [
-     "openrouter/meta/muse-spark-1.2-contributor",
-     "opencode-go/muse-spark-1.2-contributor"
+     "opencode-go/muse-spark-1.2-contributor",
+     "openrouter/meta/muse-spark-1.2-contributor"
     ],
     "hermes": [
      "openrouter:meta/muse-spark-1.2-contributor",
@@ -10275,8 +10288,8 @@
      "openrouter/meta/muse-spark-1.3-contributor"
     ],
     "omp": [
-     "openrouter/meta/muse-spark-1.3-contributor",
-     "opencode-go/muse-spark-1.3-contributor"
+     "opencode-go/muse-spark-1.3-contributor",
+     "openrouter/meta/muse-spark-1.3-contributor"
     ],
     "hermes": [
      "openrouter:meta/muse-spark-1.3-contributor",
@@ -10301,6 +10314,33 @@
     "изображения"
    ],
    "description": "Muse Spark 1.3 Contributor is the cost-efficient contributor tier of Meta’s multimodal reasoning model for experimentation, learning, and early-stage agentic, multi-agent, and coding workflows."
+  },
+  "muse-spark-open": {
+   "canonical": "muse-spark-open",
+   "family": "muse",
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "omp": [
+     "openrouter/meta/muse-spark-open"
+    ],
+    "opencode": [
+     "openrouter/meta/muse-spark-open"
+    ]
+   },
+   "contextLength": 1048576,
+   "modalities": [
+    "text",
+    "image",
+    "video",
+    "file",
+    "audio"
+   ],
+   "strengths": [
+    "код",
+    "агентные задачи"
+   ],
+   "description": "Muse Spark Open is a coding-optimized open-weight model."
   },
   "mythomax-l2-13b": {
    "canonical": "mythomax-l2-13b",
@@ -10487,6 +10527,33 @@
     "агентные задачи"
    ],
    "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total."
+  },
+  "nemotron-3.5-super-vl": {
+   "canonical": "nemotron-3.5-super-vl",
+   "family": "nvidia",
+   "tier": "middle",
+   "tierSource": "default",
+   "harnesses": {
+    "omp": [
+     "openrouter/nvidia/nemotron-3.5-super-vl",
+     "openrouter/nvidia/nemotron-3.5-super-vl:free"
+    ],
+    "opencode": [
+     "openrouter/nvidia/nemotron-3.5-super-vl",
+     "openrouter/nvidia/nemotron-3.5-super-vl:free"
+    ]
+   },
+   "contextLength": 1048576,
+   "modalities": [
+    "text",
+    "image",
+    "video"
+   ],
+   "strengths": [
+    "изображения",
+    "видео"
+   ],
+   "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total."
   },
   "nemotron-nano-12b-v2-vl": {
    "canonical": "nemotron-nano-12b-v2-vl",
@@ -10785,9 +10852,6 @@
    "tier": "middle",
    "tierSource": "default",
    "harnesses": {
-    "omp": [
-     "opencode-go/omen-alpha"
-    ],
     "hermes": [
      "opencode-go:omen-alpha"
     ]
@@ -10909,23 +10973,12 @@
     ],
     "omp": [
      "openrouter/unbiased/pareto-26.10-preview"
-    ],
-    "opencode": [
-     "openrouter/unbiased/pareto-26.10-preview"
     ]
    },
-   "contextLength": 1048576,
-   "modalities": [
-    "text",
-    "image"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "изображения",
-    "поиск и RAG"
-   ],
-   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks."
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
   },
   "pareto-26.9": {
    "canonical": "pareto-26.9",
@@ -12231,9 +12284,9 @@
      "openrouter/qwen/qwen3.6-plus"
     ],
     "omp": [
+     "opencode-go/qwen3.6-plus",
      "openrouter/qwen/qwen3.6-plus",
-     "openrouter/qwen/qwen3.6-plus:free",
-     "opencode-go/qwen3.6-plus"
+     "openrouter/qwen/qwen3.6-plus:free"
     ],
     "hermes": [
      "opencode-go:qwen3.6-plus"
@@ -12306,8 +12359,8 @@
      "openrouter/qwen/qwen3.7-max"
     ],
     "omp": [
-     "openrouter/qwen/qwen3.7-max",
-     "opencode-go/qwen3.7-max"
+     "opencode-go/qwen3.7-max",
+     "openrouter/qwen/qwen3.7-max"
     ],
     "hermes": [
      "opencode-go:qwen3.7-max"
@@ -12336,8 +12389,8 @@
      "openrouter/qwen/qwen3.7-plus"
     ],
     "omp": [
-     "openrouter/qwen/qwen3.7-plus",
-     "opencode-go/qwen3.7-plus"
+     "opencode-go/qwen3.7-plus",
+     "openrouter/qwen/qwen3.7-plus"
     ],
     "hermes": [
      "opencode-go:qwen3.7-plus"
@@ -12426,8 +12479,8 @@
      "openrouter/qwen/qwen3.8-flash"
     ],
     "omp": [
-     "openrouter/qwen/qwen3.8-flash",
-     "opencode-go/qwen3.8-flash"
+     "opencode-go/qwen3.8-flash",
+     "openrouter/qwen/qwen3.8-flash"
     ],
     "hermes": [
      "openrouter:qwen/qwen3.8-flash",
@@ -12463,8 +12516,8 @@
      "opencode-go/qwen3.8-max"
     ],
     "omp": [
-     "openrouter/qwen/qwen3.8-max",
-     "opencode-go/qwen3.8-max"
+     "opencode-go/qwen3.8-max",
+     "openrouter/qwen/qwen3.8-max"
     ],
     "hermes": [
      "opencode-go:qwen3.8-max"
@@ -13261,11 +13314,15 @@
     "omp": [
      "openrouter/stepfun/step-5-preview"
     ],
+    "hermes": [
+     "opencode-go:step-5-preview"
+    ],
     "opencode": [
+     "opencode-go/step-5-preview",
      "openrouter/stepfun/step-5-preview"
     ]
    },
-   "contextLength": 1000000,
+   "contextLength": 1048576,
    "modalities": [
     "text",
     "image",
@@ -13572,6 +13629,9 @@
    "tier": "low",
    "tierSource": "explicit",
    "harnesses": {
+    "pi": [
+     "opencode-go/cat-jam-free"
+    ],
     "omp": [
      "opencode-go/cat-jam-free"
     ],
@@ -13588,44 +13648,44 @@
    "strengths": [],
    "description": null
   },
-  "exo-free": {
-   "canonical": "exo-free",
+  "deepseek-v4.1-flash-free": {
+   "canonical": "deepseek-v4.1-flash-free",
+   "family": "deepseek",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "opencode": [
+     "opencode/deepseek-v4.1-flash-free"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "glm-5.3-flash-free": {
+   "canonical": "glm-5.3-flash-free",
+   "family": "z-ai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "opencode": [
+     "opencode/glm-5.3-flash-free"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "ll-alpha-free": {
+   "canonical": "ll-alpha-free",
    "family": null,
    "tier": "low",
    "tierSource": "explicit",
    "harnesses": {
     "opencode": [
-     "opencode/exo-free"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "ling-3.0-flash-fin-free": {
-   "canonical": "ling-3.0-flash-fin-free",
-   "family": "inclusionai",
-   "tier": "low",
-   "tierSource": "explicit",
-   "harnesses": {
-    "opencode": [
-     "opencode/ling-3.0-flash-fin-free"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "ling-3.1-flash-free": {
-   "canonical": "ling-3.1-flash-free",
-   "family": "inclusionai",
-   "tier": "low",
-   "tierSource": "explicit",
-   "harnesses": {
-    "opencode": [
-     "opencode/ling-3.1-flash-free"
+     "opencode/ll-alpha-free"
     ]
    },
    "contextLength": null,
@@ -13718,6 +13778,21 @@
    "strengths": [],
    "description": null
   },
+  "nemotron-3.5-super-vl-free": {
+   "canonical": "nemotron-3.5-super-vl-free",
+   "family": "nvidia",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "opencode": [
+     "opencode/nemotron-3.5-super-vl-free"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
   "ox-alpha-free": {
    "canonical": "ox-alpha-free",
    "family": null,
@@ -13761,13 +13836,6 @@
      "opencode-go/step-5-preview-free"
     ],
     "omp": [
-     "opencode-go/step-5-preview-free"
-    ],
-    "hermes": [
-     "opencode-go:step-5-preview-free"
-    ],
-    "opencode": [
-     "opencode/step-5-preview-free",
      "opencode-go/step-5-preview-free"
     ]
    },

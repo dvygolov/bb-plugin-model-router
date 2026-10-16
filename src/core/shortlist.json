@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
- "generatedAt": "2026-10-14T12:09:45.584Z",
-=======
- "generatedAt": "2026-10-16T09:14:40.772Z",
->>>>>>> 162835c (fix: correct the OpenAI codename ladder and Anthropic split)
+ "generatedAt": "2026-10-16T09:15:32.879Z",
  "note": "Порядок внутри тира — приоритет. Правится в tools/build-shortlist.mjs или настройкой shortlist.",
  "tiers": {
   "frontier": [
@@ -23,9 +19,9 @@
      "openrouter/moonshotai/kimi-k3",
      "openrouter/moonshotai/kimi-k3:batch",
      "kimi-code/k3",
+     "opencode-go/kimi-k3",
      "openrouter/moonshotai/kimi-k3",
      "openrouter/moonshotai/kimi-k3:batch",
-     "opencode-go/kimi-k3",
      "openrouter:moonshotai/kimi-k3",
      "opencode-go:kimi-k3",
      "kimi-oauth:k3",
@@ -42,9 +38,9 @@
      ],
      "omp": [
       "kimi-code/k3",
+      "opencode-go/kimi-k3",
       "openrouter/moonshotai/kimi-k3",
-      "openrouter/moonshotai/kimi-k3:batch",
-      "opencode-go/kimi-k3"
+      "openrouter/moonshotai/kimi-k3:batch"
      ],
      "hermes": [
       "openrouter:moonshotai/kimi-k3",
@@ -168,11 +164,13 @@
     "purpose": "Google-флагман, 1M unified, вводная цена",
     "tierInRegistry": "frontier",
     "harnesses": [
+     "pi",
      "omp",
      "hermes",
      "opencode"
     ],
     "ids": [
+     "google/gemini-4-argon",
      "google/gemini-4-argon",
      "openrouter/google/gemini-4-argon",
      "openrouter/google/gemini-4-argon:batch",
@@ -182,6 +180,9 @@
      "openrouter/google/gemini-4-argon"
     ],
     "idsByHarness": {
+     "pi": [
+      "google/gemini-4-argon"
+     ],
      "omp": [
       "google/gemini-4-argon",
       "openrouter/google/gemini-4-argon",
@@ -253,8 +254,8 @@
     "ids": [
      "opencode-go/grok-4.7",
      "openrouter/x-ai/grok-4.7",
-     "openrouter/x-ai/grok-4.7",
      "opencode-go/grok-4.7",
+     "openrouter/x-ai/grok-4.7",
      "openrouter:x-ai/grok-4.7",
      "opencode-go:grok-4.7",
      "opencode-go/grok-4.7",
@@ -266,8 +267,8 @@
       "openrouter/x-ai/grok-4.7"
      ],
      "omp": [
-      "openrouter/x-ai/grok-4.7",
-      "opencode-go/grok-4.7"
+      "opencode-go/grok-4.7",
+      "openrouter/x-ai/grok-4.7"
      ],
      "hermes": [
       "openrouter:x-ai/grok-4.7",
@@ -317,10 +318,10 @@
      "openrouter/z-ai/glm-5.3",
      "openrouter/z-ai/glm-5.3:batch",
      "zai/glm-5.3",
+     "opencode-go/glm-5.3",
      "openrouter/z-ai/glm-5.3",
      "openrouter/z-ai/glm-5.3:batch",
      "zai/glm-5.3",
-     "opencode-go/glm-5.3",
      "openrouter:z-ai/glm-5.3",
      "zai:glm-5.3",
      "opencode-go:glm-5.3",
@@ -336,10 +337,10 @@
       "zai/glm-5.3"
      ],
      "omp": [
+      "opencode-go/glm-5.3",
       "openrouter/z-ai/glm-5.3",
       "openrouter/z-ai/glm-5.3:batch",
-      "zai/glm-5.3",
-      "opencode-go/glm-5.3"
+      "zai/glm-5.3"
      ],
      "hermes": [
       "openrouter:z-ai/glm-5.3",
@@ -366,8 +367,8 @@
     "ids": [
      "opencode-go/deepseek-v4-pro",
      "openrouter/deepseek/deepseek-v4-pro",
-     "openrouter/deepseek/deepseek-v4-pro",
      "opencode-go/deepseek-v4-pro",
+     "openrouter/deepseek/deepseek-v4-pro",
      "openrouter:deepseek/deepseek-v4-pro",
      "opencode-go:deepseek-v4-pro",
      "opencode-go/deepseek-v4-pro",
@@ -379,8 +380,8 @@
       "openrouter/deepseek/deepseek-v4-pro"
      ],
      "omp": [
-      "openrouter/deepseek/deepseek-v4-pro",
-      "opencode-go/deepseek-v4-pro"
+      "opencode-go/deepseek-v4-pro",
+      "openrouter/deepseek/deepseek-v4-pro"
      ],
      "hermes": [
       "openrouter:deepseek/deepseek-v4-pro",
@@ -403,25 +404,12 @@
      "opencode"
     ],
     "ids": [
-<<<<<<< HEAD
-     "opencode-go/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna:batch",
-     "openrouter/openai/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna:batch",
-     "opencode-go/gpt-5.6-luna",
-     "openai-codex:gpt-5.6-luna",
-     "opencode-go:gpt-5.6-luna",
-     "opencode-go/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna"
-=======
      "openrouter/openai/gpt-5.6-terra",
      "openrouter/openai/gpt-5.6-terra:batch",
      "openrouter/openai/gpt-5.6-terra",
      "openrouter/openai/gpt-5.6-terra:batch",
      "openai-codex:gpt-5.6-terra",
      "openrouter/openai/gpt-5.6-terra"
->>>>>>> 162835c (fix: correct the OpenAI codename ladder and Anthropic split)
     ],
     "idsByHarness": {
      "pi": [
@@ -429,14 +417,8 @@
       "openrouter/openai/gpt-5.6-terra:batch"
      ],
      "omp": [
-<<<<<<< HEAD
-      "openrouter/openai/gpt-5.6-luna",
-      "openrouter/openai/gpt-5.6-luna:batch",
-      "opencode-go/gpt-5.6-luna"
-=======
       "openrouter/openai/gpt-5.6-terra",
       "openrouter/openai/gpt-5.6-terra:batch"
->>>>>>> 162835c (fix: correct the OpenAI codename ladder and Anthropic split)
      ],
      "hermes": [
       "openai-codex:gpt-5.6-terra"
@@ -460,11 +442,11 @@
      "opencode-go/glm-5.2",
      "openrouter/z-ai/glm-5.2",
      "zai/glm-5.2",
+     "opencode-go/glm-5.2",
      "openrouter/z-ai/glm-5.2",
      "openrouter/z-ai/glm-5.2:batch",
      "openrouter/z-ai/glm-5.2:free",
      "zai/glm-5.2",
-     "opencode-go/glm-5.2",
      "openrouter:z-ai/glm-5.2",
      "zai:glm-5.2",
      "opencode-go:glm-5.2",
@@ -479,11 +461,11 @@
       "zai/glm-5.2"
      ],
      "omp": [
+      "opencode-go/glm-5.2",
       "openrouter/z-ai/glm-5.2",
       "openrouter/z-ai/glm-5.2:batch",
       "openrouter/z-ai/glm-5.2:free",
-      "zai/glm-5.2",
-      "opencode-go/glm-5.2"
+      "zai/glm-5.2"
      ],
      "hermes": [
       "openrouter:z-ai/glm-5.2",
@@ -514,10 +496,10 @@
      "openrouter/z-ai/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash:batch",
      "zai/glm-5.3-flash",
+     "opencode-go/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash",
      "openrouter/z-ai/glm-5.3-flash:batch",
      "zai/glm-5.3-flash",
-     "opencode-go/glm-5.3-flash",
      "openrouter:z-ai/glm-5.3-flash",
      "zai:glm-5.3-flash",
      "opencode-go:glm-5.3-flash",
@@ -533,10 +515,10 @@
       "zai/glm-5.3-flash"
      ],
      "omp": [
+      "opencode-go/glm-5.3-flash",
       "openrouter/z-ai/glm-5.3-flash",
       "openrouter/z-ai/glm-5.3-flash:batch",
-      "zai/glm-5.3-flash",
-      "opencode-go/glm-5.3-flash"
+      "zai/glm-5.3-flash"
      ],
      "hermes": [
       "openrouter:z-ai/glm-5.3-flash",
@@ -564,9 +546,9 @@
      "opencode-go/deepseek-v4.1-flash",
      "openrouter/deepseek/deepseek-v4.1-flash",
      "openrouter/deepseek/deepseek-v4.1-flash:batch",
+     "opencode-go/deepseek-v4.1-flash",
      "openrouter/deepseek/deepseek-v4.1-flash",
      "openrouter/deepseek/deepseek-v4.1-flash:batch",
-     "opencode-go/deepseek-v4.1-flash",
      "openrouter:deepseek/deepseek-v4.1-flash",
      "opencode-go:deepseek-v4.1-flash",
      "opencode-go/deepseek-v4.1-flash",
@@ -579,9 +561,9 @@
       "openrouter/deepseek/deepseek-v4.1-flash:batch"
      ],
      "omp": [
+      "opencode-go/deepseek-v4.1-flash",
       "openrouter/deepseek/deepseek-v4.1-flash",
-      "openrouter/deepseek/deepseek-v4.1-flash:batch",
-      "opencode-go/deepseek-v4.1-flash"
+      "openrouter/deepseek/deepseek-v4.1-flash:batch"
      ],
      "hermes": [
       "openrouter:deepseek/deepseek-v4.1-flash",
@@ -606,8 +588,8 @@
     "ids": [
      "opencode-go/mimo-v2.6-flash",
      "openrouter/xiaomi/mimo-v2.6-flash",
-     "openrouter/xiaomi/mimo-v2.6-flash",
      "opencode-go/mimo-v2.6-flash",
+     "openrouter/xiaomi/mimo-v2.6-flash",
      "openrouter:xiaomi/mimo-v2.6-flash",
      "opencode-go:mimo-v2.6-flash",
      "opencode-go/mimo-v2.6-flash",
@@ -619,8 +601,8 @@
       "openrouter/xiaomi/mimo-v2.6-flash"
      ],
      "omp": [
-      "openrouter/xiaomi/mimo-v2.6-flash",
-      "opencode-go/mimo-v2.6-flash"
+      "opencode-go/mimo-v2.6-flash",
+      "openrouter/xiaomi/mimo-v2.6-flash"
      ],
      "hermes": [
       "openrouter:xiaomi/mimo-v2.6-flash",
@@ -645,8 +627,8 @@
     "ids": [
      "opencode-go/qwen3.8-flash",
      "openrouter/qwen/qwen3.8-flash",
-     "openrouter/qwen/qwen3.8-flash",
      "opencode-go/qwen3.8-flash",
+     "openrouter/qwen/qwen3.8-flash",
      "openrouter:qwen/qwen3.8-flash",
      "opencode-go:qwen3.8-flash",
      "opencode-go/qwen3.8-flash",
@@ -658,8 +640,8 @@
       "openrouter/qwen/qwen3.8-flash"
      ],
      "omp": [
-      "openrouter/qwen/qwen3.8-flash",
-      "opencode-go/qwen3.8-flash"
+      "opencode-go/qwen3.8-flash",
+      "openrouter/qwen/qwen3.8-flash"
      ],
      "hermes": [
       "openrouter:qwen/qwen3.8-flash",
@@ -684,10 +666,10 @@
     "ids": [
      "opencode-go/minimax-m3",
      "openrouter/minimax/minimax-m3",
+     "opencode-go/minimax-m3",
      "openrouter/minimax/minimax-m3",
      "openrouter/minimax/minimax-m3:batch",
      "openrouter/minimax/minimax-m3:free",
-     "opencode-go/minimax-m3",
      "openrouter:minimax/minimax-m3",
      "opencode-go:minimax-m3",
      "opencode-go/minimax-m3",
@@ -699,10 +681,10 @@
       "openrouter/minimax/minimax-m3"
      ],
      "omp": [
+      "opencode-go/minimax-m3",
       "openrouter/minimax/minimax-m3",
       "openrouter/minimax/minimax-m3:batch",
-      "openrouter/minimax/minimax-m3:free",
-      "opencode-go/minimax-m3"
+      "openrouter/minimax/minimax-m3:free"
      ],
      "hermes": [
       "openrouter:minimax/minimax-m3",
@@ -727,9 +709,9 @@
     "ids": [
      "opencode-go/kimi-k2.7-code",
      "openrouter/moonshotai/kimi-k2.7-code",
+     "opencode-go/kimi-k2.7-code",
      "openrouter/moonshotai/kimi-k2.7-code",
      "openrouter/moonshotai/kimi-k2.7-code:batch",
-     "opencode-go/kimi-k2.7-code",
      "opencode-go:kimi-k2.7-code",
      "opencode-go/kimi-k2.7-code",
      "openrouter/moonshotai/kimi-k2.7-code"
@@ -740,9 +722,9 @@
       "openrouter/moonshotai/kimi-k2.7-code"
      ],
      "omp": [
+      "opencode-go/kimi-k2.7-code",
       "openrouter/moonshotai/kimi-k2.7-code",
-      "openrouter/moonshotai/kimi-k2.7-code:batch",
-      "opencode-go/kimi-k2.7-code"
+      "openrouter/moonshotai/kimi-k2.7-code:batch"
      ],
      "hermes": [
       "opencode-go:kimi-k2.7-code"
@@ -766,8 +748,8 @@
     "ids": [
      "opencode-go/mimo-v2.6-pro",
      "openrouter/xiaomi/mimo-v2.6-pro",
-     "openrouter/xiaomi/mimo-v2.6-pro",
      "opencode-go/mimo-v2.6-pro",
+     "openrouter/xiaomi/mimo-v2.6-pro",
      "openrouter:xiaomi/mimo-v2.6-pro",
      "opencode-go:mimo-v2.6-pro",
      "opencode-go/mimo-v2.6-pro",
@@ -779,8 +761,8 @@
       "openrouter/xiaomi/mimo-v2.6-pro"
      ],
      "omp": [
-      "openrouter/xiaomi/mimo-v2.6-pro",
-      "opencode-go/mimo-v2.6-pro"
+      "opencode-go/mimo-v2.6-pro",
+      "openrouter/xiaomi/mimo-v2.6-pro"
      ],
      "hermes": [
       "openrouter:xiaomi/mimo-v2.6-pro",
@@ -803,13 +785,9 @@
     ],
     "ids": [
      "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+     "opencode-go/deepseek-v4-flash-vision-exp",
      "openrouter/deepseek/deepseek-v4-flash-vision-exp",
      "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch",
-<<<<<<< HEAD
-     "opencode-go/deepseek-v4-flash-vision-exp",
-     "opencode-go:deepseek-v4-flash-vision-exp",
-=======
->>>>>>> 162835c (fix: correct the OpenAI codename ladder and Anthropic split)
      "openrouter/deepseek/deepseek-v4-flash-vision-exp"
     ],
     "idsByHarness": {
@@ -817,9 +795,9 @@
       "openrouter/deepseek/deepseek-v4-flash-vision-exp"
      ],
      "omp": [
+      "opencode-go/deepseek-v4-flash-vision-exp",
       "openrouter/deepseek/deepseek-v4-flash-vision-exp",
-      "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch",
-      "opencode-go/deepseek-v4-flash-vision-exp"
+      "openrouter/deepseek/deepseek-v4-flash-vision-exp:batch"
      ],
      "opencode": [
       "openrouter/deepseek/deepseek-v4-flash-vision-exp"
@@ -882,22 +860,10 @@
     "tierInRegistry": "low",
     "harnesses": [
      "pi",
-<<<<<<< HEAD
-     "omp",
-     "hermes",
-     "opencode"
-    ],
-    "ids": [
-     "opencode-go/step-5-preview-free",
-     "opencode-go/step-5-preview-free",
-     "opencode-go:step-5-preview-free",
-     "opencode/step-5-preview-free",
-=======
      "omp"
     ],
     "ids": [
      "opencode-go/step-5-preview-free",
->>>>>>> 162835c (fix: correct the OpenAI codename ladder and Anthropic split)
      "opencode-go/step-5-preview-free"
     ],
     "idsByHarness": {
@@ -905,16 +871,6 @@
       "opencode-go/step-5-preview-free"
      ],
      "omp": [
-<<<<<<< HEAD
-      "opencode-go/step-5-preview-free"
-     ],
-     "hermes": [
-      "opencode-go:step-5-preview-free"
-     ],
-     "opencode": [
-      "opencode/step-5-preview-free",
-=======
->>>>>>> 162835c (fix: correct the OpenAI codename ladder and Anthropic split)
       "opencode-go/step-5-preview-free"
      ]
     }
