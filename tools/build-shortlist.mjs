@@ -40,8 +40,7 @@ const SHORTLIST = {
       model: "kimi-k3",
       purpose: "флагман на подписке Kimi — сильнейшее, что есть без доплаты за токены",
     },
-    { model: "gpt-6.1-sol-pro", purpose: "OpenAI-флагман (sol — топ поколения 6.1)" },
-    { model: "gpt-6-astra-pro", purpose: "OpenAI Frontier поколения 6" },
+    { model: "gpt-6-astra-pro", purpose: "OpenAI Frontier (astra)" },
     { model: "claude-opus-5.5", purpose: "Anthropic-флагман" },
     { model: "gemini-4-argon", purpose: "Google-флагман, 1M unified, вводная цена" },
     { model: "gemini-3.1-pro-preview", purpose: "Google-флагман, 1M контекста" },
@@ -51,7 +50,7 @@ const SHORTLIST = {
   subFrontier: [
     { model: "glm-5.3", purpose: "Z.ai по подписке, 1M — основная рабочая модель" },
     { model: "deepseek-v4-pro", purpose: "DeepSeek по OpenCode Go, 1M" },
-    { model: "gpt-5.6-terra", purpose: "GPT-5.6 Terra — Sub-Frontier у OpenAI" },
+    { model: "gpt-6.1-sol-pro", purpose: "OpenAI Sub-Frontier (sol)" },
     { model: "glm-5.2", purpose: "запас, если 5.3 в лимите" },
   ],
   middle: [
@@ -61,6 +60,7 @@ const SHORTLIST = {
     { model: "qwen3.8-flash", purpose: "быстрая рутина, OpenCode Go, 1M" },
     { model: "minimax-m3", purpose: "средняя задача с большим контекстом, OpenCode Go" },
     { model: "kimi-k2.7-code", purpose: "кодинг по подписке Kimi" },
+    { model: "gpt-5.6-terra-pro", purpose: "OpenAI Middle (terra)" },
     { model: "mimo-v2.6-pro", purpose: "посильнее середины, OpenCode Go" },
     { model: "deepseek-v4-flash-vision-exp", purpose: "рутина с изображениями" },
   ],

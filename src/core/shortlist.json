@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-16T09:15:32.879Z",
+ "generatedAt": "2026-10-16T09:20:27.526Z",
  "note": "Порядок внутри тира — приоритет. Правится в tools/build-shortlist.mjs или настройкой shortlist.",
  "tiers": {
   "frontier": [
@@ -55,43 +55,8 @@
     }
    },
    {
-    "model": "gpt-6.1-sol-pro",
-    "purpose": "OpenAI-флагман (sol — топ поколения 6.1)",
-    "tierInRegistry": "frontier",
-    "harnesses": [
-     "pi",
-     "omp",
-     "hermes",
-     "opencode"
-    ],
-    "ids": [
-     "openrouter/openai/gpt-6.1-sol-pro",
-     "openrouter/openai/gpt-6.1-sol-pro:batch",
-     "openrouter/openai/gpt-6.1-sol-pro",
-     "openrouter/openai/gpt-6.1-sol-pro:batch",
-     "openrouter:openai/gpt-6.1-sol-pro",
-     "openrouter/openai/gpt-6.1-sol-pro"
-    ],
-    "idsByHarness": {
-     "pi": [
-      "openrouter/openai/gpt-6.1-sol-pro",
-      "openrouter/openai/gpt-6.1-sol-pro:batch"
-     ],
-     "omp": [
-      "openrouter/openai/gpt-6.1-sol-pro",
-      "openrouter/openai/gpt-6.1-sol-pro:batch"
-     ],
-     "hermes": [
-      "openrouter:openai/gpt-6.1-sol-pro"
-     ],
-     "opencode": [
-      "openrouter/openai/gpt-6.1-sol-pro"
-     ]
-    }
-   },
-   {
     "model": "gpt-6-astra-pro",
-    "purpose": "OpenAI Frontier поколения 6",
+    "purpose": "OpenAI Frontier (astra)",
     "tierInRegistry": "frontier",
     "harnesses": [
      "pi",
@@ -394,8 +359,8 @@
     }
    },
    {
-    "model": "gpt-5.6-terra",
-    "purpose": "GPT-5.6 Terra — Sub-Frontier у OpenAI",
+    "model": "gpt-6.1-sol-pro",
+    "purpose": "OpenAI Sub-Frontier (sol)",
     "tierInRegistry": "subFrontier",
     "harnesses": [
      "pi",
@@ -404,27 +369,27 @@
      "opencode"
     ],
     "ids": [
-     "openrouter/openai/gpt-5.6-terra",
-     "openrouter/openai/gpt-5.6-terra:batch",
-     "openrouter/openai/gpt-5.6-terra",
-     "openrouter/openai/gpt-5.6-terra:batch",
-     "openai-codex:gpt-5.6-terra",
-     "openrouter/openai/gpt-5.6-terra"
+     "openrouter/openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro:batch",
+     "openrouter/openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro:batch",
+     "openrouter:openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro"
     ],
     "idsByHarness": {
      "pi": [
-      "openrouter/openai/gpt-5.6-terra",
-      "openrouter/openai/gpt-5.6-terra:batch"
+      "openrouter/openai/gpt-6.1-sol-pro",
+      "openrouter/openai/gpt-6.1-sol-pro:batch"
      ],
      "omp": [
-      "openrouter/openai/gpt-5.6-terra",
-      "openrouter/openai/gpt-5.6-terra:batch"
+      "openrouter/openai/gpt-6.1-sol-pro",
+      "openrouter/openai/gpt-6.1-sol-pro:batch"
      ],
      "hermes": [
-      "openai-codex:gpt-5.6-terra"
+      "openrouter:openai/gpt-6.1-sol-pro"
      ],
      "opencode": [
-      "openrouter/openai/gpt-5.6-terra"
+      "openrouter/openai/gpt-6.1-sol-pro"
      ]
     }
    },
@@ -732,6 +697,36 @@
      "opencode": [
       "opencode-go/kimi-k2.7-code",
       "openrouter/moonshotai/kimi-k2.7-code"
+     ]
+    }
+   },
+   {
+    "model": "gpt-5.6-terra-pro",
+    "purpose": "OpenAI Middle (terra)",
+    "tierInRegistry": "middle",
+    "harnesses": [
+     "pi",
+     "omp",
+     "opencode"
+    ],
+    "ids": [
+     "openrouter/openai/gpt-5.6-terra-pro",
+     "openrouter/openai/gpt-5.6-terra-pro:batch",
+     "openrouter/openai/gpt-5.6-terra-pro",
+     "openrouter/openai/gpt-5.6-terra-pro:batch",
+     "openrouter/openai/gpt-5.6-terra-pro"
+    ],
+    "idsByHarness": {
+     "pi": [
+      "openrouter/openai/gpt-5.6-terra-pro",
+      "openrouter/openai/gpt-5.6-terra-pro:batch"
+     ],
+     "omp": [
+      "openrouter/openai/gpt-5.6-terra-pro",
+      "openrouter/openai/gpt-5.6-terra-pro:batch"
+     ],
+     "opencode": [
+      "openrouter/openai/gpt-5.6-terra-pro"
      ]
     }
    },

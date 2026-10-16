@@ -119,24 +119,18 @@ const COLON_SUFFIXES = new Set(["free", "batch", "exacto", "thinking", "online",
 
 /** Явный класс модели. Frontier — конкретные модели, а не семейства. */
 /**
- * Кодовые имена OpenAI задают класс внутри поколения. Владелец линейки:
- * luna — самая слабая, terra — Sub-Frontier, astra — Frontier; sol — топ
- * последнего поколения (6.1 выпущен только им).
+ * Кодовые имена OpenAI — это ровно лестница из четырёх ступеней, по одной на тир.
+ * Порядок задан владельцем: astra — Frontier, sol — Sub-Frontier, terra — Middle,
+ * luna — Low. Ни одно из имён не должно обгонять своё место.
  */
 const CODENAME_CLASS = [
-  [/-luna/, "middle"],
-  [/-terra/, "subFrontier"],
   [/-astra/, "frontier"],
-  [/-sol/, "frontier"],
+  [/-sol/, "subFrontier"],
+  [/-terra/, "middle"],
+  [/-luna/, "low"],
 ];
 
 const FRONTIER_MODELS = [
-  "gpt-6.1-sol-pro",
-  "gpt-6.1-sol",
-  "gpt-6-sol-pro",
-  "gpt-6-sol",
-  "gpt-6-astra",
-  "gpt-6-astra-pro",
   "claude-opus-5.5",
   "claude-opus-5",
   "gemini-3.1-pro-preview",

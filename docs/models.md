@@ -1,6 +1,6 @@
 # Доступные модели и их имена в харнесах
 
-Сгенерировано 2026-10-16T09:15:32.803Z. Не редактировать руками — `node tools/build-registry.mjs --markdown`.
+Сгенерировано 2026-10-16T09:20:27.452Z. Не редактировать руками — `node tools/build-registry.mjs --markdown`.
 
 | Модель | Тир | Контекст | Умеет | pi | omp | hermes | opencode |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -9,18 +9,9 @@
 | `gemini-3.1-pro-preview` | frontier | 1049k | код, агентные задачи, рассуждения, изображения | `google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview:batch` | `google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview:batch` | `openrouter:google/gemini-3.1-pro-preview`<br>`gemini:gemini-3.1-pro-preview` | `google/gemini-3.1-pro-preview`<br>`openrouter/google/gemini-3.1-pro-preview` |
 | `gemini-3.1-pro-preview-customtools` | frontier | 1049k | — | `google/gemini-3.1-pro-preview-customtools`<br>`openrouter/google/gemini-3.1-pro-preview-customtools` | `google/gemini-3.1-pro-preview-customtools`<br>`openrouter/google/gemini-3.1-pro-preview-customtools` | — | `google/gemini-3.1-pro-preview-customtools`<br>`openrouter/google/gemini-3.1-pro-preview-customtools` |
 | `gemini-4-argon` | frontier | 1049k | код, рассуждения, математика | `google/gemini-4-argon` | `google/gemini-4-argon`<br>`openrouter/google/gemini-4-argon`<br>`openrouter/google/gemini-4-argon:batch` | `openrouter:google/gemini-4-argon`<br>`gemini:gemini-4-argon` | `google/gemini-4-argon`<br>`openrouter/google/gemini-4-argon` |
-| `gpt-5.6-sol` | frontier | 1050k | код, агентные задачи, рассуждения | `openrouter/openai/gpt-5.6-sol`<br>`openrouter/openai/gpt-5.6-sol:batch` | `openrouter/openai/gpt-5.6-sol`<br>`openrouter/openai/gpt-5.6-sol:batch` | `openai-codex:gpt-5.6-sol` | `openrouter/openai/gpt-5.6-sol` |
-| `gpt-5.6-sol-900k` | frontier | — | — | — | — | `openai-codex:gpt-5.6-sol-900k` | — |
-| `gpt-5.6-sol-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-5.6-sol-pro`<br>`openrouter/openai/gpt-5.6-sol-pro:batch` | `openrouter/openai/gpt-5.6-sol-pro`<br>`openrouter/openai/gpt-5.6-sol-pro:batch` | — | `openrouter/openai/gpt-5.6-sol-pro` |
 | `gpt-6-astra` | frontier | 1050k | код, агентные задачи, поиск и RAG | `openrouter/openai/gpt-6-astra`<br>`openrouter/openai/gpt-6-astra:batch` | `openrouter/openai/gpt-6-astra`<br>`openrouter/openai/gpt-6-astra:batch` | `openrouter:openai/gpt-6-astra` | `openrouter/openai/gpt-6-astra` |
 | `gpt-6-astra-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-6-astra-pro`<br>`openrouter/openai/gpt-6-astra-pro:batch` | `openrouter/openai/gpt-6-astra-pro`<br>`openrouter/openai/gpt-6-astra-pro:batch` | `openrouter:openai/gpt-6-astra-pro` | `openrouter/openai/gpt-6-astra-pro` |
-| `gpt-6-sol` | frontier | 1050k | скорость | `openrouter/openai/gpt-6-sol`<br>`openrouter/openai/gpt-6-sol:batch` | `openrouter/openai/gpt-6-sol`<br>`openrouter/openai/gpt-6-sol:batch` | `openrouter:openai/gpt-6-sol`<br>`openai-codex:gpt-6-sol` | `openrouter/openai/gpt-6-sol` |
-| `gpt-6-sol-900k` | frontier | — | — | — | — | `openai-codex:gpt-6-sol-900k` | — |
-| `gpt-6-sol-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-6-sol-pro`<br>`openrouter/openai/gpt-6-sol-pro:batch` | `openrouter/openai/gpt-6-sol-pro`<br>`openrouter/openai/gpt-6-sol-pro:batch` | `openrouter:openai/gpt-6-sol-pro` | `openrouter/openai/gpt-6-sol-pro` |
-| `gpt-6.1-sol` | frontier | 1050k | код, агентные задачи | `openrouter/openai/gpt-6.1-sol`<br>`openrouter/openai/gpt-6.1-sol:batch` | `openrouter/openai/gpt-6.1-sol`<br>`openrouter/openai/gpt-6.1-sol:batch` | `openrouter:openai/gpt-6.1-sol` | `openrouter/openai/gpt-6.1-sol` |
-| `gpt-6.1-sol-pro` | frontier | 1050k | рассуждения | `openrouter/openai/gpt-6.1-sol-pro`<br>`openrouter/openai/gpt-6.1-sol-pro:batch` | `openrouter/openai/gpt-6.1-sol-pro`<br>`openrouter/openai/gpt-6.1-sol-pro:batch` | `openrouter:openai/gpt-6.1-sol-pro` | `openrouter/openai/gpt-6.1-sol-pro` |
 | `gpt-astra-latest` | frontier | 1050k | — | `openrouter/~openai/gpt-astra-latest` | `openrouter/~openai/gpt-astra-latest` | — | `openrouter/~openai/gpt-astra-latest` |
-| `gpt-sol-latest` | frontier | 1050k | — | `openrouter/~openai/gpt-sol-latest` | `openrouter/~openai/gpt-sol-latest` | — | `openrouter/~openai/gpt-sol-latest` |
 | `grok-4.5` | frontier | 500k | код | `openrouter/x-ai/grok-4.5` | `opencode-go/grok-4.5`<br>`openrouter/x-ai/grok-4.5` | `opencode-go:grok-4.5` | `openrouter/x-ai/grok-4.5` |
 | `grok-4.6` | frontier | 500k | код | `openrouter/x-ai/grok-4.6` | `opencode-go/grok-4.6`<br>`openrouter/x-ai/grok-4.6` | `openrouter:x-ai/grok-4.6`<br>`opencode-go:grok-4.6` | `openrouter/x-ai/grok-4.6` |
 | `grok-4.7` | frontier | 500k | код, агентные задачи | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` | `openrouter:x-ai/grok-4.7`<br>`opencode-go:grok-4.7` | `opencode-go/grok-4.7`<br>`openrouter/x-ai/grok-4.7` |
@@ -40,10 +31,15 @@
 | `glm-5.3` | subFrontier | 1049k | код, агентные задачи, рассуждения, длинный контекст | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`openrouter/z-ai/glm-5.3:batch`<br>`zai/glm-5.3` | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`openrouter/z-ai/glm-5.3:batch`<br>`zai/glm-5.3` | `openrouter:z-ai/glm-5.3`<br>`zai:glm-5.3`<br>`opencode-go:glm-5.3` | `opencode-go/glm-5.3`<br>`openrouter/z-ai/glm-5.3`<br>`zai/glm-5.3` |
 | `glm-5.3-prime` | subFrontier | 1000k | скорость, длинный контекст | `openrouter/z-ai/glm-5.3-prime` | `openrouter/z-ai/glm-5.3-prime` | — | `openrouter/z-ai/glm-5.3-prime` |
 | `gpt-5.5-pro` | subFrontier | 1050k | рассуждения, длинный контекст | `openrouter/openai/gpt-5.5-pro`<br>`openrouter/openai/gpt-5.5-pro:batch` | `openrouter/openai/gpt-5.5-pro`<br>`openrouter/openai/gpt-5.5-pro:batch` | `openrouter:openai/gpt-5.5-pro` | `openrouter/openai/gpt-5.5-pro` |
-| `gpt-5.6-terra` | subFrontier | 1050k | код, агентные задачи, рассуждения | `openrouter/openai/gpt-5.6-terra`<br>`openrouter/openai/gpt-5.6-terra:batch` | `openrouter/openai/gpt-5.6-terra`<br>`openrouter/openai/gpt-5.6-terra:batch` | `openai-codex:gpt-5.6-terra` | `openrouter/openai/gpt-5.6-terra` |
-| `gpt-5.6-terra-900k` | subFrontier | — | — | — | — | `openai-codex:gpt-5.6-terra-900k` | — |
-| `gpt-5.6-terra-pro` | subFrontier | 1050k | рассуждения | `openrouter/openai/gpt-5.6-terra-pro`<br>`openrouter/openai/gpt-5.6-terra-pro:batch` | `openrouter/openai/gpt-5.6-terra-pro`<br>`openrouter/openai/gpt-5.6-terra-pro:batch` | — | `openrouter/openai/gpt-5.6-terra-pro` |
-| `gpt-terra-latest` | subFrontier | 1050k | — | `openrouter/~openai/gpt-terra-latest` | `openrouter/~openai/gpt-terra-latest` | — | `openrouter/~openai/gpt-terra-latest` |
+| `gpt-5.6-sol` | subFrontier | 1050k | код, агентные задачи, рассуждения | `openrouter/openai/gpt-5.6-sol`<br>`openrouter/openai/gpt-5.6-sol:batch` | `openrouter/openai/gpt-5.6-sol`<br>`openrouter/openai/gpt-5.6-sol:batch` | `openai-codex:gpt-5.6-sol` | `openrouter/openai/gpt-5.6-sol` |
+| `gpt-5.6-sol-900k` | subFrontier | — | — | — | — | `openai-codex:gpt-5.6-sol-900k` | — |
+| `gpt-5.6-sol-pro` | subFrontier | 1050k | рассуждения | `openrouter/openai/gpt-5.6-sol-pro`<br>`openrouter/openai/gpt-5.6-sol-pro:batch` | `openrouter/openai/gpt-5.6-sol-pro`<br>`openrouter/openai/gpt-5.6-sol-pro:batch` | — | `openrouter/openai/gpt-5.6-sol-pro` |
+| `gpt-6-sol` | subFrontier | 1050k | скорость | `openrouter/openai/gpt-6-sol`<br>`openrouter/openai/gpt-6-sol:batch` | `openrouter/openai/gpt-6-sol`<br>`openrouter/openai/gpt-6-sol:batch` | `openrouter:openai/gpt-6-sol`<br>`openai-codex:gpt-6-sol` | `openrouter/openai/gpt-6-sol` |
+| `gpt-6-sol-900k` | subFrontier | — | — | — | — | `openai-codex:gpt-6-sol-900k` | — |
+| `gpt-6-sol-pro` | subFrontier | 1050k | рассуждения | `openrouter/openai/gpt-6-sol-pro`<br>`openrouter/openai/gpt-6-sol-pro:batch` | `openrouter/openai/gpt-6-sol-pro`<br>`openrouter/openai/gpt-6-sol-pro:batch` | `openrouter:openai/gpt-6-sol-pro` | `openrouter/openai/gpt-6-sol-pro` |
+| `gpt-6.1-sol` | subFrontier | 1050k | код, агентные задачи | `openrouter/openai/gpt-6.1-sol`<br>`openrouter/openai/gpt-6.1-sol:batch` | `openrouter/openai/gpt-6.1-sol`<br>`openrouter/openai/gpt-6.1-sol:batch` | `openrouter:openai/gpt-6.1-sol` | `openrouter/openai/gpt-6.1-sol` |
+| `gpt-6.1-sol-pro` | subFrontier | 1050k | рассуждения | `openrouter/openai/gpt-6.1-sol-pro`<br>`openrouter/openai/gpt-6.1-sol-pro:batch` | `openrouter/openai/gpt-6.1-sol-pro`<br>`openrouter/openai/gpt-6.1-sol-pro:batch` | `openrouter:openai/gpt-6.1-sol-pro` | `openrouter/openai/gpt-6.1-sol-pro` |
+| `gpt-sol-latest` | subFrontier | 1050k | — | `openrouter/~openai/gpt-sol-latest` | `openrouter/~openai/gpt-sol-latest` | — | `openrouter/~openai/gpt-sol-latest` |
 | `grok-4.3` | subFrontier | 1000k | агентные задачи, рассуждения, изображения | `openrouter/x-ai/grok-4.3`<br>`openrouter/x-ai/grok-4.3:batch` | `openrouter/x-ai/grok-4.3`<br>`openrouter/x-ai/grok-4.3:batch` | — | `openrouter/x-ai/grok-4.3` |
 | `aion-2.0` | middle | 131k | — | `openrouter/aion-labs/aion-2.0` | `openrouter/aion-labs/aion-2.0` | — | `openrouter/aion-labs/aion-2.0` |
 | `aion-3.0` | middle | 131k | — | `openrouter/aion-labs/aion-3.0` | `openrouter/aion-labs/aion-3.0` | — | `openrouter/aion-labs/aion-3.0` |
@@ -270,17 +266,13 @@
 | `gpt-5.4-nano` | middle | 400k | изображения, скорость | `openrouter/openai/gpt-5.4-nano`<br>`openrouter/openai/gpt-5.4-nano:batch` | `openrouter/openai/gpt-5.4-nano`<br>`openrouter/openai/gpt-5.4-nano:batch` | — | `openrouter/openai/gpt-5.4-nano` |
 | `gpt-5.4-pro` | middle | 1050k | рассуждения, длинный контекст | `openrouter/openai/gpt-5.4-pro`<br>`openrouter/openai/gpt-5.4-pro:batch` | `openrouter/openai/gpt-5.4-pro`<br>`openrouter/openai/gpt-5.4-pro:batch` | — | `openrouter/openai/gpt-5.4-pro` |
 | `gpt-5.5` | middle | 1050k | рассуждения, длинный контекст | `openrouter/openai/gpt-5.5`<br>`openrouter/openai/gpt-5.5:batch` | `openrouter/openai/gpt-5.5`<br>`openrouter/openai/gpt-5.5:batch` | `openrouter:openai/gpt-5.5`<br>`openai-codex:gpt-5.5` | `openrouter/openai/gpt-5.5` |
-| `gpt-5.6-luna` | middle | 1050k | агентные задачи, рассуждения, скорость | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch` | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch` | `openai-codex:gpt-5.6-luna`<br>`opencode-go:gpt-5.6-luna` | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna` |
-| `gpt-5.6-luna-900k` | middle | — | — | — | — | `openai-codex:gpt-5.6-luna-900k` | — |
-| `gpt-5.6-luna-pro` | middle | 1050k | рассуждения | `openrouter/openai/gpt-5.6-luna-pro`<br>`openrouter/openai/gpt-5.6-luna-pro:batch` | `openrouter/openai/gpt-5.6-luna-pro`<br>`openrouter/openai/gpt-5.6-luna-pro:batch` | — | `openrouter/openai/gpt-5.6-luna-pro` |
-| `gpt-6-luna` | middle | 1050k | агентные задачи, скорость | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch` | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch` | `openrouter:openai/gpt-6-luna`<br>`openai-codex:gpt-6-luna`<br>`opencode-go:gpt-6-luna` | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna` |
-| `gpt-6-luna-900k` | middle | — | — | — | — | `openai-codex:gpt-6-luna-900k` | — |
-| `gpt-6-luna-pro` | middle | 1050k | рассуждения | `openrouter/openai/gpt-6-luna-pro`<br>`openrouter/openai/gpt-6-luna-pro:batch` | `openrouter/openai/gpt-6-luna-pro`<br>`openrouter/openai/gpt-6-luna-pro:batch` | `openrouter:openai/gpt-6-luna-pro` | `openrouter/openai/gpt-6-luna-pro` |
+| `gpt-5.6-terra` | middle | 1050k | код, агентные задачи, рассуждения | `openrouter/openai/gpt-5.6-terra`<br>`openrouter/openai/gpt-5.6-terra:batch` | `openrouter/openai/gpt-5.6-terra`<br>`openrouter/openai/gpt-5.6-terra:batch` | `openai-codex:gpt-5.6-terra` | `openrouter/openai/gpt-5.6-terra` |
+| `gpt-5.6-terra-900k` | middle | — | — | — | — | `openai-codex:gpt-5.6-terra-900k` | — |
+| `gpt-5.6-terra-pro` | middle | 1050k | рассуждения | `openrouter/openai/gpt-5.6-terra-pro`<br>`openrouter/openai/gpt-5.6-terra-pro:batch` | `openrouter/openai/gpt-5.6-terra-pro`<br>`openrouter/openai/gpt-5.6-terra-pro:batch` | — | `openrouter/openai/gpt-5.6-terra-pro` |
 | `gpt-audio` | middle | 128k | код | `openrouter/openai/gpt-audio` | `openrouter/openai/gpt-audio` | — | `openrouter/openai/gpt-audio` |
 | `gpt-audio-mini` | middle | 128k | код | `openrouter/openai/gpt-audio-mini` | `openrouter/openai/gpt-audio-mini` | — | `openrouter/openai/gpt-audio-mini` |
 | `gpt-chat-latest` | middle | 400k | — | `openrouter/openai/gpt-chat-latest` | `openrouter/openai/gpt-chat-latest` | — | `openrouter/openai/gpt-chat-latest` |
 | `gpt-latest` | middle | — | — | — | `openrouter/~openai/gpt-latest` | — | — |
-| `gpt-luna-latest` | middle | 1050k | — | `openrouter/~openai/gpt-luna-latest` | `openrouter/~openai/gpt-luna-latest` | — | `openrouter/~openai/gpt-luna-latest` |
 | `gpt-mini-latest` | middle | 400k | — | `openrouter/~openai/gpt-mini-latest` | `openrouter/~openai/gpt-mini-latest` | — | `openrouter/~openai/gpt-mini-latest` |
 | `gpt-o1` | middle | 200k | рассуждения | `openrouter/openai/o1` | `openrouter/openai/o1`<br>`openrouter/openai/o1:batch` | — | `openrouter/openai/o1` |
 | `gpt-o1-pro` | middle | 200k | рассуждения | — | — | — | `openrouter/openai/o1-pro` |
@@ -295,6 +287,7 @@
 | `gpt-oss-120b` | middle | 131k | агентные задачи, рассуждения | `groq/openai/gpt-oss-120b`<br>`openrouter/openai/gpt-oss-120b`<br>`openrouter/openai/gpt-oss-120b:batch` | `groq/openai/gpt-oss-120b`<br>`openrouter/openai/gpt-oss-120b`<br>`openrouter/openai/gpt-oss-120b:batch`<br>`openrouter/openai/gpt-oss-120b:exacto`<br>`openrouter/openai/gpt-oss-120b:free` | — | `groq/openai/gpt-oss-120b`<br>`openrouter/openai/gpt-oss-120b` |
 | `gpt-oss-20b` | middle | 131k | — | `groq/openai/gpt-oss-20b`<br>`openrouter/openai/gpt-oss-20b`<br>`openrouter/openai/gpt-oss-20b:batch` | `groq/openai/gpt-oss-20b`<br>`openrouter/openai/gpt-oss-20b`<br>`openrouter/openai/gpt-oss-20b:batch`<br>`openrouter/openai/gpt-oss-20b:free` | — | `groq/openai/gpt-oss-20b`<br>`openrouter/openai/gpt-oss-20b` |
 | `gpt-oss-safeguard-20b` | middle | 131k | рассуждения | `groq/openai/gpt-oss-safeguard-20b`<br>`openrouter/openai/gpt-oss-safeguard-20b` | `groq/openai/gpt-oss-safeguard-20b`<br>`openrouter/openai/gpt-oss-safeguard-20b` | — | `groq/openai/gpt-oss-safeguard-20b`<br>`openrouter/openai/gpt-oss-safeguard-20b` |
+| `gpt-terra-latest` | middle | 1050k | — | `openrouter/~openai/gpt-terra-latest` | `openrouter/~openai/gpt-terra-latest` | — | `openrouter/~openai/gpt-terra-latest` |
 | `granite-4.0-h-micro` | middle | 131k | — | — | — | — | `openrouter/ibm-granite/granite-4.0-h-micro` |
 | `granite-4.1-8b` | middle | — | — | — | `openrouter/ibm-granite/granite-4.1-8b` | — | — |
 | `granite-4.2-8b` | middle | 131k | код, агентные задачи, рассуждения, математика | `openrouter/ibm-granite/granite-4.2-8b` | `openrouter/ibm-granite/granite-4.2-8b` | — | `openrouter/ibm-granite/granite-4.2-8b` |
@@ -346,7 +339,6 @@
 | `kimi-k2.7-code` | middle | 262k | код, изображения, длинный контекст | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code` | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code:batch` | `opencode-go:kimi-k2.7-code` | `opencode-go/kimi-k2.7-code`<br>`openrouter/moonshotai/kimi-k2.7-code` |
 | `kimi-latest` | middle | 1049k | — | `openrouter/~moonshotai/kimi-latest` | `openrouter/~moonshotai/kimi-latest` | — | `openrouter/~moonshotai/kimi-latest` |
 | `l3-euryale-70b` | middle | — | — | — | `openrouter/sao10k/l3-euryale-70b` | — | — |
-| `l3-lunaris-8b` | middle | 8k | — | — | — | — | `openrouter/sao10k/l3-lunaris-8b` |
 | `l3.1-euryale-70b` | middle | 131k | — | — | `openrouter/sao10k/l3.1-euryale-70b` | — | `openrouter/sao10k/l3.1-euryale-70b` |
 | `l3.3-euryale-70b` | middle | 131k | — | — | — | — | `openrouter/sao10k/l3.3-euryale-70b` |
 | `laguna-m.1` | middle | — | — | — | `openrouter/poolside/laguna-m.1`<br>`openrouter/poolside/laguna-m.1:free` | — | — |
@@ -586,6 +578,14 @@
 | `cat-jam-free` | low | — | — | `opencode-go/cat-jam-free` | `opencode-go/cat-jam-free` | `opencode-go:cat-jam-free` | `opencode/cat-jam-free`<br>`opencode-go/cat-jam-free` |
 | `deepseek-v4.1-flash-free` | low | — | — | — | — | — | `opencode/deepseek-v4.1-flash-free` |
 | `glm-5.3-flash-free` | low | — | — | — | — | — | `opencode/glm-5.3-flash-free` |
+| `gpt-5.6-luna` | low | 1050k | агентные задачи, рассуждения, скорость | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch` | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna:batch` | `openai-codex:gpt-5.6-luna`<br>`opencode-go:gpt-5.6-luna` | `opencode-go/gpt-5.6-luna`<br>`openrouter/openai/gpt-5.6-luna` |
+| `gpt-5.6-luna-900k` | low | — | — | — | — | `openai-codex:gpt-5.6-luna-900k` | — |
+| `gpt-5.6-luna-pro` | low | 1050k | рассуждения | `openrouter/openai/gpt-5.6-luna-pro`<br>`openrouter/openai/gpt-5.6-luna-pro:batch` | `openrouter/openai/gpt-5.6-luna-pro`<br>`openrouter/openai/gpt-5.6-luna-pro:batch` | — | `openrouter/openai/gpt-5.6-luna-pro` |
+| `gpt-6-luna` | low | 1050k | агентные задачи, скорость | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch` | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna:batch` | `openrouter:openai/gpt-6-luna`<br>`openai-codex:gpt-6-luna`<br>`opencode-go:gpt-6-luna` | `opencode-go/gpt-6-luna`<br>`openrouter/openai/gpt-6-luna` |
+| `gpt-6-luna-900k` | low | — | — | — | — | `openai-codex:gpt-6-luna-900k` | — |
+| `gpt-6-luna-pro` | low | 1050k | рассуждения | `openrouter/openai/gpt-6-luna-pro`<br>`openrouter/openai/gpt-6-luna-pro:batch` | `openrouter/openai/gpt-6-luna-pro`<br>`openrouter/openai/gpt-6-luna-pro:batch` | `openrouter:openai/gpt-6-luna-pro` | `openrouter/openai/gpt-6-luna-pro` |
+| `gpt-luna-latest` | low | 1050k | — | `openrouter/~openai/gpt-luna-latest` | `openrouter/~openai/gpt-luna-latest` | — | `openrouter/~openai/gpt-luna-latest` |
+| `l3-lunaris-8b` | low | 8k | — | — | — | — | `openrouter/sao10k/l3-lunaris-8b` |
 | `ll-alpha-free` | low | — | — | — | — | — | `opencode/ll-alpha-free` |
 | `longcat-2.5-preview-free` | low | — | — | `opencode-go/longcat-2.5-preview-free` | `opencode-go/longcat-2.5-preview-free` | `opencode-go:longcat-2.5-preview-free` | `opencode/longcat-2.5-preview-free`<br>`opencode-go/longcat-2.5-preview-free` |
 | `mimo-v2.6-flash-free` | low | — | — | — | — | — | `opencode/mimo-v2.6-flash-free` |

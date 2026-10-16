@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-16T09:15:32.803Z",
+ "generatedAt": "2026-10-16T09:20:27.452Z",
  "harnesses": [
   "pi",
   "omp",
@@ -8,12 +8,6 @@
  ],
  "tiers": {
   "frontier": [
-   "gpt-6.1-sol-pro",
-   "gpt-6.1-sol",
-   "gpt-6-sol-pro",
-   "gpt-6-sol",
-   "gpt-6-astra",
-   "gpt-6-astra-pro",
    "claude-opus-5.5",
    "claude-opus-5",
    "gemini-3.1-pro-preview",
@@ -224,84 +218,6 @@
    ],
    "description": "Gemini 4 Argon is Google's flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, and autonomous multi-step agents."
   },
-  "gpt-5.6-sol": {
-   "canonical": "gpt-5.6-sol",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-5.6-sol",
-     "openrouter/openai/gpt-5.6-sol:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-5.6-sol",
-     "openrouter/openai/gpt-5.6-sol:batch"
-    ],
-    "hermes": [
-     "openai-codex:gpt-5.6-sol"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-5.6-sol"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи",
-    "рассуждения"
-   ],
-   "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series."
-  },
-  "gpt-5.6-sol-900k": {
-   "canonical": "gpt-5.6-sol-900k",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "hermes": [
-     "openai-codex:gpt-5.6-sol-900k"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "gpt-5.6-sol-pro": {
-   "canonical": "gpt-5.6-sol-pro",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-5.6-sol-pro",
-     "openrouter/openai/gpt-5.6-sol-pro:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-5.6-sol-pro",
-     "openrouter/openai/gpt-5.6-sol-pro:batch"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-5.6-sol-pro"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "рассуждения"
-   ],
-   "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
-  },
   "gpt-6-astra": {
    "canonical": "gpt-6-astra",
    "family": "openai",
@@ -368,151 +284,6 @@
    ],
    "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
   },
-  "gpt-6-sol": {
-   "canonical": "gpt-6-sol",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-6-sol",
-     "openrouter/openai/gpt-6-sol:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-6-sol",
-     "openrouter/openai/gpt-6-sol:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6-sol",
-     "openai-codex:gpt-6-sol"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-6-sol"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "скорость"
-   ],
-   "description": "GPT-6 Sol is the cost-efficient high-end model in OpenAI's GPT-6 series, positioned below the flagship GPT-6 Astra and above the fast GPT-6 Luna tier."
-  },
-  "gpt-6-sol-900k": {
-   "canonical": "gpt-6-sol-900k",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "hermes": [
-     "openai-codex:gpt-6-sol-900k"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "gpt-6-sol-pro": {
-   "canonical": "gpt-6-sol-pro",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-6-sol-pro",
-     "openrouter/openai/gpt-6-sol-pro:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-6-sol-pro",
-     "openrouter/openai/gpt-6-sol-pro:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6-sol-pro"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-6-sol-pro"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "рассуждения"
-   ],
-   "description": "GPT-6 Sol Pro is the same underlying model as [GPT-6 Sol](https://openrouter.ai/openai/gpt-6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
-  },
-  "gpt-6.1-sol": {
-   "canonical": "gpt-6.1-sol",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-6.1-sol",
-     "openrouter/openai/gpt-6.1-sol:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-6.1-sol",
-     "openrouter/openai/gpt-6.1-sol:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6.1-sol"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-6.1-sol"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "код",
-    "агентные задачи"
-   ],
-   "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series."
-  },
-  "gpt-6.1-sol-pro": {
-   "canonical": "gpt-6.1-sol-pro",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-6.1-sol-pro",
-     "openrouter/openai/gpt-6.1-sol-pro:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-6.1-sol-pro",
-     "openrouter/openai/gpt-6.1-sol-pro:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6.1-sol-pro"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-6.1-sol-pro"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "рассуждения"
-   ],
-   "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
-  },
   "gpt-astra-latest": {
    "canonical": "gpt-astra-latest",
    "family": "openai",
@@ -537,31 +308,6 @@
    ],
    "strengths": [],
    "description": "This model always redirects to the latest model in the GPT Astra family."
-  },
-  "gpt-sol-latest": {
-   "canonical": "gpt-sol-latest",
-   "family": "openai",
-   "tier": "frontier",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/~openai/gpt-sol-latest"
-    ],
-    "omp": [
-     "openrouter/~openai/gpt-sol-latest"
-    ],
-    "opencode": [
-     "openrouter/~openai/gpt-sol-latest"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [],
-   "description": "This model always redirects to the latest model in the GPT Sol family."
   },
   "grok-4.5": {
    "canonical": "grok-4.5",
@@ -1216,25 +962,25 @@
    ],
    "description": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads."
   },
-  "gpt-5.6-terra": {
-   "canonical": "gpt-5.6-terra",
+  "gpt-5.6-sol": {
+   "canonical": "gpt-5.6-sol",
    "family": "openai",
    "tier": "subFrontier",
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "openrouter/openai/gpt-5.6-terra",
-     "openrouter/openai/gpt-5.6-terra:batch"
+     "openrouter/openai/gpt-5.6-sol",
+     "openrouter/openai/gpt-5.6-sol:batch"
     ],
     "omp": [
-     "openrouter/openai/gpt-5.6-terra",
-     "openrouter/openai/gpt-5.6-terra:batch"
+     "openrouter/openai/gpt-5.6-sol",
+     "openrouter/openai/gpt-5.6-sol:batch"
     ],
     "hermes": [
-     "openai-codex:gpt-5.6-terra"
+     "openai-codex:gpt-5.6-sol"
     ],
     "opencode": [
-     "openrouter/openai/gpt-5.6-terra"
+     "openrouter/openai/gpt-5.6-sol"
     ]
    },
    "contextLength": 1050000,
@@ -1248,16 +994,16 @@
     "агентные задачи",
     "рассуждения"
    ],
-   "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier."
+   "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series."
   },
-  "gpt-5.6-terra-900k": {
-   "canonical": "gpt-5.6-terra-900k",
+  "gpt-5.6-sol-900k": {
+   "canonical": "gpt-5.6-sol-900k",
    "family": "openai",
    "tier": "subFrontier",
    "tierSource": "explicit",
    "harnesses": {
     "hermes": [
-     "openai-codex:gpt-5.6-terra-900k"
+     "openai-codex:gpt-5.6-sol-900k"
     ]
    },
    "contextLength": null,
@@ -1265,22 +1011,22 @@
    "strengths": [],
    "description": null
   },
-  "gpt-5.6-terra-pro": {
-   "canonical": "gpt-5.6-terra-pro",
+  "gpt-5.6-sol-pro": {
+   "canonical": "gpt-5.6-sol-pro",
    "family": "openai",
    "tier": "subFrontier",
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "openrouter/openai/gpt-5.6-terra-pro",
-     "openrouter/openai/gpt-5.6-terra-pro:batch"
+     "openrouter/openai/gpt-5.6-sol-pro",
+     "openrouter/openai/gpt-5.6-sol-pro:batch"
     ],
     "omp": [
-     "openrouter/openai/gpt-5.6-terra-pro",
-     "openrouter/openai/gpt-5.6-terra-pro:batch"
+     "openrouter/openai/gpt-5.6-sol-pro",
+     "openrouter/openai/gpt-5.6-sol-pro:batch"
     ],
     "opencode": [
-     "openrouter/openai/gpt-5.6-terra-pro"
+     "openrouter/openai/gpt-5.6-sol-pro"
     ]
    },
    "contextLength": 1050000,
@@ -1292,22 +1038,167 @@
    "strengths": [
     "рассуждения"
    ],
-   "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+   "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
   },
-  "gpt-terra-latest": {
-   "canonical": "gpt-terra-latest",
+  "gpt-6-sol": {
+   "canonical": "gpt-6-sol",
    "family": "openai",
    "tier": "subFrontier",
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "openrouter/~openai/gpt-terra-latest"
+     "openrouter/openai/gpt-6-sol",
+     "openrouter/openai/gpt-6-sol:batch"
     ],
     "omp": [
-     "openrouter/~openai/gpt-terra-latest"
+     "openrouter/openai/gpt-6-sol",
+     "openrouter/openai/gpt-6-sol:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6-sol",
+     "openai-codex:gpt-6-sol"
     ],
     "opencode": [
-     "openrouter/~openai/gpt-terra-latest"
+     "openrouter/openai/gpt-6-sol"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "скорость"
+   ],
+   "description": "GPT-6 Sol is the cost-efficient high-end model in OpenAI's GPT-6 series, positioned below the flagship GPT-6 Astra and above the fast GPT-6 Luna tier."
+  },
+  "gpt-6-sol-900k": {
+   "canonical": "gpt-6-sol-900k",
+   "family": "openai",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "hermes": [
+     "openai-codex:gpt-6-sol-900k"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "gpt-6-sol-pro": {
+   "canonical": "gpt-6-sol-pro",
+   "family": "openai",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-6-sol-pro",
+     "openrouter/openai/gpt-6-sol-pro:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-6-sol-pro",
+     "openrouter/openai/gpt-6-sol-pro:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6-sol-pro"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-6-sol-pro"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "GPT-6 Sol Pro is the same underlying model as [GPT-6 Sol](https://openrouter.ai/openai/gpt-6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  },
+  "gpt-6.1-sol": {
+   "canonical": "gpt-6.1-sol",
+   "family": "openai",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-6.1-sol",
+     "openrouter/openai/gpt-6.1-sol:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-6.1-sol",
+     "openrouter/openai/gpt-6.1-sol:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6.1-sol"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-6.1-sol"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "код",
+    "агентные задачи"
+   ],
+   "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series."
+  },
+  "gpt-6.1-sol-pro": {
+   "canonical": "gpt-6.1-sol-pro",
+   "family": "openai",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-6.1-sol-pro",
+     "openrouter/openai/gpt-6.1-sol-pro:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6.1-sol-pro"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-6.1-sol-pro"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  },
+  "gpt-sol-latest": {
+   "canonical": "gpt-sol-latest",
+   "family": "openai",
+   "tier": "subFrontier",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/~openai/gpt-sol-latest"
+    ],
+    "omp": [
+     "openrouter/~openai/gpt-sol-latest"
+    ],
+    "opencode": [
+     "openrouter/~openai/gpt-sol-latest"
     ]
    },
    "contextLength": 1050000,
@@ -1317,7 +1208,7 @@
     "text"
    ],
    "strengths": [],
-   "description": "This model always redirects to the latest model in the GPT Terra family."
+   "description": "This model always redirects to the latest model in the GPT Sol family."
   },
   "grok-4.3": {
    "canonical": "grok-4.3",
@@ -6460,29 +6351,25 @@
    ],
    "description": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks."
   },
-  "gpt-5.6-luna": {
-   "canonical": "gpt-5.6-luna",
+  "gpt-5.6-terra": {
+   "canonical": "gpt-5.6-terra",
    "family": "openai",
    "tier": "middle",
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "opencode-go/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna:batch"
+     "openrouter/openai/gpt-5.6-terra",
+     "openrouter/openai/gpt-5.6-terra:batch"
     ],
     "omp": [
-     "opencode-go/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna:batch"
+     "openrouter/openai/gpt-5.6-terra",
+     "openrouter/openai/gpt-5.6-terra:batch"
     ],
     "hermes": [
-     "openai-codex:gpt-5.6-luna",
-     "opencode-go:gpt-5.6-luna"
+     "openai-codex:gpt-5.6-terra"
     ],
     "opencode": [
-     "opencode-go/gpt-5.6-luna",
-     "openrouter/openai/gpt-5.6-luna"
+     "openrouter/openai/gpt-5.6-terra"
     ]
    },
    "contextLength": 1050000,
@@ -6492,20 +6379,20 @@
     "text"
    ],
    "strengths": [
+    "код",
     "агентные задачи",
-    "рассуждения",
-    "скорость"
+    "рассуждения"
    ],
-   "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series."
+   "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier."
   },
-  "gpt-5.6-luna-900k": {
-   "canonical": "gpt-5.6-luna-900k",
+  "gpt-5.6-terra-900k": {
+   "canonical": "gpt-5.6-terra-900k",
    "family": "openai",
    "tier": "middle",
    "tierSource": "explicit",
    "harnesses": {
     "hermes": [
-     "openai-codex:gpt-5.6-luna-900k"
+     "openai-codex:gpt-5.6-terra-900k"
     ]
    },
    "contextLength": null,
@@ -6513,22 +6400,22 @@
    "strengths": [],
    "description": null
   },
-  "gpt-5.6-luna-pro": {
-   "canonical": "gpt-5.6-luna-pro",
+  "gpt-5.6-terra-pro": {
+   "canonical": "gpt-5.6-terra-pro",
    "family": "openai",
    "tier": "middle",
    "tierSource": "explicit",
    "harnesses": {
     "pi": [
-     "openrouter/openai/gpt-5.6-luna-pro",
-     "openrouter/openai/gpt-5.6-luna-pro:batch"
+     "openrouter/openai/gpt-5.6-terra-pro",
+     "openrouter/openai/gpt-5.6-terra-pro:batch"
     ],
     "omp": [
-     "openrouter/openai/gpt-5.6-luna-pro",
-     "openrouter/openai/gpt-5.6-luna-pro:batch"
+     "openrouter/openai/gpt-5.6-terra-pro",
+     "openrouter/openai/gpt-5.6-terra-pro:batch"
     ],
     "opencode": [
-     "openrouter/openai/gpt-5.6-luna-pro"
+     "openrouter/openai/gpt-5.6-terra-pro"
     ]
    },
    "contextLength": 1050000,
@@ -6540,92 +6427,7 @@
    "strengths": [
     "рассуждения"
    ],
-   "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
-  },
-  "gpt-6-luna": {
-   "canonical": "gpt-6-luna",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "opencode-go/gpt-6-luna",
-     "openrouter/openai/gpt-6-luna",
-     "openrouter/openai/gpt-6-luna:batch"
-    ],
-    "omp": [
-     "opencode-go/gpt-6-luna",
-     "openrouter/openai/gpt-6-luna",
-     "openrouter/openai/gpt-6-luna:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6-luna",
-     "openai-codex:gpt-6-luna",
-     "opencode-go:gpt-6-luna"
-    ],
-    "opencode": [
-     "opencode-go/gpt-6-luna",
-     "openrouter/openai/gpt-6-luna"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "агентные задачи",
-    "скорость"
-   ],
-   "description": "GPT-6 Luna is the fast, cost-efficient model in OpenAI's GPT-6 series, positioned below GPT-6 Sol."
-  },
-  "gpt-6-luna-900k": {
-   "canonical": "gpt-6-luna-900k",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "explicit",
-   "harnesses": {
-    "hermes": [
-     "openai-codex:gpt-6-luna-900k"
-    ]
-   },
-   "contextLength": null,
-   "modalities": [],
-   "strengths": [],
-   "description": null
-  },
-  "gpt-6-luna-pro": {
-   "canonical": "gpt-6-luna-pro",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/openai/gpt-6-luna-pro",
-     "openrouter/openai/gpt-6-luna-pro:batch"
-    ],
-    "omp": [
-     "openrouter/openai/gpt-6-luna-pro",
-     "openrouter/openai/gpt-6-luna-pro:batch"
-    ],
-    "hermes": [
-     "openrouter:openai/gpt-6-luna-pro"
-    ],
-    "opencode": [
-     "openrouter/openai/gpt-6-luna-pro"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [
-    "рассуждения"
-   ],
-   "description": "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+   "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
   },
   "gpt-audio": {
    "canonical": "gpt-audio",
@@ -6718,31 +6520,6 @@
    "modalities": [],
    "strengths": [],
    "description": null
-  },
-  "gpt-luna-latest": {
-   "canonical": "gpt-luna-latest",
-   "family": "openai",
-   "tier": "middle",
-   "tierSource": "explicit",
-   "harnesses": {
-    "pi": [
-     "openrouter/~openai/gpt-luna-latest"
-    ],
-    "omp": [
-     "openrouter/~openai/gpt-luna-latest"
-    ],
-    "opencode": [
-     "openrouter/~openai/gpt-luna-latest"
-    ]
-   },
-   "contextLength": 1050000,
-   "modalities": [
-    "file",
-    "image",
-    "text"
-   ],
-   "strengths": [],
-   "description": "This model always redirects to the latest model in the GPT Luna family."
   },
   "gpt-mini-latest": {
    "canonical": "gpt-mini-latest",
@@ -7109,6 +6886,31 @@
     "рассуждения"
    ],
    "description": "gpt-oss-safeguard-20b is a safety reasoning model from OpenAI built upon gpt-oss-20b."
+  },
+  "gpt-terra-latest": {
+   "canonical": "gpt-terra-latest",
+   "family": "openai",
+   "tier": "middle",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/~openai/gpt-terra-latest"
+    ],
+    "omp": [
+     "openrouter/~openai/gpt-terra-latest"
+    ],
+    "opencode": [
+     "openrouter/~openai/gpt-terra-latest"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [],
+   "description": "This model always redirects to the latest model in the GPT Terra family."
   },
   "granite-4.0-h-micro": {
    "canonical": "granite-4.0-h-micro",
@@ -8170,23 +7972,6 @@
    "modalities": [],
    "strengths": [],
    "description": null
-  },
-  "l3-lunaris-8b": {
-   "canonical": "l3-lunaris-8b",
-   "family": null,
-   "tier": "middle",
-   "tierSource": "explicit",
-   "harnesses": {
-    "opencode": [
-     "openrouter/sao10k/l3-lunaris-8b"
-    ]
-   },
-   "contextLength": 8192,
-   "modalities": [
-    "text"
-   ],
-   "strengths": [],
-   "description": "Lunaris 8B is a versatile generalist and roleplaying model based on Llama 3."
   },
   "l3.1-euryale-70b": {
    "canonical": "l3.1-euryale-70b",
@@ -13677,6 +13462,215 @@
    "modalities": [],
    "strengths": [],
    "description": null
+  },
+  "gpt-5.6-luna": {
+   "canonical": "gpt-5.6-luna",
+   "family": "openai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna:batch"
+    ],
+    "omp": [
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna:batch"
+    ],
+    "hermes": [
+     "openai-codex:gpt-5.6-luna",
+     "opencode-go:gpt-5.6-luna"
+    ],
+    "opencode": [
+     "opencode-go/gpt-5.6-luna",
+     "openrouter/openai/gpt-5.6-luna"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "агентные задачи",
+    "рассуждения",
+    "скорость"
+   ],
+   "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series."
+  },
+  "gpt-5.6-luna-900k": {
+   "canonical": "gpt-5.6-luna-900k",
+   "family": "openai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "hermes": [
+     "openai-codex:gpt-5.6-luna-900k"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "gpt-5.6-luna-pro": {
+   "canonical": "gpt-5.6-luna-pro",
+   "family": "openai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-5.6-luna-pro",
+     "openrouter/openai/gpt-5.6-luna-pro:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-5.6-luna-pro",
+     "openrouter/openai/gpt-5.6-luna-pro:batch"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-5.6-luna-pro"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  },
+  "gpt-6-luna": {
+   "canonical": "gpt-6-luna",
+   "family": "openai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "opencode-go/gpt-6-luna",
+     "openrouter/openai/gpt-6-luna",
+     "openrouter/openai/gpt-6-luna:batch"
+    ],
+    "omp": [
+     "opencode-go/gpt-6-luna",
+     "openrouter/openai/gpt-6-luna",
+     "openrouter/openai/gpt-6-luna:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6-luna",
+     "openai-codex:gpt-6-luna",
+     "opencode-go:gpt-6-luna"
+    ],
+    "opencode": [
+     "opencode-go/gpt-6-luna",
+     "openrouter/openai/gpt-6-luna"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "агентные задачи",
+    "скорость"
+   ],
+   "description": "GPT-6 Luna is the fast, cost-efficient model in OpenAI's GPT-6 series, positioned below GPT-6 Sol."
+  },
+  "gpt-6-luna-900k": {
+   "canonical": "gpt-6-luna-900k",
+   "family": "openai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "hermes": [
+     "openai-codex:gpt-6-luna-900k"
+    ]
+   },
+   "contextLength": null,
+   "modalities": [],
+   "strengths": [],
+   "description": null
+  },
+  "gpt-6-luna-pro": {
+   "canonical": "gpt-6-luna-pro",
+   "family": "openai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/openai/gpt-6-luna-pro",
+     "openrouter/openai/gpt-6-luna-pro:batch"
+    ],
+    "omp": [
+     "openrouter/openai/gpt-6-luna-pro",
+     "openrouter/openai/gpt-6-luna-pro:batch"
+    ],
+    "hermes": [
+     "openrouter:openai/gpt-6-luna-pro"
+    ],
+    "opencode": [
+     "openrouter/openai/gpt-6-luna-pro"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [
+    "рассуждения"
+   ],
+   "description": "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks."
+  },
+  "gpt-luna-latest": {
+   "canonical": "gpt-luna-latest",
+   "family": "openai",
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "pi": [
+     "openrouter/~openai/gpt-luna-latest"
+    ],
+    "omp": [
+     "openrouter/~openai/gpt-luna-latest"
+    ],
+    "opencode": [
+     "openrouter/~openai/gpt-luna-latest"
+    ]
+   },
+   "contextLength": 1050000,
+   "modalities": [
+    "file",
+    "image",
+    "text"
+   ],
+   "strengths": [],
+   "description": "This model always redirects to the latest model in the GPT Luna family."
+  },
+  "l3-lunaris-8b": {
+   "canonical": "l3-lunaris-8b",
+   "family": null,
+   "tier": "low",
+   "tierSource": "explicit",
+   "harnesses": {
+    "opencode": [
+     "openrouter/sao10k/l3-lunaris-8b"
+    ]
+   },
+   "contextLength": 8192,
+   "modalities": [
+    "text"
+   ],
+   "strengths": [],
+   "description": "Lunaris 8B is a versatile generalist and roleplaying model based on Llama 3."
   },
   "ll-alpha-free": {
    "canonical": "ll-alpha-free",
