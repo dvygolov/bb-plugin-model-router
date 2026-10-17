@@ -150,6 +150,59 @@ const HARNESS_PROVIDER: Record<string, string> = {
  * модели. В имени показываем харнес, который её запускает: так выбранная пара
  * становится видна в интерфейсе.
  */
+/** Как писать название семейства. */
+const BRANDS: Record<string, string> = {
+  gpt: "GPT",
+  glm: "GLM",
+  kimi: "Kimi",
+  deepseek: "DeepSeek",
+  claude: "Claude",
+  gemini: "Gemini",
+  grok: "Grok",
+  qwen: "Qwen",
+  mimo: "MiMo",
+  minimax: "MiniMax",
+  llama: "Llama",
+  mistral: "Mistral",
+  nemotron: "Nemotron",
+  terra: "Terra",
+  sol: "Sol",
+  astra: "Astra",
+  luna: "Luna",
+  hy: "HY",
+  step: "Step",
+  ling: "Ling",
+  longcat: "LongCat",
+  muse: "Muse",
+};
+
+/**
+ * Каноническое имя → человеческое название: `glm-5.3-flash` → «GLM-5.3 Flash».
+ * В пикере должно стоять название модели, а не её внутренний id и не список
+ * харнесов: харнес уходит в описание строки.
+ */
+export function prettyName(canonical: string): string {
+  const parts = canonical.split(/[-_]/).filter(Boolean);
+  let out = "";
+  let index = 0;
+  for (const part of parts) {
+    const isVersion = /^\d/.test(part);
+    const word = BRANDS[part.toLowerCase()] ?? part.charAt(0).toUpperCase() + part.slice(1);
+    if (index === 0) out = word;
+    else if (isVersion) out += `${out.endsWith(" ") || out === "" ? "" : "-"}${word}`;
+    else out += ` ${word}`;
+    index += 1;
+  }
+  return out;
+}
+
+/**
+ * Строки пикера для конкретных моделей короткого списка.
+ *
+ * BB принимает смену модели треда только если значение есть в каталоге
+ * провайдера, и **хранит именно его** — поэтому id строки равен настоящему id
+ * модели. Название — человеческое, харнес — в описании.
+ */
 function modelRows(): Record<string, unknown>[] {
   const tiers = (
     shortlistJson as {
@@ -164,19 +217,15 @@ function modelRows(): Record<string, unknown>[] {
         if (!provider) continue; // pi роутер не запускает: он не говорит на ACP
         for (const id of ids) {
           if (id.includes(":batch")) continue;
-          const existing = seen.get(id);
-          if (existing) {
-            // Один id может стоять в нескольких харнесах — соберём все метки.
-            const labels = new Set(String(existing.displayName).split(" · ")[0]!.split(", "));
-            labels.add(provider);
-            existing.displayName = `${[...labels].join(", ")} · ${id}`;
-            continue;
-          }
+          if (seen.has(id)) continue;
           seen.set(id, {
             id,
             model: id,
-            displayName: `${provider} · ${id}`,
-            description: entry.purpose,
+            // Харнес коротко — он и есть то, что владелец хочет видеть рядом с
+            // моделью. Дубли не страшны: строки selected-only, видна только
+            // выбранная.
+            displayName: `${prettyName(entry.model)} · ${label}`,
+            description: `запускает ${provider} · ${entry.purpose}`,
             isDefault: false,
             defaultReasoningEffort: "medium",
             supportedReasoningEfforts: [{ reasoningEffort: "medium", description: "Medium" }],
@@ -247,10 +296,14 @@ export function rewriteModelLine(line: string): Rewrite {
   const context = { threadId, options };
 
   if (method === "model/list") {
-      const rows = [...TIER_ROWS, ...modelRows()];
+      // В пикере — только тиры. Конкретные модели отдаём как selected-only: BB
+      // покажет ту, что стоит у треда, и примет её при смене — но список не
+      // засорится четырьмя строками «Kimi K3» с разными id.
+      const rows = TIER_ROWS;
+      const selectedOnly = modelRows();
     const id = (parsed as { id?: unknown }).id;
     if (typeof id === "string" || typeof id === "number") {
-      io.sendResult(id, { models: rows, scope: "host", selectedOnlyModels: [] });
+      io.sendResult(id, { models: rows, scope: "host", selectedOnlyModels: selectedOnly });
       return { line, method, outcome: "model-list-local", ...context };
     }
   }

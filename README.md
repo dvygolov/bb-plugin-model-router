@@ -249,6 +249,22 @@ router falls back to the full catalog and says so in the decision reasons.
 
 ## The choice shows up in the composer
 
+The picker offers five rows — `auto` plus the four tiers — and nothing else. The
+concrete models are returned as `selectedOnlyModels`, BB's own mechanism for a
+model that is shown because the thread has it selected; that keeps eighty
+duplicate-looking rows out of the list while still letting BB accept the switch.
+
+Once the router decides, the composer reads the model and the harness that runs
+it:
+
+```
+GLM-5.3 · omp                    (запускает acp-omp · Z.ai по подписке, 1M)
+```
+
+An earlier version printed `acp-omp, acp-opencode · zai/glm-5.3-Flash` — every
+harness that owns the id, joined with commas, plus the raw id. The name is now
+the model's, and the harness a short suffix.
+
 After the router decides, the thread's model switches to the real one, so the
 picker reads **`acp-omp · kimi-code/k3`** instead of `auto`. The catalog therefore
 offers, besides the five tier rows, one row per concrete model in the shortlist,
