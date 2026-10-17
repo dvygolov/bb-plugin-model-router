@@ -150,58 +150,13 @@ const HARNESS_PROVIDER: Record<string, string> = {
  * модели. В имени показываем харнес, который её запускает: так выбранная пара
  * становится видна в интерфейсе.
  */
-/** Как писать название семейства. */
-const BRANDS: Record<string, string> = {
-  gpt: "GPT",
-  glm: "GLM",
-  kimi: "Kimi",
-  deepseek: "DeepSeek",
-  claude: "Claude",
-  gemini: "Gemini",
-  grok: "Grok",
-  qwen: "Qwen",
-  mimo: "MiMo",
-  minimax: "MiniMax",
-  llama: "Llama",
-  mistral: "Mistral",
-  nemotron: "Nemotron",
-  terra: "Terra",
-  sol: "Sol",
-  astra: "Astra",
-  luna: "Luna",
-  hy: "HY",
-  step: "Step",
-  ling: "Ling",
-  longcat: "LongCat",
-  muse: "Muse",
-};
-
-/**
- * Каноническое имя → человеческое название: `glm-5.3-flash` → «GLM-5.3 Flash».
- * В пикере должно стоять название модели, а не её внутренний id и не список
- * харнесов: харнес уходит в описание строки.
- */
-export function prettyName(canonical: string): string {
-  const parts = canonical.split(/[-_]/).filter(Boolean);
-  let out = "";
-  let index = 0;
-  for (const part of parts) {
-    const isVersion = /^\d/.test(part);
-    const word = BRANDS[part.toLowerCase()] ?? part.charAt(0).toUpperCase() + part.slice(1);
-    if (index === 0) out = word;
-    else if (isVersion) out += `${out.endsWith(" ") || out === "" ? "" : "-"}${word}`;
-    else out += ` ${word}`;
-    index += 1;
-  }
-  return out;
-}
-
 /**
  * Строки пикера для конкретных моделей короткого списка.
  *
  * BB принимает смену модели треда только если значение есть в каталоге
  * провайдера, и **хранит именно его** — поэтому id строки равен настоящему id
- * модели. Название — человеческое, харнес — в описании.
+ * модели. В имени показываем харнес, который её запускает: так выбранная пара
+ * становится видна в интерфейсе.
  */
 function modelRows(): Record<string, unknown>[] {
   const tiers = (
@@ -221,10 +176,10 @@ function modelRows(): Record<string, unknown>[] {
           seen.set(id, {
             id,
             model: id,
-            // Харнес коротко — он и есть то, что владелец хочет видеть рядом с
-            // моделью. Дубли не страшны: строки selected-only, видна только
-            // выбранная.
-            displayName: `${prettyName(entry.model)} · ${label}`,
+            // Название — как есть: по нему читаются вендор и модель
+            // (`zai/glm-5.3-flash`), и оно не должно ничего терять. Харнес —
+            // коротко, без приставки acp- и без списков через запятую.
+            displayName: `${label} · ${id}`,
             description: `запускает ${provider} · ${entry.purpose}`,
             isDefault: false,
             defaultReasoningEffort: "medium",

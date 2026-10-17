@@ -258,12 +258,13 @@ Once the router decides, the composer reads the model and the harness that runs
 it:
 
 ```
-GLM-5.3 · omp                    (запускает acp-omp · Z.ai по подписке, 1M)
+omp · zai/glm-5.3-flash          (запускает acp-omp · Z.ai по подписке, 1M)
 ```
 
-An earlier version printed `acp-omp, acp-opencode · zai/glm-5.3-Flash` — every
-harness that owns the id, joined with commas, plus the raw id. The name is now
-the model's, and the harness a short suffix.
+The model is named exactly as its id names it — `zai/glm-5.3-flash` says which
+vendor and which model, and shortening it to "GLM-5.3" lost the `flash`. The
+harness is a short prefix with the `acp-` stripped, and never a comma-joined list
+of every harness that happens to own the id.
 
 After the router decides, the thread's model switches to the real one, so the
 picker reads **`acp-omp · kimi-code/k3`** instead of `auto`. The catalog therefore
